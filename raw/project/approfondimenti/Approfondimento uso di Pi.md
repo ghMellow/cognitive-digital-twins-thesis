@@ -467,7 +467,7 @@ ti fornisco la proposta tesi per farti contestualizzare, nota che essendo una te
 
 Titolo
 
-Agentic Knowledge Graph for Digital Twins
+Cognitive Digital Twins
 
 Proposta di Tesi
 

@@ -7,7 +7,7 @@ sources: [proposta-tesi.md, feedback-claude.md]
 tags: [thesis, summary, architecture]
 ---
 
-# Overview — Agentic Knowledge Graph for Digital Twins
+# Overview — Cognitive Digital Twins
 
 Sintesi ad alto livello della tesi e del suo contributo scientifico.
 
@@ -15,7 +15,7 @@ Sintesi ad alto livello della tesi e del suo contributo scientifico.
 
 ## Titolo e Scope
 
-**Titolo:** Agentic Knowledge Graph for Digital Twins  
+**Titolo:** Cognitive Digital Twins  
 **Autore:** Nicolò Termine  
 **Ateneo:** Politecnico di Torino  
 **Partner:** Fondazione Ugo Bordoni / CINI  

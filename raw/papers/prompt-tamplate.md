@@ -24,7 +24,7 @@ dammi un riassunto della tesi da consultare in futuro
 # Prompt valore per mia tesi
 
 Titolo
-Agentic Knowledge Graph for Digital Twins
+Cognitive Digital Twins
 
 Proposta di Tesi
 Questa tesi propone la progettazione e l'implementazione di un Gemello Digitale Cognitivo (CDT) per una cella radio 5G. La piattaforma sfrutta Eclipse Ditto come livello di rappresentazione digitale di un'infrastruttura fisica simulata, mentre un framework coordinato di agenti cognitivi — alimentati da LLM open-source eseguiti localmente — costituisce il nucleo intelligente del sistema. L'obiettivo centrale è dimostrare che un'architettura completamente locale, riproducibile su hardware consumer, può supportare le sei funzioni cognitive fondamentali identificate in letteratura per i CDT: percezione, ragionamento, memoria, apprendimento, adattamento e decision-making autonomo.

@@ -7,7 +7,7 @@ sources: []
 tags: [terminology, reference]
 ---
 
-# Glossario — Agentic Knowledge Graph for Digital Twins
+# Glossario — Cognitive Digital Twins
 
 Nomenclatura canonica e definizioni stabilite dalla tesi.
 

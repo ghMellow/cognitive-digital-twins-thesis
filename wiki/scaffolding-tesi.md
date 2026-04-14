@@ -7,7 +7,7 @@ sources: [proposta-tesi.md, feedback-claude.md, literature review 12 fonti]
 tags: [thesis, scaffolding, structure]
 ---
 
-# Scaffolding Tesi — Agentic Knowledge Graph for Digital Twins
+# Scaffolding Tesi — Cognitive Digital Twins
 
 **Nicolò Termine — Politecnico di Torino / Fondazione Ugo Bordoni / CINI**  
 _Struttura argomentativa centrale della tesi — Aprile 2026_
