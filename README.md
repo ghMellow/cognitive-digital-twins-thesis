@@ -67,26 +67,3 @@ Each research artifact follows a standardized ingestion process:
 
 Processes are documented in CLAUDE.md and SKILL-thesis-ingest.md.
 
-## Status
-
-Blocco A (Core CDT Theory) — Complete
-- Zheng et al. (2022): Foundational CDT definition and six cognitive functions
-- Al-Haj Ali et al. (2025): MMCI evaluation framework
-
-Blocco B–E and calls/notes — In progress
-
-See index.md for detailed progress tracking.
-
-## Tools
-
-- Markdown with VS Code
-- Git for version control
-- Link syntax: [[page-name]] for internal wiki references
-
-## License
-
-Restricted to thesis work. Not a public repository.
-
-## Contact
-
-Nicolò Termine — Politecnico di Torino
