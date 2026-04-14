@@ -26,7 +26,7 @@ raw/                              ← documenti sorgente immutabili (leggi, non 
     <paper-slug>/
       paper.pdf (o .md)           ← originale
       riassunto.md                ← opzionale
-      youtuber.md                 ← opzionale (versione divulgativa)
+      yt.md                 ← opzionale (versione divulgativa)
       valore-tesi.md              ← IL FILE PIÙ IMPORTANTE
   calls/
     <call-slug>.md                ← trascrizioni di call

@@ -21,7 +21,7 @@ raw/
     <paper-slug>/
       paper.pdf (o .md)         ← originale
       riassunto.md               ← opzionale: già prodotto
-      youtuber.md                ← opzionale: versione divulgativa
+      yt.md                ← opzionale: versione divulgativa
       valore-tesi.md             ← IL FILE PIÙ IMPORTANTE — può mancare
   calls/
     <call-slug>.md
@@ -60,7 +60,7 @@ Prima di tutto:
 
 Genera i tre layer usando esattamente le istruzioni qui sotto come prompt interni.
 
-**Layer 1 — `youtuber`** (tono Simone Rizzo, AI Engineer divulgatore):
+**Layer 1 — `yt`** (tono Simone Rizzo, AI Engineer divulgatore):
 Analizza il paper rispondendo a questi punti:
 1. **"Raga, guardate che hanno fatto"** — spiega l'idea centrale in modo semplice ma tecnico. Qual è il "trick" o l'intuizione che risolve il problema? Usa linguaggio da ingegnere (pesi, architetture, dati, segnali di reward…) ma evita dimostrazioni matematiche inutili.
 2. **Perché è una figata** — qual è la novità vera? È un breakthrough o solo un piccolo miglioramento? Perché dovrebbe gasare?
@@ -78,10 +78,10 @@ Dopo aver generato i tre layer, crea `wiki/sources/<paper-slug>.md`.
 
 **Caso B — hai già il file `valore-tesi.md`**
 1. Leggi il file direttamente
-2. Salta la generazione di riassunto/youtuber (già fatto a mano)
+2. Salta la generazione di riassunto/yt (già fatto a mano)
 3. Vai a Step 2
 
-**Caso C — hai `valore-tesi.md` ma mancano `riassunto` e/o `youtuber`**
+**Caso C — hai `valore-tesi.md` ma mancano `riassunto` e/o `yt`**
 1. Usa il `valore-tesi.md` esistente per lo Step 2 (non rigenerarlo)
 2. Genera solo i layer mancanti con i prompt del Caso A
 3. Segnala all'utente quali layer hai generato e quali erano già presenti
@@ -177,7 +177,7 @@ contributo-tesi: 1-architettura | 2-valutazione | 3-benchmark | nessuno
 ## Riassunto
 <problema → metodo → risultati → limiti>
 
-## Youtuber
+## yt
 <layer divulgativo: trick centrale, perché è interessante, applicazioni pratiche, sotto il cofano, limiti>
 
 ## Valore per la tesi
