@@ -3,8 +3,14 @@ title: Knowledge Graph as Core Component of CDT
 type: concept
 created: 2026-04-14
 updated: 2026-04-14
-sources: [zheng-et-al-2022-cdt, cogtwin-ijcai-25]
-tags: [KG, architecture, neo4j, reasoning]
+sources:
+  - zheng-et-al-2022-cdt
+  - cogtwin-ijcai-25
+tags:
+  - KG
+  - architecture
+  - neo4j
+  - reasoning
 ---
 
 # Knowledge Graph in Cognitive Digital Twin
