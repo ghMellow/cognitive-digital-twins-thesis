@@ -127,4 +127,3 @@ Iniezione controllata di anomalie nel simulatore fisico per generare ground trut
 ## Related Pages
 - [[overview]]
 - [[scaffolding-tesi]]
-- [[style-rules]]

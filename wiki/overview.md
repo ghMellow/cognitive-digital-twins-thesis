@@ -101,4 +101,3 @@ Un Cognitive Digital Twin (CDT) locale, riproducibile su hardware consumer (M4 P
 ## Related Pages
 - [[scaffolding-tesi]]
 - [[glossary]]
-- [[personas]]

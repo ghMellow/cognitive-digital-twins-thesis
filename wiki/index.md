@@ -29,8 +29,8 @@ Catalogo completo di tutte le pagine wiki della tesi. Aggiornato incrementalment
 *Sezione vuota — da popolare con ingest*
 
 ### Blocco A — Teoria CDT
-- [ ] Zheng et al. (2022) - Digital Twin for Cognitive Systems
-- [ ] Al-Haj Ali et al. (2025) - CDT Architecture and Capabilities
+- [x] [[sources/zheng-et-al-2022-cdt]] — Zheng et al. (2022) — Foundational definition, six functions, KG as backbone
+- [x] [[sources/al-haj-ali-2025-mmci]] — Al-Haj Ali et al. (2025) — MMCI framework, 5 levels of maturity for evaluation
 
 ### Blocco B — Pattern e Contesto
 - [ ] RESTART NDT (2024)
@@ -61,12 +61,12 @@ Catalogo completo di tutte le pagine wiki della tesi. Aggiornato incrementalment
 
 ## 🎯 Concepts (Teorie Fondamentali)
 
-*Sezione vuota — da popolare durante ingest*
-
-- [ ] Digital Twin
-- [ ] Cognitive Digital Twin
+- [x] [[concepts/cognitive-digital-twin]] — Definizione formale, cinque caratteristiche, sei funzioni
+- [x] [[concepts/six-cognitive-functions]] — Percezione, ragionamento, memoria, apprendimento, adattamento, decision-making
+- [x] [[concepts/knowledge-graph-in-cdt]] — Ruolo nel reasoning, pattern Dual-KG, schema 5G
+- [x] [[concepts/mmci-framework]] — Five-level maturity model, valutazione agenti cognitivi
+- [ ] Digital Twin (tradizionale)
 - [ ] Multi-Agent Systems
-- [ ] Knowledge Graph in CDT
 - [ ] LLM Evaluation Methods
 - [ ] Agentic AI Risk Taxonomy
 
@@ -92,16 +92,16 @@ Catalogo completo di tutte le pagine wiki della tesi. Aggiornato incrementalment
 
 ## 🚦 Status Ingest
 
-| Milestone | Status | Note |
-|---|---|---|
-| Setup wiki | ✅ | Struttura, file master, glossario |
-| Ingest paper Blocco A | ⏳ | Prossimo: Zheng et al. 2022 |
-| Ingest paper Blocco B | ⏳ | Dopo A |
-| Ingest paper Blocco C | ⏳ | Dopo B |
-| Ingest paper Blocco D | ⏳ | Dopo C |
-| Ingest paper Blocco E | ⏳ | Dopo D |
-| Ingest call 1 + 2 | ⏳ | In parallelo con paper |
-| Aggiornamento scaffolding finale | ⏳ | Dopo tutti gli ingest |
-| Lint della wiki | ⏳ | Prima di consegna |
+| Milestone                        | Status | Note                               |
+| -------------------------------- | ------ | ---------------------------------- |
+| Setup wiki                       | ✅      | Struttura, file master, glossario  |
+| Ingest paper Blocco A            | ⏳      | Prossimo: Al-Haj Ali et al. (2025) |
+| Ingest paper Blocco B            | ⏳      | Dopo A                             |
+| Ingest paper Blocco C            | ⏳      | Dopo B                             |
+| Ingest paper Blocco D            | ⏳      | Dopo C                             |
+| Ingest paper Blocco E            | ⏳      | Dopo D                             |
+| Ingest call 1 + 2                | ⏳      | In parallelo con paper             |
+| Aggiornamento scaffolding finale | ⏳      | Dopo tutti gli ingest              |
+| Lint della wiki                  | ⏳      | Prima di consegna                  |
 
 ---

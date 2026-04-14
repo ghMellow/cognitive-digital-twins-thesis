@@ -46,8 +46,8 @@ Come si progetta, implementa e valida un **Cognitive Digital Twin completamente 
 ## 📚 Paper Integrati (Status)
 
 ### Blocco A — Teoria CDT
-- [ ] Zheng et al. (2022) — Foundational definition di CDT
-- [ ] Al-Haj Ali et al. (2025) — Sei funzioni cognitive + MMCI framework
+- [x] Zheng et al. (2022) — Foundational definition di CDT — [[sources/zheng-et-al-2022-cdt]]
+- [x] Al-Haj Ali et al. (2025) — Sei funzioni cognitive + MMCI framework — [[sources/al-haj-ali-2025-mmci]]
 
 ### Blocco B — Pattern e Contesto
 - [ ] RESTART NDT (2024) — Justificazione dominio 5G
