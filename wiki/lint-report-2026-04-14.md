@@ -1,3 +1,4 @@
+---
 title: Lint Report — CDT Thesis Wiki
 type: analysis
 created: 2026-04-14

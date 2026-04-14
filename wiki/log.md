@@ -1,3 +1,4 @@
+---
 title: Project Log
 type: analysis
 created: 2026-04-14
@@ -5,7 +6,6 @@ updated: 2026-04-14
 sources: []
 tags: [project-log, chronology]
 ---
-
 
 # Log — Wiki Project Chronology
 
