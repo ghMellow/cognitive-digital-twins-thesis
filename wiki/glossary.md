@@ -92,6 +92,21 @@ Database grafo per Knowledge Graph. Nel contesto: memorizzazione vincoli operati
 ### LangGraph
 Framework per orchestrazione di agenti multi-step con state management esplicito (LangChain + Langgraph). Nel contesto: runtime della pipeline cognitive.
 
+### Supervisor Agent (LangGraph)
+Agente di coordinamento che instrada task in ingresso agli agenti specializzati. Implementa routing, state management, decision tree. Nel contexto: orchestratore centrale della pipeline cognitiva.
+
+### StateGraph (LangGraph)
+Struttura dati che rappresenta il grafo di stato della pipeline multi-agente. Ogni nodo è un agente/tool, ogni arco è une transizione condizionata.
+
+### DKR (Dynamic Knowledge Repository)
+Knowledge graph statico offline che memorizza vincoli operativi stabili (schema 3GPP, regole di safety). Nel contexto: Neo4j con ontologia 5G. Contrasto con DIKG.
+
+### DIKG (Dynamic Instance Knowledge Graph)
+Knowledge graph dinamico aggiornato real-time con lo stato istantaneo del sistema fisico. Nel contexto: Eclipse Ditto replica dello stato gNB. Contrasto con DKR.
+
+### Decision Sandbox
+Paradigma di validazione pre-esecuzione: il DT non è uno specchio passivo ma un **ambiente di test** dove valutare l'azione proposta prima di eseguirla sul sistema reale. Nel contexto: Planning Agent verifica azioni contro KG.
+
 ### Ollama
 Server locale di LLM with quantizzazione Q4/Q5. Nel contesto: hosting di Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B su M4 Pro.
 
@@ -103,16 +118,30 @@ Standard di telecomunicazione. Nel contesto: specifica del formato di metriche s
 ## Metodologia Valutazione
 
 ### LLM-as-Judge
-Utilizzo di un LLM come valutatore di qualità di output di un altro LLM. Applicabile a Reasoning Agent.
+Utilizzo di un LLM come valutatore di qualità di output di un altro LLM. Nel contesto della tesi: Llama 3.1 70B valuta coerenza causale di diagnosi del Reasoning Agent su scala 1-5 (rubric-based). Mitigation: multiple judges, reference examples, confidence calibration.
 
-### Multi-Agent Agreement
-Strategia di validazione tramite consensus tra multipli agenti su task identici. Usata per aumentare confidenza su Reasoning.
+### Multi-Model Agreement
+Strategia di validazione tramite consensus tra multipli LLM su task identici. Se Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B convergono sulla stessa diagnosi di root cause, la probabilità di correctness → alta. Dissenso = bassa confidenza. Nel contesto: triangolazione senza ground truth esterno.
 
-### KG-based Validation
-Validazione di azioni Planning contro vincoli memorizzati nel KG. Ground truth: grafo di vincoli operativi.
+### Outcome Validity
+Metrica definitiva: l'intervento proposto dall'agente ha risolto il problema reale nel sistema? Nel contesto tesi: KPI del simulatore sono recuperati oltre soglia target post-azione? Pass/Fail binario. Questa è la metrica regina dell'intera valutazione.
 
-### Fault Injection Scenario
-Iniezione controllata di anomalie nel simulatore fisico per generare ground truth di diagnosi corrette (Reasoning) e azioni corrette (Planning).
+### Task Verificabili vs Non-Verificabili
+**Verificabili (Ground Truth Esplicita):** Ditto API calls, KG constraint violations, JSON schema validation — answer è binarie.  
+**Non-Verificabili (LLM-as-Judge Necessario):** Root cause diagnosis, spiegazione causale — answer è qualitativa, richiede valutazione.  
+Nel contesto: massimizza task verificabili con ground truth esterno, usa LLM-as-judge solo dove necessario.
+
+### Milestone-Based KPI
+Decomposizione di ogni task in milestone flessibili monitorate in real-time. Nel contesto tesi: ogni fault injection scenario ha 6 milestones (anomalia percepta → root cause → diagnosis confidence → azione proposta → KG validation → improvement). Score parziale per ogni milestone, non tutto-o-niente.
+
+### Task Score (TS)
+Qualità dell'output finale di un agente. Nel contesto: Accuracy della diagnosi Reasoning Agent, feasibility dell'azione Planning Agent, coerenza Communication Agent. Valutato vs ground truth (simulatore) o LLM-as-judge.
+
+### Coordination Score (CS)
+Qualità dell'interazione tra agenti. Nel contesto: Pipeline Perception→Reasoning→Planning→Communication passaggio di stato senza perdita di contesto? Token efficiency? Graph traversal correctness? Separate from Task Score — puoi avere alta TS ma bassa CS (agente giusto, coordinamento sbagliato).
+
+### Outcome Validity Metrica
+Pass → KPI recuperati > target soglia; Fail → KPI stagnanti o peggiorati. Valutato post-azione dal Planning Agent sul simulatore 3GPP. È la ground truth assoluta della valutazione.
 
 ---
 

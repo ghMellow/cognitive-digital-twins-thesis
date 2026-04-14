@@ -50,22 +50,22 @@ Come si progetta, implementa e valida un **Cognitive Digital Twin completamente 
 - [x] Al-Haj Ali et al. (2025) — Sei funzioni cognitive + MMCI framework — [[sources/al-haj-ali-2025-mmci]]
 
 ### Blocco B — Pattern e Contesto
-- [ ] RESTART NDT (2024) — Justificazione dominio 5G
-- [ ] Burr et al. (2026) — Agentic AI risk taxonomy
-- [ ] Pretel et al. (2024) — SLR 64 paper MAS+DT
-- [ ] Kalyani & Collier (2024) — SLR 22 paper MAS+DT
+- [x] RESTART NDT (2024) — Justificazione dominio 5G — [[sources/restart-2024-ndt]]
+- [x] Burr et al. (2026) — Agentic AI risk taxonomy (I,T,A) vs (I,C,A), performative prediction — [[sources/burr-et-al-2026-agentic-dt]]
+- [x] Kalyani & Collier (2024) — SLR 22 paper MAS+DT, architettura multi-agente — [[sources/kalyani-collier-2024-mas-dt]]
+- [x] Pretel et al. (2024) — SLR 64 paper MAS+DT, 12 DT properties — [[sources/pretel-et-al-2024-mas-dt]]
 
 ### Blocco C — Blueprint Architetturale
-- [ ] CogTwin IJCAI-25 — Dual-KG architecture
-- [ ] Hasan & Nguyen (2026) — 6-layer agentic architecture
-- [ ] Biju (2024) — LangGraph supervisor pattern
+- [x] CogTwin IJCAI-25 — Dual-KG architecture, 6 cognitive functions — [[sources/cogtwin-ijcai-25]]
+- [x] Hasan & Nguyen (2026) — 6-layer agentic architecture, DT-as-decision-sandbox — [[sources/hasan-nguyen-2026-agentic-dt]]
+- [x] Biju (2024) — LangGraph supervisor pattern, baseline benchmark — [[sources/biju-2024-langgraph]]
 
 ### Blocco D — Metodologia Valutazione
-- [ ] MultiAgentBench (2025) — Metric framework
-- [ ] Berkeley CS294 (2025) — LLM agents evaluation video
+- [x] MultiAgentBench (2025) — Milestone-based KPI, Task Score / Coordination Score — [[sources/multiagent-bench-2025]]
+- [x] Berkeley CS294 (2026) — LLM Agent Evaluations, outcome validity, multi-model agreement — [[sources/berkeley-cs294-llm-eval]]
 
 ### Blocco E — Closest Prior Work
-- [ ] WirelessAgent HKUST (2025) — LangGraph + dominio 5G
+- [x] WirelessAgent HKUST (2025) — LLM agents for 5G network slicing, LangGraph on wireless — [[sources/wireless-agent-hkust-2025]]
 
 ---
 

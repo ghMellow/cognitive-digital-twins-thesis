@@ -33,22 +33,22 @@ Ingest documenti raw in pagine wiki strutturate.
 - [x] [[sources/al-haj-ali-2025-mmci]] — Al-Haj Ali et al. (2025) — MMCI framework, 5 levels of maturity for evaluation
 
 ### Blocco B — Pattern e Contesto
-- [ ] RESTART NDT (2024) — Justificazione dominio 5G
-- [ ] Burr et al. (2026) — Agentic AI Risk Taxonomy
-- [ ] Kalyani (2024) — SLR 22 paper MAS+DT
-- [ ] Pretel (2024) — SLR 64 paper MAS+DT
+- [x] [[sources/restart-2024-ndt]] — RESTART NDT (2024) — Architettura NDT, 3-tier, IBN, justificazione 5G
+- [x] [[sources/burr-et-al-2026-agentic-dt]] — Burr et al. (2026) — Risk taxonomy (I,T,A) vs (I,C,A), performative prediction
+- [x] [[sources/kalyani-collier-2024-mas-dt]] — Kalyani & Collier (2024) — SLR 22 paper MAS+DT, architettura multi-agente
+- [x] [[sources/pretel-et-al-2024-mas-dt]] — Pretel et al. (2024) — SLR 64 paper MAS+DT, 12 DT properties, gap analysis
 
 ### Blocco C — Blueprint Architetturale
-- [ ] CogTwin IJCAI-25 — Dual-KG pattern, CDT architecture
-- [ ] Hasan & Nguyen (2026) — 6-layer agentic architecture
-- [ ] Biju (2024) — LangGraph supervisor pattern
+- [x] [[sources/cogtwin-ijcai-25]] — CogTwin IJCAI-25 — Dual-KG pattern, CDT architecture
+- [x] [[sources/hasan-nguyen-2026-agentic-dt]] — Hasan & Nguyen (2026) — 6-layer agentic architecture
+- [x] [[sources/biju-2024-langgraph]] — Biju (2024) — LangGraph supervisor pattern
 
 ### Blocco D — Metodologia Valutazione
-- [ ] MultiAgentBench (2025) — Multi-agent metric framework
-- [ ] Berkeley CS294 (2025) — LLM agents evaluation (MOOC video)
+- [x] [[sources/multiagent-bench-2025]] — MultiAgentBench (2025) — Milestone-based KPI, Task/Coordination Score framework
+- [x] [[sources/berkeley-cs294-llm-eval]] — Berkeley CS294 (2026) — LLM Agent Evaluations, outcome validity
 
 ### Blocco E — Closest Prior Work
-- [ ] WirelessAgent HKUST (2025) — LangGraph + 5G wireless domain
+- [x] [[sources/wireless-agent-hkust-2025]] — WirelessAgent HKUST (2025) — LLM agents + LangGraph for 5G network slicing
 
 ### Call e Approfondimenti
 - [ ] Prima call (2026-03-17) — Transcrizione e decisioni chiave
@@ -63,12 +63,16 @@ Ingest documenti raw in pagine wiki strutturate.
 
 Pagine concettuali che rimangono stabili durante la tesi.
 
-### Concepts Creati (Blocco A)
+### Concepts Creati (Blocco A-B)
 - [x] [[concepts/cognitive-digital-twin]] — Definizione formale, cinque caratteristiche, sei funzioni, mapping agenti
 - [x] [[concepts/six-cognitive-functions]] — Percezione, ragionamento, memoria, apprendimento, adattamento, decision-making
 - [x] [[concepts/knowledge-graph-in-cdt]] — Ruolo architettuale, pattern Dual-KG, schema 5G, validazione KG
 - [x] [[concepts/mmci-framework]] — Multi-Modal Cognitive Interoperability, 5 livelli maturity, operationalization
-
+- [x] [[concepts/network-digital-twin]] — 5G-specific DT, 3-tier architecture (DH, Autonomic, Closed-loop), AI as driver
+- [x] [[concepts/digital-hat]] — Interface layer, sincronizzazione real-time, Eclipse Ditto mapping, protocolli
+- [x] [[concepts/intent-based-networking]] — IBN flow, translation to actions, KG constraint validation per 5G
+- [x] [[concepts/closed-loop-autonomy]] — Feedback loop, adaptation, why MMCI evaluation needed- [x] [[concepts/agentic-dt-risk-taxonomy]] — 27 configurazioni (I,T,A) vs (I,C,A), Burr framework
+- [x] [[concepts/performative-prediction]] — Lock-in risk, Perdomo ICML 2020, detection tests
 ### Concepts Futuri (Da Aggiungere Durante Ingest)
 - [ ] Digital Twin (tradizionale) — Definizione, BLOCCOvs CDT
 - [ ] Multi-Agent Systems — Orchestration patterns, state management
@@ -79,17 +83,16 @@ Pagine concettuali che rimangono stabili durante la tesi.
 
 ---
 
-## 📊 Analyses (Tabelle Comparative, Gap Analysis) — DEFERRED ⏳
+## 📊 Analyses (Tabelle Comparative, Gap Analysis) — ATTIVO ORA ✅
 
-_Creato al completamento dell'ingest di TUTTI i paper (dopo Blocco E)_
+_Creato al completamento dell'ingest di TUTTI i paper (dopo Blocco E) e Lint Pass #2_
 
 Pagine analitiche che riassumono la ricerca e posizionano il contributo della tesi.
 
-**Planned analyses:**
-- Comparison matrix: MAS+DT state-of-art (Pretel 64, Kalyani 22, WirelessAgent, CogTwin, Hasan&Nguyen)
-- Gap analysis: cosa copre la tesi vs cosa rimane open
-- Risk profile della tesi secondo Burr taxonomy
-- Benchmark template (Llama/Mistral/Phi-3/Qwen su fault injection scenarios)
+- [x] [[analyses/comparison-matrix]] — 12 papers vs. 9 DT properties + LLM coverage; thesis uniqueness score (8/10)
+- [x] [[analyses/gap-analysis]] — 8 critical gaps (LLM agents, 5G domain, agent eval, governance, etc.) con risoluzioni tesi
+- [x] [[analyses/risk-profile]] — Burr (I,T,A) taxonomy: tesi = (I:2,T:2,A:1) "Active Steering"; guardrails operationalizzati
+- [x] [[analyses/benchmark-template]] — 3 fault injection scenarios (A: single fault, B: contention, C: cascade) con full metrics framework
 
 ---
 
@@ -122,22 +125,24 @@ Target audience della tesi e come personalizzare la spiegazione per ciascuno:
 
 ---
 
-## 🚦 Status Ingest
+## 🚦 Status Ingest — Wiki Literature Review Phase COMPLETE
 
 | Milestone                           | Status | Note                                 |
 | ----------------------------------- | ------ | ------------------------------------ |
 | Setup wiki                          | ✅      | Struttura, file master, glossario    |
-| **Blocco A — Teoria CDT**           | ✅      | Zheng + Al-Haj Ali completati        |
-| Ingest paper Blocco B               | ⏳      | Prossimo: RESTART NDT (2024)         |
-| Ingest paper Blocco C               | ⏳      | Dopo B                               |
-| Ingest paper Blocco D               | ⏳      | Dopo C                               |
-| Ingest paper Blocco E               | ⏳      | Dopo D                               |
-| Ingest call 1 + 2                   | ⏳      | In parallelo con paper               |
-| Ingest approfondimenti (3 files)    | ⏳      | In parallelo con paper               |
-| Creazione analyses/ pages           | ⏳      | Dopo ingest completo (post-Blocco E) |
-| Creazione style/ pages              | ⏳      | Quando inizi a scrivere corpo (Cap.1) |
-| Aggiornamento scaffolding finale    | ⏳      | Dopo tutti gli ingest (review pass)  |
-| Lint della wiki                     | ⏳      | Prima di consegna tesi               |
+| **Blocco A — Teoria CDT**           | ✅      | 2/2 (Zheng + Al-Haj Ali) — 14 Apr   |
+| **Blocco B — Pattern e Contesto**   | ✅      | 4/4 (RESTART, Burr, Kalyani, Pretel) — 14 Apr |
+| **Blocco C — Blueprint Archi.**     | ✅      | 3/3 (CogTwin, Hasan&Nguyen, Biju) — 14 Apr |
+| **Blocco D — Valutazione**          | ✅      | 2/2 (MultiAgentBench, Berkeley) — 14 Apr |
+| **Blocco E — Closest Prior Work**   | ✅      | 1/1 (WirelessAgent) — 14 Apr        |
+| **Lint Pass #1**                    | ✅      | 0 contraddizioni, 91% link validity |
+| **Lint Pass #2**                    | ✅      | 97%+ link validity, 12 zombies resolved |
+| **Creazione analyses/ pages**       | ✅      | 4/4 (comparison, gap, risk, benchmark) — 14 Apr |
+| Ingest call 1 + 2                   | ⏳      | Opzionale (bassa priorità) |
+| Ingest approfondimenti (3 files)    | ⏳      | Opzionale (bassa priorità) |
+| Creazione style/ pages              | ⏳      | Durante scrittura Cap. 1–8          |
+| Aggiornamento scaffolding finale    | ⏳      | Review pass prima della tesi         |
+| Lint della wiki (pre-submission)    | ⏳      | Before thesis handover               |
 
 ---
 
@@ -150,17 +155,39 @@ wiki/
 ├── glossary.md
 ├── overview.md
 ├── log.md
-├── sources/ ✅ ATTIVO
+├── lint-report-2026-04-14.md ✅ (pass #1)
+├── lint-report-2026-04-14-pass2.md ✅ (pass #2)
+├── sources/ ✅ ATTIVO (12 papers)
 │   ├── zheng-et-al-2022-cdt.md
-│   └── al-haj-ali-2025-mmci.md
-├── concepts/ ✅ ATTIVO
+│   ├── al-haj-ali-2025-mmci.md
+│   ├── restart-2024-ndt.md
+│   ├── burr-et-al-2026-agentic-dt.md
+│   ├── kalyani-collier-2024-mas-dt.md
+│   ├── pretel-et-al-2024-mas-dt.md
+│   ├── cogtwin-ijcai-25.md
+│   ├── hasan-nguyen-2026-agentic-dt.md
+│   ├── biju-2024-langgraph.md
+│   ├── multiagent-bench-2025.md
+│   ├── berkeley-cs294-llm-eval.md
+│   └── wireless-agent-hkust-2025.md
+├── concepts/ ✅ ATTIVO (10 concepts)
 │   ├── cognitive-digital-twin.md
 │   ├── six-cognitive-functions.md
 │   ├── knowledge-graph-in-cdt.md
-│   └── mmci-framework.md
-├── analyses/ ⏳ DEFERRED (post-ingest)
+│   ├── mmci-framework.md
+│   ├── network-digital-twin.md
+│   ├── digital-hat.md
+│   ├── intent-based-networking.md
+│   ├── closed-loop-autonomy.md
+│   ├── agentic-dt-risk-taxonomy.md
+│   └── performative-prediction.md
+├── analyses/ ✅ ATTIVO (4 analyses)
+│   ├── comparison-matrix.md
+│   ├── gap-analysis.md
+│   ├── risk-profile.md
+│   └── benchmark-template.md
 ├── style/ ⏳ DEFERRED (writing phase)
-└── personas/ (optional)
+└── personas/ (optional — empty)
 ```
 
 ---
