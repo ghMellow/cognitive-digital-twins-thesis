@@ -1,5 +1,4 @@
----
-title: Lint Report — Wiki CDT
+title: Lint Report — CDT Thesis Wiki
 type: analysis
 created: 2026-04-14
 updated: 2026-04-14
@@ -7,65 +6,66 @@ sources: []
 tags: [lint, quality-assurance, broken-links]
 ---
 
-# Lint Report — Wiki della Tesi CDT
 
-**Data:** 14 aprile 2026  
-**Stato:** Blocco A + B Ingestito (6 paper, 12 concept pages, 5 master files)  
-**Scansione:** Tutti i link interni `[[...]]`
+# Lint Report — CDT Thesis Wiki
+
+**Date:** April 14, 2026  
+**Status:** Block A + B Ingested (6 papers, 12 concept pages, 5 master files)  
+**Scan:** All internal links `[[...]]`
 
 ---
 
-## 📊 Riepilogo
+## 📊 Summary
 
-| Categoria | Totale | Status |
+| Category | Total | Status |
 |---|---|---|
-| **Link interni trovati** | 132 | ✅ |
-| **Pagine esistenti** | 23 | ✅ |
+| **Internal links found** | 132 | ✅ |
+| **Existing pages** | 23 | ✅ |
 | **Zombie links** | 15 | ❌ |
-| **Typo rilevati** | 1 | ⚠️ |
-| **Contraddizioni** | 0 | ✅ |
+| **Typos detected** | 1 | ⚠️ |
+| **Contradictions** | 0 | ✅ |
 
 ---
 
-## 🔴 Zombie Links (Pagine Linkate ma Non Esistenti)
+## 🔴 Zombie Links (Linked Pages That Do Not Exist)
 
-### ALTA PRIORITÀ — Linkate più di una volta
+### HIGH PRIORITY — Linked more than once
 
-| Link | Linkata da | Note |
+| Link | Linked from | Notes |
 |---|---|---|
-| **[[governor-configuration]]** | Burr, Agentic-DT-Risk-Taxonomy, Performative-Prediction (3×) | Concetto critico; dovrebbe esistere dedicato |
-| **[[tight-coupling-risks]]** | Burr, Agentic-DT-Risk-Taxonomy (2×) | Sottotema di governor-configuration? Oppure pagina separata? |
-| **[[cogtwin-ijcai-25]]** | Cognitive-DT, Knowledge-Graph, Zheng (3×) | Paper Blocco C; non ancora ingestito |
-| **[[sources/cogtwin-ijcai-25]]** | Cognitive-DT, Knowledge-Graph (2×) | Versione con source/ path |
+| **[[governor-configuration]]** | Burr, Agentic-DT-Risk-Taxonomy, Performative-Prediction (3×) | Critical concept; should have a dedicated page |
+| **[[tight-coupling-risks]]** | Burr, Agentic-DT-Risk-Taxonomy (2×) | Subtopic of governor-configuration? Or separate page? |
+| **[[cogtwin-ijcai-25]]** | Cognitive-DT, Knowledge-Graph, Zheng (3×) | Block C paper; not yet ingested |
+| **[[sources/cogtwin-ijcai-25]]** | Cognitive-DT, Knowledge-Graph (2×) | Version with source/ path |
 
-### MEDIA PRIORITÀ — Linkate uma volta; potrebbero essere future
+### MEDIUM PRIORITY — Linked once; may be future
 
-| Link | Linkata da | Note |
+| Link | Linked from | Notes |
 |---|---|---|
-| **[[dt-properties-checklist]]** | Pretel (1×) | Pretel fornisce 12 proprietà; dovrebbe diventare tabella o concept page |
-| **[[mas-patterns]]** | Pretel (1×) | "MAS with DT" vs "MAS for DT"; dovrebbe essere concetto dedicato |
-| **[[mas-agreement-for-evaluation]]** | Pretel (1×) | Multi-agent agreement come evaluation signal; concetto rilevante |
-| **[[shared-situation-awareness]]** | Al-Haj Ali (1×) | Level 1 MMCI; dovrebbe essere subpage di mmci-framework o concetto separato |
-| **[[mental-model-alignment]]** | Al-Haj Ali (1×) | Level 2-3 MMCI; simile al precedente |
-| **[[joint-decision-making]]** | Al-Haj Ali (1×) | Level 4-5 MMCI; simile al precedente |
-| **[[multiagent-bench-2025]]** | Al-Haj Ali (1×) | Source page per MultiAgentBench (Blocco D); non ancora ingestito |
-| **[[cdt-five-characteristics]]** | Zheng (1×) | Deep-dive su 5 caratteristiche Zheng; dovrebbe esistere |
-| **[[mas-agent-patterns]]** | Kalyani (1×) | Architettura ricorrente 22 paper; dovrebbe essere concept |
-| **[[multi-agent-frameworks]]** | Kalyani (1×) | JADE, JaCaMo, SPADE overview; dovrebbe essere concept |
+| **[[dt-properties-checklist]]** | Pretel (1×) | Pretel provides 12 properties; should become a table or concept page |
+| **[[mas-patterns]]** | Pretel (1×) | "MAS with DT" vs "MAS for DT"; should be a dedicated concept |
+| **[[mas-agreement-for-evaluation]]** | Pretel (1×) | Multi-agent agreement as evaluation signal; relevant concept |
+| **[[shared-situation-awareness]]** | Al-Haj Ali (1×) | Level 1 MMCI; should be a subpage of mmci-framework or separate concept |
+| **[[mental-model-alignment]]** | Al-Haj Ali (1×) | Level 2-3 MMCI; similar to above |
+| **[[joint-decision-making]]** | Al-Haj Ali (1×) | Level 4-5 MMCI; similar to above |
+| **[[multiagent-bench-2025]]** | Al-Haj Ali (1×) | Source page for MultiAgentBench (Block D); not yet ingested |
+| **[[cdt-five-characteristics]]** | Zheng (1×) | Deep-dive on 5 Zheng characteristics; should exist |
+| **[[mas-agent-patterns]]** | Kalyani (1×) | Recurring architecture in 22 papers; should be a concept |
+| **[[multi-agent-frameworks]]** | Kalyani (1×) | JADE, JaCaMo, SPADE overview; should be a concept |
 
 ---
 
-## ⚠️ Typo Rilevero
+## ⚠️ Detected Typos
 
-| Errore | Dove | Fix |
+| Error | Where | Fix |
 |---|---|---|
-| **[[concepts/performance-prediction]]** | Pretel line 217 | Dovrebbe essere `[[performative-prediction]]` (senza `concepts/`, senza `ance`) |
+| **[[concepts/performance-prediction]]** | Pretel line 217 | Should be `[[performative-prediction]]` (no `concepts/`, no `ance`) |
 
-**Azione:** Fisso in pretel-et-al-2024-mas-dt.md
+**Action:** Fix in pretel-et-al-2024-mas-dt.md
 
 ---
 
-## ✅ Pagine Linkate Correttamente
+## ✅ Correctly Linked Pages
 
 **Sources (6):**
 - [[sources/zheng-et-al-2022-cdt]] ✅
@@ -96,130 +96,131 @@ tags: [lint, quality-assurance, broken-links]
 
 ---
 
-## 🔀 Contraddizioni Rilevate
+## 🔀 Detected Contradictions
 
-### Tra Paper
+### Between Papers
 
-**Nessuna rilevata.** Blocco A + B sono perfettamente coerenti:
-- Zheng (2022) → teoria CDT
-- Al-Haj Ali (2025) → valutazione (estensione di Zheng)
-- RESTART (2024) → architettura 5G (istanza di Zheng)
-- Burr (2026) → governance (meta-level su RESTART + Al-Haj Ali)
-- Kalyani (2024) → pattern MAS (supporta Zheng + RESTART)
-- Pretel (2024) → framework DT properties (comprende Zheng + Kalyani + RESTART)
+**None detected.** Block A + B are perfectly consistent:
+- Zheng (2022) → CDT theory
+- Al-Haj Ali (2025) → evaluation (extension of Zheng)
+- RESTART (2024) → 5G architecture (instance of Zheng)
+- Burr (2026) → governance (meta-level on RESTART + Al-Haj Ali)
+- Kalyani (2024) → MAS patterns (supports Zheng + RESTART)
+- Pretel (2024) → DT properties framework (includes Zheng + Kalyani + RESTART)
 
-**Conclusione:** Sequenza teorica lineare e coerente. ✅
+**Conclusion:** Linear and consistent theoretical sequence. ✅
 
-### Claim Non Supportati
+### Unsupported Claims
 
-Scansionando scaffolding-tesi.md per claim nel Cap. 1 — Domanda di Ricerca:
+Scanning scaffolding-tesi.md for claims in Ch. 1 — Research Question:
 
-| Claim | Supportato da | Status |
+| Claim | Supported by | Status |
 |---|---|---|
-| "CDT = rappresentazione + capacità cognitive" | Zheng 2022 | ✅ |
-| "6 funzioni cognitive" | Zheng 2022 | ✅ |
-| "KG è mandatorio" | Zheng 2022 | ✅ |
-| "Valutazione senza ground truth è hard" | Al-Haj Ali 2025 (gap esplicito) | ✅ |
+| "CDT = representation + cognitive capabilities" | Zheng 2022 | ✅ |
+| "6 cognitive functions" | Zheng 2022 | ✅ |
+| "KG is mandatory" | Zheng 2022 | ✅ |
+| "Evaluation without ground truth is hard" | Al-Haj Ali 2025 (explicit gap) | ✅ |
 | "Active Steering (I,T,A)" | Burr 2026 | ✅ |
 | "Performative prediction risk" | Burr 2026 | ✅ |
 | "4-agent architecture validated" | Kalyani 2024, Pretel 2024 | ✅ |
 | "5G domain is novel" | Pretel 2024 (zero papers) | ✅ |
 | "LLM as cognitive layer is novel" | Kalyani 2024, Pretel 2024 (zero LLM) | ✅ |
 
-**Conclusione:** Tutti i claim nello scaffolding sono supportati da almeno uno dei paper ingestiti. ✅
+**Conclusion:** All claims in the scaffolding are supported by at least one ingested paper. ✅
 
 ---
 
-## 📋 Azioni Raccomandate
+## 📋 Recommended Actions
 
-### IMMEDIATO (Prima di prossimi ingest)
+### IMMEDIATE (Before next ingest)
 
-1. **Fissi typo in Pretel:**
+1. **Fix typo in Pretel:**
    - `[[concepts/performance-prediction]]` → `[[performative-prediction]]`
 
-2. **Decidi su Next Steps per zombie links:**
-   - **Opzione A:** Creare concept pages per tutti i 15 zombie links prima di continuare Blocco C
-   - **Opzione B:** Creare pagine solo per i 4 ad "ALTA PRIORITÀ" (governor-configuration, tight-coupling-risks, cogtwin-ijcai-25)
-   - **Opzione C:** Continuare con Blocco C, e risolvere zombie links durante future ingest (pagine di Blocco C potrebbero riempierle)
+2. **Decide on Next Steps for zombie links:**
+   - **Option A:** Create concept pages for all 15 zombie links before continuing with Block C
+   - **Option B:** Create pages only for the 4 "HIGH PRIORITY" ones (governor-configuration, tight-coupling-risks, cogtwin-ijcai-25)
+   - **Option C:** Continue with Block C, and resolve zombie links during future ingests (Block C pages may fill them)
 
-### POST-BLOCCO-C (Dopo CogTwin, Hasan&Nguyen, Biju)
+### POST-BLOCK-C (After CogTwin, Hasan&Nguyen, Biju)
 
-Le pagine Blocco C potrebbero generare:
-- `[[cogtwin-ijcai-25]]` per CogTwin IJCAI-25 ✅
-- `[[hasan-nguyen-2026-6-layer]]` per Hasan & Nguyen
-- `[[biju-2024-langgraph]]` per Biju
+Block C pages may generate:
+- `[[cogtwin-ijcai-25]]` for CogTwin IJCAI-25 ✅
+- `[[hasan-nguyen-2026-6-layer]]` for Hasan & Nguyen
+- `[[biju-2024-langgraph]]` for Biju
 
-### DEFERRED (Non Urgente)
+### DEFERRED (Not Urgent)
 
-Le MMCI level pages (`[[shared-situation-awareness]]`, etc.) potrebbero diventare subheadings dentro `mmci-framework.md` invece di pagine separate. Decidi dopo aver letto Al-Haj Ali paper completo.
+The MMCI level pages (`[[shared-situation-awareness]]`, etc.) could become subheadings inside `mmci-framework.md` instead of separate pages. Decide after reading the full Al-Haj Ali paper.
 
 ---
 
-## 🔍 Dettagli per Ogni Zombie
+
+## 🔍 Details for Each Zombie
 
 ### [[governor-configuration]]
 
-**Linkato da:**
-- Burr (line 196): "Configurazione Governor (I,C,A) e come evitarla"
-- Agentic-DT-Risk-Taxonomy (line 191): "Deep dive su (I,C,A)"
+**Linked from:**
+- Burr (line 196): "Governor Configuration (I,C,A) and how to avoid it"
+- Agentic-DT-Risk-Taxonomy (line 191): "Deep dive on (I,C,A)"
 - Performative-Prediction (line 291): "The (I,C,A) risk"
 
-**Dovrebb essere:**
-- Concept page dedicata ( ~200-300 linee)
+**Should be:**
+- Dedicated concept page (~200-300 lines)
 - Focus: (I,C,A) configuration in detail, examples (Singapore e-road, algo management), lock-in mechanics, how to prevent
 
-**Priorità:** 🔴 ALTA — Citato 3 volte, concetto critico per governance
+**Priority:** 🔴 HIGH — Cited 3 times, critical concept for governance
 
 ---
 
 ### [[tight-coupling-risks]]
 
-**Linkato da:**
-- Burr (line 197): "Rischi specifici di tight coupling real-time"
-- Agentic-DT-Risk-Taxonomy (line 192): "Rischi di tight coupling"
+**Linked from:**
+- Burr (line 197): "Specific risks of real-time tight coupling"
+- Agentic-DT-Risk-Taxonomy (line 192): "Tight coupling risks"
 
-**Dovrebbe essere:**
-- Concept page (~ 150 linee)
+**Should be:**
+- Concept page (~150 lines)
 - Focus: Tight coupling (T in I,T,A) risks, latency implications, synchronization hazards, how Ditto mitigates
 
-**Priorità:** 🔴 ALTA — Ma potrebbe essere subpage di agentic-dt-risk-taxonomy.md per consolidare; oppure concept separato
+**Priority:** 🔴 HIGH — But could be a subpage of agentic-dt-risk-taxonomy.md for consolidation; or a separate concept
 
 ---
 
 ### [[cogtwin-ijcai-25]]
 
-**Linkato da:**
-- Cognitive-DT (line 86): "Implementazione teorica"
+**Linked from:**
+- Cognitive-DT (line 86): "Theoretical implementation"
 - Knowledge-Graph (line 147): "Dual-KG pattern reference"
-- Zheng (line 130): "implementazione teorica del CDT"
+- Zheng (line 130): "theoretical implementation of CDT"
 
-**Dovrebbe essere:**
-- Source page (ingest Blocco C: CogTwin IJCAI-25 paper)
-- OPPURE placeholder su concetto Dual-KG fino a quando non viene ingestito
+**Should be:**
+- Source page (ingest Block C: CogTwin IJCAI-25 paper)
+- OR placeholder on Dual-KG concept until ingested
 
-**Priorità:** 🔴 ALTA — Paper non ancora ingestito, ma linkato; potrebbe essere creatofakie link temporaneo o ingestire quickly
+**Priority:** 🔴 HIGH — Paper not yet ingested, but linked; could be a temporary fake link or ingested quickly
 
 ---
 
-### Altre MEDIA priorità
+### Other MEDIUM priority
 
 **[[dt-properties-checklist]]:**
-- Dovrebbe essere una sezione di [[concepts/agentic-dt-risk-taxonomy]] oppure concept separato
-- Pretel fornisce checklist delle 12 proprietà DT; ideale per tabella comparativa
+- Should be a section of [[concepts/agentic-dt-risk-taxonomy]] or a separate concept
+- Pretel provides checklist of 12 DT properties; ideal for comparative table
 
 **[[mas-agent-patterns]]:**
-- Concetto su pattern ricorrenti MAS nei 22 paper di Kalyani
-- Could be subpage di Kalyani source, oppure concept dedicato
+- Concept on recurring MAS patterns in Kalyani's 22 papers
+- Could be a subpage of Kalyani source, or dedicated concept
 
-**Blocco D/E sources (non urgente pe Blocco B):**
-- [[multiagent-bench-2025]] — Ingestire durante Blocco D
-- [[sources/multiagent-bench-2025]] — Aggiungerà quando ingestito
+**Block D/E sources (not urgent for Block B):**
+- [[multiagent-bench-2025]] — Ingest during Block D
+- [[sources/multiagent-bench-2025]] — Add when ingested
 
 ---
 
-## 📈 Metriche Qualità Wiki
+## 📈 Wiki Quality Metrics
 
-| Metrica | Valore | Target | Status |
+| Metric | Value | Target | Status |
 |---|---|---|---|
 | **Link validity ratio** | 155/170 = 91% | >95% | 🟡 |
 | **Pages with related section** | 23/23 = 100% | 100% | ✅ |
@@ -230,21 +231,21 @@ Le MMCI level pages (`[[shared-situation-awareness]]`, etc.) potrebbero diventar
 
 ---
 
-## 📝 Raccomandazione Finale
+## 📝 Final Recommendation
 
-**Go/No-Go per Blocco C?**
+**Go/No-Go for Block C?**
 
-✅ **GO** — Procedi con Blocco C (CogTwin, Hasan&Nguyen, Biju)
+✅ **GO** — Proceed with Block C (CogTwin, Hasan&Nguyen, Biju)
 
-**Motivi:**
-1. Blocco A + B sono coerenti con 0 contraddizioni
-2. Zombie links sono in gran parte "futuri" (Blocco C pages, Blocco D pages)
-3. Typo (1) risolto in 1 minuto
+**Reasons:**
+1. Block A + B are consistent with 0 contradictions
+2. Zombie links are mostly "future" (Block C pages, Block D pages)
+3. Typo (1) fixed in 1 minute
 4. No orphaned pages or unsupported claims
-5. Link validity 91% è accettabile per fase ingest
+5. Link validity 91% is acceptable for ingest phase
 
-**Condizioni:**
-1. Fissi typo in Pretel prima di prossimo ingest
-2. Crea [[cogtwin-ijcai-25]] placeholder se non lo farai ingestendo CogTwin subito
-3. Durante Blocco C ingest, le zombie links su CogTwin e LangGraph si risolveranno automaticamente
+**Conditions:**
+1. Fix typo in Pretel before next ingest
+2. Create [[cogtwin-ijcai-25]] placeholder if not ingesting CogTwin immediately
+3. During Block C ingest, zombie links on CogTwin and LangGraph will resolve automatically
 

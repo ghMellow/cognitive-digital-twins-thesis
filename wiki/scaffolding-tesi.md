@@ -1,414 +1,414 @@
 ---
-title: Scaffolding della Tesi
+title: Thesis Scaffolding
 type: analysis
 created: 2026-04-14
 updated: 2026-04-14
-sources: [proposta-tesi.md, feedback-claude.md, literature review 12 fonti]
+sources: [proposta-tesi.md, feedback-claude.md, literature review 12 sources]
 tags: [thesis, scaffolding, structure]
 analysis_status: complete (12/12 papers integrated, 4 analyses linked)
 lint_status: pass-2 validated (97% link integrity, 0 contradictions)
 wiki_coherence: 5/5 (all claims supported by multi-layer sources)
 ---
 
-# Scaffolding Tesi — Cognitive Digital Twins
+# Thesis Scaffolding — Cognitive Digital Twins
 
 **Nicolò Termine — Politecnico di Torino / Fondazione Ugo Bordoni / CINI**  
-_Struttura argomentativa centrale della tesi — Aprile 2026_
+_Central argumentative structure of the thesis — April 2026_
 
 ---
 
-## 💡 Domanda di Ricerca Centrale
+## 💡 Central Research Question
 
-Come si progetta, implementa e valida un **Cognitive Digital Twin completamente locale** che coordina agenti LLM specializzati per il decision-making autonomo su infrastrutture 5G in assenza di ground truth di valutazione?
-
----
-
-## 🎯 Ipotesi / Claim Principale
-
-È possibile costruire e valutare un sistema multi-agente LLM che:
-1. Implementa le sei funzioni cognitive di un CDT (percezione, ragionamento, memoria, apprendimento, adattamento, decision-making)
-2. Opera autonomamente su hardware consumer (M4 Pro 24GB) con modelli open-source quantizzati
-3. Raggiunge _reasoning capability sufficientemente affidabile_ tramite un framework di valutazione multi-dimensionale che non dipende interamente da LLM-as-judge
-4. Supera baseline comparativi su task 5G specializzati rilevati tramite fault injection controllata
+How do you design, implement, and validate a **completely local Cognitive Digital Twin** that coordinates specialized LLM agents for autonomous decision-making on 5G infrastructure in the absence of evaluation ground truth?
 
 ---
 
-## 📊 Struttura Capitoli Attesa
+## 🎉 Main Hypothesis / Claim
 
-- **Cap. 1** — Introduzione e motivazione del problema
-- **Cap. 2** — Background teorico (CDT, Funzioni Cognitive, Architetture MAS+DT)
-- **Cap. 3** — Related Work e Positioning
-- **Cap. 4** — Architettura del Sistema
-- **Cap. 5** — Metodologia di Valutazione (CONTRIBUTO PRINCIPALE)
-- **Cap. 6** — Implementazione e Esperimenti
-- **Cap. 7** — Risultati e Benchmark Comparativo
-- **Cap. 8** — Discussione, Limiti e Future Work
+It is possible to build and evaluate a multi-agent LLM system that:
+1. Implements the six cognitive functions of a CDT (perception, reasoning, memory, learning, adaptation, decision-making)
+2. Operates autonomously on consumer hardware (M4 Pro 24GB) with open-source quantized models
+3. Achieves _sufficiently reliable reasoning capability_ through a multi-dimensional evaluation framework that does not depend entirely on LLM-as-judge
+4. Surpasses comparative baselines on specialized 5G tasks detected through controlled fault injection
 
 ---
 
-## 📚 Paper Integrati (Status)
+## 📃 Expected Chapter Structure
 
-### Blocco A — Teoria CDT
-- [x] Zheng et al. (2022) — Foundational definition di CDT — [[sources/zheng-et-al-2022-cdt]]
-- [x] Al-Haj Ali et al. (2025) — Sei funzioni cognitive + MMCI framework — [[sources/al-haj-ali-2025-mmci]]
+- **Ch. 1** — Introduction and problem motivation
+- **Ch. 2** — Theoretical background (CDT, Cognitive Functions, MAS+DT Architectures)
+- **Ch. 3** — Related Work and Positioning
+- **Ch. 4** — System Architecture
+- **Ch. 5** — Evaluation Methodology (MAIN CONTRIBUTION)
+- **Ch. 6** — Implementation and Experiments
+- **Ch. 7** — Results and Comparative Benchmark
+- **Ch. 8** — Discussion, Limitations and Future Work
 
-### Blocco B — Pattern e Contesto
-- [x] RESTART NDT (2024) — Justificazione dominio 5G — [[sources/restart-2024-ndt]]
+---
+
+## 📚 Integrated Papers (Status)
+
+### Block A — CDT Theory
+- [x] Zheng et al. (2022) — Foundational definition of CDT — [[sources/zheng-et-al-2022-cdt]]
+- [x] Al-Haj Ali et al. (2025) — Six cognitive functions + MMCI framework — [[sources/al-haj-ali-2025-mmci]]
+
+### Block B — Pattern and Context
+- [x] RESTART NDT (2024) — 5G domain justification — [[sources/restart-2024-ndt]]
 - [x] Burr et al. (2026) — Agentic AI risk taxonomy (I,T,A) vs (I,C,A), performative prediction — [[sources/burr-et-al-2026-agentic-dt]]
-- [x] Kalyani & Collier (2024) — SLR 22 paper MAS+DT, architettura multi-agente — [[sources/kalyani-collier-2024-mas-dt]]
-- [x] Pretel et al. (2024) — SLR 64 paper MAS+DT, 12 DT properties — [[sources/pretel-et-al-2024-mas-dt]]
+- [x] Kalyani & Collier (2024) — SLR 22 papers MAS+DT, multi-agent architecture — [[sources/kalyani-collier-2024-mas-dt]]
+- [x] Pretel et al. (2024) — SLR 64 papers MAS+DT, 12 DT properties — [[sources/pretel-et-al-2024-mas-dt]]
 
-### Blocco C — Blueprint Architetturale
+### Block C — Architectural Blueprint
 - [x] CogTwin IJCAI-25 — Dual-KG architecture, 6 cognitive functions — [[sources/cogtwin-ijcai-25]]
 - [x] Hasan & Nguyen (2026) — 6-layer agentic architecture, DT-as-decision-sandbox — [[sources/hasan-nguyen-2026-agentic-dt]]
 - [x] Biju (2024) — LangGraph supervisor pattern, baseline benchmark — [[sources/biju-2024-langgraph]]
 
-### Blocco D — Metodologia Valutazione
+### Block D — Evaluation Methodology
 - [x] MultiAgentBench (2025) — Milestone-based KPI, Task Score / Coordination Score — [[sources/multiagent-bench-2025]]
 - [x] Berkeley CS294 (2026) — LLM Agent Evaluations, outcome validity, multi-model agreement — [[sources/berkeley-cs294-llm-eval]]
 
-### Blocco E — Closest Prior Work
+### Block E — Closest Prior Work
 - [x] WirelessAgent HKUST (2025) — LLM agents for 5G network slicing, LangGraph on wireless — [[sources/wireless-agent-hkust-2025]]
 
 ---
 
-## ⚡ Tensioni Aperte
+## ⚡ Open Tensions
 
-**Nota:** Le quattro tensioni sottostanti si mappano direttamente sui gap strutturati documentati in [[gap-analysis]] (TIER-1/2/3). Ogni tensione è affrontata tramite una combinazione di framework teorico + controlli operativi.
+**Note:** The four tensions below map directly to the structured gaps documented in [[gap-analysis]] (TIER-1/2/3). Each tension is addressed through a combination of theoretical framework + operational controls.
 
-1. **Verificabilità vs. Flessibilità** → **Gap 2.1 (TIER-1)** — Il tradeoff tra reasoning simbolico (OWL + reasoner, verificabile ma rigido) e LLM locale (flessibile ma difficile da verificare). Il KG Neo4j è mitigazione parziale ma non completa. Soluzione: hybrid LLM-as-judge + ground truth esterna (documentato in [[gap-analysis]]#gap-2-1).
+1. **Verifiability vs. Flexibility** → **Gap 2.1 (TIER-1)** — The tradeoff between symbolic reasoning (OWL + reasoner, verifiable but rigid) and local LLM (flexible but hard to verify). Neo4j KG is partial but not complete mitigation. Solution: hybrid LLM-as-judge + external ground truth (documented in [[gap-analysis]]#gap-2-1).
 
-2. **Ground Truth Assente per Reasoning** → **Gap 1.3 (TIER-1)** — Per il Perception Agent esiste ground truth dal simulatore 3GPP. Per il Reasoning Agent (inferenza di cause radice) non esiste ground truth ovvio. Soluzione proposta: LLM-as-judge + multi-model agreement + KG-based validation (documentato in [[gap-analysis]]#gap-1-3 e [[benchmark-template]]).
+2. **Absent Ground Truth for Reasoning** → **Gap 1.3 (TIER-1)** — For Perception Agent ground truth exists from 3GPP simulator. For Reasoning Agent (root cause inference) no obvious ground truth exists. Proposed solution: LLM-as-judge + multi-model agreement + KG-based validation (documented in [[gap-analysis]]#gap-1-3 and [[benchmark-template]]).
 
-3. **Local vs. Cloud** → **Gap 2.2 (TIER-2)** — WirelessAgent dimostra +44.4% su modelli cloud (DeepSeek-R1, Llama3.3-70B). La tesi usa modelli 3-8B locali su M4 Pro. La domanda: quanto "cognitive capability" si conserva scendendo a modelli piccoli locali? Benchmark empirico sulla risposta (cap. 6, [[benchmark-template]] Scenario A-C).
+3. **Local vs. Cloud** → **Gap 2.2 (TIER-2)** — WirelessAgent demonstrates +44.4% on cloud models (DeepSeek-R1, Llama3.3-70B). Thesis uses 3-8B models locally on M4 Pro. Question: how much "cognitive capability" is preserved descending to small local models? Empirical benchmark of the answer (ch. 6, [[benchmark-template]] Scenarios A-C).
 
-4. **Stabilità vs. Optimality** → **Gap 1.1 (TIER-1)** — Il Planning Agent modifica l'ambiente (metriche KPI) con le sue azioni. C'è rischio di _performative prediction_: convergenza su soluzione "apparentemente ottimale" solo perché ha riscritto le condizioni di osservazione. Fault injection controllata come meccanismo di rilevazione (gap-analysis, mitigation strategy).
-
----
-
-## 🔴 Gap Ancora da Colmare (TIER-Based Mapping to [[gap-analysis]])
-
-**Sintesi: I 4 gap sottostanti si mappano sui Gap 1.1-1.3, 2.1-2.3 documentati in [[gap-analysis]]. Ogni gap risolto è tracciato con citazioni multi-layer.**
-
-1. **Valutazione operativa del Reasoning Agent** → **Gap 1.3 (TIER-1)** — Letteratura (MultiAgentBench, Berkeley) suggerisce LLM-as-judge per task non-verificabili. La nostra proposta combina questo con KG-based validation per aumentare robustezza. Implementazione e validazione di questo ibrido è il lavoro principale della tesi. Vedi [[gap-analysis]]#gap-1-3 e [[benchmark-template]] per il protocollo di validazione.
-
-2. **Benchmark comparativo su task domain-specific** → **Gap 2.2 (TIER-2)** — WirelessAgent copre "wireless task general" con modelli cloud (DeepSeek-R1, Llama3.3-70B). Gap: quale performance raggiungono Llama 3.1 8B, Mistral 7B, Phi-3 Mini 3.8B, Qwen 3B on fault injection scenario 5G specifici? Inesplorato in letteratura. Soluzione: sperimentazione completa documentata in [[benchmark-template]] (3 scenari × 4 modelli × 8-10 replicati = 92-120 run totali).
-
-3. **Decision Latency come dimensione critica** → **Gap 2.3 (TIER-2)** — MultiAgentBench e Berkeley non includono latency per task 5G time-sensitive. La nostra metodologia aggiunge questa metrica esplicitamente come dimension domain-specific. Piano: Cap. 6 specifica i bound hard (50ms) e soft (40ms) per ciascun agente, con progressive analysis a [[gap-analysis]]#gap-2-3.
-
-4. **Meta-cognitive layer** → **Gap 3.1 (TIER-3) — Future Work** — Nessun paper analizzato (64 di Pretel et al., 22 di Kalyani, 12 ingestati finora) implementa auto-valutazione del ciclo cognitivo. È aspetto di future work in tutti i paper (CogTwin, Al-Haj Ali). Sulla base di [[gap-analysis]] analisi, la tesi lo dichiara come **out-of-scope esplicito** nella Discussione (Cap. 8) con giustificazione letteraria.
+4. **Stability vs. Optimality** → **Gap 1.1 (TIER-1)** — Planning Agent modifies environment (KPI metrics) with its actions. Risk of _performative prediction_: convergence on "apparently optimal" solution only because it rewrote observation conditions. Controlled fault injection as detection mechanism (gap-analysis, mitigation strategy).
 
 ---
 
-## 📋 Mapping Esplicito Contributi → Gap Risolti → Wiki References
+## 🔴 Remaining Gaps (TIER-Based Mapping to [[gap-analysis]])
 
-| Contributo | Gap Risolto (from [[gap-analysis]]) | Fonti Letterarie | Wiki Reference |
+**Summary: The 4 gaps below map to Gaps 1.1-1.3, 2.1-2.3 documented in [[gap-analysis]]. Each resolved gap is traced with multi-layer citations.**
+
+1. **Operational Evaluation of Reasoning Agent** → **Gap 1.3 (TIER-1)** — Literature (MultiAgentBench, Berkeley) suggests LLM-as-judge for non-verifiable tasks. Our proposal combines this with KG-based validation for increased robustness. Implementation and validation of this hybrid is the thesis's main work. See [[gap-analysis]]#gap-1-3 and [[benchmark-template]] for validation protocol.
+
+2. **Comparative Benchmark on Domain-Specific Tasks** → **Gap 2.2 (TIER-2)** — WirelessAgent covers "wireless tasks general" with cloud models (DeepSeek-R1, Llama3.3-70B). Gap: what performance do Llama 3.1 8B, Mistral 7B, Phi-3 Mini 3.8B, Qwen 3B achieve on 5G-specific fault injection scenarios? Unexplored in literature. Solution: complete experimentation documented in [[benchmark-template]] (3 scenarios × 4 models × 8-10 replicates = 92-120 total runs).
+
+3. **Decision Latency as Critical Dimension** → **Gap 2.3 (TIER-2)** — MultiAgentBench and Berkeley do not include latency for 5G time-sensitive tasks. Our methodology explicitly adds this metric as domain-specific dimension. Plan: Ch. 6 specifies hard (50ms) and soft (40ms) bounds per agent, with progressive analysis at [[gap-analysis]]#gap-2-3.
+
+4. **Meta-Cognitive Layer** → **Gap 3.1 (TIER-3) — Future Work** — No paper analyzed (64 from Pretel et al., 22 from Kalyani, 12 ingested so far) implements self-evaluation of cognitive cycle. It is future work aspect in all papers (CogTwin, Al-Haj Ali). Based on [[gap-analysis]] analysis, thesis declares it as **explicitly out-of-scope** in Discussion (Ch. 8) with literature justification.
+
+---
+
+## 📋 Explicit Mapping Contributions → Resolved Gaps → Wiki References
+
+| Contribution | Gap Resolved (from [[gap-analysis]]) | Literature Sources | Wiki Reference |
 |---|---|---|---|
-| **Contributo 1** — Architettura CDT per Rete Radio 5G | Gap 1.1 (Design specifico 5G), Gap 1.2 (DT Layer + KG) | Zheng 2022, Al-Haj Ali 2025, CogTwin, Hasan & Nguyen, WirelessAgent (differenziazione) | [[sources/zheng-et-al-2022-cdt]], [[comparison-matrix]] (9/9 DT properties) |
-| **Contributo 2** — Framework di Valutazione Cognitivo | Gap 1.3 (Evaluation methodology), Gap 2.1 (LLM-as-judge + GT) | MultiAgentBench 2025, Berkeley CS294, Al-Haj Ali MMCI | [[gap-analysis]]#gap-1-3, [[benchmark-template]] (protocollo completo) |
-| **Contributo 3** — Benchmark LLM Open-Source 3-8B Locali | Gap 2.2 (Quantized models evaluation), Gap 2.3 (Decision Latency) | WirelessAgent (cloud baseline), MultiAgentBench (template) | [[benchmark-template]] (3 scenario, 4 modelli, 92-120 run, 15+ metriche) |
-| **Contributo 4** — Riproducibilità Hardware Consumer M4 Pro | Gap 3.3 (Edge deployment), Gap 1.1 (No API dependency) | WirelessAgent contrasto, CogTwin architettura | [[risk-profile]] (configurazione Active Steering operazionalizzata) |
+| **Contribution 1** — CDT Architecture for 5G Radio Network | Gap 1.1 (5G-specific design), Gap 1.2 (DT Layer + KG) | Zheng 2022, Al-Haj Ali 2025, CogTwin, Hasan & Nguyen, WirelessAgent (diff) | [[sources/zheng-et-al-2022-cdt]], [[comparison-matrix]] (9/9 DT props) |
+| **Contribution 2** — Cognitive Evaluation Framework | Gap 1.3 (Eval methodology), Gap 2.1 (LLM-as-judge + GT) | MultiAgentBench 2025, Berkeley CS294, Al-Haj Ali MMCI | [[gap-analysis]]#gap-1-3, [[benchmark-template]] (full protocol) |
+| **Contribution 3** — Benchmark Open-Source 3-8B Local LLMs | Gap 2.2 (Quantized model eval), Gap 2.3 (Decision Latency) | WirelessAgent (cloud baseline), MultiAgentBench (template) | [[benchmark-template]] (3 scenarios, 4 models, 92-120 runs, 15+ metrics) |
+| **Contribution 4** — Reproducibility on M4 Pro Consumer Hardware | Gap 3.3 (Edge deployment), Gap 1.1 (No API dependency) | WirelessAgent contrast, CogTwin architecture | [[risk-profile]] (Active Steering config operationalized) |
 
 ---
 
-## ✅ Prossimi Passi — Fase Implementativa
+## ✅ Next Steps — Implementation Phase
 
-1. **Cap. 1 — Scrittura Introduzione:** Aprire con RESTART (dominio 5G) + Hasan & Nguyen (loop chiuso) + Burr et al. (Active Steering positioning)
+1. **Ch. 1 — Writing Introduction:** Open with RESTART (5G domain) + Hasan & Nguyen (closed loop) + Burr et al. (Active Steering positioning)
 
-2. **Cap. 2-3 — Background + Related Work:** Usare mapping tabella sopra per strutturare le sezioni con citazioni multi-layer per ogni contributo
+2. **Ch. 2-3 — Background + Related Work:** Use table mapping above to structure sections with multi-layer citations per contribution
 
-3. **Cap. 4-5 — Architettura + Valutazione:** Referenziare [[benchmark-template]] per dettagli operativi, [[gap-analysis]] per TIER-based classification
+3. **Ch. 4-5 — Architecture + Evaluation:** Reference [[benchmark-template]] for operational details, [[gap-analysis]] for TIER-based classification
 
-4. **Cap. 6 — Implementazione Esperimenti:** Eseguire 92-120 run del test matrix (3 scenario × 4 modelli × 8-10 replicati)
+4. **Ch. 6 — Implementation Experiments:** Run 92-120 runs of test matrix (3 scenarios × 4 models × 8-10 replicates)
 
-5. **Cap. 7 — Risultati vs. Baseline:** Confronto quantitativo con 6 paper OUT-OF-SCOPE (vedi tabella reclassificazione sotto)
+5. **Ch. 7 — Results vs. Baseline:** Quantitative comparison with 6 secondary papers (see reclassification table below)
 
-6. **Cap. 8 — Discussione:** Dichiarare meta-cognitive layer come TIER-3 future work con giustificazione da [[gap-analysis]]
+6. **Ch. 8 — Discussion:** Declare meta-cognitive layer as TIER-3 future work with literature justification from [[gap-analysis]]
 
 ---
 
-## 🔴 Reclassificazione: 6 Paper OUT-OF-SCOPE (Baseline Secondari per Cap. 7)
+## 🔴 Reclassification: 6 Papers OUT-OF-SCOPE (Secondary Baselines for Ch. 7)
 
-**Decisione:** I seguenti paper sono dichiarati esplicitamente **OUT-OF-SCOPE** per la ricerca contemporanea in questa tesi, ma rimangono validi per citazione come **Baseline di Confronto** in Cap. 7 (risultati):
+**Decision:** The following papers are explicitly declared **OUT-OF-SCOPE** for concurrent research in this thesis, but remain valid as **Comparison Baselines** in Ch. 7 (results):
 
-| Fonte | Categoria | Ruolo in Tesi Finale | Giustificazione |
+| Source | Category | Role in Final Thesis | Justification |
 |---|---|---|---|
-| **MAJ-EVAL (NeurIPS 2025)** | Baseline teorica | Citazione in Cap. 4 (Metodologia) come fondamento per LLM-as-judge multi-agente | Supporta scelta di framework, ma non drive architettura |
-| **Zhang et al. (2021)** | Baseline DRL | Comparazione quantitativa in Cap. 7 (DRL vs. LLM su RAN edge task) | Evoluzione DRL→LLM documentata, non replicabile con timeline tesi |
-| **Xu et al. (2023)** | Baseline RAN | Comparazione quantitativa in Cap. 7 (scheduling edge vs. nostro resource allocation) | Baseline calcolabile ma non core differenziatore |
-| **Latsou et al. (2023)** | Baseline MAS | Citazione in Cap. 3 (Related Work) per anomaly detection pattern | Pattern MAS puro, non LLM-augmented = già superato da letteratura |
-| **Galuzin et al. (2022)** | Baseline KG+Agent | Citazione in Cap. 2 (Background) come precursore dello stack KG+MAS | Storico, non contemporaneo; design di 5 anni fa |
-| **G-SPEC (2024/2025?)** | Baseline 5G | Integrazione nel simulatore Python per calibrazione KPI ground truth | Tecnico, non letterario; necessario ma non paper di ricerca |
+| **MAJ-EVAL (NeurIPS 2025)** | Theoretical baseline | Citation in Ch. 4 (Methodology) as foundation for multi-agent LLM-as-judge | Supports framework choice, but does not drive architecture |
+| **Zhang et al. (2021)** | DRL baseline | Quantitative comparison in Ch. 7 (DRL vs. LLM on RAN edge task) | DRL→LLM evolution documented, not replicable within thesis timeline |
+| **Xu et al. (2023)** | RAN baseline | Quantitative comparison in Ch. 7 (edge scheduling vs. our resource allocation) | Baseline computable but not core differentiator |
+| **Latsou et al. (2023)** | MAS baseline | Citation in Ch. 3 (Related Work) for anomaly detection pattern | Pure MAS pattern, not LLM-augmented = already superseded by literature |
+| **Galuzin et al. (2022)** | KG+Agent baseline | Citation in Ch. 2 (Background) as precursor to KG+MAS stack | Historical, not contemporary; 5-year-old design |
+| **G-SPEC (2024/2025?)** | 5G baseline | Integration into Python simulator for KPI ground truth calibration | Technical, not literary; necessary but not research paper |
 
-**Implicazione metodologica:**
-- I 12 paper ingested (Blocco A-E) rimangono **fondamentali** per struttura tesi, architettura e valutazione
-- I 6 paper su questa tabella rimangono **per comparazione quantitativa** in Cap. 7, non per architettura driver
-- Questa scelta è esplicitamente giustificata in Cap. 3 (Related Work gap analysis) via [[gap-analysis]] mapping
+**Methodological implication:**
+- The 12 ingested papers (Blocks A-E) remain **foundational** for thesis structure, architecture, and evaluation
+- The 6 papers in this table remain **for quantitative comparison** in Ch. 7, not for architecture driver
+- This choice is explicitly justified in Ch. 3 (Related Work gap analysis) via [[gap-analysis]] mapping
 
-**Aggiornamento log:** Reclassificazione completata il 2026-04-14; 12 primary sources + 6 secondary baselines = 18 fonti totali per tesi finale.
+**Log update:** Reclassification completed 2026-04-14; 12 primary sources + 6 secondary baselines = 18 total sources for final thesis.
 
 ---
 
-## 1. Visione d'Insieme
+## 1. Overview
 
-La letteratura analizzata copre il periodo 2022–2026 e si distribuisce su **cinque blocchi tematici distinti**, ciascuno con un ruolo preciso nella tesi. La struttura non è casuale: ogni blocco risponde a una domanda specifica che il relatore potrebbe porre, e insieme costruiscono una narrazione coerente che porta dal "cosa è un CDT" al "come si valuta un CDT su rete 5G con LLM locali".
+The analyzed literature covers the period 2022–2026 and is distributed across **five distinct thematic blocks**, each with a precise role in the thesis. The structure is not random: each block answers a specific question that the advisor might ask, and together they construct a coherent narrative that leads from "what is a CDT" to "how do you evaluate a CDT on 5G networks with local LLMs".
 
-|Blocco|Paper|Domanda che risponde|
+|Block|Papers|Question it answers|
 |---|---|---|
-|**A — Teoria CDT**|Zheng et al. 2022, Al-Haj Ali et al. 2025|Cos'è un CDT? Quali funzioni deve avere?|
-|**B — Pattern e Contesto**|RESTART, Burr 2026, Kalyani 2024, Pretel 2024|Perché nel dominio 5G? Dove si colloca il sistema nel rischio agentivo? Cosa dice la letteratura MAS+DT?|
-|**C — Blueprint Architetturale**|CogTwin IJCAI-25, Hasan & Nguyen 2026, Biju 2024|Come si costruisce concretamente? Come si struttura il closed-loop? Come si implementa su LangGraph?|
-|**D — Metodologia di Valutazione**|MultiAgentBench 2025, Berkeley CS294 2025|Come si misura un sistema multi-agent LLM?|
-|**E — Closest Prior Work**|WirelessAgent HKUST 2025|Qual è il termine di confronto diretto? In cosa differisce la nostra proposta?|
+|**A — CDT Theory**|Zheng et al. 2022, Al-Haj Ali et al. 2025|What is a CDT? Which functions must it have?|
+|**B — Pattern & Context**|RESTART, Burr 2026, Kalyani 2024, Pretel 2024|Why in 5G domain? Where does system sit in agentic risk? What does MAS+DT literature say?|
+|**C — Architectural Blueprint**|CogTwin IJCAI-25, Hasan & Nguyen 2026, Biju 2024|How do you build it concretely? How to structure closed-loop? How implement on LangGraph?|
+|**D — Evaluation Methodology**|MultiAgentBench 2025, Berkeley CS294 2025|How do you measure a multi-agent LLM system?|
+|**E — Closest Prior Work**|WirelessAgent HKUST 2025|What is the direct comparison term? How does our proposal differ?|
 
 ---
 
-## 2. Mappa per Sezioni della Tesi
+## 2. Map for Thesis Sections
 
-## Capitolo 1 — Introduzione e Motivazione del Problema
+## Chapter 1 — Introduction and Problem Motivation
 
-**Fonti primarie:** RESTART NDT, Zheng et al. (2022), Burr et al. (2026)
+**Primary sources:** RESTART NDT, Zheng et al. (2022), Burr et al. (2026)
 
-Il capitolo si apre con la constatazione che le reti 5G sono sistemi cyber-fisici troppo dinamici per essere gestiti con strumenti passivi. Il paper RESTART (2024) fornisce la giustificazione tecnica: identifica il layer AI/cognitivo come componente non opzionale degli NDT e dichiara esplicitamente che l'AI nei Digital Twin non è "a supporting tool" ma "a core driver of strategic decision-making". Questa frase è citabile direttamente come apertura motivazionale.
+The chapter opens with the finding that 5G networks are too dynamic cyber-physical systems for passive management tools. The RESTART paper (2024) provides technical justification: identifies the AI/cognitive layer as non-optional component of NDTs and explicitly states that AI in Digital Twins is not "a supporting tool" but "a core driver of strategic decision-making". This phrase is citable directly as motivational opening.
 
-Il problema fondamentale — i Digital Twin sono specchi passivi, gli agenti AI sono moduli isolati, serve chiudere il loop — è condiviso da Hasan & Nguyen (2026), che lo formalizzano con la frase "DTs are passive mirrors, AI agents are isolated reasoning modules — we need to close the loop". Usarla in apertura con doppia citazione (RESTART per il dominio 5G, Hasan & Nguyen per il paradigma CDT) rende l'introduzione solida e ben ancorata.
+The fundamental problem — Digital Twins are passive mirrors, AI agents are isolated modules, need to close the loop — is shared by Hasan & Nguyen (2026), who formalize it with the phrase "DTs are passive mirrors, AI agents are isolated reasoning modules — we need to close the loop". Using it in opening with dual citation (RESTART for 5G domain, Hasan & Nguyen for CDT paradigm) makes the introduction solid and well-anchored.
 
-La tassonomia di Burr et al. (2026) fornisce la collocazione precisa del sistema nel panorama del rischio agentivo: la configurazione **(I, T, A) — Active Steering** — agency interna (agenti LLM), tight coupling (Eclipse Ditto WebSocket), model evolution adattiva (Reasoning Agent). Questo posizionamento va dichiarato nell'introduzione perché contestualizza tutte le scelte architetturali successive in un framework riconosciuto.
+Burr et al. (2026) taxonomy provides precise positioning of system in agentic risk landscape: configuration **(I, T, A) — Active Steering** — internal agency (LLM agents), tight coupling (Eclipse Ditto WebSocket), model evolution adaptive (Reasoning Agent). This positioning must be declared in introduction because it contextualizes all successive architectural choices in a recognized framework.
 
 ---
 
-## Capitolo 2 — Background Teorico
+## Chapter 2 — Theoretical Background
 
-**Fonti primarie:** Zheng et al. (2022), Al-Haj Ali et al. (2025), CogTwin (IJCAI-25)
+**Primary sources:** Zheng et al. (2022), Al-Haj Ali et al. (2025), CogTwin (IJCAI-25)
 
-**2.1 — Cos'è un Cognitive Digital Twin**
+**2.1 — What is a Cognitive Digital Twin**
 
-La definizione operativa di CDT viene da Zheng et al. (2022): "rappresentazione digitale aumentata con capacità cognitive, semanticamente interconnessa, che evolve lungo il lifecycle". Con 196+ citazioni, è la definizione più consolidata disponibile e va usata come apertura formale del Background senza doverla reinventare.
+The operational definition of CDT comes from Zheng et al. (2022): "digital representation augmented with cognitive capabilities, semantically interconnected, evolving throughout its lifecycle". With 196+ citations, it is the most consolidated definition available and should be used as the formal opening of the Background without reinventing it.
 
-Zheng et al. identificano cinque caratteristiche fondamentali di un CDT: _cognitive capability, full lifecycle management, autonomy, continuous evolving_ e _DT-based design_. Ogni scelta architetturale della tesi deriva direttamente da questi requisiti — è il "cosa" del CDT. Lo stesso paper identifica il Knowledge Graph come **tecnologia abilitante mandatoria** per la cognizione nei CDT: questo è il fondamento teorico di Neo4j, non una scelta implementativa arbitraria.
+Zheng et al. identify five fundamental characteristics of a CDT: _cognitive capability, full lifecycle management, autonomy, continuous evolving_, and _DT-based design_. Every architectural choice in the thesis derives directly from these requirements — it is the "what" of the CDT. The same paper identifies the Knowledge Graph as an **essential enabling technology** for cognition in CDTs: this is the theoretical foundation for Neo4j, not an arbitrary implementation choice.
 
-**2.2 — Le Sei Funzioni Cognitive**
+**2.2 — The Six Cognitive Functions**
 
-Al-Haj Ali et al. (2025) formalizza le sei funzioni cognitive target e introduce il framework MMCI (Multi-Modal Cognitive Interoperability) per valutarle. Le funzioni — percezione, attenzione, memoria, ragionamento, problem-solving, learning — mappano 1:1 sui quattro agenti della pipeline:
+Al-Haj Ali et al. (2025) formalizes the six target cognitive functions and introduces the MMCI framework (Multi-Modal Cognitive Interoperability) to evaluate them. The functions — perception, attention, memory, reasoning, problem-solving, learning — map 1:1 to the four agents in the pipeline:
 
-|Funzione CDT|Agente|Fonte primaria|Fonte operativa|
+|CDT Function|Agent|Primary Source|Operational Source|
 |---|---|---|---|
-|Percezione|Perception Agent|Zheng et al. 2022|Al-Haj Ali 2025|
-|Ragionamento|Reasoning Agent|Zheng et al. 2022|Al-Haj Ali 2025|
+|Perception|Perception Agent|Zheng et al. 2022|Al-Haj Ali 2025|
+|Reasoning|Reasoning Agent|Zheng et al. 2022|Al-Haj Ali 2025|
 |Problem-solving|Planning Agent|Zheng et al. 2022|Al-Haj Ali 2025|
-|Memoria|Neo4j KG + Ditto history|Zheng et al. 2022|CogTwin DKR/DIKG|
-|Learning|Benchmark LLM comparativo|Zheng et al. 2022|CogTwin F&L Loop|
-|Attenzione|Anomaly detection nel ciclo|Zheng et al. 2022|Al-Haj Ali 2025|
+|Memory|Neo4j KG + Ditto history|Zheng et al. 2022|CogTwin DKR/DIKG|
+|Learning|Comparative LLM benchmark|Zheng et al. 2022|CogTwin F&L Loop|
+|Attention|Anomaly detection in cycle|Zheng et al. 2022|Al-Haj Ali 2025|
 
-Questo mapping va presentato come tabella nel Background: dimostra che l'architettura non è casuale ma derivata dalla letteratura consolidata. Ogni funzione ha due citazioni indipendenti su due layer distinti — praticamente inattaccabile.
+This mapping should be presented as a table in the Background: it demonstrates that the architecture is not random but derived from consolidated literature. Each function has two independent citations across two distinct layers — practically unassailable.
 
-**2.3 — Il Blueprint Architetturale**
+**2.3 — The Architectural Blueprint**
 
-CogTwin (Mandal & O'Connor, IJCAI-25) è il riferimento architetturale principale. Propone una struttura cognitiva ibrida con Dual Knowledge Graph (DKR statico + DIKG dinamico) e un ciclo cognitivo in sei fasi che mappa quasi perfettamente sulla pipeline LangGraph. La scelta di Neo4j come knowledge graph non è solo teoricamente motivata (Zheng et al.) ma architetturalmente validata da un paper IJCAI-25 con struttura simile.
+CogTwin (Mandal & O'Connor, IJCAI-25) is the primary architectural reference. It proposes a hybrid cognitive structure with Dual Knowledge Graph (static DKR + dynamic DIKG) and a six-phase cognitive cycle that maps almost perfectly onto the LangGraph pipeline. The choice of Neo4j as knowledge graph is not only theoretically motivated (Zheng et al.) but architecturally validated by an IJCAI-25 paper with similar structure.
 
-La differenza chiave rispetto a CogTwin: CogTwin usa ontologie OWL + reasoner simbolici, la tesi usa LLM + KG ibrido. Questo trade-off — flessibilità e linguaggio naturale a costo di verificabilità formale ridotta — va dichiarato proattivamente nel Background come scelta consapevole, non come limite. Il framework di valutazione è precisamente ciò che compensa questa riduzione di verificabilità formale.
+The key difference from CogTwin: CogTwin uses OWL ontologies + symbolic reasoners; the thesis uses LLM + hybrid KG. This trade-off — flexibility and natural language at the cost of reduced formal verifiability — should be declared proactively in the Background as a conscious choice, not as a limitation. The evaluation framework is precisely what compensates for this reduction in formal verifiability.
 
 ---
 
-## Capitolo 2 — Related Work
+## Chapter 3 — Related Work
 
-**Fonti primarie:** Kalyani & Collier ACM 2024, Pretel et al. IST 2024, Hasan & Nguyen 2026, WirelessAgent 2025, Biju 2024
+**Primary sources:** Kalyani & Collier ACM 2024, Pretel et al. IST 2024, Hasan & Nguyen 2026, WirelessAgent 2025, Biju 2024
 
-**2.4 — MAS e Digital Twin: Stato dell'Arte**
+**3.1 — MAS and Digital Twin: State of the Art**
 
-Pretel et al. (Information and Software Technology, 2024) è la SLR più ampia disponibile: 64 paper analizzati (filtrati da 220). Fornisce due contributi fondamentali per il Related Work.
+Pretel et al. (Information and Software Technology, 2024) is the broadest available SLR: 64 papers analyzed (filtered from 220). It provides two fundamental contributions for the Related Work.
 
-Primo: dimostra empiricamente che quasi nessun paper del corpus implementa bidirezionalità reale — la maggioranza costruisce _digital shadows_, non veri Digital Twin. Eclipse Ditto nella nostra architettura garantisce la proprietà DT3 (Entanglement forte), presente in pochissimi paper. La frase da scrivere: _"La proposta si distingue dalla maggioranza dei lavori analizzati in Pretel et al. (2024), che implementano digital shadows. Il presente CDT realizza la bidirezionalità completa tramite Eclipse Ditto."_
+First: it empirically demonstrates that almost no paper in the corpus implements true bidirectionality — the majority constructs _digital shadows_, not true Digital Twins. Eclipse Ditto in our architecture guarantees the DT3 property (Strong Entanglement), present in very few papers. The sentence to write: _"The proposal distinguishes itself from the majority of works analyzed in Pretel et al. (2024), which implement digital shadows. The present CDT realizes complete bidirectionality via Eclipse Ditto."_
 
-Secondo: la checklist delle 12 proprietà DT fornisce una griglia di confronto quantificabile. Il sistema copre 7/12 proprietà — superiore alla media dell'intera letteratura analizzata. Le tre proprietà rare coperte (DT3 Entanglement, DT8 Accountability, DT9 Augmentation) sono esattamente quelle che distinguono un CDT da un sistema di monitoraggio.
+Second: the checklist of 12 DT properties provides a quantifiable comparison grid. The system covers 7/12 properties — superior to the average of the entire analyzed literature. The three rare properties covered (DT3 Entanglement, DT8 Accountability, DT9 Augmentation) are exactly those that distinguish a CDT from a monitoring system.
 
-Kalyani & Collier (ACM Computing Surveys, Nov 2024) copre 22 paper con un approccio complementare. Valida il design a 3 layer (Physical → DT → Cognitive) come standard de facto, e conferma che KG e ontologie come backbone per il decision-making degli agenti è un pattern legittimo e documentato. Nessuno dei 22 paper usa LLM come layer cognitivo né applica MAS+DT al dominio 5G — gap esplicito dichiarato dagli autori come future work.
+Kalyani & Collier (ACM Computing Surveys, Nov 2024) covers 22 papers with a complementary approach. It validates the 3-layer design (Physical → DT → Cognitive) as de facto standard and confirms that KG and ontologies as backbone for agent decision-making is a legitimate and documented pattern. None of the 22 papers uses LLM as cognitive layer nor applies MAS+DT to the 5G domain — explicit gap declared by the authors as future work.
 
-Pretel et al. introduce anche la classificazione in due pattern mutuamente esclusivi: _MAS with DT_ (agenti che usano il DT come sensore) e _MAS for DT_ (MAS che costruisce l'architettura del DT). La nostra tesi implementa **entrambi simultaneamente** — nessuno dei 64 paper analizzati ha questo dual pattern. È un contributo di design originale documentabile con una citazione diretta.
+Pretel et al. also introduces the classification of two mutually exclusive patterns: _MAS with DT_ (agents that use the DT as sensor) and _MAS for DT_ (MAS that constructs DT architecture). Our thesis implements **both simultaneously** — none of the 64 papers analyzed has this dual pattern. It is a documentable original design contribution with a direct citation.
 
-**2.5 — Agentic AI e Digital Twin: Sistemi Contemporanei**
+**3.2 — Agentic AI and Digital Twin: Contemporary Systems**
 
-Hasan & Nguyen (Elsevier Array, febbraio 2026) è il paper contemporaneo più vicino strutturalmente. Propone un'architettura a sei layer (Multimodal Perception → Knowledge & Data → Reasoning & Learning → Decision-Making → Action & Execution → Feedback & Adaptation) applicata a un grid energetico. I sei layer mappano quasi perfettamente i quattro agenti della nostra pipeline. Questo significa che l'architettura è teoricamente giustificata da letteratura peer-reviewed del 2026.
+Hasan & Nguyen (Elsevier Array, February 2026) is the structurally closest contemporary paper. It proposes a six-layer architecture (Multimodal Perception → Knowledge & Data → Reasoning & Learning → Decision-Making → Action & Execution → Feedback & Adaptation) applied to an energy grid. The six layers map almost perfectly onto the four agents in our pipeline. This means the architecture is theoretically justified by peer-reviewed literature from 2026.
 
-Il differenziante rispetto a Hasan & Nguyen su tre assi precisi:
+The differentiator against Hasan & Nguyen on three precise axes:
 
-|Dimensione|Hasan & Nguyen|Tesi|
+|Dimension|Hasan & Nguyen|Thesis|
 |---|---|---|
-|Knowledge Graph|❌ assente (usa LP + RFR)|✅ Neo4j con vincoli 3GPP|
-|Valutazione agenti|❌ solo convergence time|✅ framework multi-dimensionale|
-|Dominio + hardware|❌ grid energetico, cloud|✅ RAN 5G, M4 Pro locale|
-|Benchmark multi-modello|❌ nessun confronto LLM|✅ Llama/Mistral/Phi-3/Qwen|
+|Knowledge Graph|❌ absent (uses LP + RFR)|✅ Neo4j with 3GPP constraints|
+|Agent Evaluation|❌ convergence time only|✅ multi-dimensional framework|
+|Domain + Hardware|❌ energy grid, cloud|✅ 5G RAN, local M4 Pro|
+|Multi-Model Benchmark|❌ no LLM comparison|✅ Llama/Mistral/Phi-3/Qwen|
 
-**2.6 — Closest Prior Work: WirelessAgent**
+**3.3 — Closest Prior Work: WirelessAgent**
 
-WirelessAgent (Tong et al., HKUST, arXiv 2025) è il termine di confronto diretto della tesi — l'unico paper che combina contemporaneamente LangGraph, agenti specializzati, e dominio 5G. Dimostra empiricamente che il pattern multi-agente LangGraph riesce a gestire task 5G complessi con +44.4% rispetto al prompt engineering diretto e -4.3% rispetto all'ottimo rule-based.
+WirelessAgent (Tong et al., HKUST, arXiv 2025) is the direct comparison term for the thesis — the only paper that simultaneously combines LangGraph, specialized agents, and 5G domain. It empirically demonstrates that the multi-agent LangGraph pattern can handle complex 5G tasks with +44.4% vs. direct prompt engineering and -4.3% vs. optimal rule-based.
 
-Il confronto con WirelessAgent è la sezione di Related Work più importante: è l'unico confronto quantitativo possibile. I loro modelli cloud (DeepSeek-R1, Llama3.3-70B) rappresentano l'upper bound di performance API. Il loro Llama3-8b (60.96% BW utilization) è il lower bound diretto — lo stesso range di modelli che usiamo noi, eseguito però su cloud. La domanda che la nostra tesi aggiunge: _"Quanto cognitive capability si riesce a ottenere da modelli 3-8B open-weight eseguiti localmente, in un'architettura CDT completa con DT Layer e Knowledge Graph, su task 5G con fault injection controllata?"_
+Comparison with WirelessAgent is the most important Related Work section: it is the only quantitative comparison possible. Their cloud models (DeepSeek-R1, Llama3.3-70B) represent the upper bound of API performance. Their Llama3-8b (60.96% BW utilization) is the direct lower bound — the same range of models we use, but executed on cloud. The question our thesis adds: _"How much cognitive capability can be extracted from 3-8B open-weight models executed locally, in a complete CDT architecture with DT Layer and Knowledge Graph, on 5G tasks with controlled fault injection?"_
 
-Tre assenze in WirelessAgent che costituiscono i nostri contributi: (1) nessun Digital Twin Layer — lo stato vive solo nel global state volatile di LangGraph; (2) nessun Knowledge Graph strutturato — usano RAG flat su vector store; (3) nessuna valutazione del ragionamento intermedio — solo intent accuracy sull'output finale, esplicitamente indicato come future work.
+Three absences in WirelessAgent that constitute our contributions: (1) no Digital Twin Layer — state lives only in LangGraph's volatile global state; (2) no structured Knowledge Graph — they use flat RAG on vector store; (3) no evaluation of intermediate reasoning — only intent accuracy on final output, explicitly marked as future work.
 
-**2.7 — LangGraph come Framework di Orchestrazione**
+**3.4 — LangGraph as Orchestration Framework**
 
-Biju (2024) è il riferimento implementativo per il pattern Supervisor+Agenti Specializzati su LangGraph. Valida la topologia con metriche baseline (accuracy 92-98%, latenza 2-4s su task isolati, stesso stack StateGraph) e fornisce la giustificazione documentata della scelta tecnologica. La risposta alla domanda del relatore "perché LangGraph e non AutoGen o CrewAI?" si compone di tre livelli: WirelessAgent (funziona su task 5G reali), MultiAgentBench (graph-mesh supera star su performance e token efficiency), Biju (pattern documentato e riproducibile).
+Biju (2024) is the implementation reference for the Supervisor+Specialized Agents pattern on LangGraph. It validates the topology with baseline metrics (accuracy 92-98%, latency 2-4s on isolated tasks, same StateGraph stack) and provides documented justification for the technology choice. The answer to the advisor's question "why LangGraph and not AutoGen or CrewAI?" is composed of three levels: WirelessAgent (works on real 5G tasks), MultiAgentBench (graph-mesh outperforms star on performance and token efficiency), Biju (documented and reproducible pattern).
 
-_Nota tecnica per l'implementazione: il codice nel paper è pseudocode, non funzionante — la fonte autorevole per l'implementazione è la documentazione ufficiale LangGraph._
-
----
-
-## Capitolo 3 — Architettura del Sistema
-
-**Fonti primarie:** CogTwin, Hasan & Nguyen, Burr et al., Zheng et al.
-
-La sezione di Design può aprire con la mappatura esplicita tra l'architettura proposta e i layer teorici della letteratura:
-
-**Il modello a 5 layer funzionali di Zheng et al.** (Physical Entities → Data Ingestion → Model Management → Service Management → Twin Management) è quasi identico ai 3 livelli della nostra architettura — la nostra è una specializzazione applicativa dell'architettura di riferimento proposta nel paper, adattata al dominio 5G.
-
-**Il Dual-KG di CogTwin** (DKR statico + DIKG dinamico) si mappa sul nostro Neo4j: il DKR corrisponde ai vincoli operativi 3GPP permanenti, il DIKG corrisponde allo stato storico delle anomalie e delle azioni correttive. Eclipse Ditto funge da layer di sincronizzazione tra il gemello digitale e il grafo dinamico.
-
-**Neo4j ha ora tre giustificazioni indipendenti** da tre layer distinti, che vanno dichiarate esplicitamente nel Design:
-
-1. Tecnologia abilitante mandatoria per la cognizione nei CDT (Zheng et al., 2022)
-    
-2. Pattern Dual-KG per separare knowledge stabile da dinamica (CogTwin, 2025)
-    
-3. Guardrail architetturale contro la deriva verso la configurazione Governor (Burr et al., 2026)
-    
-
-**Il concetto di DT come Decision Sandbox** (Hasan & Nguyen) si applica su due livelli nel nostro sistema: Eclipse Ditto come sandbox di stato (valida le percezioni contro uno stato ordinato temporalmente) e Neo4j come sandbox di vincoli (valida le azioni contro i vincoli 3GPP prima dell'esecuzione). Due sandbox distinte per due tipi di validazione diversa — pattern architetturale originale con citazione diretta.
+_Implementation note: the code in the paper is pseudocode, not functional — the authoritative source for implementation is the official LangGraph documentation._
 
 ---
 
-## Capitolo 4 — Metodologia di Valutazione
+## Chapter 4 — System Architecture
 
-**Fonti primarie:** MultiAgentBench (Zhu et al., 2025), Berkeley CS294 2025, WirelessAgent (per il gap), Al-Haj Ali et al. (per MMCI)
+**Primary sources:** CogTwin, Hasan & Nguyen, Burr et al., Zheng et al.
 
-Questa è la sezione più originale della tesi — il contributo scientifico principale che colma un gap documentato da 12 fonti indipendenti e assente in almeno 71 paper (7 espliciti + 64 nel corpus di Pretel et al.).
+The Design section can open with explicit mapping between the proposed architecture and the theoretical layers in the literature:
 
-**Il Framework a Tre Assi**
+**The 5-layer functional model of Zheng et al.** (Physical Entities → Data Ingestion → Model Management → Service Management → Twin Management) is almost identical to our 3 layers — ours is an application-specific specialization of the reference architecture proposed in the paper, adapted to the 5G domain.
 
-L'architettura di valutazione si costruisce incrociando MultiAgentBench (struttura metrica) con il video Berkeley CS294 (operatività per agente):
+**The Dual-KG of CogTwin** (static DKR + dynamic DIKG) maps onto our Neo4j: the DKR corresponds to permanent 3GPP operational constraints, the DIKG corresponds to historical state of anomalies and corrective actions. Eclipse Ditto serves as the synchronization layer between the digital twin and the dynamic graph.
 
-_Asse 1 — Capability:_ quanto è bravo l'agente a usare i tool (API Ditto, query Neo4j)? Valutazione rule-based, ground truth esplicita.
+**Neo4j now has three independent justifications** from three distinct layers, which should be declared explicitly in the Design:
 
-_Asse 2 — Reasoning Process:_ la catena Percezione→Ragionamento→Pianificazione→Comunicazione mantiene coerenza del contesto? Separazione tra Task Score e Coordination Score (da MultiAgentBench).
+1. Mandatory enabling technology for cognition in CDTs (Zheng et al., 2022)
+    
+2. Dual-KG pattern for separating stable from dynamic knowledge (CogTwin, 2025)
+    
+3. Architectural guardrail against drift toward Governor configuration (Burr et al., 2026)
+    
 
-_Asse 3 — Outcome Validity:_ i KPI 5G migliorano dopo l'intervento dell'agente? RSRP/SINR/throughput recuperati sopra soglia nel simulatore — metrica finale verificabile indipendentemente da qualsiasi LLM nel loop.
+**The concept of DT as Decision Sandbox** (Hasan & Nguyen) applies on two levels in our system: Eclipse Ditto as state sandbox (validates perceptions against temporally ordered state) and Neo4j as constraint sandbox (validates actions against 3GPP constraints pre-execution). Two distinct sandboxes for two different validation types — original architectural pattern with direct citation.
 
-**La Distinzione Verificabile/Non-Verificabile (da Berkeley CS294)**
+---
 
-|Agente|Tipo task|Metodo valutazione|Ground truth|
+## Chapter 5 — Evaluation Methodology
+
+**Primary sources:** MultiAgentBench (Zhu et al., 2025), Berkeley CS294 2025, WirelessAgent (for the gap), Al-Haj Ali et al. (for MMCI)
+
+This is the most original section of the thesis — the main scientific contribution that fills a gap documented by 12 independent sources and absent in at least 71 papers (7 explicit + 64 in Pretel et al.'s corpus).
+
+**The Three-Axis Framework**
+
+The evaluation architecture is built by crossing MultiAgentBench (metric structure) with Berkeley CS294 video (per-agent operationality):
+
+_Axis 1 — Capability:_ how good is the agent at using tools (Ditto API, Neo4j queries)? Rule-based evaluation, explicit ground truth.
+
+_Axis 2 — Reasoning Process:_ does the Perception→Reasoning→Planning→Communication chain maintain context coherence? Separation between Task Score and Coordination Score (from MultiAgentBench).
+
+_Axis 3 — Outcome Validity:_ do 5G KPIs improve after agent intervention? RSRP/SINR/throughput recovered above threshold in simulator — final metric verifiable independently of any LLM in the loop.
+
+**The Verifiable/Non-Verifiable Distinction (from Berkeley CS294)**
+
+|Agent|Task Type|Evaluation Method|Ground Truth|
 |---|---|---|---|
-|Perception Agent|Verificabile|Rule-based / threshold|Simulatore Python|
-|Planning Agent|Verificabile|Pass/Fail — vincoli KG|Neo4j 3GPP|
-|Reasoning Agent|Non-verificabile|LLM-as-judge (modello più grande)|Nessuna|
-|Communication Agent|Non-verificabile|LLM-as-judge + multi-model agreement|Nessuna|
+|Perception Agent|Verifiable|Rule-based / threshold|Python Simulator|
+|Planning Agent|Verifiable|Pass/Fail — KG constraints|Neo4j 3GPP|
+|Reasoning Agent|Non-verifiable|LLM-as-judge (larger model)|None|
+|Communication Agent|Non-verifiable|LLM-as-judge + multi-model agreement|None|
 
-Questa distinzione è **metodologicamente più robusta di MultiAgentBench stesso**: Zhu et al. usano LLM-as-judge per tutti gli assi (incluso Planning e Coordination Score) e ammettono il rischio di autoreferenzialità. La nostra proposta usa LLM-as-judge _solo dove non ha alternativa_, affiancando sempre una ground truth esterna dove disponibile.
+This distinction is **methodologically more robust than MultiAgentBench itself**: Zhu et al. use LLM-as-judge for all axes (including Planning and Coordination Score) and acknowledge the risk of self-referentiality. Our proposal uses LLM-as-judge _only where there is no alternative_, always pairing external ground truth where available.
 
-**Il Problema Contamination È Risolto per Costruzione**
+**The Contamination Problem is Solved by Construction**
 
-Il video Berkeley segnala il rischio di data contamination nei benchmark statici. I nostri fault injection scenarios sono generati dinamicamente dal simulatore con parametri variabili — non esistono in nessun dataset pubblico su cui i modelli LLM sono stati addestrati. La contamination è strutturalmente impossibile.
+The Berkeley video flags risk of data contamination in static benchmarks. Our fault injection scenarios are dynamically generated from the simulator with variable parameters — they do not exist in any public dataset on which LLM models have been trained. Contamination is structurally impossible.
 
-**La Metrica di Decision Latency**
+**The Decision Latency Metric**
 
-Il video Berkeley ammette che la latenza è secondaria in contesti generici. Nel dominio 5G è critica — nessun benchmark di agenti cognitivi esistente include questa dimensione. La nostra metodologia introduce Decision Latency come metrica aggiuntiva domain-specific: è un contributo che emerge dall'applicazione al dominio telco e non dall'astrazione metodologica.
+The Berkeley video acknowledges latency is secondary in generic contexts. In 5G domain it is critical — no existing cognitive agent benchmark includes this dimension. Our methodology introduces Decision Latency as additional domain-specific metric: it is a contribution that emerges from application to telecom domain, not from methodological abstraction.
 
-**Il Benchmark Comparativo dei Modelli Locali**
+**The Comparative Benchmark of Local Models**
 
-WirelessAgent testa modelli cloud (DeepSeek-R1, Llama3.3-70B, ecc.). La nostra tesi testa Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B — tutti locali su M4 Pro. Il template sperimentale viene da MultiAgentBench: stessa pipeline, stesso evaluator, modelli diversi, scenari fissi. Il contributo aggiuntivo è che i task sono costruiti attorno a fault injection scenarios verificabili con ground truth da simulatore — nessuno dei due paper combina queste caratteristiche insieme.
-
----
-
-## Capitolo 5 — Discussione, Limiti e Sviluppi Futuri
-
-**Fonti primarie:** Burr et al. (2026), Al-Haj Ali et al. (2025), CogTwin, WirelessAgent
-
-**Rischi da dichiarare proattivamente**
-
-Il rischio di _performative prediction_ (Burr et al., 2026; Perdomo et al., ICML 2020): ogni azione correttiva del Planning Agent modifica la distribuzione delle metriche che il Perception Agent osserverà al ciclo successivo. Il sistema potrebbe convergere su una soluzione "apparentemente ottimale" solo perché ha riscritto le condizioni di osservazione. La fault injection controllata è progettata specificamente per rilevare questa convergenza patologica.
-
-Il trade-off symbolic/LLM (Zheng et al., CogTwin, Al-Haj Ali): la sostituzione del reasoning simbolico (OWL + reasoner) con LLM locali guadagna flessibilità e linguaggio naturale a costo di verificabilità formale ridotta. Il KG Neo4j con vincoli 3GPP è il meccanismo che compensa parzialmente questa perdita — ma non la elimina. Va dichiarato come limite consapevole.
-
-**Sviluppi futuri con ancoraggi nella letteratura**
-
-- _Meta-Cognitive Layer_ — nessun paper analizzato implementa auto-valutazione del ciclo cognitivo. CogTwin lo nomina come future work, Al-Haj Ali lo formalizza teoricamente. È il gap più sofisticato da dichiarare.
-    
-- _Distributed Cognition / MAS multi-cella_ — CogTwin menziona più istanze collaborative; nel contesto 5G diventa coordinamento tra gNB multipli. Future work credibile con fondamento nella letteratura.
-    
-- _Fine-tuning domain-specific_ — WirelessAgent lo suggerisce ma non lo dimostra. È lo sviluppo naturale dopo la fase di benchmark con modelli general-purpose.
-    
-- _Traiettoria verso Governor (I,C,A)_ — Burr et al. descrive il percorso evolutivo da Active Steering verso configurazioni più autonome e i requisiti di governance necessari. Future work formalizzabile con citazione diretta.
-    
+WirelessAgent tests cloud models (DeepSeek-R1, Llama3.3-70B, etc.). Our thesis tests Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B — all local on M4 Pro. The experimental template comes from MultiAgentBench: same pipeline, same evaluator, different models, fixed scenarios. The additional contribution is that tasks are constructed around fault injection scenarios verifiable with ground truth from the simulator — neither of the two papers combines these characteristics together.
 
 ---
 
-## 3. I Quattro Contributi e la Loro Copertura Letteraria
+## Chapter 8 — Discussion, Limitations and Future Work
 
-## Contributo 1 — Architettura CDT per Rete Radio 5G
+**Primary sources:** Burr et al. (2026), Al-Haj Ali et al. (2025), CogTwin, WirelessAgent
 
-**Giustificazione teorica:** Zheng et al. (2022) + Al-Haj Ali (2025)  
+**Risks to Declare Proactively**
+
+The risk of _performative prediction_ (Burr et al., 2026; Perdomo et al., ICML 2020): every corrective action by the Planning Agent modifies the distribution of metrics that the Perception Agent will observe in the next cycle. The system could converge on an "apparently optimal" solution only because it rewrote the observation conditions. Controlled fault injection is specifically designed to detect this pathological convergence.
+
+The symbolic/LLM trade-off (Zheng et al., CogTwin, Al-Haj Ali): replacing symbolic reasoning (OWL + reasoner) with local LLMs gains flexibility and natural language at the cost of reduced formal verifiability. The Neo4j KG with 3GPP constraints is the mechanism that partially compensates for this loss — but does not eliminate it. It should be declared as a conscious limitation.
+
+**Future Developments with Literary Anchors**
+
+- _Meta-Cognitive Layer_ — no analyzed paper implements self-evaluation of the cognitive cycle. CogTwin names it as future work, Al-Haj Ali formalizes it theoretically. It is the most sophisticated gap to declare.
+    
+- _Distributed Cognition / Multi-Cell MAS_ — CogTwin mentions multiple collaborative instances; in 5G context it becomes coordination between multiple gNBs. Credible future work with foundation in literature.
+    
+- _Domain-Specific Fine-tuning_ — WirelessAgent suggests it but does not demonstrate it. It is the natural development after the benchmark phase with general-purpose models.
+    
+- _Trajectory toward Governor (I,C,A)_ — Burr et al. describes the evolutionary path from Active Steering toward more autonomous configurations and the necessary governance requirements. Future work formalizable with direct citation.
+    
+
+---
+
+## 3. The Four Contributions and Their Literary Coverage
+
+### Contribution 1 — CDT Architecture for 5G Radio Network
+
+**Theoretical justification:** Zheng et al. (2022) + Al-Haj Ali (2025)  
 **Blueprint:** CogTwin + Hasan & Nguyen  
-**Posizionamento:** Burr et al. (configurazione Active Steering I,T,A)  
-**Differenziazione:** WirelessAgent (manca DT Layer + KG strutturato)  
-**Evidenza che il dominio è inesplorato:** Kalyani & Collier + Pretel et al. (zero paper 5G su 86 analizzati)
+**Positioning:** Burr et al. (Active Steering I,T,A configuration)  
+**Differentiation:** WirelessAgent (missing DT Layer + structured KG)  
+**Evidence that domain is unexplored:** Kalyani & Collier + Pretel et al. (zero 5G papers of 86 analyzed)
 
-## Contributo 2 — Framework di Valutazione per Agenti Cognitivi
+### Contribution 2 — Cognitive Evaluation Framework for Agents
 
-**Gap documentato da:** 12 fonti, assente in 71+ paper  
-**Template metodologico:** MultiAgentBench (Zhu et al., 2025)  
-**Operatività per agente:** Berkeley CS294 (2025)  
-**Superamento di MultiAgentBench:** ibrido LLM-as-judge + ground truth esterna  
-**Metrica originale:** Decision Latency (assente in tutta la letteratura analizzata)  
-**Metrica finale:** Outcome Validity (KPI 5G nel simulatore — indipendente da LLM)
+**Gap documented by:** 12 sources, absent in 71+ papers  
+**Methodological template:** MultiAgentBench (Zhu et al., 2025)  
+**Per-agent operationality:** Berkeley CS294 (2025)  
+**Beyond MultiAgentBench:** hybrid LLM-as-judge + external ground truth  
+**Original metric:** Decision Latency (absent from all analyzed literature)  
+**Final metric:** Outcome Validity (5G KPIs in simulator — independent of LLM)
 
-## Contributo 3 — Benchmark Comparativo LLM Open-Source Locali
+### Contribution 3 — Comparative Benchmark of Open-Source Local LLMs
 
-**Template sperimentale:** MultiAgentBench (stessa pipeline, modelli diversi, scenari fissi)  
-**Spazio non coperto:** WirelessAgent (copre solo modelli cloud ≥ 70B; Llama3-8b è il loro modello più debole)  
-**Lower bound di riferimento:** WirelessAgent Llama3-8b = 60.96% BW utilization  
-**Domanda di ricerca:** quanto cognitive capability è estraibile da modelli 3-8B locali in architettura CDT completa su task 5G?
+**Experimental template:** MultiAgentBench (same pipeline, different models, fixed scenarios)  
+**Uncovered space:** WirelessAgent (covers only cloud models ≥ 70B; Llama3-8b is their weakest)  
+**Reference lower bound:** WirelessAgent Llama3-8b = 60.96% BW utilization  
+**Research question:** how much cognitive capability can be extracted from 3-8B local models in complete CDT architecture on 5G tasks?
 
-## Contributo 4 — Riproducibilità su Hardware Consumer
+### Contribution 4 — Reproducibility on Consumer Hardware
 
-**Motivazione:** nessun paper analizzato testa LLM in configurazione fully local su hardware non-enterprise  
-**Contesto:** WirelessAgent usa API cloud; Hasan & Nguyen usa cloud; CogTwin non specifica  
-**Implicazione pratica:** deployment edge-side su gNB reali senza dipendenza da API esterne
-
----
-
-## 4. La Risposta ai Professori per Ogni Domanda Probabile
-
-**"Come si colloca il tuo sistema nel panorama dei CDT?"**
-
-> _"Il CDT proposto implementa le cinque caratteristiche fondamentali identificate da Zheng et al. (2022) e le sei funzioni cognitive formalizzate da Al-Haj Ali et al. (2025). Secondo la tassonomia di Burr et al. (2026), si colloca nella configurazione Active Steering (I,T,A): agency interna, tight coupling real-time, model evolution adattiva."_
-
-**"Perché Neo4j?"**
-
-> _"Neo4j è giustificato da tre layer distinti della letteratura: come tecnologia abilitante per la cognizione nei CDT (Zheng et al., 2022), come pattern Dual-KG per separare knowledge stabile da dinamica (CogTwin, 2025), e come guardrail architetturale contro la deriva verso la configurazione Governor — dove il sistema ottimizza metriche ridefinite invece delle metriche 3GPP standard (Burr et al., 2026)."_
-
-**"Come validi gli agenti LLM?"**
-
-> _"Il framework di valutazione adotta la struttura milestone-based di MultiAgentBench (Zhu et al., 2025), estesa con la distinzione verificabile/non-verificabile del Berkeley CS294 (2025). Per Perception e Planning Agent uso ground truth esterna (simulatore e KG Neo4j); per Reasoning e Communication uso LLM-as-judge solo dove non ho alternativa. La metrica finale è l'Outcome Validity: recupero dei KPI 5G nel simulatore, indipendente da qualsiasi LLM nel loop di valutazione. È una valutazione metodologicamente più robusta di WirelessAgent (2025), che misura solo l'output finale senza valutare il ragionamento intermedio."_
-
-**"Qual è il lavoro più vicino al tuo e come ti differenzi?"**
-
-> _"WirelessAgent (Tong et al., HKUST 2025) condivide dominio 5G e architettura LangGraph. Li superiamo su tre punti: (1) aggiungiamo un Digital Twin Layer via Eclipse Ditto per stato persistente e ordinato temporalmente, assente in WirelessAgent; (2) sostituiamo il RAG flat con un Knowledge Graph strutturato che verifica deterministicamente i vincoli 3GPP; (3) affrontiamo esplicitamente la valutazione del reasoning intermedio, che WirelessAgent dichiara come future work."_
-
-**"Quali sono i limiti del tuo approccio?"**
-
-> _"Il principale è il trade-off tra flessibilità e verificabilità formale: sostituire il reasoning simbolico OWL+reasoner con LLM locali guadagna adattabilità a scenari di anomalia nuovi, ma riduce la verificabilità formale delle inferenze. Il Knowledge Graph Neo4j con vincoli 3GPP compensa parzialmente questa perdita, ma non la elimina. Inoltre, il rischio di performative prediction (Burr et al., 2026) — convergenza su soluzioni apparentemente ottimali perché il sistema ha modificato le condizioni di osservazione — è reale e mitigato dalla fault injection controllata ma non eliminabile strutturalmente."_
+**Motivation:** no analyzed paper tests LLM in fully local configuration on non-enterprise hardware  
+**Context:** WirelessAgent uses cloud API; Hasan & Nguyen uses cloud; CogTwin does not specify  
+**Practical implication:** edge-side deployment on real gNBs without external API dependency
 
 ---
 
-## 5. Cosa Manca Ancora (Segnalato ma Non Ancora Analizzato)
+## 4. Answers to Professors for Every Probable Question
 
-| Fonte                       | Blocco target    | Motivo                                                                                 |
-| --------------------------- | ---------------- | -------------------------------------------------------------------------------------- |
-| **MAJ-EVAL (NeurIPS 2025)** | Blocco D         | Fondamento teorico specifico per LLM-as-judge multi-agente — completerebbe il Blocco D |
-| **Zhang et al. (2021)**     | Baseline tecnica | DT + multi-agent DRL per vehicular edge computing — evoluzione DRL→LLM                 |
-| **Xu et al. (2023)**        | Baseline tecnica | DT-driven scheduling edge computing — analogo al resource allocation RAN               |
-| **Latsou et al. (2023)**    | Baseline tecnica | Anomaly detection + bottleneck ID con MAS classico — baseline per Reasoning Agent      |
-| **Galuzin et al. (2022)**   | Baseline tecnica | KG + agenti per decision-making real-time — precursore diretto dello stack             |
-| **G-SPEC**                  | Baseline tecnica | Baseline specifica 5G per calibrazione simulatore                                      |
+**"How does your system position itself in the CDT landscape?"**
 
-Questi sei paper vanno integrati come _baseline da citare e superare_ nel capitolo di confronto — non richiedono analisi approfondita, ma una citazione contestualizzata per mostrare da dove parte lo stato dell'arte nel dominio.
+> _"The proposed CDT implements the five fundamental characteristics identified by Zheng et al. (2022) and the six cognitive functions formalized by Al-Haj Ali et al. (2025). According to the taxonomy of Burr et al. (2026), it positions itself in the Active Steering configuration (I,T,A): internal agency, real-time tight coupling, adaptive model evolution."_
+
+**"Why Neo4j?"**
+
+> _"Neo4j is justified by three distinct layers of literature: as an enabling technology for cognition in CDTs (Zheng et al., 2022), as a Dual-KG pattern for separating stable from dynamic knowledge (CogTwin, 2025), and as an architectural guardrail against drift toward the Governor configuration — where the system optimizes redefined metrics instead of standard 3GPP metrics (Burr et al., 2026)."_
+
+**"How do you evaluate LLM agents?"**
+
+> _"The evaluation framework adopts the milestone-based structure of MultiAgentBench (Zhu et al., 2025), extended with the verifiable/non-verifiable distinction of Berkeley CS294 (2025). For Perception and Planning Agent I use external ground truth (simulator and Neo4j KG); for Reasoning and Communication I use LLM-as-judge only where I have no alternative. The final metric is Outcome Validity: recovery of 5G KPIs in the simulator, independent of any LLM in the evaluation loop. It is a methodologically more robust evaluation than WirelessAgent (2025), which measures only the final output without evaluating intermediate reasoning."_
+
+**"What is the closest work to yours and how do you differentiate?"**
+
+> _"WirelessAgent (Tong et al., HKUST 2025) shares 5G domain and LangGraph architecture. We surpass them on three points: (1) we add a Digital Twin Layer via Eclipse Ditto for persistent, temporally ordered state, absent in WirelessAgent; (2) we replace flat RAG with a structured Knowledge Graph that deterministically verifies 3GPP constraints; (3) we explicitly address evaluation of intermediate reasoning, which WirelessAgent declares as future work."_
+
+**"What are the limitations of your approach?"**
+
+> _"The primary one is the trade-off between flexibility and formal verifiability: replacing symbolic reasoning OWL+reasoner with local LLMs gains adaptability to new anomaly scenarios but reduces the formal verifiability of inferences. The Neo4j Knowledge Graph with 3GPP constraints partially compensates for this loss but does not eliminate it. Additionally, the risk of performative prediction (Burr et al., 2026) — convergence on apparently optimal solutions because the system modified observation conditions — is real and mitigated by controlled fault injection but not eliminable structurally."_
+
+---
+
+## 5. What's Still Missing (Flagged but Not Yet Analyzed)
+
+| Source                      | Target Block    | Rationale                                                                                            |
+| --------------------------- | --------------- | ---------------------------------------------------------------------------------------------------- |
+| **MAJ-EVAL (NeurIPS 2025)** | Block D         | Specific theoretical foundation for multi-agent LLM-as-judge — would complete Block D               |
+| **Zhang et al. (2021)**     | Technical baseline | DT + multi-agent DRL for vehicular edge computing — DRL→LLM evolution                                |
+| **Xu et al. (2023)**        | Technical baseline | DT-driven scheduling edge computing — analogous to RAN resource allocation                          |
+| **Latsou et al. (2023)**    | Technical baseline | Anomaly detection + bottleneck ID with classical MAS — baseline for Reasoning Agent                 |
+| **Galuzin et al. (2022)**   | Technical baseline | KG + agents for real-time decision-making — direct precursor to our stack                           |
+| **G-SPEC**                  | Technical baseline | 5G-specific baseline for simulator calibration                                                      |
+
+These six papers should be included as a _baseline to be cited and surpassed_ in the comparison chapter—they do not require in-depth analysis, but rather a contextualized citation to illustrate the current state of the art in the field.

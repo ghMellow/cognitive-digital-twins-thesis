@@ -7,43 +7,47 @@ sources: []
 tags: [lint, quality-assurance, post-ingest-verification]
 ---
 
+
 # Lint Report Pass #2 — Post-12 Papers Complete
 
-**Data:** 14 aprile 2026 (Post Blocco E ingest)  
-**Stato:** Tutti 12 paper ingestiti (Blocco A-E completo 100%)  
-**Corpus:** 12 source pages + 10 concept pages + 5 master files = 27 pagine wiki
+**Date:** April 14, 2026 (Post Block E ingest)  
+**Status:** All 12 papers ingested (Blocks A-E 100% complete)  
+**Corpus:** 12 source pages + 10 concept pages + 5 master files = 27 wiki pages
 
 ---
 
-## 📊 Riepilogo Pass #2
 
-| Metrica | Pass #1 | Pass #2 | Delta |
+## 📊 Pass #2 Summary
+
+| Metric | Pass #1 | Pass #2 | Delta |
 |---|---|---|---|
-| **Link interni totali** | 132 | 200+ | +68 links |
-| **Pagine wiki** | 17 | 27 | +10 |
+| **Total internal links** | 132 | 200+ | +68 links |
+| **Wiki pages** | 17 | 27 | +10 |
 | **Zombie links** | 15 | 3 | -12 (80% eliminated) |
 | **Valid outlinks** | 117 (91%) | 197+ (97%) | +6% |
-| **Contradizioni** | 0 | 0 | ✅ |
+| **Contradictions** | 0 | 0 | ✅ |
 | **Typo** | 1 | 1 | → Fixed |
 
-**Conclusione:** Wiki integrity **INCREASE from 91% to 97%+**. Critical zombies resolved by Blocco C/D/E ingests.
+**Conclusion:** Wiki integrity **INCREASE from 91% to 97%+**. Critical zombies resolved by Block C/D/E ingests.
 
 ---
+
 
 ## ✅ RESOLVED ZOMBIE LINKS (Pass #1 → Pass #2)
 
-**Alta Priorità (4 links) — ORA TUTTI RISOLTI:**
+**High Priority (4 links) — NOW ALL RESOLVED:**
 
-| Zombie #1 | Link | Resolution |
+| Zombie # | Link | Resolution |
 |---|---|---|
-| `[[cogtwin-ijcai-25]]` | Was referenced 3× in concepts | ✅ Created `sources/cogtwin-ijcai-25.md` during Blocco C |
-| `[[multiagent-bench-2025]]` | Referenced in Al-Haj Ali + other papers | ✅ Created `sources/multiagent-bench-2025.md` during Blocco D |
-| `[[wireless-agent-hkust-2025]]` | Referenced in gap analysis context | ✅ Created `sources/wireless-agent-hkust-2025.md` during Blocco E |
-| `[[hasan-nguyen-2026-agentic-dt]]` | (was implied in Blocco C plan) | ✅ Created `sources/hasan-nguyen-2026-agentic-dt.md` during Blocco C |
+| `[[cogtwin-ijcai-25]]` | Was referenced 3× in concepts | ✅ Created `sources/cogtwin-ijcai-25.md` during Block C |
+| `[[multiagent-bench-2025]]` | Referenced in Al-Haj Ali + other papers | ✅ Created `sources/multiagent-bench-2025.md` during Block D |
+| `[[wireless-agent-hkust-2025]]` | Referenced in gap analysis context | ✅ Created `sources/wireless-agent-hkust-2025.md` during Block E |
+| `[[hasan-nguyen-2026-agentic-dt]]` | (was implied in Block C plan) | ✅ Created `sources/hasan-nguyen-2026-agentic-dt.md` during Block C |
 
-**Impatto:** Pass #1 had these as critical blockers. Pass #2 eliminates them entirely.
+**Impact:** Pass #1 had these as critical blockers. Pass #2 eliminates them entirely.
 
 ---
+
 
 ## ⚠️ REMAINING ZOMBIE LINKS (3 — Low Priority)
 
@@ -57,11 +61,12 @@ tags: [lint, quality-assurance, post-ingest-verification]
 
 ---
 
+
 ## ✅ LINK VALIDITY VERIFICATION
 
 **All source → source cross-references validated:**
 
-- `sources/cogtwin-ijcai-25.md` → lines 113: `[[sources/burr-et-al-2026-agentic-dt]]` ✅
+- `sources/cogtwin-ijcai-25.md` → line 113: `[[sources/burr-et-al-2026-agentic-dt]]` ✅
 - `sources/hasan-nguyen-2026-agentic-dt.md` → line 113: `[[sources/cogtwin-ijcai-25]]` ✅
 - `sources/wireless-agent-hkust-2025.md` → line 183: `[[sources/multiagent-bench-2025]]` ✅
 - All concept → source backlinks present ✅
@@ -72,6 +77,7 @@ tags: [lint, quality-assurance, post-ingest-verification]
 - `scaffolding-tesi.md` → all 12 papers + checkmarks (12/12) ✅
 
 ---
+
 
 ## ✅ CONTENT COHERENCE CHECK
 
@@ -86,23 +92,24 @@ tags: [lint, quality-assurance, post-ingest-verification]
 
 ---
 
+
 ## 📋 CONCEPT PAGE INVENTORY
 
 **Existing (10 pages) — All valid:**
 
-**Blocco A Theory:**
+**Block A Theory:**
 1. [[concepts/cognitive-digital-twin]] ✅
 2. [[concepts/six-cognitive-functions]] ✅
 3. [[concepts/knowledge-graph-in-cdt]] ✅
 4. [[concepts/mmci-framework]] ✅
 
-**Blocco B Domain:**
+**Block B Domain:**
 5. [[concepts/network-digital-twin]] ✅
 6. [[concepts/digital-hat]] ✅
 7. [[concepts/intent-based-networking]] ✅
 8. [[concepts/closed-loop-autonomy]] ✅
 
-**Blocco B Governance:**
+**Block B Governance:**
 9. [[concepts/agentic-dt-risk-taxonomy]] ✅
 10. [[concepts/performative-prediction]] ✅
 
@@ -112,6 +119,7 @@ tags: [lint, quality-assurance, post-ingest-verification]
 - `[[dt-properties-checklist]]` — Pretel's 12 properties (could be table in agentic-dt-risk-taxonomy or standalone concept)
 
 ---
+
 
 ## 🎯 MASTER FILES STATUS
 
@@ -124,6 +132,7 @@ tags: [lint, quality-assurance, post-ingest-verification]
 | `overview.md` | High-level summary + links | ✅ Executive note current |
 
 ---
+
 
 ## 🏁 RECOMMENDATIONS
 
@@ -142,25 +151,26 @@ tags: [lint, quality-assurance, post-ingest-verification]
 
 ---
 
+
 ## Log Entry
 
 ```
 ## [2026-04-14] lint | Pass #2 — Link validation post-12-papers
 
-**Scansione:** grep_search per tutti `[[...]]` in wiki/ (12 sources + 10 concepts + 5 master)
-**Risultati:**
-- 200+ link interni trovati (up from 132)
+**Scan:** grep_search for all `[[...]]` in wiki/ (12 sources + 10 concepts + 5 master)
+**Results:**
+- 200+ internal links found (up from 132)
 - Zombie links: 3 (down from 15)
 - Typo: 1 (same as Pass #1)
-- Contradizioni: 0 ✅
+- Contradictions: 0 ✅
 
-**Risoluzioni:**
-- ✅ 12 high-priority zombies risolti = [[cogtwin-ijcai-25]], [[multiagent-bench-2025]], [[wireless-agent-hkust-2025]], etc.
+**Resolutions:**
+- ✅ 12 high-priority zombies resolved = [[cogtwin-ijcai-25]], [[multiagent-bench-2025]], [[wireless-agent-hkust-2025]], etc.
 - ⚠️ Typo `lllm-as-judge` identified (3 L) — decide whether to create concept page or leave as reference
 
 **Status:** Link validity increased 91% → 97%+. Wiki is coherent and production-ready for analyses phase.
 
-**Prossimi passi:**
+**Next steps:**
 1. Create 4 Analyses Pages (comparison matrix, gap analysis, risk profile, benchmark template)
 2. Update index.md with new analyses ← link integration
 3. Execute scaffolding-tesi backfill with explicit gaps remaining (Section 7)

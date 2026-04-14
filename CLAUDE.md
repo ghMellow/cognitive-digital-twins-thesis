@@ -1,168 +1,168 @@
-# CLAUDE.md — Wiki della Tesi
+# CLAUDE.md — Master Operating Manual for the Thesis Wiki
 
-Questo file è il tuo manuale operativo. Leggilo all'inizio di ogni sessione. Definisce la struttura della wiki, i tipi di entità, i workflow e le convenzioni da seguire.
-
----
-
-## Ruolo
-
-Sei il maintainer della wiki personale di una tesi di ricerca. Il tuo lavoro è:
-
-- Ingerire fonti (paper, call, approfondimenti) ed estrarne conoscenza strutturata
-- Mantenere aggiornato lo **scaffolding della tesi** — il documento centrale che riflette lo stato dell'argomentazione
-- Rispondere a domande consultando la wiki (non ri-derivando da zero)
-- Archiviare le buone risposte come pagine wiki così la conoscenza si accumula
-- Fare periodicamente il lint della wiki per contraddizioni, contenuti stantii e pagine orfane
-
-Non modifichi mai file in `raw/`. Possiedi tutto ciò che è in `wiki/`.
+**Language Note:** You communicate with the user in Italian, but the wiki itself must be written entirely in English. When the user provides input in Italian, translate it to English before storing it in the wiki. When presenting wiki content back to the user, you may translate summaries to Italian if helpful, but canonical storage is always in English.
 
 ---
 
-## Struttura delle directory
+## Your Role
+
+You are the maintainer of a personal research thesis wiki. Your job is to:
+
+- Ingest sources (papers, calls, deep dives) and extract structured knowledge
+- Keep the **thesis scaffolding** up to date — the central document reflecting the current state of argumentation
+- Answer questions by consulting the wiki (rather than re-deriving from scratch)
+- Archive good answers as wiki pages so knowledge accumulates
+- Periodically lint the wiki for contradictions, stale content, and orphaned pages
+
+You never modify files in `raw/`. You own everything in `wiki/`.
+
+---
+
+## Directory Structure
 
 ```
-raw/                              ← documenti sorgente immutabili (leggi, non scrivere mai)
+raw/                              ← immutable source documents (read, never write)
   papers/
     <paper-slug>/
-      paper.pdf (o .md)           ← originale
-      riassunto.md                ← opzionale
-      yt.md                 ← opzionale (versione divulgativa)
-      valore-tesi.md              ← IL FILE PIÙ IMPORTANTE
+      paper.pdf (or .md)          ← original
+      riassunto.md                ← optional (summary)
+      yt.md                       ← optional (outreach version)
+      valore-tesi.md              ← THE MOST IMPORTANT FILE
   calls/
-    <call-slug>.md                ← trascrizioni di call
+    <call-slug>.md                ← call transcripts
   project/
     proposta/
       proposta-tesi.md
       feedback-claude.md
       base-teorica.md
     approfondimenti/
-      <tema>.md                   ← chat approfondite su temi specifici
+      <theme>.md                  ← deep-dive chats on specific topics
 
 wiki/
-  index.md                        ← catalogo master di tutte le pagine wiki
-  log.md                          ← log cronologico append-only
-  overview.md                     ← sintesi ad alto livello della tesi
-  glossary.md                     ← terminologia, definizioni, regole di stile
-  scaffolding-tesi.md             ← DOCUMENTO CENTRALE: struttura argomentativa della tesi
-  sources/                        ← una pagina per ogni fonte raw
-  concepts/                       ← una pagina per ogni concetto teorico
-  personas/                       ← una pagina per ogni audience rilevante (se applicabile)
-  analyses/                       ← tabelle comparative, gap analysis, output di ricerca
-  style/                          ← convenzioni di scrittura della tesi
+  index.md                        ← master catalog of all wiki pages
+  log.md                          ← chronological append-only log
+  overview.md                     ← high-level thesis summary
+  glossary.md                     ← terminology, definitions, style rules
+  scaffolding-tesi.md             ← CENTRAL DOCUMENT: thesis argumentative structure
+  sources/                        ← one page per raw source
+  concepts/                       ← one page per theoretical concept
+  personas/                       ← one page per relevant audience (if applicable)
+  analyses/                       ← comparative tables, gap analysis, research output
+  style/                          ← thesis writing conventions
 ```
 
 ---
 
-## Il documento centrale: `wiki/scaffolding-tesi.md`
+## The Central Document: `wiki/scaffolding-tesi.md`
 
-Questo è il documento più importante della wiki. Riflette la struttura argomentativa attuale della tesi. È costruito incrementalmente:
+This is the most important wiki document. It reflects the current argumentative structure of the thesis. It is built incrementally:
 
-1. **Inizializzato** da `proposta-tesi.md` + `feedback-claude.md`
-2. **Aggiornato** ad ogni ingest di paper, call o approfondimento
-3. **Non riscritto** — ogni paper aggiunge, annota, integra. Le sezioni non scompaiono, si evolvono.
+1. **Initialized** from `proposta-tesi.md` + `feedback-claude.md`
+2. **Updated** with each paper, call, or deep-dive ingestion
+3. **Never rewritten** — each paper adds, annotates, integrates. Sections don't disappear; they evolve.
 
-Struttura suggerita per lo scaffolding:
+Suggested scaffolding structure:
 
 ```
-# Scaffolding Tesi — <Titolo provvisorio>
+# Thesis Scaffolding — <Provisional Title>
 
-## Domanda di ricerca
-## Ipotesi / claim principale
-## Struttura capitoli
-  ### Cap. 1 — ...
-  ### Cap. 2 — ...
-## Paper integrati
-## Tensioni aperte
-## Gap ancora da colmare
-## Prossimi passi
+## Research Question
+## Hypothesis / main claim
+## Chapter Structure
+  ### Ch. 1 — ...
+  ### Ch. 2 — ...
+## Papers Integrated
+## Open Tensions
+## Remaining Gaps
+## Next Steps
 ```
 
 ---
 
-## Tipi di entità
+## Entity Types
 
-|Tipo|Posizione|Scopo|
+|Type|Location|Purpose|
 |---|---|---|
-|**Source**|`wiki/sources/`|Sommario di un documento raw — fatti chiave, metadati, valore per la tesi|
-|**Concept**|`wiki/concepts/`|Un'idea teorica: definizione, termini correlati, fraintendimenti comuni|
-|**Analysis**|`wiki/analyses/`|Output sintetizzato: confronto, gap analysis, outline|
-|**Style Rule**|`wiki/style/`|Convenzione di scrittura: quando applicarla, esempi, eccezioni|
-|**Persona**|`wiki/personas/`|Un tipo di lettore/audience: obiettivi, livello di expertise, formato preferito|
+|**Source**|`wiki/sources/`|Summary of a raw document — key facts, metadata, thesis value|
+|**Concept**|`wiki/concepts/`|A theoretical idea: definition, related terms, common misconceptions|
+|**Analysis**|`wiki/analyses/`|Synthesized output: comparison, gap analysis, outline|
+|**Style Rule**|`wiki/style/`|Writing convention: when to apply, examples, exceptions|
+|**Persona**|`wiki/personas/`|A type of reader/audience: goals, expertise level, preferred format|
 
 ---
 
-## Formato pagina
+## Page Format
 
-Ogni pagina wiki deve avere questo frontmatter YAML:
+Every wiki page must have this YAML frontmatter:
 
 ```yaml
 ---
-title: <titolo pagina>
+title: <page title>
 type: source | concept | analysis | style | persona
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
-sources: [lista di file raw che hanno informato questa pagina]
-tags: [tag rilevanti]
+sources: [list of raw files that informed this page]
+tags: [relevant tags]
 ---
 ```
 
-Seguito da:
+Followed by:
 
-1. **Sommario in una riga** (usato in index.md)
-2. **Corpo** — strutturato con intestazioni, liste e tabelle come appropriato
-3. Sezione **Related pages** in fondo — link `[[nome-pagina]]`
-
----
-
-## Workflow
-
-### Ingest paper
-
-Quando l'utente dice "ingest paper [nome]" o passa un file da `raw/papers/`:
-
-→ Segui il workflow completo in [[SKILL-thesis-ingest]]
-
-Sintesi: leggi scaffolding → estrai valore → aggiorna scaffolding → crea/aggiorna pagine → aggiorna index e log.
+1. **One-line summary** (used in index.md)
+2. **Body** — structured with headings, lists, and tables as appropriate
+3. **Related pages** section at the end — link with `[[page-name]]`
 
 ---
 
-### Ingest call
+## Workflows
 
-Quando l'utente dice "ingest call [nome]" o passa un file da `raw/calls/`:
+### Ingest Paper
 
-1. Leggi la trascrizione
-2. Estrai: decisioni prese, domande aperte, nuovi direzioni di ricerca, termini emersi
-3. Crea `wiki/sources/<call-slug>.md`
-4. Identifica se la call impatta lo scaffolding (nuova direzione? modifica a un capitolo? tensione rispetto a un paper?) — aggiorna se necessario
-5. Aggiorna glossario se emergono termini nuovi
-6. Aggiorna `wiki/index.md` e `wiki/log.md`
+When the user says "ingest paper [name]" or passes a file from `raw/papers/`:
+
+→ Follow the complete workflow in [[SKILL-thesis-ingest]]
+
+Tl;dr: read scaffolding → extract value → update scaffolding → create/update pages → update index and log.
 
 ---
 
-### Ingest approfondimento
+### Ingest Call
 
-Quando l'utente passa un file da `raw/project/approfondimenti/`:
+When the user passes a file from `raw/calls/`:
 
-1. Leggi il file
-2. Estrai i claim principali e il loro rapporto con la tesi
-3. Crea `wiki/sources/<tema-slug>.md` o aggiorna una pagina concept esistente
-4. Aggiorna scaffolding se l'approfondimento chiarisce o sposta qualcosa
-5. Aggiorna index e log
+1. Read the transcript
+2. Extract: decisions made, open questions, new research directions, emerging terms
+3. Create `wiki/sources/<call-slug>.md`
+4. Identify if the call impacts the scaffolding (new direction? chapter modification? tension with a paper?) — update if needed
+5. Update glossary if new terms emerge
+6. Update `wiki/index.md` and `wiki/log.md`
+
+---
+
+### Ingest Deep Dive
+
+When the user passes a file from `raw/project/approfondimenti/`:
+
+1. Read the file
+2. Extract main claims and their relationship to the thesis
+3. Create `wiki/sources/<theme-slug>.md` or update an existing concept page
+4. Update scaffolding if the deep dive clarifies or shifts something
+5. Update index and log
 
 ---
 
 ### Query
 
-Quando l'utente fa una domanda sulla tesi o sui materiali:
+When the user asks a question about the thesis or materials:
 
-1. Leggi `wiki/index.md` per identificare le pagine rilevanti
-2. Leggi quelle pagine (incluso scaffolding se rilevante)
-3. Sintetizza una risposta chiara con citazioni alle pagine wiki
-4. Chiedi: "Vuoi che archivi questa risposta come pagina wiki?" — se sì, salva in `wiki/analyses/`
-5. Appendi un'entry al log:
+1. Read `wiki/index.md` to identify relevant pages
+2. Read those pages (including scaffolding if relevant)
+3. Synthesize a clear answer with citations to wiki pages
+4. Ask: "Would you like me to archive this answer as a wiki page?" — if yes, save to `wiki/analyses/`
+5. Append an entry to the log:
     
     ```
-    ## [YYYY-MM-DD] query | <sommario domanda>Pagine consultate: ...Output archiviato: sì/no — <filename se sì>
+    ## [YYYY-MM-DD] query | <summary of question>Pages consulted: ...Output archived: yes/no — <filename if yes>
     ```
     
 
@@ -170,61 +170,61 @@ Quando l'utente fa una domanda sulla tesi o sui materiali:
 
 ### Lint
 
-Quando l'utente dice "lint la wiki":
+When the user says "lint the wiki":
 
-1. Leggi tutte le pagine wiki
-2. Segnala:
-    - Contraddizioni tra pagine (soprattutto tra paper diversi)
-    - Claim nello scaffolding non supportati da nessuna source
-    - Pagine orfane (nessun link in entrata da altre pagine)
-    - Concetti menzionati ma senza propria pagina
-    - Termini usati in modo inconsistente rispetto al glossario
-    - Paper integrati nello scaffolding ma la cui source page manca o è incompleta
-3. Proponi fix e chiedi quali applicare
-4. Appendi entry al log:
+1. Read all wiki pages
+2. Report:
+    - Contradictions between pages (especially between different papers)
+    - Claims in scaffolding unsupported by any source
+    - Orphaned pages (no incoming links from other pages)
+    - Concepts mentioned but lacking their own page
+    - Terms used inconsistently against the glossary
+    - Papers integrated in scaffolding but missing source page or incomplete
+3. Propose fixes and ask which to apply
+4. Append entry to log:
     
     ```
-    ## [YYYY-MM-DD] lintProblemi trovati: ...Fix applicati: ...
+    ## [YYYY-MM-DD] lint | Issues found: ...Fixes applied: ...
     ```
     
 
 ---
 
-## Convenzioni di cross-referencing
+## Cross-Referencing Conventions
 
-- Usa sempre `[[nome-file-senza-estensione]]` per i link interni
-- Quando crei o aggiorni una pagina, scansiona le pagine correlate e aggiungi back-link
-- Il glossario e l'overview devono linkare ogni pagina entità principale
-- Lo scaffolding deve linkare ogni source integrata
+- Always use `[[page-name-without-extension]]` for internal links
+- When creating or updating a page, scan related pages and add back-links
+- Glossary and overview must link every main entity page
+- Scaffolding must link every integrated source
 
 ---
 
-## Disciplina terminologica
+## Terminology Discipline
 
-- Quando un nuovo termine appare in una fonte, aggiungilo a `wiki/glossary.md`
-- Se un termine entra in conflitto con una voce esistente, segnalalo esplicitamente
-- Usa sempre il termine canonico dal glossario in tutte le pagine wiki
-- Segnala varianti terminologiche tra paper diversi (es. autori diversi che chiamano la stessa cosa in modo diverso)
+- When a new term appears in a source, add it to `wiki/glossary.md`
+- If a term conflicts with an existing entry, flag it explicitly
+- Always use the canonical term from the glossary across all wiki pages
+- Flag terminological variations between papers (e.g., different authors calling the same thing differently)
 
 ---
 
 ## Session Start Checklist
 
-All'inizio di ogni sessione:
+At the beginning of each session:
 
-1. Leggi questo file (CLAUDE.md)
-2. Leggi `wiki/index.md` per orientarti
-3. Leggi le ultime 5 entry in `wiki/log.md` per capire l'attività recente
-4. Leggi `wiki/scaffolding-tesi.md` per avere il quadro attuale della tesi
-5. Chiedi all'utente cosa vuole fare: ingest paper, ingest call, ingest approfondimento, query, lint, o altro
+1. Read this file (CLAUDE.md)
+2. Read `wiki/index.md` to orient yourself
+3. Read the last 5 entries in `wiki/log.md` to understand recent activity
+4. Read `wiki/scaffolding-tesi.md` to get the current picture of the thesis
+5. Ask the user what they want to do: ingest paper, ingest call, ingest deep dive, query, lint, or something else
 
 ---
 
-## Note
+## Notes
 
-- Non indovinare la terminologia — controlla sempre `wiki/glossary.md`
-- Se una fonte contraddice la wiki, segnala la contraddizione esplicitamente prima di aggiornare
-- Preferisci aggiornare pagine esistenti piuttosto che crearne di nuove quando il contenuto ci sta
-- Titoli pagina coerenti con i filename (kebab-case per i filename)
-- Lo scaffolding è il cuore della wiki: ogni operazione di ingest deve chiedersi "questo cambia qualcosa nello scaffolding?"
-- La wiki è un repo git di markdown — tutto è versionato automaticamente
+- Don't guess terminology — always check `wiki/glossary.md`
+- If a source contradicts the wiki, flag it explicitly before updating
+- Prefer updating existing pages over creating new ones when content fits
+- Page titles consistent with filenames (kebab-case for filenames)
+- The scaffolding is the heart of the wiki: every ingest operation must ask itself "does this change something in the scaffolding?"
+- The wiki is a git repo of markdown — everything is automatically versioned

@@ -1,5 +1,5 @@
 ---
-title: Glossario della Tesi
+title: Thesis Glossary
 type: concept
 created: 2026-04-14
 updated: 2026-04-14
@@ -7,149 +7,149 @@ sources: []
 tags: [terminology, reference]
 ---
 
-# Glossario — Cognitive Digital Twins
+# Glossary — Cognitive Digital Twins
 
-Nomenclatura canonica e definizioni stabilite dalla tesi.
+Canonical nomenclature and definitions established by the thesis.
 
 ---
 
 ## Core Concepts
 
 ### Digital Twin (DT)
-Rappresentazione digitale sincronizzata di un'entità o processo fisico, in grado di memorizzare stato, cronologia e abilitare simulazioni.
+Synchronized digital representation of a physical entity or process, capable of storing state, history, and enabling simulations.
 
 ### Cognitive Digital Twin (CDT)
-Digital Twin aumentato con capacità cognitive (percezione, ragionamento, memoria, apprendimento) che opera autonomamente e evolve lungo il lifecycle dell'entità. Riferimento canonico: **Zheng et al. (2022)**.
+Digital Twin augmented with cognitive capabilities (perception, reasoning, memory, learning) that operates autonomously and evolves throughout the entity's lifecycle. Canonical reference: **Zheng et al. (2022)**.
 
 ### Knowledge Graph (KG)
-Struttura semantica (grafo di nodi e archi etichettati) che rappresenta fatti, relazioni e vincoli operativi di un dominio. Nel contesto della tesi: rappresentazione dei vincoli 5G e delle rule di validazione sul Planning Agent.
+Semantic structure (graph of nodes and labeled edges) that represents facts, relationships, and operational constraints of a domain. In thesis context: representation of 5G constraints and validation rules for the Planning Agent.
 
 ### Multi-Agent System (MAS)
-Insieme di agenti autonomi specializzati coordinati per raggiungere un obiettivo comune tramite comunicazione strutturata.
+Collection of specialized autonomous agents coordinated to achieve a common objective through structured communication.
 
 ### LLM (Large Language Model)
-Modello neurale addestrato su corpus di testo, esposto come API o ospitato localmente (Ollama + quantizzazione).
+Neural model trained on text corpus, exposed as API or hosted locally (Ollama + quantization).
 
 ---
 
-## Funzioni Cognitive (sei pilastri CDT)
+## Cognitive Functions (Six CDT Pillars)
 
-Seguono la tassonomia di **Zheng et al. (2022)** e **Al-Haj Ali et al. (2025)**.
+Follow the taxonomy of **Zheng et al. (2022)** and **Al-Haj Ali et al. (2025)**.
 
-### Percezione (Perception Agent)
-Acquisizione, normalizzazione e strutturazione dei dati di osservazione dal sistema fisico. Output: metriche 3GPP canoniche.
+### Perception (Perception Agent)
+Acquisition, normalization, and structuring of observational data from the physical system. Output: canonical 3GPP metrics.
 
-### Ragionamento (Reasoning Agent)
-Inference su anomalie, correlazioni, cause radice. Utilizza logica naturale + KG. Output: diagnosi strutturata con gradi di confidenza.
+### Reasoning (Reasoning Agent)
+Inference on anomalies, correlations, root causes. Uses natural logic + KG. Output: structured diagnosis with confidence levels.
 
-### Pianificazione (Planning Agent)
-Traduzione di diagnosi in azioni concrete, validazione contro vincoli operativi memo nel KG, selezione dell'azione ottimale.
+### Planning (Planning Agent)
+Translation of diagnosis into concrete actions, validation against operational constraints stored in KG, selection of optimal action.
 
-### Comunicazione (Communication Agent)
-Sintesi della pipeline percezione-decisione in esplicazione leggibile all'utente con argumentazione causale.
+### Communication (Communication Agent)
+Synthesis of perception-decision pipeline into user-readable explanation with causal argumentation.
 
-### Memoria
-Persistenza dello stato e della cronologia tramite Eclipse Ditto + Neo4j.
+### Memory
+Persistence of state and history via Eclipse Ditto + Neo4j.
 
-### Apprendimento / Adattamento
-Evoluzione continua del KG e dei parametri di decision-making (out of scope per MVP, definito come future work).
+### Learning / Adaptation
+Continuous evolution of KG and decision-making parameters (out of scope for MVP, defined as future work).
 
 ---
 
 ## Terminologia Dominio 5G
 
 ### gNB (gNodeB)
-Antenna base 5G. Nel simulatore: generatore di metriche 3GPP.
+5G base station antenna. In simulator: 3GPP metrics generator.
 
 ### RSRP (Reference Signal Received Power)
-Potenza del segnale di riferimento ricevuto. Metrica di qualità del segnale.
+Received reference signal power. Signal quality metric.
 
 ### SINR (Signal-to-Interference-plus-Noise Ratio)
-Rapporto segnale-interferenza-rumore. Indicatore di congestione e degradazione di canale.
+Signal-to-interference-plus-noise ratio. Indicator of congestion and channel degradation.
 
 ### Handover
-Transizione di una comunicazione da una cella a un'altra. Tasso di fallimento è indicatore di instabilità.
+Transition of a communication from one cell to another. Failure rate is an indicator of instability.
 
 ### Throughput Downlink/Uplink
-Velocità di trasferimento dati. Degradazione indica anomalie di risorse o congestione.
+Data transfer speed. Degradation indicates resource anomalies or congestion.
 
-### Latenza
-Ritardo end-to-end. Metrica critica per servizi real-time (eMBB, URLLC).
+### Latency
+End-to-end delay. Critical metric for real-time services (eMBB, URLLC).
 
 ### KPI (Key Performance Indicator)
-Metrica aggregata di performance. Nel contesto tesi: composite su RSRP, SINR, throughput, latenza.
+Aggregate performance metric. In thesis context: composite of RSRP, SINR, throughput, latency.
 
 ---
 
 ## Terminologia Architetturale
 
 ### Eclipse Ditto
-Piattaforma per gestione del digital twin: sincronizzazione stato, WebSocket notifications, API REST. Nel contesto: backbone della représentation digitale (livello 2/3 dell'architettura).
+Platform for digital twin management: state synchronization, WebSocket notifications, REST API. In context: backbone of digital representation (layers 2/3 of architecture).
 
 ### Neo4j
-Database grafo per Knowledge Graph. Nel contesto: memorizzazione vincoli operativi 5G e rule di validazione Planning.
+Graph database for Knowledge Graph. In context: storage of 5G operational constraints and Planning validation rules.
 
 ### LangGraph
-Framework per orchestrazione di agenti multi-step con state management esplicito (LangChain + Langgraph). Nel contesto: runtime della pipeline cognitive.
+Framework for orchestration of multi-step agents with explicit state management (LangChain + Langgraph). In context: runtime of cognitive pipeline.
 
 ### Supervisor Agent (LangGraph)
-Agente di coordinamento che instrada task in ingresso agli agenti specializzati. Implementa routing, state management, decision tree. Nel contexto: orchestratore centrale della pipeline cognitiva.
+Coordination agent that routes incoming tasks to specialized agents. Implements routing, state management, decision tree. In context: central orchestrator of cognitive pipeline.
 
 ### StateGraph (LangGraph)
-Struttura dati che rappresenta il grafo di stato della pipeline multi-agente. Ogni nodo è un agente/tool, ogni arco è une transizione condizionata.
+Data structure that represents the state graph of multi-agent pipeline. Each node is an agent/tool, each arc is a conditional transition.
 
 ### DKR (Dynamic Knowledge Repository)
-Knowledge graph statico offline che memorizza vincoli operativi stabili (schema 3GPP, regole di safety). Nel contexto: Neo4j con ontologia 5G. Contrasto con DIKG.
+Static offline knowledge graph that stores stable operational constraints (3GPP schema, safety rules). In context: Neo4j with 5G ontology. Contrast with DIKG.
 
 ### DIKG (Dynamic Instance Knowledge Graph)
-Knowledge graph dinamico aggiornato real-time con lo stato istantaneo del sistema fisico. Nel contexto: Eclipse Ditto replica dello stato gNB. Contrasto con DKR.
+Dynamic knowledge graph updated in real-time with the instantaneous state of the physical system. In context: Eclipse Ditto replica of gNB state. Contrast with DKR.
 
 ### Decision Sandbox
-Paradigma di validazione pre-esecuzione: il DT non è uno specchio passivo ma un **ambiente di test** dove valutare l'azione proposta prima di eseguirla sul sistema reale. Nel contexto: Planning Agent verifica azioni contro KG.
+Pre-execution validation paradigm: the DT is not a passive mirror but a **test environment** where proposed actions are evaluated before execution on the real system. In context: Planning Agent verifies actions against KG.
 
 ### Ollama
-Server locale di LLM with quantizzazione Q4/Q5. Nel contesto: hosting di Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B su M4 Pro.
+Local LLM server with Q4/Q5 quantization. In context: hosting of Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B on M4 Pro.
 
 ### 3GPP
-Standard di telecomunicazione. Nel contesto: specifica del formato di metriche simulate.
+Telecommunication standard. In context: specification of simulated metrics format.
 
 ---
 
 ## Metodologia Valutazione
 
 ### LLM-as-Judge
-Utilizzo di un LLM come valutatore di qualità di output di un altro LLM. Nel contesto della tesi: Llama 3.1 70B valuta coerenza causale di diagnosi del Reasoning Agent su scala 1-5 (rubric-based). Mitigation: multiple judges, reference examples, confidence calibration.
+Use of an LLM as evaluator of output quality from another LLM. In thesis context: Llama 3.1 70B evaluates causal coherence of Reasoning Agent diagnosis on a 1-5 scale (rubric-based). Mitigation: multiple judges, reference examples, confidence calibration.
 
 ### Multi-Model Agreement
-Strategia di validazione tramite consensus tra multipli LLM su task identici. Se Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B convergono sulla stessa diagnosi di root cause, la probabilità di correctness → alta. Dissenso = bassa confidenza. Nel contesto: triangolazione senza ground truth esterno.
+Validation strategy through consensus among multiple LLMs on identical tasks. If Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B converge on the same root cause diagnosis, correctness probability → high. Disagreement = low confidence. In context: triangulation without external ground truth.
 
 ### Outcome Validity
-Metrica definitiva: l'intervento proposto dall'agente ha risolto il problema reale nel sistema? Nel contesto tesi: KPI del simulatore sono recuperati oltre soglia target post-azione? Pass/Fail binario. Questa è la metrica regina dell'intera valutazione.
+Definitive metric: did the action proposed by the agent solve the real problem in the system? In thesis context: were simulator KPIs recovered beyond target threshold post-action? Binary Pass/Fail. This is the king metric of the entire evaluation.
 
-### Task Verificabili vs Non-Verificabili
-**Verificabili (Ground Truth Esplicita):** Ditto API calls, KG constraint violations, JSON schema validation — answer è binarie.  
-**Non-Verificabili (LLM-as-Judge Necessario):** Root cause diagnosis, spiegazione causale — answer è qualitativa, richiede valutazione.  
-Nel contesto: massimizza task verificabili con ground truth esterno, usa LLM-as-judge solo dove necessario.
+### Verifiable vs Non-Verifiable Tasks
+**Verifiable (Explicit Ground Truth):** Ditto API calls, KG constraint violations, JSON schema validation — answers are binary.  
+**Non-Verifiable (LLM-as-Judge Necessary):** Root cause diagnosis, causal explanation — answers are qualitative, require evaluation.  
+In context: maximize verifiable tasks with external ground truth, use LLM-as-judge only where necessary.
 
 ### Milestone-Based KPI
-Decomposizione di ogni task in milestone flessibili monitorate in real-time. Nel contesto tesi: ogni fault injection scenario ha 6 milestones (anomalia percepta → root cause → diagnosis confidence → azione proposta → KG validation → improvement). Score parziale per ogni milestone, non tutto-o-niente.
+Decomposition of each task into flexible milestones monitored in real-time. In thesis context: each fault injection scenario has 6 milestones (perceived anomaly → root cause → diagnosis confidence → proposed action → KG validation → improvement). Partial score per milestone, not all-or-nothing.
 
 ### Task Score (TS)
-Qualità dell'output finale di un agente. Nel contesto: Accuracy della diagnosi Reasoning Agent, feasibility dell'azione Planning Agent, coerenza Communication Agent. Valutato vs ground truth (simulatore) o LLM-as-judge.
+Quality of an agent's final output. In context: Accuracy of Reasoning Agent diagnosis, feasibility of Planning Agent action, coherence of Communication Agent. Evaluated vs ground truth (simulator) or LLM-as-judge.
 
 ### Coordination Score (CS)
-Qualità dell'interazione tra agenti. Nel contesto: Pipeline Perception→Reasoning→Planning→Communication passaggio di stato senza perdita di contesto? Token efficiency? Graph traversal correctness? Separate from Task Score — puoi avere alta TS ma bassa CS (agente giusto, coordinamento sbagliato).
+Quality of interaction between agents. In context: Perception→Reasoning→Planning→Communication pipeline state passage without context loss? Token efficiency? Graph traversal correctness? Separate from Task Score — you can have high TS but low CS (right agent, wrong coordination).
 
-### Outcome Validity Metrica
-Pass → KPI recuperati > target soglia; Fail → KPI stagnanti o peggiorati. Valutato post-azione dal Planning Agent sul simulatore 3GPP. È la ground truth assoluta della valutazione.
+### Outcome Validity Metric
+Pass → KPIs recovered > target threshold; Fail → KPIs stagnant or degraded. Evaluated post-action by Planning Agent on 3GPP simulator. It is the absolute ground truth of evaluation.
 
 ---
 
-## Varianti Terminologiche Segnalate
+## Noted Terminological Variants
 
-- **"Gemello Digitale Cognitivo"** vs **"Cognitive Digital Twin"** — usare CDT come acronimo canonico in testo inglese, traslatare in italiano solo quando necessario.
-- **"Agente"** vs **"Agent"** — preferenza italiana "agente" in corpo tesi, "agent" in code comments e paper.
-- **"Knowledge Graph"** vs **"Knowledge Base"** — usare KG per strutture orientate a grafi (Neo4j), KB per vocabolari piatti. Nel contesto tesi: KG.
+- **"Gemello Digitale Cognitivo"** vs **"Cognitive Digital Twin"** — use CDT as canonical acronym in English text, translate to Italian only when necessary.
+- **"Agente"** vs **"Agent"** — Italian preference "agente" in thesis body, "agent" in code comments and papers.
+- **"Knowledge Graph"** vs **"Knowledge Base"** — use KG for graph-oriented structures (Neo4j), KB for flat vocabularies. In thesis context: KG.
 
 ---
 

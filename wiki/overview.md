@@ -1,5 +1,5 @@
 ---
-title: Overview della Tesi
+title: Thesis Overview
 type: analysis
 created: 2026-04-14
 updated: 2026-04-14
@@ -9,92 +9,92 @@ tags: [thesis, summary, architecture]
 
 # Overview — Cognitive Digital Twins
 
-Sintesi ad alto livello della tesi e del suo contributo scientifico.
+High-level summary of the thesis and its scientific contribution.
 
 ---
 
-## Titolo e Scope
+## Title and Scope
 
-**Titolo:** Cognitive Digital Twins  
-**Autore:** Nicolò Termine  
-**Ateneo:** Politecnico di Torino  
+**Title:** Cognitive Digital Twins  
+**Author:** Nicolò Termine  
+**Institution:** Politecnico di Torino  
 **Partner:** Fondazione Ugo Bordoni / CINI  
-**Data:** Aprile 2026
+**Date:** April 2026
 
 ---
 
-## Problema Centrale
+## Central Problem
 
-Le reti 5G sono sistemi cyber-fisici troppo dinamici per essere gestiti con strumenti passivi. I Digital Twin attuali sono specchi statici; gli agenti AI sono moduli isolati. **Come si combina cognizione distribuita con rappresentazione digitale per ottenere decision-making autonomo su infrastrutture 5G?**
-
----
-
-## Ipotesi Principale
-
-Un Cognitive Digital Twin (CDT) locale, riproducibile su hardware consumer (M4 Pro 24GB), può supportare le sei funzioni cognitive fondamentali identificate in letteratura (percezione, ragionamento, memoria, apprendimento, adattamento, decision-making) coordinando agenti LLM open-source orchestrati tramite LangGraph.
+5G networks are too dynamic for passive management tools. Current Digital Twins are static mirrors; AI agents are isolated modules. **How do we combine distributed cognition with digital representation to achieve autonomous decision-making on 5G infrastructure?**
 
 ---
 
-## Contributi Scientifici
+## Main Hypothesis
 
-### Contributo 1 — Architettura del CDT (Ingegneristico)
+A local Cognitive Digital Twin (CDT), reproducible on consumer hardware (M4 Pro 24GB), can support the six foundational cognitive functions identified in literature (perception, reasoning, memory, learning, adaptation, decision-making) by coordinating open-source LLM agents orchestrated via LangGraph.
 
-**Che cosa:** Design e implementazione completa di un sistema a tre layer:
-- **Livello Fisico Simulato** — generatore di metriche 3GPP con iniezione di anomalie
-- **Livello DT** — Eclipse Ditto come backbone di rappresentazione digitale sincronizzata
-- **Livello Cognitivo** — LangGraph + agenti LLM specializzati (Perception, Reasoning, Planning, Communication)
+---
 
-**Perché rilevante:** Dimostra fattibilità end-to-end e maturità architetturale.
+## Scientific Contributions
 
-### Contributo 2 — Framework di Valutazione per Agenti Cognitivi (Metodologico — CORE)
+### Contribution 1 — CDT Architecture (Engineering)
 
-**Che cosa:** Metodologia sistematica per valutare agenti cognitivi specializzati quando ground truth è assente:
-- **Perception Agent** → metriche strutturate classiche (accuracy vs. simulatore)
+**What:** Complete design and implementation of a three-layer system:
+- **Simulated Physical Layer** — 3GPP metrics generator with anomaly injection
+- **DT Layer** — Eclipse Ditto as backbone for synchronized digital representation
+- **Cognitive Layer** — LangGraph + specialized LLM agents (Perception, Reasoning, Planning, Communication)
+
+**Why relevant:** Demonstrates end-to-end feasibility and architectural maturity.
+
+### Contribution 2 — Evaluation Framework for Cognitive Agents (Methodological — CORE)
+
+**What:** Systematic methodology for evaluating specialized cognitive agents when ground truth is absent:
+- **Perception Agent** → classical structured metrics (accuracy vs. simulator)
 - **Reasoning Agent** → LLM-as-judge + multi-agent agreement + KG-based validation
-- **Planning Agent** → validazione contro vincoli KG + fattibilità operativa
-- **Communication Agent** → readability + completeness + fidelity causale
+- **Planning Agent** → validation against KG constraints + operational feasibility
+- **Communication Agent** → readability + completeness + causal fidelity
 
-**Perché rilevante:** Affronta problema aperto della valutazione LLM in contesti specializzati. È il **baricentro scientifico della tesi**, suggerito da feedback di Andrea in call.
+**Why relevant:** Addresses open problem of LLM evaluation in specialized contexts. It is the **scientific center of gravity of the thesis**, suggested by Andrea's feedback in the call.
 
-### Contributo 3 — Benchmark Comparativo di Modelli (Empirico)
+### Contribution 3 — Comparative Benchmark of Models (Empirical)
 
-**Che cosa:** Valutazione sistematica di LLM open-source su task specifici 5G:
-- Modelli: Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B
-- Task: reasoning su KPI anomalie, planning correttive, comunicazione diagnostica
-- Metriche: accuracy, latenza, token efficiency, memoria
+**What:** Systematic evaluation of open-source LLMs on 5G-specific tasks:
+- Models: Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B
+- Tasks: reasoning on KPI anomalies, corrective planning, diagnostic communication
+- Metrics: accuracy, latency, token efficiency, memory
 
-**Perché rilevante:** Output pubblicabile. Contributo empirico complementare ai due precedenti.
+**Why relevant:** Publishable output. Empirical contribution complementary to the previous two.
 
 ---
 
-## Stack Tecnologico
+## Technology Stack
 
-| Layer | Tecnologia | Ruolo |
+| Layer | Technology | Role |
 |---|---|---|
-| Fisico Simulato | Python + generatore metriche 3GPP | Fonte dati, ground truth |
-| Digital Twin | Eclipse Ditto + REST API | Sincronizzazione stato, event stream |
-| Knowledge Graph | Neo4j + Cypher | Vincoli operativi, validazione |
-| Orchestrazione Agenti | LangGraph + LangChain | State management, routing |
-| LLM | Ollama (Q4 quantizzazione) | Modelli locali: Llama, Mistral, Phi-3, Qwen |
-| Interfaccia Utente | Report testuale + metriche grafiche | Esplicazione diagnostica |
+| Simulated Physical | Python + 3GPP metrics generator | Data source, ground truth |
+| Digital Twin | Eclipse Ditto + REST API | State synchronization, event stream |
+| Knowledge Graph | Neo4j + Cypher | Operational constraints, validation |
+| Agent Orchestration | LangGraph + LangChain | State management, routing |
+| LLM | Ollama (Q4 quantization) | Local models: Llama, Mistral, Phi-3, Qwen |
+| User Interface | Textual report + graphical metrics | Diagnostic explanation |
 
 ---
 
-## Ipotesi Critiche di Ricerca
+## Critical Research Hypotheses
 
-1. **Un LLM open-source autonomo può inferire cause radice di anomalie 5G con affidabilità sufficiente a supporto decisionale** → Testato tramite benchmark
-2. **Multi-agent agreement aumenta significativamente la fiducia nelle diagnosi LLM in assenza di ground truth** → Testato tramite valutazione Reasoning Agent
-3. **Vincoli operativi memorizzati in KG sono sufficienti a validare azioni di Planning** → Testato tramite fault injection
-4. **Hardware consumer (M4 Pro) con modelli quantizzati supporta pipeline end-to-end in real-time** → Testato tramite benchmark latenza e throughput
+1. **An autonomous open-source LLM can infer root causes of 5G anomalies with sufficient reliability to support decision-making** → Tested via benchmark
+2. **Multi-agent agreement significantly increases confidence in LLM diagnoses in the absence of ground truth** → Tested via Reasoning Agent evaluation
+3. **Operational constraints stored in KG are sufficient to validate Planning actions** → Tested via fault injection
+4. **Consumer hardware (M4 Pro) with quantized models supports end-to-end pipeline in real-time** → Tested via latency and throughput benchmark
 
 ---
 
-## Scopo NON Incluso (Future Work)
+## Scope NOT Included (Future Work)
 
-- Addestramento fine-tuning dei modelli su 5G-specific task
-- Apprendimento continuo e adattamento dinamico del KG
-- Multi-domain CDT (solo 5G in questa tesi)
-- Orchestrazione su cluster distribuiti
+- Fine-tuning training of models on 5G-specific tasks
+- Continuous learning and dynamic adaptation of KG
+- Multi-domain CDT (only 5G in this thesis)
+- Orchestration on distributed clusters
 
 ---
 

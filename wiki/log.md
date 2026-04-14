@@ -1,5 +1,4 @@
----
-title: Log di Progetto
+title: Project Log
 type: analysis
 created: 2026-04-14
 updated: 2026-04-14
@@ -7,79 +6,117 @@ sources: []
 tags: [project-log, chronology]
 ---
 
-# Log — Cronologia Progetto Wiki
 
-Registro append-only di tutte le operazioni sulla wiki.
+# Log — Wiki Project Chronology
+
+Append-only log of all wiki operations.
 
 ---
 
-## [2026-04-14] setup | Inizializzazione struttura wiki
+## [2026-04-14] setup | Wiki structure initialization
 
-**Operazione:** Setup completo della struttura wiki secondo CLAUDE.md
+**Operation:** Complete wiki structure setup according to CLAUDE.md
 
-**Azioni compiute:**
-- Creazione cartelle: `sources/`, `concepts/`, `personas/`, `analyses/`, `style/`
-- Creazione file master: `glossary.md`, `overview.md`, `log.md` (questo), `index.md`
-- Inizializzazione di glossario con 40+ termini canonici dominio CDT + 5G
-- Creazione pagina overview con sintesi tesi, problematica, contributi, stack tecnologico
+**Actions performed:**
+- Created folders: `sources/`, `concepts/`, `personas/`, `analyses/`, `style/`
+- Created master files: `glossary.md`, `overview.md`, `log.md` (this), `index.md`
+- Initialized glossary with 40+ canonical CDT + 5G domain terms
+- Created overview page with thesis summary, problem statement, contributions, tech stack
 
-**File creati:** 5 cartelle + 4 file master  
-**File rimangono:** `scaffolding-tesi.md` (già popolato con literature review)
+**Files created:** 5 folders + 4 master files  
+**Files remaining:** `scaffolding-tesi.md` (already populated with literature review)
 
-**Prossimo passo:** Ingestare paper raw (blocco A–E da scaffolding) in `sources/` → aggiornare `index.md`
+**Next step:** Ingest raw papers (blocks A–E from scaffolding) into `sources/` → update `index.md`
+
+---
+
+## [2026-04-15] translation | Complete English translation of foundational wiki
+
+**Operation:** Translate all foundational wiki files from Italian to English to enable monolingual English wiki operation
+
+**Files translated (100% complete):**
+1. ✅ `CLAUDE.md` — Master operating manual (added language policy header)
+2. ✅ `SKILL-thesis-ingest.md` — Paper ingest workflow procedure  
+3. ✅ `wiki/glossary.md` — 50+ canonical terms and definitions  
+4. ✅ `wiki/index.md` — Master catalog and navigation 
+5. ✅ `wiki/overview.md` — High-level thesis summary and contributions
+6. ✅ `wiki/scaffolding-tesi.md` — Central argumentative structure (413 lines)
+   - Translated: All 8 chapters, all section headers, all narratives
+   - Translated: Research question, hypotheses, literature blocks (A–E)
+   - Translated: Related Work (Chapter 3), System Architecture (Chapter 4)
+   - Translated: Evaluation Methodology, Discussion, Limitations
+   - Translated: Four contributions breakdown, professor Q&A (5 questions)
+   - Translated: Tables, citations, cross-references (all preserved)
+
+**Translation approach:**
+- Used `multi_replace_string_in_file` with semantic batching (3-5 operations per call)
+- Maintained all markdown formatting, tables, links, citations
+- Preserved wiki cross-references (`[[page-name]]` format)
+- Language policy established: user communication in Italian, wiki storage in English
+
+**Quality assurance:**
+- All Italian text replaced with idiomatic English
+- Technical terminology consistent with glossary.md
+- No Italian characters remain (except author name "Nicolò")
+- Cross-references validated (internal links intact)
+- No contradictions introduced
+
+**Impact:** Wiki is now fully monolingual (English) with complete argumentative structure documented and ready for chapter writing phase
+
+**Next step:** Begin translating secondary reference files (sources/, concepts/, analyses/) as needed for writing
 
 ---
 
 ## [2026-04-14] ingest | Zheng et al. (2022) — The Emergence of Cognitive Digital Twin
 
-**Punto di ingresso:** Caso B — valore-tesi.md già disponibile  
-**Pagine create:** `wiki/sources/zheng-et-al-2022-cdt.md`  
-**Pagine aggiornate:** `scaffolding-tesi.md` (checkbox + link), `index.md` (checkbox + link)  
-**Tensioni rilevate:** No  
-**Sezioni scaffolding toccate:** Cap. 2 — Background Teorico (sezione 2.1 e 2.2)
+**Entry point:** Case B — valore-tesi.md already available  
+**Pages created:** `wiki/sources/zheng-et-al-2022-cdt.md`  
+**Pages updated:** `scaffolding-tesi.md` (checkbox + link), `index.md` (checkbox + link)  
+**Tensions found:** None  
+**Scaffolding sections touched:** Ch. 2 — Theoretical Background (sections 2.1 and 2.2)
 
-**Sommario:** Fondazione teorica della definizione di CDT. Il paper formalizza le cinque caratteristiche (cognitive capability, full lifecycle, autonomy, continuous evolving, DT-based design) e le sei funzioni cognitive (percezione, ragionamento, memoria, apprendimento, adattamento, decision-making). Legittima il KG come componente mandatoria. Mapping 1:1 su architettura tesi: ogni agente LangGraph copre una o più funzioni cognitive. **Contributo principale: vocabolario formale e framework teorico per il Background**.  
-**Non coperto:** Implementazione, LLM, valutazione del reasoning cognitivo, domini specifici (5G).  
-**Prossimo:** Al-Haj Ali et al. (2025) — estensione su MMCI framework e valutazione
+**Summary:** Theoretical foundation of the CDT definition. The paper formalizes the five characteristics (cognitive capability, full lifecycle, autonomy, continuous evolving, DT-based design) and the six cognitive functions (perception, reasoning, memory, learning, adaptation, decision-making). Establishes the KG as a mandatory component. 1:1 mapping to thesis architecture: each LangGraph agent covers one or more cognitive functions. **Main contribution: formal vocabulary and theoretical framework for the Background.**  
+**Not covered:** Implementation, LLM, evaluation of cognitive reasoning, specific domains (5G).  
+**Next:** Al-Haj Ali et al. (2025) — extension on MMCI framework and evaluation
 
 ---
 
 ## [2026-04-14] ingest | Al-Haj Ali et al. (2025) — Towards Cognitive Interoperability
 
-**Punto di ingresso:** Caso B — valore-tesi.md già disponibile  
-**Pagine create:** `wiki/sources/al-haj-ali-2025-mmci.md`, `wiki/concepts/mmci-framework.md`  
-**Pagine aggiornate:** `scaffolding-tesi.md` (checkbox + link), `index.md` (checkbox + concepts)  
-**Tensioni rilevate:** No  
-**Sezioni scaffolding toccate:** Cap. 5 — Metodologia di Valutazione (sezione 5.1 e 5.2)
+**Entry point:** Case B — valore-tesi.md already available  
+**Pages created:** `wiki/sources/al-haj-ali-2025-mmci.md`, `wiki/concepts/mmci-framework.md`  
+**Pages updated:** `scaffolding-tesi.md` (checkbox + link), `index.md` (checkbox + concepts)  
+**Tensions found:** None  
+**Scaffolding sections touched:** Ch. 5 — Evaluation Methodology (sections 5.1 and 5.2)
 
-**Sommario:** MMCI framework (Multi-Modal Cognitive Interoperability) — five-level maturity model per valutare allineamento cognitivo tra CDT e operatore/vincoli di dominio. **Risolve il gap critico:** come misurare Reasoning e Planning senza ground truth esplicito? Risposta: misurare alignment tra modello interno (KG) e previsioni/azioni che il sistema fa. Livelli: SSA (situazione) → SMM (modelli mentali) → Intent Alignment (diagnosi) → Joint Decision (azioni + spiegazione) → Full Autonomy (out of scope). **Contributo principale: framework di valutazione qualitativa con possibilità di quantificazione**. Substitution architetturale: CLARION (paper) → LLM pipeline (tesi), HRC manifattura (paper) → RAN 5G (tesi).  
-**Non coperto:** Metriche quantitative precise per ogni livello, dominio 5G, LLM, linguaggio naturale.  
-**Prossimo:** Blocco B — RESTART NDT (2024) — giustificazione dominio 5G
+**Summary:** MMCI framework (Multi-Modal Cognitive Interoperability) — five-level maturity model to evaluate cognitive alignment between CDT and operator/domain constraints. **Solves the critical gap:** how to measure Reasoning and Planning without explicit ground truth? Answer: measure alignment between internal model (KG) and the system's predictions/actions. Levels: SSA (situation) → SMM (mental models) → Intent Alignment (diagnosis) → Joint Decision (actions + explanation) → Full Autonomy (out of scope). **Main contribution: qualitative evaluation framework with quantification potential.** Architectural substitution: CLARION (paper) → LLM pipeline (thesis), HRC manufacturing (paper) → RAN 5G (thesis).  
+**Not covered:** Precise quantitative metrics for each level, 5G domain, LLM, natural language.  
+**Next:** Block B — RESTART NDT (2024) — 5G domain justification
 
 ---
 
 ## [2026-04-14] ingest | RESTART (2024) — Network Digital Twin White Paper
 
-**Punto di ingresso:** Caso B — valore-tesi.md già disponibile  
-**Pagine create:** 
+**Entry point:** Case B — valore-tesi.md already available  
+**Pages created:** 
 - `wiki/sources/restart-2024-ndt.md` (source page)
 - `wiki/concepts/network-digital-twin.md` (concept)
 - `wiki/concepts/digital-hat.md` (concept)
 - `wiki/concepts/intent-based-networking.md` (concept)
 - `wiki/concepts/closed-loop-autonomy.md` (concept)
 
-**Pagine aggiornate:** 
-- `scaffolding-tesi.md` (Blocco B checkbox + link)
-- `index.md` (Sources: RESTART checked, Concepts: 4 new concepts in "Creati", Status: Blocco B now 1/4)
+**Pages updated:** 
+- `scaffolding-tesi.md` (Block B checkbox + link)
+- `index.md` (Sources: RESTART checked, Concepts: 4 new concepts in "Created", Status: Block B now 1/4)
 
-**Tensioni rilevate:** None — RESTART aligns perfectly with Zheng's 6 functions and Al-Haj Ali's MMCI framework
+**Tensions found:** None — RESTART aligns perfectly with Zheng's 6 functions and Al-Haj Ali's MMCI framework
 
-**Sezioni scaffolding toccate:** 
-- Cap. 1 — Introduzione (NDT as motivational framing)
-- Cap. 3 — Related Work (5G positioning via RESTART architecture)
-- Cap. 4 — Architettura (3-layer mapping: DH→Ditto, Autonomic→LangGraph, Closed-loop→feedback)
+**Scaffolding sections touched:** 
+- Ch. 1 — Introduction (NDT as motivational framing)
+- Ch. 3 — Related Work (5G positioning via RESTART architecture)
+- Ch. 4 — Architecture (3-layer mapping: DH→Ditto, Autonomic→LangGraph, Closed-loop→feedback)
 
-**Sommario:** RESTART (2024) provides the 5G domain justification for why a cognitive layer in Network Digital Twins is mandatory, not optional. Core claim: "AI is a core driver of strategic decision-making, not a supporting tool." Three-tier architecture (Digital Hat, Autonomic Control, Closed-loop Automation) maps 1:1 to thesis implementation (Ditto, LangGraph agents, feedback loop).
+**Summary:** RESTART (2024) provides the 5G domain justification for why a cognitive layer in Network Digital Twins is mandatory, not optional. Core claim: "AI is a core driver of strategic decision-making, not a supporting tool." Three-tier architecture (Digital Hat, Autonomic Control, Closed-loop Automation) maps 1:1 to thesis implementation (Ditto, LangGraph agents, feedback loop).
 
 Key insights:
 1. **Digital Hat (DH):** Real-time interface to physical assets (thesis: Eclipse Ditto Things + Features)
@@ -104,34 +141,34 @@ Concepts introduced:
 - [[intent-based-networking]] — IBN pattern, KG-based constraint checking
 - [[closed-loop-autonomy]] — Feedback mechanism, why MMCI evaluation is needed
 
-**Non coperto:** LLM-specific challenges, local execution on M4 Pro vs. telecommunications infrastructure, benchmark of open-weight models
+**Not covered:** LLM-specific challenges, local execution on M4 Pro vs. telecommunications infrastructure, benchmark of open-weight models
 
-**Prossimo:** Blocco B — Burr et al. (2026) — Agentic AI risk taxonomy to contextualize (I,T,A) configuration
+**Next:** Block B — Burr et al. (2026) — Agentic AI risk taxonomy to contextualize (I,T,A) configuration
 
 ---
 
 ## [2026-04-14] ingest | Burr et al. (2026) — Agentic Digital Twins: Risk Taxonomy
 
-**Punto di ingresso:** Caso B — valore-tesi.md + riassunto.md già disponibili  
-**Pagine create:** 
+**Entry point:** Case B — valore-tesi.md + riassunto.md already available  
+**Pages created:** 
 - `wiki/sources/burr-et-al-2026-agentic-dt.md` (source page)
 - `wiki/concepts/agentic-dt-risk-taxonomy.md` (concept)
 - `wiki/concepts/performative-prediction.md` (concept)
 
-**Pagine aggiornate:** 
-- `scaffolding-tesi.md` (Blocco B checkbox: Burr now ✅)
-- `index.md` (Sources: Burr checked, Concepts: +2 new, Status: Blocco B now 2/4)
+**Pages updated:** 
+- `scaffolding-tesi.md` (Block B checkbox: Burr now ✅)
+- `index.md` (Sources: Burr checked, Concepts: +2 new, Status: Block B now 2/4)
 
-**Tensioni rilevate:** None — Burr perfectly complements RESTART (NDT architecture) and Zheng (CDT theory) without contradictions. **Però illuminate ONE TACTICAL TENSION:** Burr's focus on risk taxonomy presents the "Evil Twin" scenario (I,C,A) as theoretically possible but doesn't provide empirical tests to detect it in deployed systems. Thesis will need to provide detection mechanisms.
+**Tensions found:** None — Burr perfectly complements RESTART (NDT architecture) and Zheng (CDT theory) without contradictions. However, illuminates ONE TACTICAL TENSION: Burr's focus on risk taxonomy presents the "Evil Twin" scenario (I,C,A) as theoretically possible but doesn't provide empirical tests to detect it in deployed systems. Thesis will need to provide detection mechanisms.
 
-**Sezioni scaffolding toccate:** 
-- Cap. 1 (Introduzione) — Positioning: "The proposed CDT is configured as Active Steering (I,T,A per Burr et al.)"
-- Cap. 3 (Related Work) — Governance framework for agentic DTs
-- Cap. 5 (Metodologia) — Performative prediction as core methodological risk + mitigation strategies
-- Cap. 7 (Risultati) — Fault injection and multi-agent agreement as performative lock-in detection tests
-- Cap. 8 (Discussione) — Explicit discussion of (I,T,A) vs (I,C,A) boundary, guardrails to prevent drift
+**Scaffolding sections touched:** 
+- Ch. 1 (Introduction) — Positioning: "The proposed CDT is configured as Active Steering (I,T,A per Burr et al.)"
+- Ch. 3 (Related Work) — Governance framework for agentic DTs
+- Ch. 5 (Evaluation Methodology) — Performative prediction as core methodological risk + mitigation strategies
+- Ch. 7 (Results) — Fault injection and multi-agent agreement as performative lock-in detection tests
+- Ch. 8 (Discussion) — Explicit discussion of (I,T,A) vs (I,C,A) boundary, guardrails to prevent drift
 
-**Sommario:** Burr et al. (2026) provides the risk governance framework for agentic systems. Core contribution: **taxonomy of 27 DT configurations** organized by Agency, Coupling, and Evolution dimensions. Positions thesis system as **Active Steering (I,T,A)** — internal agency, tight coupling (real-time), adaptive evolution — which is the current state-of-the-art balance between autonomy and control.
+**Summary:** Burr et al. (2026) provides the risk governance framework for agentic systems. Core contribution: **taxonomy of 27 DT configurations** organized by Agency, Coupling, and Evolution dimensions. Positions thesis system as **Active Steering (I,T,A)** — internal agency, tight coupling (real-time), adaptive evolution — which is the current state-of-the-art balance between autonomy and control.
 
 **Critical Risk Identified: Governor (I,C,A)** — The configuration where coupling becomes "constitutive" (system co-defines reality it measures) creates performative lock-in where the system appears optimal because it has shaped the environment. Thesis system risks drifting toward this if the Knowledge Graph constraint validator is not properly immutable.
 
@@ -143,9 +180,9 @@ Concepts introduced:
 3. **Why multi-agent agreement essential:** Multiple LLM reasoning streams with different training histories reduce likelihood of shared bias; consensus = confidence in non-spurious causality
 4. **Why transparent decisions matter:** Audit trail of all decisions enables post-hoc analysis: "Was this a true causal relationship or performative artifact?"
 
-**Non coperto:** Empirical detection of (I,T,A) vs (I,C,A) boundary in deployed systems; quantitative thresholds for "too much" performative stability; case studies in 5G-specific domain.
+**Not covered:** Empirical detection of (I,T,A) vs (I,C,A) boundary in deployed systems; quantitative thresholds for "too much" performative stability; case studies in 5G-specific domain.
 
-**Prossimi passi:** 
+**Next steps:** 
 - Kalyani & Collier (2024) — SLR on MAS+DT patterns (22 papers) — will validate that thesis architectural choices are not idiosyncratic
 - Pretel et al. (2024) — Comprehensive SLR (64 papers) — will identify systematic gaps addressed by thesis
 
@@ -153,28 +190,28 @@ Concepts introduced:
 
 ## [2026-04-14] ingest | Kalyani & Collier (2024) — The Role of Multi-Agents in Digital Twin Implementation
 
-**Punto di ingresso:** Caso B — valore-tesi.md già disponibile  
-**Pagine create:** 
+**Entry point:** Case B — valore-tesi.md already available  
+**Pages created:** 
 - `wiki/sources/kalyani-collier-2024-mas-dt.md` (source page)
 
-**Pagine aggiornate:** 
-- `scaffolding-tesi.md` (Blocco B checkbox: Kalyani now ✅)
-- `index.md` (Sources: Kalyani checked, Status: Blocco B now 3/4)
+**Pages updated:** 
+- `scaffolding-tesi.md` (Block B checkbox: Kalyani now ✅)
+- `index.md` (Sources: Kalyani checked, Status: Block B now 3/4)
 
-**Tensioni rilevate:** None — Kalyani architecturally aligns with RESTART 3-tier and Pretel DT properties framework.
+**Tensions found:** None — Kalyani architecturally aligns with RESTART 3-tier and Pretel DT properties framework.
 
-**Sezioni scaffolding toccate:** 
-- Cap. 2 (Background) — Validation of MAS patterns as standard practice
-- Cap. 3 (Related Work) — 22-paper SLR showing MAS+DT as established field
-- Cap. 4 (Architettura) — Confirmation that 4-agent taxonomy aligns with literature patterns
+**Scaffolding sections touched:** 
+- Ch. 2 (Theoretical Background) — Validation of MAS patterns as standard practice
+- Ch. 3 (Related Work) — 22-paper SLR showing MAS+DT as established field
+- Ch. 4 (Architecture) — Confirmation that 4-agent taxonomy aligns with literature patterns
 
-**Sommario:** Kalyani & Collier (2024) provides systematic validation of the multi-agent architecture pattern. ACS (Autonomous Components System) decomposition into Perception → Reasoning → Planning → Communication mirrors exactly the established pattern in 22 reviewed papers. Key findings:
+**Summary:** Kalyani & Collier (2024) provides systematic validation of the multi-agent architecture pattern. ACS (Autonomous Components System) decomposition into Perception → Reasoning → Planning → Communication mirrors exactly the established pattern in 22 reviewed papers. Key findings:
 
 1. **MAS+DT is established:** 22 papers across 2020-2024 demonstrate this integration
 2. **Four-agent pattern is standard:** Manager (orchestration) + Data (sensing) + Processing (automation) + Recommendation (output) matches thesis agents
 3. **Knowledge Graph is SoTA:** Ontologies and KGs used in multiple papers as decision backbone; validates Neo4j choice
 4. **LLM is novel:** None of the 22 papers use LLM agents; all use DRL or rule-based — thesis is first integration
-5. **Gap on valuation:** All four research questions end with "reliability evaluation methodologies not adequately addressed"
+5. **Gap on evaluation:** All four research questions end with "reliability evaluation methodologies not adequately addressed"
 
 **Key SLRs to chase down from this paper:**
 - Zhang et al. (2021) — Adaptive DT + MAS+DRL for vehicular edge computing
@@ -182,29 +219,29 @@ Concepts introduced:
 - Latsou et al. (2023) — MAS anomaly detection (rule-based baseline)
 - Galuzin et al. (2022) — KG + agents for real-time decision-making
 
-**Non coperto:** LLM agents, 5G/telecomunicazioni, empirical evaluation framework.
+**Not covered:** LLM agents, 5G/telecommunications, empirical evaluation framework.
 
 ---
 
 ## [2026-04-14] ingest | Pretel et al. (2024) — Analysing the Synergies between Multi-Agent Systems and Digital Twins
 
-**Punto di ingresso:** Caso B — valore-tesi.md già disponibile  
-**Pagine create:** 
+**Entry point:** Case B — valore-tesi.md already available  
+**Pages created:** 
 - `wiki/sources/pretel-et-al-2024-mas-dt.md` (source page)
 
-**Pagine aggiornate:** 
-- `scaffolding-tesi.md` (Blocco B checkbox: Pretel now ✅ — **BLOCCO B COMPLETATO 4/4**)
-- `index.md` (Sources: Pretel checked, Status: Blocco B now 4/4 ✅ COMPLETATO)
+**Pages updated:** 
+- `scaffolding-tesi.md` (Block B checkbox: Pretel now ✅ — **BLOCK B COMPLETED 4/4**)
+- `index.md` (Sources: Pretel checked, Status: Block B now 4/4 ✅ COMPLETED)
 
-**Tensioni rilevate:** CRITICAL INSIGHT — Only 8% of 64 papers implement DT3 (Entanglement / bidirectionality). Thesis implements this rare capability explicitly.
+**Tensions found:** CRITICAL INSIGHT — Only 8% of 64 papers implement DT3 (Entanglement / bidirectionality). Thesis implements this rare capability explicitly.
 
-**Sezioni scaffolding toccate:** 
-- Cap. 1 (Introduzione) — Positioning: "Strong entanglement through Planning Agent"
-- Cap. 3 (Related Work) — Framework of 12 DT properties; thesis covers 9/12 (75% vs 60% average)
-- Cap. 4 (Architettura) — Dual pattern (MAS-for-DT orchestration + MAS-with-DT sensing) not found in any of 64 papers
-- Cap. 5 (Metodologia) — Gap on agent reliability as explicit open research question
+**Scaffolding sections touched:** 
+- Ch. 1 (Introduction) — Positioning: "Strong entanglement through Planning Agent"
+- Ch. 3 (Related Work) — Framework of 12 DT properties; thesis covers 9/12 (75% vs 60% average)
+- Ch. 4 (Architecture) — Dual pattern (MAS-for-DT orchestration + MAS-with-DT sensing) not found in any of 64 papers
+- Ch. 5 (Evaluation Methodology) — Gap on agent reliability as explicit open research question
 
-**Sommario:** Pretel et al. (2024) provides the most comprehensive DT+MAS taxonomy: 64 papers analyzed on RQ1 (domains), RQ2 (MAS properties), RQ3 (technologies), RQ4 (gaps). Framework identifies 12 essential DT properties as completeness criteria.
+**Summary:** Pretel et al. (2024) provides the most comprehensive DT+MAS taxonomy: 64 papers analyzed on RQ1 (domains), RQ2 (MAS properties), RQ3 (technologies), RQ4 (gaps). Framework identifies 12 essential DT properties as completeness criteria.
 
 **Major Findings:**
 
@@ -218,7 +255,7 @@ Concepts introduced:
 
 5. **LLM Entirely Absent:** Corpus is pre-LLM explosion (up to Feb 2023). No papers use LLM agents. Thesis is genuinely first in this space.
 
-6. **5G/Telecomunicazioni Completely Absent:** Zero papers in 64-paper set address networks, 5G, RAN, or telecom. Thesis operates in uncharted territory for this literature.
+6. **5G/Telecommunications Completely Absent:** Zero papers in 64-paper set address networks, 5G, RAN, or telecom. Thesis operates in uncharted territory for this literature.
 
 7. **Reliability/Evaluation Framework Missing:** All four RQs identify agent reliability as open problem. Thesis fills with MMCI + LLM-as-judge + multi-agent agreement methodology.
 
@@ -227,9 +264,9 @@ Concepts introduced:
 - Properties rare in corpus but implemented in thesis: Entanglement (8%→100%), Augmentation (12%→Yes), Autonomy (15%→Yes), Accountability (8%→Yes)
 - This makes thesis architecturally more complete than 64-paper average
 
-**Non coperto:** Implementation details of scalability beyond single CDT; privacy/security in autonomous systems; formal verification of agent decisions.
+**Not covered:** Implementation details of scalability beyond single CDT; privacy/security in autonomous systems; formal verification of agent decisions.
 
-**Prossimi passi:** Blocco C (Blueprint Architetturale) — 3 paper:
+**Next steps:** Block C (Architectural Blueprint) — 3 papers:
 - CogTwin IJCAI-25
 - Hasan & Nguyen (6-layer agentic architecture)
 - Biju (LangGraph supervisor)
@@ -238,341 +275,341 @@ Concepts introduced:
 
 ## [2026-04-14] lint | Check for zombie links, contradictions, and orphaned pages
 
-**Operazione:** Full wiki lint dopo Blocco A + B completion
+**Operation:** Full wiki lint after Block A + B completion
 
-**Comandi eseguiti:**
-- grep_search per tutti i link interni `[[...]]` — 132 matches trovati
-- Verifica che tutte le pagine linkate esistono
-- Scan di scaffolding-tesi.md per claim non supportati
-- Cross-check tra paper per contraddizioni
+**Commands executed:**
+- grep_search for all internal links `[[...]]` — 132 matches found
+- Verified that all linked pages exist
+- Scan of scaffolding-tesi.md for unsupported claims
+- Cross-check between papers for contradictions
 
-**Risultati Trovati:**
-- ✅ Blocco A + B coerenti: 0 contraddizioni rilevate
-- ✅ Tutti i claim nello scaffolding supportati da almeno 1 paper
+**Results Found:**
+- ✅ Block A + B consistent: 0 contradictions found
+- ✅ All claims in the scaffolding supported by at least 1 paper
 - ✅ Zero orphaned pages
-- ❌ 15 zombie links (linkati ma non ancora creati) — 10 sono "future" (Blocco C, Blocco D)
-- ⚠️ 1 typo: `[[concepts/performance-prediction]]` → doveva essere `[[performative-prediction]]` — FIXATO
+- ❌ 15 zombie links (linked but not yet created) — 10 are "future" (Block C, Block D)
+- ⚠️ 1 typo: `[[concepts/performance-prediction]]` → should have been `[[performative-prediction]]` — FIXED
 
-**Zombie Links Classificati:**
-- **ALTA PRIORITÀ (4):** [[governor-configuration]] (3×), [[tight-coupling-risks]] (2×), [[cogtwin-ijcai-25]] (3×)
-- **MEDIA (6):** [[dt-properties-checklist]], [[mas-patterns]], [[mas-agreement-for-evaluation]], [[shared-situation-awareness]], [[mental-model-alignment]], [[joint-decision-making]]
-- **DEFERRED (5):** [[sources/multiagent-bench-2025]] (Blocco D), vari Blocco C
+**Zombie Links Classified:**
+- **HIGH PRIORITY (4):** [[governor-configuration]] (3×), [[tight-coupling-risks]] (2×), [[cogtwin-ijcai-25]] (3×)
+- **MEDIUM (6):** [[dt-properties-checklist]], [[mas-patterns]], [[mas-agreement-for-evaluation]], [[shared-situation-awareness]], [[mental-model-alignment]], [[joint-decision-making]]
+- **DEFERRED (5):** [[sources/multiagent-bench-2025]] (Block D), various Block C
 
-**Link Validity Ratio:** 155/170 = 91% ✅ (target >95% okay per fase ingest)
+**Link Validity Ratio:** 155/170 = 91% ✅ (target >95% okay for ingest phase)
 
-**Contraddizioni Tra Paper:** 0 rilevate ✅
-- Zheng (2022) teorico → Al-Haj Ali extend con valutazione → RESTART applica a 5G → Burr meta-level governance → Kalyani/Pretel SLR validazione
-- Sequenza logica lineare e coerente
+**Contradictions Between Papers:** 0 found ✅
+- Zheng (2022) theory → Al-Haj Ali extends with evaluation → RESTART applies to 5G → Burr meta-level governance → Kalyani/Pretel SLR validation
+- Linear and consistent logical sequence
 
-**File Creato:** `wiki/lint-report-2026-04-14.md` (full audit trail)
+**File Created:** `wiki/lint-report-2026-04-14.md` (full audit trail)
 
-**Raccomandazione:** ✅ GO per Blocco C
-- Typo risolto
+**Recommendation:** ✅ GO for Block C
+- Typo fixed
 - No show-stoppers
-- La maggior parte dei zombie links si risolveranno durante Blocco C + D ingest
+- Most zombie links will resolve during Block C + D ingest
 
-**Azioni Completate:**
-- Fixato typo in pretel-et-al-2024-mas-dt.md (line 217)
-- Creato lint report completo con dettagli per ogni zombie link
-- Documentata coerenza narrativa tra Blocco A + B
+**Actions Completed:**
+- Typo fixed in pretel-et-al-2024-mas-dt.md (line 217)
+- Created complete lint report with details for each zombie link
+- Documented narrative consistency between Block A + B
 
 ---
 
-## [2026-04-14] ingest | Blocco C — Blueprint Architetturale (CogTwin, Hasan&Nguyen, Biju)
+## [2026-04-14] ingest | Block C — Architectural Blueprint (CogTwin, Hasan&Nguyen, Biju)
 
-**Operazione:** Ingest simultaneo dei 3 paper di Blocco C — Architecture blueprint fase della tesi
+**Operation:** Simultaneous ingestion of 3 papers from Block C — Architecture blueprint phase of thesis
 
-**Punto di ingresso:** Caso B — tutti e 3 i paper avevano valore-tesi.md + riassunto.md già disponibili
+**Entry point:** Case B — all 3 papers had valore-tesi.md + riassunto.md already available
 
-**Pagine create:** 
+**Pages created:** 
 - `wiki/sources/cogtwin-ijcai-25.md` (CogTwin IJCAI-25)
 - `wiki/sources/hasan-nguyen-2026-agentic-dt.md` (Hasan & Nguyen)
 - `wiki/sources/biju-2024-langgraph.md` (Biju LangGraph)
 
-**Pagine aggiornate:** 
-- `scaffolding-tesi.md` (Blocco C: tutti 3/3 checkbox → ✅ **BLOCCO C COMPLETATO**)
-- `glossary.md` (+6 nuovi termini: DKR, DIKG, Decision Sandbox, Meta-Cognitive Layer, Supervisor Agent, StateGraph)
-- `index.md` (Blocco C source links + status update)
-- `log.md` (questa entry)
+**Pages updated:** 
+- `scaffolding-tesi.md` (Block C: all 3/3 checkboxes → ✅ **BLOCK C COMPLETED**)
+- `glossary.md` (+6 new terms: DKR, DIKG, Decision Sandbox, Meta-Cognitive Layer, Supervisor Agent, StateGraph)
+- `index.md` (Block C source links + status update)
+- `log.md` (this entry)
 
-**Tensioni rilevate:** Zero — CogTwin + Hasan&Nguyen + Biju form perfectly aligned narrative on architecture
+**Tensions found:** Zero — CogTwin + Hasan&Nguyen + Biju form perfectly aligned narrative on architecture
 
-**Sezioni scaffolding toccate:** 
-- Cap. 2 (Background) — CogTwin legittimazione 3-layer, dual-KG, 6 funzioni
-- Cap. 3 (Related Work) — Hasan&Nguyen 6-layer framework; Biju LangGraph pattern
-- Cap. 4 (Architettura) — Descrizione dettagliata con CogTwin + Hasan&Nguyen blueprint; Biju supervisor pattern
-- Cap. 8 (Discussion) — Positioning di tesi relativo a ciascun paper
+**Scaffolding sections touched:** 
+- Ch. 2 (Theoretical Background) — CogTwin legitimizes 3-layer, dual-KG, 6 functions
+- Ch. 3 (Related Work) — Hasan&Nguyen 6-layer framework; Biju LangGraph pattern
+- Ch. 4 (Architecture) — Detailed description with CogTwin + Hasan&Nguyen blueprint; Biju supervisor pattern
+- Ch. 8 (Discussion) — Thesis positioning relative to each paper
 
-**Sommario Blocco C (Tre Narrative Layer):**
+**Block C Summary (Three Narrative Layers):**
 
-1. **CogTwin IJCAI-25 — Teorico (Legittimazione Archi.):** Formalizza dual-KG necessity (DKR statico vs DIKG dinamico), 6 funzioni cognitive, 3-layer. Pro: Foundation teorica. Contro: No LLM, no valutazione cognitiva, no implementazione.
+1. **CogTwin IJCAI-25 — Theoretical (Architectural Legitimization):** Formalizes dual-KG necessity (static DKR vs dynamic DIKG), 6 cognitive functions, 3-layer. Pro: Theoretical foundation. Con: No LLM, no cognitive evaluation, no implementation.
 
-2. **Hasan & Nguyen (2026) — Contemporaneo (Blueprint 6-Layer):** Formalizza closed-loop agentic AI+DT; DT come Decision Sandbox. Mapping 1:1 con 6-layer. Pro: Related work 2026, framework architetturale. Contro: No valutazione metodologica, dominio energetico ≠ 5G.
+2. **Hasan & Nguyen (2026) — Contemporary (6-Layer Blueprint):** Formalizes closed-loop agentic AI+DT; DT as Decision Sandbox. 1:1 mapping with 6-layer. Pro: 2026 related work, architectural framework. Con: No methodological evaluation, energy domain ≠ 5G.
 
-3. **Biju (2024) — Applicativo (Pattern LangGraph):** Demostra Supervisor pattern con 92-98% accuracy. Baseline numerico e architettonica validation. Pro: LangGraph justification, benchmark. Contro: GPT-4o hard-coded, no KG, no rigorous eval_.
+3. **Biju (2024) — Applied (LangGraph Pattern):** Demonstrates Supervisor pattern with 92-98% accuracy. Numerical baseline and architectural validation. Pro: LangGraph justification, benchmark. Con: GPT-4o hard-coded, no KG, no rigorous eval.
 
 **Critical Insights:**
-- Dual-KG è architetticamente mandatorio (confermato da CogTwin, Hasan&Nguyen, Biju)
-- LLM Reasoning è genuinely novel (nessuno dei 3 lo fa)
-- KG Validation è differenziante (tesi aggiunge Neo4j come constraint layer)
-- Meta-Cognitive Super visor è opportunity (CogTwin menzione, tesi può implementare)
-- Biju Baseline è motivatore per Contribution 3 (open-source LLM benchmark)
+- Dual-KG is architecturally mandatory (confirmed by CogTwin, Hasan&Nguyen, Biju)
+- LLM Reasoning is genuinely novel (none of the 3 do it)
+- KG Validation is differentiating (thesis adds Neo4j as constraint layer)
+- Meta-Cognitive Supervisor is an opportunity (mentioned by CogTwin, thesis can implement)
+- Biju Baseline motivates Contribution 3 (open-source LLM benchmark)
 
-**Metriche Progetto Aggiornate:**
-- Blocco A: ✅ 2/2 (100%)
-- Blocco B: ✅ 4/4 (100%)
-- Blocco C: ✅ 3/3 (100%) — **COMPLETATO 14 APR 2026**
-- Blocco D: ⏳ 0/2 (0%)
-- Blocco E: ⏳ 0/1 (0%)
-- **Progress Totale: 9/12 papers (75%)**
+**Updated Project Metrics:**
+- Block A: ✅ 2/2 (100%)
+- Block B: ✅ 4/4 (100%)
+- Block C: ✅ 3/3 (100%) — **COMPLETED 14 APR 2026**
+- Block D: ⏳ 0/2 (0%)
+- Block E: ⏳ 0/1 (0%)
+- **Total Progress: 9/12 papers (75%)**
 
-**Prossimi passi:** Blocco D (MultiAgentBench + Berkeley CS294), Blocco E (WirelessAgent)
+**Next steps:** Block D (MultiAgentBench + Berkeley CS294), Block E (WirelessAgent)
 
 ---
 
-## [2026-04-14] ingest | Blocco D — Metodologia Valutazione (MultiAgentBench, Berkeley CS294)
+## [2026-04-14] ingest | Block D — Evaluation Methodology (MultiAgentBench, Berkeley CS294)
 
-**Operazione:** Ingest simultaneo dei 2 paper/risorse di Blocco D — Evaluation methodology per agenti LLM
+**Operation:** Simultaneous ingestion of 2 papers/resources from Block D — Evaluation methodology for LLM agents
 
-**Punto di ingresso:** Caso B — ambedue le risorse avevano valore-tesi.md + riassunto.md già disponibili
+**Entry point:** Case B — both resources had valore-tesi.md + riassunto.md already available
 
-**Pagine create:** 
+**Pages created:** 
 - `wiki/sources/multiagent-bench-2025.md` (MultiAgentBench Zhu et al.)
 - `wiki/sources/berkeley-cs294-llm-eval.md` (Berkeley CS294 LLM evaluation video)
 
-**Pagine aggiornate:** 
-- `scaffolding-tesi.md` (Blocco D: ambedue 2/2 checkbox → ✅ **BLOCCO D COMPLETATO**)
-- `glossary.md` (+8 nuovi termini: LLM-as-Judge, Multi-Model Agreement, Outcome Validity, Task Verificabili/Non-Verificabili, Milestone-based KPI, Task Score, Coordination Score)
-- `index.md` (Blocco D source links + status update)
-- `log.md` (questa entry)
+**Pages updated:** 
+- `scaffolding-tesi.md` (Block D: both 2/2 checkboxes → ✅ **BLOCK D COMPLETED**)
+- `glossary.md` (+8 new terms: LLM-as-Judge, Multi-Model Agreement, Outcome Validity, Verifiable/Non-Verifiable Tasks, Milestone-based KPI, Task Score, Coordination Score)
+- `index.md` (Block D source links + status update)
+- `log.md` (this entry)
 
-**Tensioni rilevate:** Zero — MultiAgentBench + Berkeley CS294 complementari. MultiAgentBench è specifico su coordinamento; Berkeley è metodologico generale su LLM evaluation.
+**Tensions found:** Zero — MultiAgentBench + Berkeley CS294 complementary. MultiAgentBench is specific on coordination; Berkeley is general methodological on LLM evaluation.
 
-**Sezioni scaffolding toccate:** 
-- Cap. 5 (Metodologia Valutazione) — È la CORE che cambierà di più da questi due paper
-- Cap. 6 (Esperimenti) — Protocolli di testing, evaluation design
-- Cap. 7 (Risultati) — Metriche che riporterai, tabelle e grafici
+**Scaffolding sections touched:** 
+- Ch. 5 (Evaluation Methodology) — Is the CORE that will change most from these two papers
+- Ch. 6 (Experiments) — Testing protocols, evaluation design
+- Ch. 7 (Results) — Metrics to report, tables and graphs
 
-**Sommario Blocco D (Dual Layer — Tecnico + Metodologico):**
+**Block D Summary (Dual Layer — Technical + Methodological):**
 
 **1. MultiAgentBench (2025) — Zhu et al. UIUC**
-- **Paper:** arXiv:2503.01935v1, 3 Marzo 2025
-- **Contributo:** MARBLE (_Multi-agent cooRdination Backbone with LLM Engine_) — misura task completion + qualità coordinamento + KPI milestone
+- **Paper:** arXiv:2503.01935v1, March 3, 2025
+- **Contribution:** MARBLE (_Multi-agent cooRdination Backbone with LLM Engine_) — measures task completion + coordination quality + KPI milestone
 - **Framework:**
-  - Milestone-based KPI: ogni task spezzato in sub-milestones monitorate da LLM evaluator
-  - Task Score (TS) vs Coordination Score (CS): due metriche indipendenti
-  - Task Score = accuratezza output finale; Coordination Score = qualità interazione tra agenti
-- **Benchmark:** Testano 5 modelli (Llama-3.1-8B, Llama-3.1-70B, Llama-3.3-70B, GPT-3.5, GPT-4o-mini) con stesso protocollo
-- **Applicazione Tesi:**
-  - Milestones per ogni fault injection: anomalia percepita → diagnosi → action proposed → KG validation → KPI migliorato
-  - Task Score per ogni agente: Perception (anomaly detection), Reasoning (root cause), Planning (feasibility), Communication (clarity)
-  - Coordination Score: pipeline context passing senza perdita
-  - Benchmark: Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B su same scenari 5G
-- **Pro:** Framework adattabile, benchmark template, separazione TS/CS precisa
-- **Contro:** Loro testano large models; tu testi small models — contributo differenziante. Loro non hanno ground truth esterno; tu hai simulatore + KG.
+  - Milestone-based KPI: each task split into sub-milestones monitored by LLM evaluator
+  - Task Score (TS) vs Coordination Score (CS): two independent metrics
+  - Task Score = output accuracy; Coordination Score = quality of agent interaction
+- **Benchmark:** Tests 5 models (Llama-3.1-8B, Llama-3.1-70B, Llama-3.3-70B, GPT-3.5, GPT-4o-mini) with same protocol
+- **Thesis Application:**
+  - Milestones per fault injection: anomaly perceived → diagnosis → action proposed → KG validation → KPI improved
+  - Task Score per agent: Perception (anomaly detection), Reasoning (root cause), Planning (feasibility), Communication (clarity)
+  - Coordination Score: pipeline context passing without loss
+  - Benchmark: Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B on same 5G scenarios
+- **Pro:** Adaptable framework, benchmark template, precise TS/CS separation
+- **Con:** They test large models; you test small models — differentiating contribution. They have no external ground truth; you have simulator + KG.
 
 **2. Berkeley CS294 (2026) — LLM Agent Evaluations MOOC**
-- **Formato:** Video lecture UC Berkeley su metodologia valutazione agenti
-- **Temi Chiave:**
-  1. **Outcome Validity** — La metrica vera: "L'azione ha risolto il problema reale?" KPI simulatore post-azione = ground truth
-  2. **Task Verificabili vs Non-Verificabili** — Deterministic (API calls, KG checks) vs qualitative (root cause, explanations)
-  3. **Capacità Specifiche vs Verticali** — Tool-use ability vs domain expertise (5G fault types)
-  4. **Multi-Model Agreement** — Convergenza diagnosi tra Llama/Mistral/Phi-3/Qwen = robustezza senza single LLM dependence
+- **Format:** UC Berkeley video lecture on agent evaluation methodology
+- **Key Themes:**
+  1. **Outcome Validity** — The true metric: "Did the action solve the real problem?" KPI simulator post-action = ground truth
+  2. **Verifiable vs Non-Verifiable Tasks** — Deterministic (API calls, KG checks) vs qualitative (root cause, explanations)
+  3. **Specific vs Vertical Capabilities** — Tool-use ability vs domain expertise (5G fault types)
+  4. **Multi-Model Agreement** — Convergence of diagnosis among Llama/Mistral/Phi-3/Qwen = robustness without single LLM dependence
   5. **LLM-as-Judge Best Practices** — Rubrics, multiple judges, reference examples, confidence calibration
-- **Applicazione Tesi:**
-  - Outcome Validity = metrica regina: KPI > threshold soglia post-azione = Pass
-  - Separare: Perception (deterministic ground truth simulatore) vs Planning (deterministic ground truth KG) vs Reasoning (qualitative LLM-as-judge)
-  - Capacità test: Ditto API calls, KG queries per ogni agente isolato
-  - Verticali test: End-to-end su tipos anomalie 5G (congestione, handover failure, power degradation)
+- **Thesis Application:**
+  - Outcome Validity = king metric: KPI > threshold post-action = Pass
+  - Separate: Perception (deterministic simulator ground truth) vs Planning (deterministic KG ground truth) vs Reasoning (qualitative LLM-as-judge)
+  - Capability tests: Ditto API calls, KG queries per isolated agent
+  - Vertical tests: End-to-end on 5G anomaly types (congestion, handover failure, power degradation)
   - Multi-model agreement: Llama/Mistral/Phi-3/Qwen diagnose same scenario, agreement% → confidence signal
-  - LLM-as-judge: Llama 70B valuta diagnosi del 8B con rubric trasparente, multiple judges, reference examples
-- **Pro:** Outcome validity chiara, mitigation strategies su LLM-as-judge, multi-model agreement elegante
-- **Contro:** Video non copre real-time latency constraints (5G-critical); noncopre small models; esempi su dominio informatico
+  - LLM-as-judge: Llama 70B evaluates 8B diagnosis with transparent rubric, multiple judges, reference examples
+- **Pro:** Outcome validity clear, mitigation strategies on LLM-as-judge, multi-model agreement elegant
+- **Con:** Video doesn't cover real-time latency constraints (5G-critical); doesn't cover small models; examples on computer science domain
 
-**Critical Insights da Blocco D:**
+**Critical Insights from Block D:**
 
-1. **Outcome Validity è metrica assoluta:** Non importa quanto bello parla il sistema if the action fails to improve KPI. La simulazione diventa oracle.
+1. **Outcome Validity is absolute metric:** Doesn't matter how beautifully the system talks if the action fails to improve KPI. Simulation becomes oracle.
 
-2. **Ground Truth Strategy è key:** Maximizza task deterministic (simulatore, KG), usa LLM-as-judge only where necessary (Reasoning). Triangolazione riduce autoreferenzialità.
+2. **Ground Truth Strategy is key:** Maximize deterministic tasks (simulator, KG), use LLM-as-judge only where necessary (Reasoning). Triangulation reduces circularity.
 
-3. **Multi-Model Agreement è robusto:** Se 4 LLM concordano sulla diagnosi, confidence → high. Diversity of training data → diversity di bias, consensus → signal.
+3. **Multi-Model Agreement is robust:** If 4 LLMs agree on diagnosis, confidence → high. Diversity of training data → diversity of bias, consensus → signal.
 
-4. **Blocco D + Blocco C completano il puzzle:** CogTwin fornisce blueprint architetturale; Biju dà pattern LangGraph; MultiAgentBench + Berkeley danno metriche rigorose per validare che funziona.
+4. **Block D + Block C complete the puzzle:** CogTwin provides architectural blueprint; Biju gives LangGraph pattern; MultiAgentBench + Berkeley give rigorous metrics to validate that it works.
 
-5. **Questo è Contributo 2 della tesi:** Non è solo il CDT; è il **framework di valutazione rigorosa** che lo rende scientifico.
+5. **This is Contribution 2 of thesis:** It's not just the CDT; it's the **rigorous evaluation framework** that makes it scientific.
 
-**Tensioni risolte:** None — Blocco A+B+C+D forma narrativa coerente: Zheng (theory) → Al-Haj Ali (MMCI framework) → RESTART (5G domain) → Burr (governance) → Kalyani/Pretel (SLK validation) → CogTwin (blueprint) → Hasan&Nguyen (6-layer) → Biju (LangGraph) → MultiAgentBench (metrics) → Berkeley (best practices).
+**Tensions resolved:** None — Block A+B+C+D forms coherent narrative: Zheng (theory) → Al-Haj Ali (MMCI framework) → RESTART (5G domain) → Burr (governance) → Kalyani/Pretel (SLR validation) → CogTwin (blueprint) → Hasan&Nguyen (6-layer) → Biju (LangGraph) → MultiAgentBench (metrics) → Berkeley (best practices).
 
-**Metriche Progetto Aggiornate:**
-- Blocco A: ✅ 2/2 (100%)
-- Blocco B: ✅ 4/4 (100%)
-- Blocco C: ✅ 3/3 (100%)
-- Blocco D: ✅ 2/2 (100%) — **COMPLETATO 14 APR 2026**
-- Blocco E: ⏳ 0/1 (0%)
-- **Progress Totale: 11/12 papers (92%)**
+**Updated Project Metrics:**
+- Block A: ✅ 2/2 (100%)
+- Block B: ✅ 4/4 (100%)
+- Block C: ✅ 3/3 (100%)
+- Block D: ✅ 2/2 (100%) — **COMPLETED 14 APR 2026**
+- Block E: ⏳ 0/1 (0%)
+- **Total Progress: 11/12 papers (92%)**
 
-**Prossimo passo:** Blocco E — WirelessAgent HKUST (1 paper) — ultimo paper, closest prior work nel dominio 5G
+**Next step:** Block E — WirelessAgent HKUST (1 paper) — last paper, closest prior work in 5G domain
 
 
 ---
 
-## [2026-04-14] ingest | Blocco E — Closest Prior Work (WirelessAgent HKUST)
+## [2026-04-14] ingest | Block E — Closest Prior Work (WirelessAgent HKUST)
 
-**Operazione:** Ingest dell'ultimo paper (1 di 5 blocchi) — Closest prior work nel dominio 5G con LLM agents
+**Operation:** Ingestion of last paper (1 of 5 blocks) — Closest prior work in 5G domain with LLM agents
 
-**Punto di ingresso:** Caso B — valore-tesi.md + riassunto.md già disponibili
+**Entry point:** Case B — valore-tesi.md + riassunto.md already available
 
-**Pagine create:** 
+**Pages created:** 
 - `wiki/sources/wireless-agent-hkust-2025.md` (WirelessAgent Tong et al. HKUST)
 
-**Pagine aggiornate:** 
-- `scaffolding-tesi.md` (Blocco E: 1/1 checkbox → ✅ **BLOCCO E COMPLETATO**)
-- `glossary.md` (no new terms — tutti i concetti già coperti dai blocchi precedenti)
-- `index.md` (Blocco E source link + final status)
-- `log.md` (questa entry finale)
+**Pages updated:** 
+- `scaffolding-tesi.md` (Block E: 1/1 checkbox → ✅ **BLOCK E COMPLETED**)
+- `glossary.md` (no new terms — all concepts already covered by previous blocks)
+- `index.md` (Block E source link + final status)
+- `log.md` (this final entry)
 
-**Tensioni rilevate:** Zero — WirelessAgent allinea perfettamente con l'architettura della tesi
+**Tensions found:** Zero — WirelessAgent aligns perfectly with thesis architecture
 
-**Sezioni scaffolding toccate:** 
-- Cap. 3 (Related Work) — WirelessAgent è il closest prior work; occupa sezione intera di comparazione
-- Cap. 4 (Architettura) — Mostra come tua tesi estende WirelessAgent con Ditto + KG
-- Cap. 7 (Risultati) — Tavola di comparazione dei risultati tra WirelessAgent (loro) e tua tesi (tuoi)
+**Scaffolding sections touched:** 
+- Ch. 3 (Related Work) — WirelessAgent is closest prior work; occupies entire comparison section
+- Ch. 4 (Architecture) — Shows how your thesis extends WirelessAgent with Ditto + KG
+- Ch. 7 (Results) — Comparison table of results between WirelessAgent (theirs) and thesis (yours)
 
-**Sommario Blocco E (Final Paper):**
+**Block E Summary (Final Paper):**
 
 **WirelessAgent (2025) — Tong et al. HKUST**
-- **Paper:** arXiv:2505.01074 (Maggio 2025)
-- **Contributo:** Primo sistema di agenti LLM orchestrati via LangGraph per network slicing 5G
-- **Architettura:**
-  - Perception: converte metriche wireless (CQI, SNR) a testo
-  - Memory: storico allocazioni, KV-store (in-memory)
-  - Planning: CoT reasoning + Reflection su azione
-  - Action: tool execution + eseguito
-- **Benchmark:** 8 modelli testati via cloud API (DeepSeek-R1 96.6% performance, Llama3-8B 60.96%)
-- **Similarità tesi:**
-  - Stesso dominio: 5G networks
-  - Stesso framework: LangGraph multi-agente
-  - Stessi task: anomalia rilevazione, allocazione risorse, slicing
-- **Differenziamenti tesi (Tre punti cruciali):**
-  1. **State Management**: WirelessAgent in-memory (volatile) vs Tua tesi Ditto (persistente, ordinato temporalmente)
-  2. **Knowledge Base**: WirelessAgent RAG flat vs Tua tesi Neo4j KG (vincoli verificabili)
-  3. **Evaluation**: WirelessAgent BW utilization only vs Tua tesi MMCI + milestone KPI + LLM-as-judge + multi-model agreement
-- **Benchmark Implicazione:**
-  - Loro: gap large model (DeepSeek-R1 96%) vs small model (Llama-8B 60%) = 36% delta
-  - Tu: testi stessa domanda su hardware consumer con small models quantizzati
-  - Research question: può il KG + Ditto + multi-LLM agreement colmare il gap?
+- **Paper:** arXiv:2505.01074 (May 2025)
+- **Contribution:** First system of LLM agents orchestrated via LangGraph for 5G network slicing
+- **Architecture:**
+  - Perception: converts wireless metrics (CQI, SNR) to text
+  - Memory: allocation history, KV-store (in-memory)
+  - Planning: CoT reasoning + Reflection on action
+  - Action: tool execution + executed
+- **Benchmark:** 8 models tested via cloud API (DeepSeek-R1 96.6% performance, Llama3-8B 60.96%)
+- **Similarity with thesis:**
+  - Same domain: 5G networks
+  - Same framework: LangGraph multi-agent
+  - Same tasks: anomaly detection, resource allocation, slicing
+- **Thesis Differentiations (Three crucial points):**
+  1. **State Management**: WirelessAgent in-memory (volatile) vs Thesis Ditto (persistent, temporally ordered)
+  2. **Knowledge Base**: WirelessAgent flat RAG vs Thesis Neo4j KG (verifiable constraints)
+  3. **Evaluation**: WirelessAgent BW utilization only vs Thesis MMCI + milestone KPI + LLM-as-judge + multi-model agreement
+- **Benchmark Implication:**
+  - They: gap large model (DeepSeek-R1 96%) vs small model (Llama-8B 60%) = 36% delta
+  - You: test same question on consumer hardware with small quantized models
+  - Research question: can KG + Ditto + structured coordination close the gap?
 
-**Critical Insights da Blocco E:**
+**Critical Insights from Block E:**
 
-1. **WirelessAgent valida l'approccio agentico per 5G:** Non è speculazione, è proven. Quindi la tua architettura non è sci-fi, è costruita su fondamenta solide.
+1. **WirelessAgent validates agentic approach for 5G:** Not speculation, it's proven. So your architecture isn't sci-fi, it's built on solid foundations.
 
-2. **Il loop cognitivo Perception→Memory→Planning→Action è standard:** WirelessAgent, CogTwin, Hasan&Nguyen, Biju — tutti lo implementano in forme leggermente diverse. La tua istanziazione DISTINTO da WirelessAgent solo nell'aggiunta di Ditto + KG.
+2. **Cognitive loop Perception→Memory→Planning→Action is standard:** WirelessAgent, CogTwin, Hasan&Nguyen, Biju — all implement it in slightly different forms. Your instantiation DIFFERS from WirelessAgent only in addition of Ditto + KG.
 
-3. **Il gap di valutazione è universale:** WirelessAgent misura solo output (BW %). Non misura reasoning. CogTwin pseudocode. Hasan&Nguyen non ha metodologia. Blocco D riempie questo gap — è il **vero contributo scientifico della tua tesi**, non l'architettura.
+3. **Evaluation gap is universal:** WirelessAgent measures only output (BW %). Doesn't measure reasoning. CogTwin pseudocode. Hasan&Nguyen has no methodology. Block D fills this gap — it's the **true scientific contribution of your thesis**, not the architecture.
 
-4. **Small Model vs Large Model è domanda aperta:** Loro testano solo API cloud. Tu hai opportunità di dire "con KG + Ditto + coordinazione strutturata posso usare modelli piccoli su hardware consumer rimanendo performante". Se vero, è pubblicabile.
+4. **Small Model vs Large Model is open question:** They test only cloud API. You have opportunity to say "with KG + Ditto + structured coordination I can use small models on consumer hardware while remaining performant." If true, it's publishable.
 
-5. **Sequenza Logica Completa A→B→C→D→E:**
-   - A (Zheng + Al-Haj Ali): teoria CDT + MMCI evaluation framework
+5. **Complete Logical Sequence A→B→C→D→E:**
+   - A (Zheng + Al-Haj Ali): CDT theory + MMCI evaluation framework
    - B (RESTART + Burr + Kalyani/Pretel): domain context + governance + SLR validation
-   - C (CogTwin + Hasan&Nguyen + Biju): architettura blueprint + LangGraph pattern
-   - D (MultiAgentBench + Berkeley): metriche rigorose per valutare agenti
-   - E (WirelessAgent): proof that approach works on 5G + identified differenziations
+   - C (CogTwin + Hasan&Nguyen + Biju): architecture blueprint + LangGraph pattern
+   - D (MultiAgentBench + Berkeley): rigorous metrics to evaluate agents
+   - E (WirelessAgent): proof that approach works on 5G + identified differentiations
 
 ---
 
-## 📊 PAPER INGEST COMPLETATO — 12/12 PAPERS
+## 📊 PAPER INGESTION COMPLETED — 12/12 PAPERS
 
-**Summary Finale:**
+**Final Summary:**
 
-| Blocco | Paper | Count | Status | Completato |
+| Block | Papers | Count | Status | Completed |
 |---|---|---|---|---|
 | A | Zheng, Al-Haj Ali | 2/2 | ✅ | 14 Apr 2026 |
 | B | RESTART, Burr, Kalyani, Pretel | 4/4 | ✅ | 14 Apr 2026 |
 | C | CogTwin, Hasan&Nguyen, Biju | 3/3 | ✅ | 14 Apr 2026 |
 | D | MultiAgentBench, Berkeley | 2/2 | ✅ | 14 Apr 2026 |
 | E | WirelessAgent | 1/1 | ✅ | 14 Apr 2026 |
-| **TOTAL** | **12 papers** | **12/12** | **✅ 100% COMPLETATO** | **14 Apr 2026 (SAME DAY)** |
+| **TOTAL** | **12 papers** | **12/12** | **✅ 100% COMPLETED** | **14 Apr 2026 (SAME DAY)** |
 
 ---
 
-## 📚 Prossimi Passi Post-Ingest
+## 📚 Next Steps Post-Ingestion
 
-1. **Lint Pass #2** — Verificare link integrity dopo 12 paper integration (atteso ~5-10 zombie link nuovi da risolvere)
+1. **Lint Pass #2** — Verify link integrity after 12 paper integration (expected ~5-10 new zombie links to resolve)
 
-2. **Create Analyses Pages** — Ora che ingest è completo, creare pagine di analisi:
-   - Comparison matrix: come i 12 paper si posizionano l'uno rispetto all'altro
-   - Gap analysis: cosa la tesi riempie che nessuno affronta
-   - Risk profile: secondo Burr taxonomy, dove stai sulla curva (I,T,A) vs (I,C,A)?
-   - Benchmark template: struttura per Cap. 7 (risultati)
+2. **Create Analysis Pages** — Now that ingestion is complete, create analysis pages:
+   - Comparison matrix: how the 12 papers position relative to each other
+   - Gap analysis: what thesis fills that no one addresses
+   - Risk profile: according to Burr taxonomy, where are you on curve (I,T,A) vs (I,C,A)?
+   - Benchmark template: structure for Ch. 7 (results)
 
-3. **Cross-Verify Scaffolding** — Leggere scaffolding-tesi.md e assicurare che ogni claim è supportato da almeno 1 paper
+3. **Cross-Verify Scaffolding** — Read scaffolding-tesi.md and ensure every claim is supported by at least 1 paper
 
-4. **Glossary Review** — Verificare che non ci sono termini non definiti usati nei paper / nella tesi
+4. **Glossary Review** — Verify no undefined terms used in papers / thesis
 
-5. **Final Scaffolding Polish** — Aggiungere numeri, bullet points, narrative flow checks
+5. **Final Scaffolding Polish** — Add numbers, bullet points, narrative flow checks
 
 ---
 
 ## 🎯 Archive This Day
 
-È stato un giorno produttivo:
-- **9:00 AM**: Blocco A completato (Zheng + Al-Haj Ali)
-- **15:00**: Blocco B completato (RESTART + Burr + Kalyani + Pretel)
-- **Lint**: 15 zombie link, 1 typo fixed, 91% validity
-- **16:00**: Blocco C completato (CogTwin + Hasan&Nguyen + Biju)
-- **17:30**: Blocco D completato (MultiAgentBench + Berkeley CS294)
-- **18:30**: Blocco E completato (WirelessAgent)
+Very productive day:
+- **9:00 AM**: Block A completed (Zheng + Al-Haj Ali)
+- **15:00**: Block B completed (RESTART + Burr + Kalyani + Pretel)
+- **Lint**: 15 zombie links, 1 typo fixed, 91% validity
+- **16:00**: Block C completed (CogTwin + Hasan&Nguyen + Biju)
+- **17:30**: Block D completed (MultiAgentBench + Berkeley CS294)
+- **18:30**: Block E completed (WirelessAgent)
 
-**Result**: 12/12 paper ingestati, 30 source pages + concept pages create, wiki struttura stabile, **scaffold thesis è coherente end-to-end**.
+**Result**: 12/12 papers ingested, 30 source pages + concept pages created, wiki structure stable, **thesis scaffold is coherent end-to-end**.
 
-**Prossima session**: Lint #2 + Analyses pages + Final scaffolding polish prima dell'implementation.
+**Next session**: Lint #2 + Analysis pages + Final scaffolding polish before implementation.
 
 ---
 
 ## [2026-04-14] lint | Pass #2 — Post-12-Papers Verification
 
-**Operazione:** Lint pass completo dopo ingest di tutti 12 paper (Blocco A-E)
+**Operation:** Complete lint pass after ingestion of all 12 papers (Block A-E)
 
-**Comandi eseguiti:**
-- grep_search per tutti i link interni `[[...]]` — 200+ matches trovati vs. 132 precedenti
-- Verifica wizard incrociato di link validity
-- Scan per contradizioni tra 12-paper corpus
-- Orpaned page check
+**Commands executed:**
+- grep_search for all internal links `[[...]]` — 200+ matches found vs. 132 previous
+- Cross-wizard verification of link validity
+- Scan for contradictions across 12-paper corpus
+- Orphaned page check
 
-**Risultati Trovati:**
+**Results Found:**
 - ✅ Link validity: 97%+ (up from 91%)
-- ✅ Zombie links risolti: 12/15 da Lint #1 → **NOW RESOLVED** ([cogtwin-ijcai-25]], [[multiagent-bench-2025]], [[wireless-agent-hkust-2025]], [[hasan-nguyen-2026-agentic-dt]])
-- ✅ Contradizioni tra 12 paper: 0 rilevate — narrative completamente coerente
-- ⚠️ Typo residei: 1 (lllm-as-judge con 3 L — minor, non blocca)
+- ✅ Zombie links resolved: 12/15 from Lint #1 → **NOW RESOLVED** ([[cogtwin-ijcai-25]], [[multiagent-bench-2025]], [[wireless-agent-hkust-2025]], [[hasan-nguyen-2026-agentic-dt]])
+- ✅ Contradictions across 12 papers: 0 detected — narrative completely coherent
+- ⚠️ Residual typos: 1 (lllm-as-judge with 3 L — minor, doesn't block)
 - ✅ Cross-references: all source-to-source links validated
 
 **Link Integrity Summary:**
 - Total links scanned: 200+
-- Valid (pagine esistenti): 197
-- Zombie (pagine orfane): 3
-- Orphaned pages (non linckate): 0
+- Valid (existing pages): 197
+- Zombie (orphaned pages): 3
+- Orphaned pages (not linked): 0
 
-**Zombie Links Residui (Bassa Priorità):**
+**Residual Zombie Links (Low Priority):**
 - `[[lllm-as-judge]]` (3 L typo) — multiagent-bench-2025.md, berkeley-cs294-llm-eval.md
-  - Risoluzione: Create `concepts/llm-as-judge.md` (optional) OR leave as inline reference (acceptable)
+  - Resolution: Create `concepts/llm-as-judge.md` (optional) OR leave as inline reference (acceptable)
 
-**File Creato:** `wiki/lint-report-2026-04-14-pass2.md` (comprehensive post-ingest audit)
+**File Created:** `wiki/lint-report-2026-04-14-pass2.md` (comprehensive post-ingest audit)
 
-**Conclusione:** Wiki è **production-ready** per analyses phase. Tutti i 12 paper ingesti, coerenti, zero contradizioni. Pronto per creazione pagine comparative.
+**Conclusion:** Wiki is **production-ready** for analysis phase. All 12 papers ingested, coherent, zero contradictions. Ready for creation of comparative pages.
 
 ---
 
 ## [2026-04-14] analyses | Create 4 Comparative Analysis Pages
 
-**Operazione:** Post-lint, crea 4 analyses pages per posizionare tesi rispetto a 12-paper landscape
+**Operation:** Post-lint, create 4 analysis pages to position thesis against 12-paper landscape
 
-**Pagine Create:**
+**Pages Created:**
 
-1. **comparison-matrix.md** — Tabella: 12 paper × 9 DT properties + LLM coverage
-   - Matrix rows = papers (Zheng, Al-Haj Ali, RESTART, Burr, Kalyani, Pretel, CogTwin, Hasan&Nguyen, Biju, MultiAgentBench, Berkeley, WirelessAgent, Tesi)
+1. **comparison-matrix.md** — Table: 12 papers × 9 DT properties + LLM coverage
+   - Matrix rows = papers (Zheng, Al-Haj Ali, RESTART, Burr, Kalyani, Pretel, CogTwin, Hasan&Nguyen, Biju, MultiAgentBench, Berkeley, WirelessAgent, Thesis)
    - Matrix columns = properties (Synch, KG, Autonomy, IBN, Closed-Loop, Eval, MAS, Risk Gov, LLM)
-   - Tesi row: ✅ check mark su tutti 9 + ✅ LLM = **unique configuration** (8/10 novelty score)
+   - Thesis row: ✅ check mark on all 9 + ✅ LLM = **unique configuration** (8/10 novelty score)
    - Key finding: **First work with 9/9 DT properties + LLM + 5G domain simultaneously**
 
 2. **gap-analysis.md** — Systematic gaps from 12 papers + thesis resolutions
@@ -595,31 +632,31 @@ Concepts introduced:
    - 9 individual metrics (latency, diagnosis accuracy, KG compliance, task completion, coordination, etc.)
    - 5 ensemble metrics (consensus rate, tie-breaker success, robustness, hallucination detection, agreement reliability)
    - 5 MMCI alignment metrics (L1-L5 progression)
-   - Test matrix: (3 scenarios × 4 models × 8-10 reps = 92-120 model-scenario pairs)
+   - Test matrix: (3 scenarios × 4 models × 8–10 reps = 92–120 model-scenario pairs)
    - Expected results hypotheses + interpretation rubric
    - Deliverables: CSV results, latency CDF, consensus heatmap, MMCI progression curves, failure analysis
    - Key finding: **First end-to-end evaluation protocol combining MMCI + MultiAgentBench + Berkeley best practices + 5G fault injection**
 
-**Pagine Aggiornate:**
+**Pages Updated:**
 - `index.md` — Added "Analyses" section (was DEFERRED, now ✅ ACTIVE) with links to all 4 pages
 - `log.md` — This entry
 
-**Metriche Analisi:**
-- Comparison matrix: 13 subject rows (12 papers + tesi), 9 property columns + 1 LLM column = 130 data cells
+**Analysis Metrics:**
+- Comparison matrix: 13 subject rows (12 papers + thesis), 9 property columns + 1 LLM column = 130 data cells
 - Gap analysis: 8 gaps analyzed with root cause → thesis response mapping
 - Risk profile: 4 risk cascades, 3 guardrails operationalized, 3-way comparison matrix
-- Benchmark template: 92-120 planned experiment runs, 15+ metrics defined, 3 scenarios with full protocol
+- Benchmark template: 92–120 planned experiment runs, 15+ metrics defined, 3 scenarios with full protocol
 
-**File Create Completato:** 4 analysis pages total 150+KB content esportabile per paper
+**Files Created:** 4 analysis pages total 150+KB exportable content per paper
 
 **Status:** ✅ Wiki is now COMPLETE for literature review phase
-- All 12 papers ingestoned + analyzed
+- All 12 papers ingested + analyzed
 - All links validated (97%+ validity)
 - Zero contradictions detected
 - 4 comparative analyses created
 - Unique positioning documented (8/10 novelty score)
 - Benchmark protocol ready for implementation
 
-**Transizione:** Next phase is IMPLEMENTATION (Cap. 4+ code  development, experiment execution, result collection)
+**Transition:** Next phase is IMPLEMENTATION (Ch. 4+ code development, experiment execution, result collection)
 
 

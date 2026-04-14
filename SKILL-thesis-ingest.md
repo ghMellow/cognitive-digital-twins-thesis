@@ -1,15 +1,15 @@
 # SKILL: thesis-ingest
 
 ## Purpose
-Ingest a research paper (raw PDF/text or pre-processed "Valore per la mia tesi" file) into the thesis wiki and update the central Scaffolding document.
+Ingest a research paper (raw PDF/text or pre-processed "Value for thesis" file) into the thesis wiki and update the central Scaffolding document.
 
 ---
 
 ## Trigger phrases
-- "ingest paper [nome]"
-- "aggiungi paper [nome]"
-- "aggiorna scaffolding con [nome]"
-- User passes a file from `raw/papers/` or a pre-processed `valore-*.md`
+- "ingest paper [name]"
+- "add paper [name]"
+- "update scaffolding with [name]"
+- User passes a file from `raw/papers/` or a pre-processed `value-*.md`
 
 ---
 
@@ -19,10 +19,10 @@ Ingest a research paper (raw PDF/text or pre-processed "Valore per la mia tesi" 
 raw/
   papers/
     <paper-slug>/
-      paper.pdf (o .md)         ← originale
-      riassunto.md               ← opzionale: già prodotto
-      yt.md                ← opzionale: versione divulgativa
-      valore-tesi.md             ← IL FILE PIÙ IMPORTANTE — può mancare
+      paper.pdf (or .md)        ← original
+      riassunto.md               ← optional: already produced
+      yt.md                      ← optional: outreach version
+      valore-tesi.md             ← THE MOST IMPORTANT FILE — may be missing
   calls/
     <call-slug>.md
   project/
@@ -31,14 +31,14 @@ raw/
       feedback-claude.md
       base-teorica.md
     approfondimenti/
-      <tema>.md
+      <theme>.md
 
 wiki/
   index.md
   log.md
   overview.md
   glossary.md
-  scaffolding-tesi.md            ← documento centrale, aggiornato ad ogni ingest
+  scaffolding-tesi.md            ← central document, updated every ingest
   sources/
   concepts/
   analyses/
@@ -48,155 +48,155 @@ wiki/
 
 ## Workflow
 
-### Step 0 — Leggi il contesto
-Prima di tutto:
-1. Leggi `wiki/index.md` per orientarti
-2. Leggi `wiki/scaffolding-tesi.md` per capire lo stato attuale della tesi
-3. Leggi `wiki/glossary.md` per i termini canonici già definiti
+### Step 0 — Read the context
+First of all:
+1. Read `wiki/index.md` to orient yourself
+2. Read `wiki/scaffolding-tesi.md` to understand the current state of the thesis
+3. Read `wiki/glossary.md` for canonical terms already defined
 
-### Step 1 — Determina il punto di ingresso
+### Step 1 — Determine entry point
 
-**Caso A — hai solo il paper raw (PDF o testo)**
+**Case A — you have raw paper only (PDF or text)**
 
-Genera i tre layer usando esattamente le istruzioni qui sotto come prompt interni.
+Generate the three layers using exactly the instructions below as internal prompts.
 
-**Layer 1 — `yt`** (tono Simone Rizzo, AI Engineer divulgatore):
-Analizza il paper rispondendo a questi punti:
-1. **"Raga, guardate che hanno fatto"** — spiega l'idea centrale in modo semplice ma tecnico. Qual è il "trick" o l'intuizione che risolve il problema? Usa linguaggio da ingegnere (pesi, architetture, dati, segnali di reward…) ma evita dimostrazioni matematiche inutili.
-2. **Perché è una figata** — qual è la novità vera? È un breakthrough o solo un piccolo miglioramento? Perché dovrebbe gasare?
-3. **Come lo usiamo a lavoro?** — posso usarlo per ottimizzare un'architettura esistente? Riduce i costi di inferenza o training? Permette cose prima impossibili?
-4. **Cosa c'è sotto il cofano** — riassumi la pipeline tecnica. Se dovessi scriverlo in Python domani, quali sono i componenti chiave?
-5. **Il "Ma anche No"** — dove pecca? Troppe risorse? Dataset troppo specifico? Pronto per produzione o solo ricerca da laboratorio?
+**Layer 1 — `yt`** (tone: engaging engineer explainer):
+Analyze the paper by answering these points:
+1. **"Here's what they did"** — explain the central idea simply but technically. What is the "trick" or intuition that solves the problem? Use engineer language (weights, architectures, data, reward signals…) but avoid unnecessary mathematical proofs.
+2. **"Why it matters"** — what is the real novelty? Is it a breakthrough or just incremental improvement? Why should someone care?
+3. **"How do we use it?"** — can I use it to optimize an existing architecture? Does it reduce inference or training costs? Enable previously impossible things?
+4. **"Under the hood"** — summarize the technical pipeline. If you had to code it in Python tomorrow, what are the key components?
+5. **"The catches"** — where does it struggle? Too resource-heavy? Dataset too specific? Production-ready or lab research only?
 
-**Layer 2 — `riassunto`** (da consultare in futuro):
-Produci un riassunto accademico strutturato: problema → metodo → risultati → limiti. Deve essere autocontenuto e consultabile senza rileggere il paper.
+**Layer 2 — `riassunto`** (for future reference):
+Produce a structured academic summary: problem → method → results → limitations. Must be self-contained and consultable without re-reading the paper.
 
-**Layer 3 — `valore-tesi`** (vedi istruzioni complete nello Step 2 qui sotto):
-Genera il layer più importante contestualizzando il paper rispetto alla proposta di tesi. Vedi Step 2 per le istruzioni complete.
+**Layer 3 — `valore-tesi`** (see full instructions in Step 2 below):
+Generate the most important layer by contextualizing the paper against the thesis proposal. See Step 2 for complete instructions.
 
-Dopo aver generato i tre layer, crea `wiki/sources/<paper-slug>.md`.
+After generating the three layers, create `wiki/sources/<paper-slug>.md`.
 
-**Caso B — hai già il file `valore-tesi.md`**
-1. Leggi il file direttamente
-2. Salta la generazione di riassunto/yt (già fatto a mano)
-3. Vai a Step 2
+**Case B — you already have the `valore-tesi.md` file**
+1. Read the file directly
+2. Skip generator for riassunto/yt (already done manually)
+3. Go to Step 2
 
-**Caso C — hai `valore-tesi.md` ma mancano `riassunto` e/o `yt`**
-1. Usa il `valore-tesi.md` esistente per lo Step 2 (non rigenerarlo)
-2. Genera solo i layer mancanti con i prompt del Caso A
-3. Segnala all'utente quali layer hai generato e quali erano già presenti
+**Case C — you have `valore-tesi.md` but missing `riassunto` and/or `yt`**
+1. Use the existing `valore-tesi.md` for Step 2 (don't re-generate it)
+2. Generate only the missing layers with Case A prompts
+3. Flag to the user which layers you generated and which were already present
 
-### Step 2 — Estrai il valore per la tesi
+### Step 2 — Extract thesis value
 
-Il `valore-tesi.md` va generato (Caso A) o letto (Caso B/C) tenendo sempre in mente il contesto specifico della tesi:
+The `valore-tesi.md` should be generated (Case A) or read (Case B/C) keeping the specific thesis context always in mind:
 
-**Contesto tesi fisso** (sempre presente in testa durante questa analisi):
-> La tesi propone un Cognitive Digital Twin (CDT) per una cella radio 5G su tre layer: fisico simulato (generatore metriche 3GPP), gemello digitale (Eclipse Ditto), cognitivo (LangGraph + LLM locali). Il contributo scientifico principale non è il sistema in sé ma il **framework di valutazione per agenti cognitivi specializzati** (Perception, Reasoning, Planning, Communication). Gap critico attuale: valutare Reasoning e Planning senza ground truth ovvio — strategie candidate: LLM-as-judge, multi-agent agreement, KG-based validation. Secondo contributo: benchmark comparativo Llama 3.1 8B / Mistral 7B / Phi-3 Mini / Qwen 3B su task 5G specifici.
+**Fixed thesis context** (always in mind during this analysis):
+> The thesis proposes a Cognitive Digital Twin (CDT) for a 5G radio cell on three layers: simulated physical (3GPP metric generator), digital twin (Eclipse Ditto), cognitive (LangGraph + local LLMs). The main scientific contribution is not the system itself but the **evaluation framework for specialized cognitive agents** (Perception, Reasoning, Planning, Communication). Critical current gap: evaluate Reasoning and Planning without obvious ground truth — candidate strategies: LLM-as-judge, multi-agent agreement, KG-based validation. Second contribution: comparative benchmark Llama 3.1 8B / Mistral 7B / Phi-3 Mini / Qwen 3B on 5G-specific tasks.
 
-Per ogni paper, rispondi a:
-1. **In quali aree approfondisce** — rispetto ai tre contributi della tesi (architettura CDT, framework valutazione, benchmark modelli)
-2. **Pro/contro** — punti di forza e limiti del paper nel nostro contesto d'uso
-3. **Appunti contestualizzati per il relatore** — se il relatore chiedesse "cosa ne pensi di questo paper rispetto alla tua tesi?", cosa risponderesti? Include: come lo citeresti, dove entra nell'argomentazione, cosa prendi e cosa lasci. Se il paper non è utile, spiega esplicitamente perché.
+For each paper, answer:
+1. **Which areas does it deepen** — relative to the three thesis contributions (CDT architecture, evaluation framework, model benchmark)
+2. **Pros/cons** — strengths and limitations of the paper in our use context
+3. **Contextual notes for the advisor** — if the advisor asked "what do you think of this paper relative to your thesis?", what would you answer? Include: how you'd cite it, where it enters the argument, what you take and what you leave. If the paper is not useful, explain explicitly why.
 
-Poi estrai le dimensioni strutturali per lo scaffolding:
+Then extract the structural dimensions for the scaffolding:
 
-| Dimensione | Domanda guida |
+| Dimension | Guiding question |
 |---|---|
-| **Argomento supportato** | Sostiene o sfida quale claim della proposta? |
-| **Gap colmato** | Metodologico, empirico o teorico? |
-| **Concetti chiave** | Quali termini/framework entrano nel glossario? |
-| **Tensioni** | Contraddice qualcosa già nello scaffolding o in altri paper? |
-| **Posizione nello scaffolding** | Contributo 1 (architettura), 2 (valutazione) o 3 (benchmark)? |
+| **Supported topic** | Which claim of the proposal does it support or challenge? |
+| **Gap closed** | Methodological, empirical, or theoretical? |
+| **Key concepts** | Which terms/frameworks enter the glossary? |
+| **Tensions** | Contradicts anything already in scaffolding or other papers? |
+| **Scaffolding position** | Contribution 1 (architecture), 2 (evaluation) or 3 (benchmark)? |
 
-Se uno di questi punti è ambiguo, fai **al massimo 2 domande** all'utente prima di procedere.
+If any of these points is ambiguous, ask **at most 2 questions** to the user before proceeding.
 
-### Step 3 — Aggiorna `wiki/scaffolding-tesi.md`
+### Step 3 — Update `wiki/scaffolding-tesi.md`
 
-Regole di aggiornamento:
-- **Non riscrivere** sezioni esistenti: aggiungi, annota, integra
-- Inserisci il contributo del paper nella sezione rilevante con il formato:
+Update rules:
+- **Don't rewrite** existing sections: add, annotate, integrate
+- Insert the paper's contribution in the relevant section with this format:
   ```
-  > **[Autore, Anno]** — <contributo in 1-2 righe>. [[sources/<paper-slug>]]
+  > **[Author, Year]** — <contribution in 1-2 lines>. [[sources/<paper-slug>]]
   ```
-- Se il paper apre una nuova sezione non prevista, aggiungila con intestazione `###` e segnalala esplicitamente all'utente
-- Se il paper contraddice qualcosa di esistente, aggiungi un blocco `⚠️ TENSIONE:` prima di aggiornare
+- If the paper opens a new section not foreseen, add it with `###` heading and flag it explicitly to the user
+- If the paper contradicts something existing, add a `⚠️ TENSION:` block before updating
 
-### Step 4 — Aggiorna o crea pagine wiki secondarie
+### Step 4 — Update or create secondary wiki pages
 
-- `wiki/sources/<paper-slug>.md` — sempre, anche se esiste già (aggiorna)
-- `wiki/concepts/<concetto>.md` — per ogni concetto nuovo o approfondito
-- `wiki/glossary.md` — aggiungi termini canonici con definizione e fonte
+- `wiki/sources/<paper-slug>.md` — always, even if it exists (update)
+- `wiki/concepts/<concept>.md` — for each new or deepened concept
+- `wiki/glossary.md` — add canonical terms with definition and source
 
-### Step 5 — Aggiorna `wiki/index.md`
+### Step 5 — Update `wiki/index.md`
 
-Aggiungi o aggiorna la riga della source. Aggiorna le righe di ogni pagina modificata.
+Add or update the source row. Update rows for each modified page.
 
-### Step 6 — Scrivi entry in `wiki/log.md`
+### Step 6 — Write entry in `wiki/log.md`
 
 ```
-## [YYYY-MM-DD] ingest | <Titolo Paper — Autore, Anno>
-Punto di ingresso: raw | valore-tesi
-Pagine create: ...
-Pagine aggiornate: scaffolding-tesi, ...
-Tensioni rilevate: sì/no — <descrizione se sì>
-Sezioni scaffolding toccate: ...
+## [YYYY-MM-DD] ingest | <Paper Title — Author, Year>
+Entry point: raw | value-thesis
+Pages created: ...
+Pages updated: scaffolding-tesi, ...
+Tensions detected: yes/no — <description if yes>
+Scaffolding sections touched: ...
 ```
 
 ---
 
-## Output atteso per ogni ingest
+## Expected output per ingest
 
-| File | Azione |
+| File | Action |
 |---|---|
-| `wiki/scaffolding-tesi.md` | Aggiornato con contributo del paper |
-| `wiki/sources/<slug>.md` | Creato o aggiornato |
-| `wiki/concepts/*.md` | 0–3 pagine create/aggiornate |
-| `wiki/glossary.md` | Termini nuovi aggiunti |
-| `wiki/index.md` | Righe aggiornate |
-| `wiki/log.md` | Entry appesa |
+| `wiki/scaffolding-tesi.md` | Updated with paper's contribution |
+| `wiki/sources/<slug>.md` | Created or updated |
+| `wiki/concepts/*.md` | 0–3 pages created/updated |
+| `wiki/glossary.md` | New terms added |
+| `wiki/index.md` | Rows updated |
+| `wiki/log.md` | Entry appended |
 
 ---
 
-## Formato pagina source
+## Source page format
 
 ```yaml
 ---
-title: <Titolo paper>
+title: <Paper Title>
 type: source
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
-authors: [Autore1, Autore2]
+authors: [Author1, Author2]
 year: YYYY
-tags: [metodo, dominio, concetti-chiave]
-contributo-tesi: 1-architettura | 2-valutazione | 3-benchmark | nessuno
+tags: [method, domain, key-concepts]
+contributo-tesi: 1-architecture | 2-evaluation | 3-benchmark | none
 ---
 ```
 
-**Contributo principale** — 1 riga
+**Main contribution** — 1 line
 
-## Riassunto
-<problema → metodo → risultati → limiti>
+## Summary
+<problem → method → results → limitations>
 
 ## yt
-<layer divulgativo: trick centrale, perché è interessante, applicazioni pratiche, sotto il cofano, limiti>
+<outreach layer: central trick, why it matters, practical applications, under the hood, limitations>
 
-## Valore per la tesi
+## Value for thesis
 
-**Aree approfondite:** ...
-**Pro:** ...
-**Contro:** ...
+**Areas deepened:** ...
+**Pros:** ...
+**Cons:** ...
 
-**Appunti per il relatore:**
-> <Se il relatore chiede: cosa risponderesti? Come lo citi, dove entra nell'argomentazione, cosa prendi e cosa lasci. Se non è utile: perché.>
+**Notes for advisor:**
+> <If advisor asked: what would you answer? How you'd cite it, where it enters the argument, what you take and what you leave. If not useful: why.>
 
-### Dimensioni strutturali
-- Argomento supportato: ...
-- Gap colmato: ...
-- Posizione scaffolding: Contributo [1/2/3] — <sezione specifica>
-- Tensioni: ...
+### Structural dimensions
+- Supported topic: ...
+- Gap closed: ...
+- Scaffolding position: Contribution [1/2/3] — <specific section>
+- Tensions: ...
 
-## Concetti introdotti
-- [[concetto-1]], [[concetto-2]]
+## Concepts introduced
+- [[concept-1]], [[concept-2]]
 
 ## Related pages
 - [[scaffolding-tesi]]
@@ -205,10 +205,10 @@ contributo-tesi: 1-architettura | 2-valutazione | 3-benchmark | nessuno
 
 ---
 
-## Note operative
+## Operational notes
 
-- **Non modificare mai file in `raw/`**
-- Se `valore-tesi.md` è già ottimo, fidati — non ri-analizzare il paper da zero
-- Usa sempre i termini del `wiki/glossary.md`; se ne aggiungi uno nuovo, segnalalo
-- Lo scaffolding è il documento vivo centrale: ogni paper deve lasciare traccia lì
-- Se l'utente passa più paper in una sessione, processa uno alla volta e aggiorna il log per ognuno
+- **Never modify files in `raw/`**
+- If `valore-tesi.md` is already excellent, trust it — don't re-analyze the paper from scratch
+- Always use terms from `wiki/glossary.md`; if you add a new one, flag it
+- The scaffolding is the living central document: every paper must leave a trace there
+- If the user passes multiple papers in one session, process one at a time and update the log for each
