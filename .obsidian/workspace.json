@@ -185,6 +185,7 @@
   },
   "active": "2f528ea5ec7b9586",
   "lastOpenFiles": [
+    "LICENSE",
     "raw/project/proposta/proposta-tesi.md",
     "wiki/Scaffolding tesi.md",
     "wiki/overview.md",
@@ -219,7 +220,6 @@
     "raw/project/approfondimenti/Approfondimento dai video Berkeley.md",
     "raw/project/approfondimenti/Ruolo degli Agenti nel CDT.md",
     "raw/papers/b.3_WirelessAgent/Valore per la mia tesi.md",
-    "raw/papers/b.1_Multi Agent Bench/Valore per la mia tesi.md",
-    "raw/papers/a.8_synergies between Multi-agent Systems and Digital Twins/Valore per la mia tesi.md"
+    "raw/papers/b.1_Multi Agent Bench/Valore per la mia tesi.md"
   ]
 }
