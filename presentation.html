@@ -1,299 +1,461 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLM, Agenti e Workflow Cognitivi — Una mappa dell'AI applicata</title>
+    <title>LLM, Agenti e Workflow Cognitivi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #0a0a0f;
+            --surface: #111118;
+            --surface2: #18181f;
+            --border: rgba(255,255,255,0.07);
+            --gold: #c9a84c;
+            --gold-dim: #8a6e32;
+            --white: #f0ede8;
+            --muted: #6b6880;
+            --accent: #4a9eff;
+            --mono: 'IBM Plex Mono', monospace;
+            --serif: 'Playfair Display', Georgia, serif;
+            --sans: 'Inter', system-ui, sans-serif;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', Arial, sans-serif;
-            background-color: #FFFFFF;
-            color: #1D1D1F;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            width: 100%; height: 100%;
+            background: var(--bg);
+            color: var(--white);
+            font-family: var(--sans);
             overflow: hidden;
-            line-height: 1.6;
         }
 
-        .presentation {
-            width: 100vw;
-            height: 100vh;
+        /* ── GRAIN OVERLAY ── */
+        body::after {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.6;
+        }
+
+        /* ── SLIDE SYSTEM ── */
+        .deck {
+            width: 100vw; height: 100vh;
             position: relative;
         }
 
         section {
-            width: 100%;
-            height: 100%;
-            display: none;
+            position: absolute; inset: 0;
+            display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 80px;
-            text-align: center;
+            padding: 80px 100px;
             opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-            position: absolute;
-            top: 0;
-            left: 0;
+            transform: translateY(16px);
+            transition: opacity 0.45s cubic-bezier(0.4,0,0.2,1),
+                        transform 0.45s cubic-bezier(0.4,0,0.2,1);
+            pointer-events: none;
         }
 
         section.active {
-            display: flex;
             opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
             z-index: 1;
         }
 
         section.left-align {
-            text-align: left;
             align-items: flex-start;
-            justify-content: flex-start;
-            padding-top: 100px;
-            padding-left: 100px;
-            padding-right: 100px;
+            justify-content: center;
+            padding-left: 110px;
         }
 
+        /* ── DECORATIVE LINE ── */
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.6s 0.2s;
+        }
+        section.active.left-align::before { opacity: 1; }
+
+        /* ── TYPOGRAPHY ── */
         h1 {
-            font-size: 72px;
+            font-family: var(--serif);
+            font-size: clamp(48px, 6vw, 80px);
             font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-            color: #1D1D1F;
+            line-height: 1.1;
+            color: var(--white);
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
         }
 
         h2 {
-            font-size: 56px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            margin-bottom: 40px;
-            color: #1D1D1F;
+            font-family: var(--serif);
+            font-size: clamp(32px, 4vw, 52px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--white);
+            margin-bottom: 36px;
         }
 
         h3 {
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #1D1D1F;
+            font-family: var(--sans);
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
         }
 
         .subtitle {
-            font-size: 28px;
-            color: #666666;
-            font-weight: 400;
-            margin-top: 20px;
+            font-size: 22px;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.6;
+            font-family: var(--sans);
         }
 
-        ul {
-            list-style: none;
-            text-align: left;
-            font-size: 24px;
-            line-height: 1.8;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        li {
-            margin: 20px 0;
-            padding-left: 40px;
-            position: relative;
-        }
-
-        li:before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: #0066CC;
-            font-weight: 600;
-        }
-
-        strong {
-            color: #0066CC;
-            font-weight: 600;
-        }
-
-        .highlight {
-            color: #0066CC;
-            font-weight: 600;
-        }
-
-        code {
-            background-color: #F5F5F7;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-family: 'Monaco', 'Courier New', monospace;
+        .tagline {
+            font-family: var(--serif);
+            font-style: italic;
             font-size: 18px;
-            color: #1D1D1F;
-        }
-
-        .code-block {
-            background-color: #F5F5F7;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: left;
-            font-family: 'Monaco', 'Courier New', monospace;
-            font-size: 16px;
-            line-height: 1.8;
-            margin: 30px auto;
-            max-width: 900px;
-            overflow-x: auto;
-        }
-
-        .diagram {
-            font-family: 'Monaco', 'Courier New', monospace;
-            text-align: left;
-            font-size: 16px;
-            line-height: 1.8;
-            background-color: #F5F5F7;
-            padding: 50px 40px;
-            border-radius: 12px;
-            margin: 40px auto;
-            max-width: 900px;
-            overflow-x: auto;
+            color: var(--gold-dim);
+            margin-top: 40px;
             letter-spacing: 0.5px;
         }
 
-        .controls {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            font-size: 16px;
-            color: #999999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 100;
-            pointer-events: none;
+        /* ── LISTS ── */
+        ul {
+            list-style: none;
+            text-align: left;
+            max-width: 920px;
+            width: 100%;
         }
 
-        .controls.visible {
-            opacity: 1;
+        li {
+            font-size: clamp(16px, 1.6vw, 20px);
+            line-height: 1.7;
+            padding: 14px 0 14px 36px;
+            position: relative;
+            color: rgba(240,237,232,0.85);
+            border-bottom: 1px solid var(--border);
         }
 
-        .slide-counter {
-            position: fixed;
-            bottom: 40px;
-            left: 40px;
-            font-size: 16px;
-            color: #999999;
-            font-weight: 500;
+        li:last-child { border-bottom: none; }
+
+        li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 50%;
+            transform: translateY(-50%);
+            width: 16px; height: 1px;
+            background: var(--gold);
         }
 
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background-color: #F5F5F7;
-            padding: 40px 20px;
-            overflow-y: auto;
-            z-index: 50;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .sidebar.open {
-            transform: translateX(0);
-        }
-
-        .sidebar-title {
-            font-size: 14px;
+        li strong {
+            color: var(--gold);
             font-weight: 600;
-            color: #999999;
+        }
+
+        li em { color: rgba(240,237,232,0.6); font-style: italic; }
+
+        /* Nested lists */
+        li > ul { margin-top: 12px; }
+        li > ul li { font-size: 0.9em; padding: 8px 0 8px 28px; border-bottom: none; }
+        li > ul li::before { width: 10px; background: var(--gold-dim); }
+
+        /* ── CODE ── */
+        code {
+            font-family: var(--mono);
+            font-size: 0.85em;
+            background: rgba(201,168,76,0.12);
+            color: var(--gold);
+            padding: 2px 8px;
+            border-radius: 3px;
+            border: 1px solid rgba(201,168,76,0.2);
+        }
+
+        .code-block {
+            font-family: var(--mono);
+            font-size: 13px;
+            line-height: 1.75;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 32px 36px;
+            border-radius: 0 8px 8px 0;
+            width: 100%;
+            max-width: 880px;
+            color: rgba(240,237,232,0.8);
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .code-block .comment { color: var(--muted); }
+        .code-block .cmd { color: var(--accent); }
+
+        /* ── DIAGRAM ── */
+        .diagram {
+            font-family: var(--mono);
+            font-size: 13px;
+            line-height: 1.9;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 36px 40px;
+            border-radius: 8px;
+            max-width: 800px;
+            width: 100%;
+            color: rgba(240,237,232,0.75);
+            white-space: pre;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .diagram::before {
+            content: 'diagram';
+            position: absolute;
+            top: 12px; right: 16px;
+            font-size: 10px;
+            color: var(--gold-dim);
             text-transform: uppercase;
-            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        /* ── HIGHLIGHT BOX ── */
+        .callout {
+            background: rgba(201,168,76,0.06);
+            border: 1px solid rgba(201,168,76,0.25);
+            border-radius: 6px;
+            padding: 20px 28px;
+            font-size: 18px;
+            color: var(--gold);
+            font-weight: 500;
+            max-width: 880px;
+            width: 100%;
+            margin-bottom: 28px;
+        }
+
+        /* ── SLIDE COUNTER ── */
+        .counter {
+            position: fixed;
+            bottom: 36px; left: 52px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            z-index: 100;
             letter-spacing: 1px;
         }
 
+        .counter span { color: var(--gold); }
+
+        /* ── PROGRESS BAR ── */
+        .progress-bar {
+            position: fixed;
+            bottom: 0; left: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--gold-dim), var(--gold));
+            transition: width 0.4s ease;
+            z-index: 100;
+        }
+
+        /* ── CONTROLS HINT ── */
+        .hint {
+            position: fixed;
+            bottom: 34px; right: 52px;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--muted);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 100;
+            letter-spacing: 1px;
+        }
+
+        .hint.visible { opacity: 1; }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            position: fixed;
+            left: 0; top: 0;
+            width: 300px; height: 100vh;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 52px 24px;
+            overflow-y: auto;
+            z-index: 200;
+            transform: translateX(-100%);
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .sidebar.open { transform: translateX(0); }
+
+        .sidebar-title {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--gold-dim);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 28px;
+        }
+
         .sidebar-item {
-            font-size: 14px;
-            padding: 10px;
-            margin: 8px 0;
-            color: #1D1D1F;
+            font-size: 13px;
+            font-family: var(--sans);
+            padding: 10px 12px;
+            margin: 3px 0;
+            color: rgba(240,237,232,0.6);
             cursor: pointer;
             border-radius: 4px;
-            transition: background-color 0.2s;
+            transition: all 0.2s;
+            line-height: 1.4;
+            border-left: 2px solid transparent;
         }
 
-        .sidebar-item:hover {
-            background-color: #EEEEEE;
-        }
+        .sidebar-item:hover { color: var(--white); background: var(--surface2); }
 
         .sidebar-item.active {
-            background-color: #0066CC;
-            color: #FFFFFF;
-            font-weight: 600;
+            color: var(--gold);
+            border-left-color: var(--gold);
+            background: rgba(201,168,76,0.06);
+            font-weight: 500;
         }
 
+        .sidebar-num {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--gold-dim);
+            margin-right: 8px;
+        }
+
+        /* ── HAMBURGER ── */
         .hamburger {
             position: fixed;
-            top: 30px;
-            left: 30px;
-            width: 40px;
-            height: 40px;
+            top: 28px; left: 28px;
+            width: 36px; height: 36px;
             cursor: pointer;
-            z-index: 60;
+            z-index: 300;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 5px;
         }
 
         .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: #1D1D1F;
-            margin: 4px 0;
-            transition: 0.3s;
+            width: 22px; height: 1.5px;
+            background: var(--muted);
+            transition: all 0.3s;
+            display: block;
         }
 
-        .two-column {
-            display: flex;
-            gap: 60px;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
+        .hamburger:hover span { background: var(--gold); }
+
+        /* ── TITLE SLIDE ── */
+        #slide-title {
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 40%, rgba(201,168,76,0.05) 0%, transparent 65%);
         }
 
-        .two-column > div {
-            flex: 1;
-            text-align: left;
+        #slide-title .eyebrow {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 28px;
         }
 
-        .equation {
-            font-style: italic;
-            color: #0066CC;
+        #slide-title h1 {
+            font-size: clamp(52px, 7vw, 88px);
+        }
+
+        #slide-title .rule {
+            width: 60px; height: 1px;
+            background: var(--gold);
+            margin: 28px auto;
+        }
+
+        /* ── CLOSING SLIDE ── */
+        #slide-close {
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 60%);
+        }
+
+        #slide-close h2 {
+            font-size: clamp(40px, 5vw, 64px);
+            margin-bottom: 48px;
+        }
+
+        #slide-close .close-line {
             font-size: 20px;
-            padding: 10px 0;
+            color: rgba(240,237,232,0.55);
+            line-height: 2;
+            max-width: 600px;
+            font-weight: 300;
         }
+
+        #slide-close .close-accent {
+            color: var(--gold);
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 26px;
+            margin-top: 52px;
+            display: block;
+        }
+
+        /* ── OVERLAY ── */
+        .overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 150;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s;
+        }
+
+        .overlay.visible { opacity: 1; pointer-events: auto; }
     </style>
 </head>
 <body>
+
     <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
     </div>
 
+    <div class="overlay" id="overlay"></div>
+
     <div class="sidebar" id="sidebar">
-        <div class="sidebar-title">Sections</div>
+        <div class="sidebar-title">Indice</div>
         <div id="sidebar-content"></div>
     </div>
 
-    <div class="presentation">
-        <!-- SLIDE 1: Title -->
-        <section class="active">
-            <h1>LLM, Agenti e Workflow Cognitivi</h1>
+    <div class="deck" id="deck">
+
+        <!-- ── 1. TITOLO ── -->
+        <section id="slide-title" class="active">
+            <div class="eyebrow">Stato dell'Arte · AI Applicata</div>
+            <h1>LLM, Agenti<br>e Workflow Cognitivi</h1>
+            <div class="rule"></div>
             <p class="subtitle">Una mappa dell'AI applicata</p>
-            <p class="subtitle" style="font-size: 20px; color: #999999; margin-top: 60px;">Dai Transformer all'Intelligenza Emergente</p>
+            <p class="tagline">Dai Transformer all'Intelligenza Emergente</p>
         </section>
 
-        <!-- SLIDE 2: Premise -->
+        <!-- ── 2. PREMESSA ── -->
         <section class="left-align">
+            <h3>Premessa</h3>
             <h2>Il settore si muove rapidamente</h2>
-            <ul style="margin-top: 40px;">
+            <ul>
                 <li>Il vocabolario dell'AI evolve: <strong>LLM</strong>, <strong>Agente</strong>, <strong>RAG</strong>, <strong>MCP</strong>, <strong>Framework</strong></li>
                 <li>Spesso usati come sinonimi, gergo di marketing, linguaggio da conferenza</li>
                 <li>Risultato: confusione, anche dove il vocabolario tecnico basterebbe</li>
@@ -302,147 +464,155 @@
             </ul>
         </section>
 
-        <!-- SLIDE 3: The Problem Before Transformers -->
+        <!-- ── 3. PRIMA DEL 2017 ── -->
         <section class="left-align">
-            <h2>Prima del 2017: Architettura RNN</h2>
-            <ul style="margin-top: 40px;">
+            <h3>Architettura</h3>
+            <h2>Prima del 2017: Reti Ricorrenti (RNN)</h2>
+            <ul>
                 <li>Processamento del linguaggio: parola per parola attraverso reti ricorrenti</li>
                 <li>Principio: mantenere stato interno che accumula il contesto</li>
                 <li><strong>Limite strutturale:</strong> lo stato si comprime, i gradienti svaniscono</li>
                 <li><strong>Dipendenze a lunga distanza perse</strong> — soggetti e verbi separati da molte parole</li>
-                <li>Esempio: <em>"Il server che gestisce il cluster... è caduto"</em> — già un problema con 12 parole tra soggetto e verbo</li>
+                <li>Esempio: <em>"Il server che gestisce il cluster… è caduto"</em> — già un problema con 12 parole tra soggetto e verbo</li>
             </ul>
         </section>
 
-        <!-- SLIDE 4: Attention as Solution -->
+        <!-- ── 4. TRANSFORMER ── -->
         <section class="left-align">
-            <h2>Il Transformer: L'Attenzione è Tutto</h2>
-            <ul style="margin-top: 40px;">
+            <h3>Transformer</h3>
+            <h2>L'Attenzione è Tutto</h2>
+            <ul>
                 <li><strong>Idea centrale:</strong> ogni token osserva tutti gli altri contemporaneamente</li>
                 <li>Ogni token produce: vettori Query, Key, Value</li>
                 <li>La compatibilità Query-Key determina il peso dell'attenzione distribuita sui Values</li>
                 <li><strong>Parallelizzabile</strong> → scalabile a GPU → dataset massicci</li>
-                <li>Risultato: rappresentazione contestuale — stessa parola ha embedding diversi in contesti diversi</li>
-                <li><em>"Banco di pesci" vs. "conto bancario"</em> — l'LLM comprende le sfumature</li>
+                <li>Risultato: rappresentazione contestuale — stessa parola, embedding diversi in contesti diversi</li>
+                <li><em>"Banco di pesci" vs. "conto bancario"</em> — il modello comprende le sfumature</li>
             </ul>
         </section>
 
-        <!-- SLIDE 5: What LLMs Learn -->
+        <!-- ── 5. COSA IMPARANO GLI LLM ── -->
         <section class="left-align">
+            <h3>Large Language Models</h3>
             <h2>La Conoscenza Nascosta negli LLM</h2>
-            <ul style="margin-top: 40px;">
+            <ul>
                 <li><strong>Obiettivo di training:</strong> predire il token successivo (apparentemente semplice)</li>
                 <li><strong>Risultato emergente:</strong> semantica, ragionamento analogico, strutture logiche, conoscenza enciclopedica</li>
                 <li><strong>Insight chiave:</strong> predire correttamente richiede comprensione profonda del contesto</li>
                 <li><strong>Conseguenza fondamentale:</strong> la semantica è implicita nel modello, non in strutture formali</li>
                 <li>Nessun knowledge graph, nessuna ontologia, nessuna regola dichiarata</li>
-                <li>Concetti semanticamente simili occupano regioni vicine nello spazio vettoriale</li>
+                <li>Concetti simili occupano regioni vicine nello spazio vettoriale</li>
             </ul>
         </section>
 
-        <!-- SLIDE 6: Structural Limits of LLMs -->
+        <!-- ── 6. LIMITI STRUTTURALI ── -->
         <section class="left-align">
+            <h3>Limiti</h3>
             <h2>Tre Confini Architetturali</h2>
-            <ul style="margin-top: 40px;">
+            <ul>
                 <li><strong>Nessuna memoria persistente</strong> — ogni sessione riparte da zero</li>
                 <li><strong>Nessuna capacità di agire nel mondo</strong> — non può leggere file, chiamare API, modificare sistemi</li>
-                <li><strong>Finestra di contesto finita</strong> — 100K-200K token tipici (fino a 1M+ in modelli specializzati)</li>
+                <li><strong>Finestra di contesto finita</strong> — 100K–200K token tipici (fino a 1M+ in modelli specializzati)</li>
                 <li><strong>Categoria emergente:</strong> Reasoning models (o1, DeepSeek R1, Gemini 2.5 Thinking)</li>
                 <li>Questi non sono bug. Sono i confini del componente. Comprenderli è essenziale.</li>
             </ul>
         </section>
 
-        <!-- SLIDE 7: What is an Agent? -->
+        <!-- ── 7. L'AGENTE ── -->
         <section class="left-align">
-            <h2>L'Agente: LLM come Cervello in un Loop</h2>
-            <ul style="margin-top: 40px;">
-                <li><strong>Definizione precisa:</strong> Un while loop con un LLM come cervello</li>
-                <li><strong>Nome del pattern:</strong> ReAct (Reason + Act)</li>
-                <li>Ricevi obiettivo → LLM decide azione → Esegui → Osserva risultato → Reinietta contesto → Loop finché obiettivo raggiunto</li>
+            <h3>Agenti</h3>
+            <h2>LLM come Cervello in un Loop</h2>
+            <ul>
+                <li><strong>Definizione precisa:</strong> un <code>while loop</code> con un LLM come cervello</li>
+                <li><strong>Pattern formale:</strong> ReAct (Reason + Act)</li>
+                <li>Ricevi obiettivo → LLM decide azione → Esegui → Osserva risultato → Reinietta contesto → Loop</li>
                 <li>Differenza da singola chiamata LLM: persistenza, azione, correzione basata su osservazione</li>
                 <li>Loop continua autonomamente; nessuna logica hardcoded</li>
             </ul>
         </section>
 
-        <!-- SLIDE 8: Agent Diagram -->
+        <!-- ── 8. CICLO REACT ── -->
         <section>
-            <h2>Ciclo ReAct</h2>
-            <div class="diagram">
-┌────────────────────────────────────────────────────┐
-│              Ciclo Agente                          │
+            <h3>Pattern ReAct</h3>
+            <h2>Ciclo dell'Agente</h2>
+            <div class="diagram">┌────────────────────────────────────────────────────┐
+│                 CICLO AGENTE                       │
 ├────────────────────────────────────────────────────┤
 │                                                    │
 │  OBIETTIVO                                         │
-│       ↓                                             │
-│  [LLM RAGIONA] — Cosa devo fare?                   │
-│       ↓                                             │
-│  [SCEGLI AZIONE] — Quale tool invocare?            │
-│       ↓                                             │
-│  [ESEGUI] — L'ambiente esegue la funzione          │
-│       ↓                                             │
-│  [OSSERVA RISULTATO] — Condividi output con LLM    │
-│       ↓                                             │
+│       ↓                                            │
+│  [LLM RAGIONA] — Cosa devo fare?                  │
+│       ↓                                            │
+│  [SCEGLI AZIONE] — Quale tool invocare?           │
+│       ↓                                            │
+│  [ESEGUI] — L'ambiente esegue la funzione         │
+│       ↓                                            │
+│  [OSSERVA RISULTATO] — Condividi output con LLM   │
+│       ↓                                            │
 │  Obiettivo raggiunto? ──NO──→ [LLM RAGIONA di nuovo]
-│       │                                             │
-│      SÌ                                            │
-│       ↓                                             │
+│       │                                            │
+│      SÌ                                           │
+│       ↓                                            │
 │  FINE LOOP                                         │
 │                                                    │
-└────────────────────────────────────────────────────┘
-            </div>
+└────────────────────────────────────────────────────┘</div>
         </section>
 
-        <!-- SLIDE 9: Agent Example -->
+        <!-- ── 9. AGENTE IN AZIONE ── -->
         <section class="left-align">
+            <h3>Esempio Concreto</h3>
             <h2>Un Agente in Azione</h2>
-            <p style="font-size: 20px; margin: 30px 0; color: #0066CC;"><strong>Obiettivo:</strong> Leggi config.json, cambia debug da false a true, salva.</p>
-            <ul style="margin-top: 40px;">
-                <li><strong>Iterazione 1:</strong> LLM legge obiettivo → "Devo il contenuto del file" → invoca <code>read_file()</code></li>
+            <div class="callout">Obiettivo: leggi config.json, cambia <code>debug</code> da <code>false</code> a <code>true</code>, salva.</div>
+            <ul>
+                <li><strong>Iterazione 1:</strong> LLM legge obiettivo → "Devo leggere il contenuto del file" → invoca <code>read_file()</code></li>
                 <li><strong>Iterazione 2:</strong> LLM riceve contenuto → "Vedo che debug è false" → invoca <code>write_file()</code></li>
                 <li><strong>Iterazione 3:</strong> LLM verifica → invoca <code>read_file()</code> di nuovo → obiettivo raggiunto</li>
-                <li><strong>Risultato:</strong> Tre decisioni autonome basate su osservazioni, nessun step hardcoded</li>
+                <li><strong>Risultato:</strong> tre decisioni autonome basate su osservazioni, nessuno step hardcoded</li>
             </ul>
         </section>
 
-        <!-- SLIDE 10: Tools & MCP -->
+        <!-- ── 10. STRUMENTI E MCP ── -->
         <section class="left-align">
-            <h2>Strumenti: Function Calling e MCP</h2>
-            <ul style="margin-top: 40px;">
+            <h3>Strumenti</h3>
+            <h2>Function Calling e MCP</h2>
+            <ul>
                 <li>Un agente non può operare senza <strong>strumenti</strong> — le funzioni che può invocare</li>
-                <li><strong>Function calling:</strong> LLM genera chiamate di funzione strutturate, il programma le intercetta ed esegue</li>
+                <li><strong>Function calling:</strong> l'LLM genera chiamate strutturate, il programma le intercetta ed esegue</li>
                 <li><strong>Prima del 2024:</strong> ogni framework definiva il proprio protocollo</li>
                 <li><strong>Novembre 2024:</strong> Anthropic lancia <strong>Model Context Protocol (MCP)</strong> — standard aperto</li>
-                <li><strong>2025:</strong> OpenAI, Google DeepMind lo adottano → standard de facto</li>
-                <li><strong>Analogia:</strong> Come USB-C — un'unica interfaccia per tutto</li>
+                <li><strong>2025:</strong> OpenAI e Google DeepMind lo adottano → standard de facto</li>
+                <li><strong>Analogia:</strong> come USB-C — un'unica interfaccia per tutto</li>
             </ul>
         </section>
 
-        <!-- SLIDE 11: Skills -->
+        <!-- ── 11. SKILLS ── -->
         <section class="left-align">
-            <h2>Skills: Prompting Strutturato e Ripetibile</h2>
-            <ul style="margin-top: 40px;">
+            <h3>Prompting</h3>
+            <h2>Skills: Procedure Strutturate e Ripetibili</h2>
+            <ul>
                 <li><strong>Definizione:</strong> procedure condensate in Markdown per operazioni ricorrenti</li>
-                <li>Non codice, solo istruzioni di prompting: <em>come</em> affrontare problemi</li>
-                <li><strong>Esempi:</strong>
-                    <ul style="margin-top: 20px;">
+                <li>Non codice — solo istruzioni di prompting: <em>come</em> affrontare problemi</li>
+                <li><strong>Esempi concreti:
+                    </strong><ul>
                         <li>Ingest paper → identifica concetti → aggiorna wiki → registra nel log</li>
                         <li>Warm-up contesto → carica CLAUDE.md → leggi scaffolding → riassumi stato</li>
                     </ul>
                 </li>
-                <li><strong>Valore:</strong> Chiunque può leggere, adattare e condividere versioni migliori</li>
+                <li><strong>Valore:</strong> chiunque può leggere, adattare e condividere versioni migliori</li>
                 <li>Utilità per pattern generalizzabili e ripetibili</li>
             </ul>
         </section>
 
-        <!-- SLIDE 12: Memory Problem -->
+        <!-- ── 12. MEMORIA: IL PROBLEMA ── -->
         <section class="left-align">
-            <h2>Memoria: Il Problema Aperto</h2>
-            <ul style="margin-top: 40px;">
-                <li>LLM non ha stato tra sessioni — ogni conversazione riparte da zero</li>
+            <h3>Memoria</h3>
+            <h2>Il Problema Aperto</h2>
+            <ul>
+                <li>L'LLM non ha stato tra sessioni — ogni conversazione riparte da zero</li>
                 <li><strong>Per chatbot generici:</strong> accettabile</li>
-                <li><strong>Per knowledge base:</strong> problema critico</li>
-                <li><strong>Tre dimensioni:</strong>
-                    <ul style="margin-top: 20px;">
+                <li><strong>Per knowledge base persistente:</strong> problema critico</li>
+                <li><strong>Tre dimensioni del problema:
+                    </strong><ul>
                         <li>Cosa memorizzare — la selezione non è banale</li>
                         <li>Come organizzarlo — la struttura influenza la qualità del ragionamento</li>
                         <li>Come recuperarlo — la finestra di contesto è finita</li>
@@ -451,50 +621,54 @@
             </ul>
         </section>
 
-        <!-- SLIDE 13: Three Memory Types -->
+        <!-- ── 13. TRE TIPI DI MEMORIA ── -->
         <section class="left-align">
+            <h3>Memoria</h3>
             <h2>Tre Categorie di Memoria</h2>
-            <ul style="margin-top: 40px;">
-                <li><strong>Contestuale</strong> — solo nella sessione corrente, buffer temporaneo (conversazione)</li>
-                <li><strong>Statica</strong> — permanente, raramente cambia (system prompt, regole, procedure)</li>
-                <li><strong>Episodica</strong> — permanente, mutabile, accumula nel tempo (log, decisioni, fatti)</li>
+            <ul>
+                <li><strong>Contestuale</strong> — solo nella sessione corrente; buffer temporaneo (conversazione attiva)</li>
+                <li><strong>Statica</strong> — permanente, raramente cambia; system prompt, regole, procedure</li>
+                <li><strong>Episodica</strong> — permanente, mutabile, si accumula nel tempo; log, decisioni, fatti</li>
             </ul>
-            <p style="margin-top: 60px; font-size: 20px; color: #999999;">L'arte del design agente: decidere cosa va dove, e come recuperarlo quando necessario.</p>
+            <p class="tagline" style="margin-top: 52px;">L'arte del design agente: decidere cosa va dove,<br>e come recuperarlo quando necessario.</p>
         </section>
 
-        <!-- SLIDE 14: RAG vs. Markdown Wiki -->
+        <!-- ── 14. RAG vs WIKI ── -->
         <section class="left-align">
-            <h2>RAG vs. Approccio LLM Wiki</h2>
-            <ul style="margin-top: 40px;">
+            <h3>Approcci alla Memoria</h3>
+            <h2>RAG vs. LLM Wiki</h2>
+            <ul>
                 <li><strong>RAG:</strong> indicizza documenti in vector store → recupera chunk simili → inietta in contesto</li>
-                <li><strong>Limite:</strong> recupera frammenti, non sintesi; qualità dipende dall'embedding</li>
+                <li><strong>Limite RAG:</strong> recupera frammenti, non sintesi; qualità dipende dall'embedding</li>
                 <li><strong>LLM Wiki:</strong> costruisci e mantieni wiki sintetica come struttura Markdown</li>
                 <li><strong>Pattern:</strong> <code>raw/</code> (originali immutabili) + <code>wiki/</code> (elaborazione sintetizzata)</li>
-                <li><strong>Formalizzazione recente:</strong> Andrej Karpathy (aprile 2026) — separazione a due livelli</li>
+                <li><strong>Formalizzazione:</strong> Andrej Karpathy (aprile 2026) — separazione a due livelli</li>
                 <li><strong>Risultato:</strong> memoria che compila, non recupera</li>
             </ul>
         </section>
 
-        <!-- SLIDE 15: Memory Approaches Comparison -->
+        <!-- ── 15. CONFRONTO TRE APPROCCI ── -->
         <section class="left-align">
-            <h2>Posizionamento Tre Approcci di Memoria</h2>
-            <ul style="margin-top: 40px;">
-                <li><strong>Markdown/Wiki:</strong> decine-centinaia di doc, gerarchico, zero infrastruttura</li>
-                <li><strong>RAG:</strong> migliaia-milioni di doc, retrieval semantico flat, vector store esterno</li>
-                <li><strong>Palazzo della Memoria:</strong> centinaia con riferimenti densi, organizzazione spaziale, SQLite + ChromaDB locale</li>
-                <li><strong>Palazzo della Memoria:</strong> frontiera emergente — combina struttura + semantica + compressione</li>
+            <h3>Confronto</h3>
+            <h2>Posizionamento dei Tre Approcci</h2>
+            <ul>
+                <li><strong>Markdown / Wiki:</strong> decine–centinaia di doc, gerarchico, zero infrastruttura aggiuntiva</li>
+                <li><strong>RAG:</strong> migliaia–milioni di doc, retrieval semantico flat, vector store esterno richiesto</li>
+                <li><strong>Palazzo della Memoria:</strong> centinaia di doc con riferimenti densi, organizzazione spaziale, SQLite + ChromaDB locale</li>
+                <li><strong>Palazzo della Memoria:</strong> frontiera emergente — combina struttura gerarchica + semantica + compressione</li>
             </ul>
         </section>
 
-        <!-- SLIDE 16: Frameworks in the Market -->
+        <!-- ── 16. FRAMEWORK ── -->
         <section class="left-align">
+            <h3>Mercato</h3>
             <h2>Il Mercato: Packaging del Blob</h2>
-            <ul style="margin-top: 40px;">
-                <li><strong>2025-2026:</strong> i framework per agenti non sono ancora standardizzati — un "blob" di pattern</li>
+            <ul>
+                <li><strong>2025–2026:</strong> i framework per agenti non sono ancora standardizzati — un "blob" di pattern</li>
                 <li><strong>Protagonisti:</strong> LangChain, LangGraph, CrewAI, Claude Code, smolagents</li>
-                <li><strong>Verità chiave:</strong> tutti i framework si riducono alla stessa struttura</li>
-                <li><strong>Perché i framework esistono:</strong>
-                    <ul style="margin-top: 20px;">
+                <li><strong>Verità chiave:</strong> tutti i framework riducono alla stessa struttura di base</li>
+                <li><strong>Perché i framework esistono:
+                    </strong><ul>
                         <li>Commerciale: la potenza ha bisogno di packaging → documentazione → supporto</li>
                         <li>Usabilità: il software ha bisogno di interfacce stabili (DB ha SQL, OS ha shell)</li>
                     </ul>
@@ -502,198 +676,172 @@
             </ul>
         </section>
 
-        <!-- SLIDE 17: Invariant Structure -->
+        <!-- ── 17. STRUTTURA INVARIANTE ── -->
         <section>
-            <h2>La Struttura Invariante Dietro Tutti i Framework</h2>
-            <div class="diagram">
-┌──────────────────────────────────────────────────────┐
-│                    Agente                            │
+            <h3>Struttura Invariante</h3>
+            <h2>La Struttura Dietro Tutti i Framework</h2>
+            <div class="diagram">┌──────────────────────────────────────────────────────┐
+│                      Agente                          │
 │                                                      │
-│         LLM (GPT-4, Claude, Llama...)               │
-│                 ↑              ↓                     │
-│            [contesto]    [azione scelta]            │
-│                 ↑              ↓                     │
-│         ┌────────────────┬─────────────┐            │
-│         │  Markdown MD   │  Strumenti  │            │
-│         │  (skill +      │  (file I/O, │            │
-│         │  episodica)    │  API, MCP)  │            │
-│         └────────────────┴─────────────┘            │
+│           LLM (GPT-4, Claude, Llama...)             │
+│                   ↑              ↓                   │
+│              [contesto]    [azione scelta]          │
+│                   ↑              ↓                   │
+│           ┌────────────────┬─────────────┐          │
+│           │  Memoria MD    │  Strumenti  │          │
+│           │  (skill +      │  (file I/O, │          │
+│           │  episodica)    │  API, MCP)  │          │
+│           └────────────────┴─────────────┘          │
 │                                                      │
 └──────────────────────────────────────────────────────┘
 
-Tre componenti indipendenti e intercambiabili.
-            </div>
+Tre componenti indipendenti e intercambiabili.</div>
         </section>
 
-        <!-- SLIDE 18: Practical Workflow -->
+        <!-- ── 18. WORKFLOW PRATICO ── -->
         <section class="left-align">
-            <h2>Mettendo Tutto Insieme: Workflow Pratico</h2>
-            <ul style="margin-top: 40px;">
+            <h3>Workflow</h3>
+            <h2>Mettendo Tutto Insieme</h2>
+            <ul>
                 <li><strong>raw/</strong> — documenti sorgente immutabili (paper, call, trascrizioni)</li>
                 <li><strong>wiki/</strong> — elaborazione sintetizzata (fonti, concetti, analisi + log)</li>
-                <li><strong>CLAUDE.md</strong> — manuale operativo (ruolo, contesto, procedure)</li>
-                <li><strong>Skills:</strong> procedure prompting ripetibili in Markdown</li>
+                <li><strong>CLAUDE.md</strong> — manuale operativo (ruolo, contesto, procedure, vincoli)</li>
+                <li><strong>Skills:</strong> procedure di prompting ripetibili in Markdown</li>
                 <li><strong>Bootstrap agente:</strong> carica CLAUDE.md → leggi wiki/index → leggi log recente → capisci stato → agisci</li>
             </ul>
         </section>
 
-        <!-- SLIDE 19: Agent in Bash -->
+        <!-- ── 19. AGENTE IN BASH ── -->
         <section class="left-align">
-            <h2>L'Agente nella Realtà: Comandi Bash</h2>
-            <div class="code-block">
-# ─── Bootstrap Sessione ───────────────────
-cat CLAUDE.md
-cat wiki/index.md
-tail -n 50 wiki/log.md
+            <h3>Implementazione</h3>
+            <h2>L'Agente nella Realtà: Bash</h2>
+            <div class="code-block"><span class="comment"># ─── Bootstrap Sessione ───────────────────</span>
+<span class="cmd">cat</span> CLAUDE.md
+<span class="cmd">cat</span> wiki/index.md
+<span class="cmd">tail</span> -n 50 wiki/log.md
 
-# ─── Ricognizione ─────────────────────────
-ls raw/papers/
-cat raw/papers/attention-paper/value.md
+<span class="comment"># ─── Ricognizione ─────────────────────────</span>
+<span class="cmd">ls</span> raw/papers/
+<span class="cmd">cat</span> raw/papers/attention-paper/value.md
 
-# ─── Verifica Correlazioni ────────────────
-grep -rl "transformer" wiki/concepts/ wiki/sources/
+<span class="comment"># ─── Verifica Correlazioni ────────────────</span>
+<span class="cmd">grep</span> -rl "transformer" wiki/concepts/ wiki/sources/
 
-# ─── Scrivi ───────────────────────────────
-cat > wiki/sources/attention-paper.md << 'EOF'
+<span class="comment"># ─── Scrivi ───────────────────────────────</span>
+<span class="cmd">cat</span> &gt; wiki/sources/attention-paper.md &lt;&lt; 'EOF'
 ...contenuto generato dall'LLM...
 EOF
 
-# ─── Aggiorna Log ─────────────────────────
-echo "..." >> wiki/log.md
-            </div>
+<span class="comment"># ─── Aggiorna Log ─────────────────────────</span>
+<span class="cmd">echo</span> "..." &gt;&gt; wiki/log.md</div>
         </section>
 
-        <!-- SLIDE 20: Summary -->
+        <!-- ── 20. PUNTI CHIAVE ── -->
         <section class="left-align">
+            <h3>Riepilogo</h3>
             <h2>Punti Chiave</h2>
-            <ul style="margin-top: 40px;">
+            <ul>
                 <li><strong>Transformer:</strong> il meccanismo di attenzione risolve le dipendenze a lunga distanza</li>
                 <li><strong>LLM:</strong> imparano la semantica implicitamente; nessuna memoria persistente o capacità di azione</li>
                 <li><strong>Agenti:</strong> while loop con cervello LLM — pattern ReAct</li>
-                <li><strong>Strumenti:</strong> function calling standardizzato via MCP (2024-2025)</li>
+                <li><strong>Strumenti:</strong> function calling standardizzato via MCP (2024–2025)</li>
                 <li><strong>Memoria:</strong> tre approcci — Markdown Wiki il migliore per workflow controllati e personali</li>
-                <li><strong>Framework:</strong> tutti si riducono alla stessa struttura: LLM + Memoria + Strumenti</li>
+                <li><strong>Framework:</strong> tutti riducono alla stessa struttura: LLM + Memoria + Strumenti</li>
                 <li><strong>Il nocciolo:</strong> comprendi prima le fondamenta, poi i framework</li>
             </ul>
         </section>
 
-        <!-- SLIDE 21: Closing -->
-        <section>
+        <!-- ── 21. CHIUSURA ── -->
+        <section id="slide-close">
             <h2>La Struttura è Stabile</h2>
-            <p class="subtitle" style="font-size: 24px; margin-top: 40px;">Il settore si muove rapidamente. I framework emergono e svaniscono.</p>
-            <p class="subtitle" style="font-size: 24px; margin-top: 20px;">La struttura di LLM, agenti e memoria è solida.</p>
-            <p class="subtitle" style="font-size: 24px; margin-top: 20px;">Investi tempo nel comprendere le fondamenta.</p>
-            <p class="subtitle" style="font-size: 24px; margin-top: 60px; color: #0066CC;">Gli strumenti seguiranno.</p>
+            <div class="close-line">
+                Il settore si muove rapidamente.<br>
+                I framework emergono e svaniscono.<br>
+                La struttura di LLM, agenti e memoria è solida.<br>
+                Investi tempo nel comprendere le fondamenta.
+            </div>
+            <span class="close-accent">Gli strumenti seguiranno.</span>
         </section>
-    </div>
 
-    <div class="slide-counter">
-        <span id="current-slide">1</span> / <span id="total-slides">21</span>
-    </div>
+    </div><!-- /deck -->
 
-    <div class="controls" id="controls">
-        ← / → per navigare | ESC per toggle sidebar
-    </div>
+    <!-- COUNTER + PROGRESS -->
+    <div class="counter"><span id="cur">1</span> / <span id="tot">21</span></div>
+    <div class="progress-bar" id="progress"></div>
+    <div class="hint" id="hint">← → · spazio · ESC</div>
 
     <script>
-        let currentSlide = 0;
         const slides = document.querySelectorAll('section');
-        const totalSlides = slides.length;
-        let hideControlsTimeout;
+        const total = slides.length;
+        let cur = 0;
+        let hintTimer;
 
-        document.getElementById('total-slides').textContent = totalSlides;
+        document.getElementById('tot').textContent = total;
 
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[n].classList.add('active');
-            document.getElementById('current-slide').textContent = n + 1;
-            updateSidebarActive();
+        function show(n) {
+            slides[cur].classList.remove('active');
+            cur = (n + total) % total;
+            slides[cur].classList.add('active');
+            document.getElementById('cur').textContent = cur + 1;
+            document.getElementById('progress').style.width =
+                ((cur + 1) / total * 100) + '%';
+            updateSidebar();
         }
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-            resetControlsTimeout();
+        function flashHint() {
+            const h = document.getElementById('hint');
+            h.classList.add('visible');
+            clearTimeout(hintTimer);
+            hintTimer = setTimeout(() => h.classList.remove('visible'), 2500);
         }
 
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-            resetControlsTimeout();
-        }
-
-        function goToSlide(n) {
-            currentSlide = Math.max(0, Math.min(n, totalSlides - 1));
-            showSlide(currentSlide);
-            document.getElementById('sidebar').classList.remove('open');
-            resetControlsTimeout();
-        }
-
-        function resetControlsTimeout() {
-            clearTimeout(hideControlsTimeout);
-            document.getElementById('controls').classList.add('visible');
-            hideControlsTimeout = setTimeout(() => {
-                document.getElementById('controls').classList.remove('visible');
-            }, 3000);
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
-                e.preventDefault();
-                nextSlide();
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                e.preventDefault();
-                prevSlide();
-            } else if (e.key === 'Escape') {
-                document.getElementById('sidebar').classList.toggle('open');
-            }
+        document.addEventListener('keydown', e => {
+            if (['ArrowRight','ArrowDown',' '].includes(e.key)) { e.preventDefault(); show(cur+1); flashHint(); }
+            else if (['ArrowLeft','ArrowUp'].includes(e.key)) { e.preventDefault(); show(cur-1); flashHint(); }
+            else if (e.key === 'Escape') toggleSidebar();
         });
 
-        document.addEventListener('mousemove', resetControlsTimeout);
+        document.addEventListener('mousemove', flashHint);
+
+        // Touch
+        let tx = 0;
+        document.addEventListener('touchstart', e => tx = e.touches[0].clientX, {passive:true});
+        document.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - tx;
+            if (Math.abs(dx) > 45) { show(dx < 0 ? cur+1 : cur-1); flashHint(); }
+        }, {passive:true});
 
         // Sidebar
-        const hamburger = document.getElementById('hamburger');
         const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
         const sidebarContent = document.getElementById('sidebar-content');
 
-        hamburger.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-        });
+        function toggleSidebar() {
+            const open = sidebar.classList.toggle('open');
+            overlay.classList.toggle('visible', open);
+        }
 
-        // Populate sidebar
-        slides.forEach((slide, index) => {
-            let title = slide.querySelector('h1, h2, h3')?.textContent || `Slide ${index + 1}`;
-            if (title.includes('Slide')) title = `Section ${index + 1}`;
-            
+        document.getElementById('hamburger').addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+
+        slides.forEach((slide, i) => {
+            const title = slide.querySelector('h1,h2')?.textContent?.trim() || `Slide ${i+1}`;
             const item = document.createElement('div');
-            item.className = 'sidebar-item';
-            if (index === 0) item.classList.add('active');
-            item.textContent = title;
-            item.addEventListener('click', () => goToSlide(index));
+            item.className = 'sidebar-item' + (i === 0 ? ' active' : '');
+            item.innerHTML = `<span class="sidebar-num">${String(i+1).padStart(2,'0')}</span>${title}`;
+            item.addEventListener('click', () => { show(i); toggleSidebar(); });
             sidebarContent.appendChild(item);
         });
 
-        function updateSidebarActive() {
-            document.querySelectorAll('.sidebar-item').forEach((item, index) => {
-                item.classList.toggle('active', index === currentSlide);
+        function updateSidebar() {
+            document.querySelectorAll('.sidebar-item').forEach((el, i) => {
+                el.classList.toggle('active', i === cur);
             });
         }
 
-        // Touch support for mobile
-        let touchStartX = 0;
-        document.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        });
-
-        document.addEventListener('touchend', (e) => {
-            const touchEndX = e.changedTouches[0].clientX;
-            if (touchStartX - touchEndX > 50) nextSlide();
-            if (touchEndX - touchStartX > 50) prevSlide();
-        });
-
-        // Initialize
-        showSlide(0);
-        resetControlsTimeout();
+        // Init
+        document.getElementById('progress').style.width = (1/total*100)+'%';
+        flashHint();
     </script>
 </body>
 </html>
