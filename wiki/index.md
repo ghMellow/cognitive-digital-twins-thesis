@@ -126,27 +126,6 @@ Target audience of thesis and how to customize explanation for each:
 
 ---
 
-## 🚦 Ingest Status — Wiki Literature Review Phase COMPLETE
-
-| Milestone                           | Status | Note                                 |
-| ----------------------------------- | ------ | ------------------------------------ |
-| Setup wiki                          | ✅      | Structure, master files, glossary    |
-| **Block A — CDT Theory**           | ✅      | 2/2 (Zheng + Al-Haj Ali) — 14 Apr   |
-| **Block B — Pattern & Context**    | ✅      | 4/4 (RESTART, Burr, Kalyani, Pretel) — 14 Apr |
-| **Block C — Arch. Blueprint**      | ✅      | 3/3 (CogTwin, Hasan&Nguyen, Biju) — 14 Apr |
-| **Block D — Evaluation**           | ✅      | 2/2 (MultiAgentBench, Berkeley) — 14 Apr |
-| **Block E — Closest Prior Work**  | ✅      | 1/1 (WirelessAgent) — 14 Apr        |
-| **Lint Pass #1**                    | ✅      | 0 contradictions, 91% link validity |
-| **Lint Pass #2**                    | ✅      | 97%+ link validity, 12 zombies resolved |
-| **Creation of analyses/ pages**     | ✅      | 4/4 (comparison, gap, risk, benchmark) — 14 Apr |
-| Ingest call 1 + 2                   | ⏳      | Optional (low priority) |
-| Ingest deep dives (3 files)         | ⏳      | Optional (low priority) |
-| Creation of style/ pages            | ⏳      | During writing Ch. 1–8              |
-| Final scaffolding update            | ⏳      | Review pass before thesis           |
-| Wiki lint (pre-submission)          | ⏳      | Before thesis handover               |
-
----
-
 ## 📂 Directory Structure
 
 ```
@@ -156,8 +135,9 @@ wiki/
 ├── glossary.md
 ├── overview.md
 ├── log.md
-├── lint-report-2026-04-14.md ✅ (pass #1)
-├── lint-report-2026-04-14-pass2.md ✅ (pass #2)
+├── lint-reports/ ✅ ACTIVE
+│   ├── lint-report-2026-04-14.md (pass #1)
+│   └── lint-report-2026-04-14-pass2.md (pass #2)
 ├── sources/ ✅ ACTIVE (12 papers)
 │   ├── zheng-et-al-2022-cdt.md
 │   ├── al-haj-ali-2025-mmci.md

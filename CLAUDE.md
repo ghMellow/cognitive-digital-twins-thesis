@@ -168,6 +168,36 @@ When the user asks a question about the thesis or materials:
 
 ---
 
+### Log Format
+
+When appending entries to `wiki/log.md`, follow this convention:
+
+**Last 5 logs:** Remain fully expanded with complete details, examples, and context.
+
+**Earlier logs (6+):** Compress into single-paragraph summaries under `## 📦 Archive — Summarized Logs` section using this format:
+
+```
+**[YYYY-MM-DD] <operation> | <brief-category>** — <1-sentence summary>: <key metrics/findings>. <status emoji>.
+```
+
+**Example (expanded):**
+```markdown
+## [2026-04-14] lint | Pass #2 — Post-12-Papers Verification
+
+**Operation:** Complete lint pass after all 12 papers ingested
+
+**Results:** 97%+ link validity (up from 91%), 200+ links scanned, 197 valid, 3 zombie, 0 contradictions. **12/15 zombie links from Pass #1 resolved.** File created: `wiki/lint-reports/lint-report-2026-04-14-pass2.md`. **Status:** Wiki production-ready for analysis phase. ✅
+```
+
+**Example (archived/compressed):**
+```markdown
+**[2026-04-14 AM] setup** — Wiki structure initialization: created folders (`sources/`, `concepts/`, `personas/`, `analyses/`, `style/`) and master files. Initialized glossary with 40+ canonical CDT + 5G terms. ✅
+```
+
+**Goal:** Keep log.md under 200 lines total while preserving readability of recent work. Archive section allows fast context recovery without bloat.
+
+---
+
 ### Lint
 
 When the user says "lint the wiki":
