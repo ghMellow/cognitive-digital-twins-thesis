@@ -2,7 +2,7 @@
 title: Project Log
 type: analysis
 created: 2026-04-14
-updated: 2026-04-19
+updated: 2026-04-20
 sources: []
 tags: [project-log, chronology]
 ---
@@ -58,6 +58,35 @@ Append-only log of all wiki operations. **Last 5 logs are detailed; earlier logs
 **Next Step:** Use as reference during next advisor call. If specific discussion points emerge (e.g., "why not RAG?", "why Markdown over database?"), extract to dedicated synthesis pages for deeper validation.
 
 **Status:** 🎯 Ready for team discussion. No validation required — background material.
+
+---
+
+## [2026-04-20] ingest | Glossary — Formal Knowledge Representation & Semantic Ontologies
+
+**Operation:** Enhanced `glossary.md` with comprehensive semantic foundations following insights from latest advisor call (2026-04-15).
+
+**New Section Added:** "Formal Knowledge Representation & Semantic Ontologies" (11 subsections, 50+ definitions)
+
+**Subsections:**
+1. **Core Knowledge Representation Concepts** — Ontology, Semantics (explicit vs implicit), KRR
+2. **Logical Foundations** — First-Order Logic (FOL), Descriptive Logic (DL), Inference
+3. **Semantic Standards & Technologies** — RDF, OWL, SPARQL, Reasoner
+4. **Formal Analysis Tools** — Formal Concept Analysis (FCA)
+5. **Cognitive Architectures & Memory** — Cognitive Architecture, Memory (static vs episodic)
+6. **Advanced Integration Concepts** — Symbol Grounding, Neuro-Symbolic Approach, Embedding, CWA vs OWA
+
+**Key Definitions Integrated:**
+- **Ontology** ← formalization of domain knowledge in machine-readable format (enables inference)
+- **Semantics** ← explicit (ontologies/KGs) vs implicit (LLM embeddings) — distinguishes Contribution 1 from Contribution 2
+- **Neuro-Symbolic Approach** ← marked as **thesis methodology bridge**: combines neural (LLMs) + symbolic (logic/KGs)
+- **Cognitive Architecture** ← theoretical foundation for six cognitive functions (Zheng et al. 2022)
+- **FCA** ← Mario Beltrani's primary formal tool for extracting conceptual hierarchies from data
+
+**Relationship to Thesis:** These definitions establish the formal vocabulary layer underlying Contribution 2 (multi-dimensional evaluation framework) and provide theoretical justification for neuro-symbolic design choices in the agentic pipeline. Addresses implicit terminology gap from recent calls.
+
+**Metadata Updated:** Added sources tags linking to recent calls (2026-03-31-seconda-call.md, 2026-04-15-terza-call.md)
+
+**Status:** ✅ Glossary now serves as authoritative reference for both implicit (LLM-based) and explicit (ontology-based) semantics paradigms. Ready for team discussions on Contribution 2 design choices.
 
 ---
 

@@ -2,9 +2,9 @@
 title: Thesis Glossary
 type: concept
 created: 2026-04-14
-updated: 2026-04-14
-sources: []
-tags: [terminology, reference]
+updated: 2026-04-20
+sources: [2026-03-31-seconda-call.md, 2026-04-15-terza-call.md]
+tags: [terminology, reference, semantics, formal-logic, ontologies]
 ---
 
 # Glossary — Cognitive Digital Twins
@@ -29,6 +29,81 @@ Collection of specialized autonomous agents coordinated to achieve a common obje
 
 ### LLM (Large Language Model)
 Neural model trained on text corpus, exposed as API or hosted locally (Ollama + quantization).
+
+---
+
+## Formal Knowledge Representation & Semantic Ontologies
+
+Foundation of explicit, machine-readable knowledge formalization. Distinguishes **explicit semantics** (ontologies, rules, graphs) from **implicit semantics** (embedded in LLM embeddings). Cross-referenced with Contribution 2 of the thesis: the bridge between symbolic reasoning and neural approaches.
+
+### Core Knowledge Representation Concepts
+
+#### Ontology
+Formal structure composed of concepts linked through rules. Enables explicit, machine-readable representation of domain knowledge. In CDT context: formalizes system knowledge and enables automated inference. Enables reusability and interoperability across cognitive modules.
+
+#### Semantics
+Formal meaning attributed to data and relationships. Can be **explicit** (formalized in ontologies, KGs, logical rules) or **implicit** (embedded in LLM weights without declaration). Mario Beltrani distinguishes these as two alternative epistemological approaches to knowledge representation, foundational to Contribution 2.
+
+#### Knowledge Representation and Reasoning (KRR)
+Scientific area studying how to represent knowledge formally and how to reason over it. Theoretical foundation of ontologies, KGs, and cognitive architectures. Referenced in the doctoral thesis as one of the enabling technologies for cognition in CDTs.
+
+### Logical Foundations
+
+#### First-Order Logic (FOL)
+Formal system for expressing propositions about objects and their relationships via quantifiers (∀, ∃) and predicates. Provides the logical foundation for OWL and most formal ontologies. Referenced by Mario Beltrani as explicit formal reference for his work.
+
+#### Descriptive Logic (DL)
+Family of formal languages for representing terminological knowledge. Balances expressivity with decidability of reasoning. Theoretical foundation of OWL and automated reasoners. Enables tractable inference while maintaining semantic rigor.
+
+#### Inference
+Process of deriving new knowledge from existing knowledge by following logical rules. In CDT: enables the system to reason about situations not explicitly coded. Executed by reasoners over ontologies and KGs.
+
+### Semantic Standards & Technologies
+
+#### RDF — Resource Description Framework
+W3C standard model for representing information as subject-predicate-object triples. Base data structure for knowledge graphs and OWL ontologies. Enables semantic web interoperability.
+
+#### OWL — Web Ontology Language
+W3C standard language for defining ontologies. Based on Descriptive Logic (DL) subset of FOL. Defines classes, properties, constraints, and enables automated reasoning via reasoners (e.g., HermiT, Pellet). Allows both human-readable and machine-processable knowledge.
+
+#### SPARQL
+Query language for RDF-based knowledge graphs. Functional equivalent of SQL for semantic graphs. Enables structured pattern extraction from graphs. Standard W3C protocol.
+
+#### Reasoner
+Inferential engine that, given an ontology, automatically derives implicit knowledge and verifies model consistency. Examples: HermiT, Pellet, FaCT++. Enables automated validation and discovery in ontology-driven systems.
+
+### Formal Analysis Tools
+
+#### Formal Concept Analysis (FCA)
+Mathematical tool for extracting conceptual structures from data. Identifies groupings of objects sharing common attributes, producing a formal hierarchy of concepts (lattice). Mario Beltrani cites this as one of his primary research tools. Bridges statistical data exploration and logical structure.
+
+### Cognitive Architectures & Memory
+
+#### Cognitive Architecture
+Computational framework modeling basic cognitive functions of an intelligent system: perception, memory, reasoning, planning. Examples: ACT-R, Soar, CLARION. In CDT: used as external module interacting with the DT via communication protocols. Provides a principled, theory-grounded approach to knowledge-based inference.
+
+#### Memory (Cognitive Context)
+Core function of a cognitive system. In CDT architecture distinguished into:
+- **Static Memory**: rules, ontologies, formal constraints (stored in DKR)
+- **Episodic Memory**: history of events, observed patterns over time (stored in DIKG)
+Integrates persistent knowledge with dynamic situational awareness.
+
+### Advanced Integration Concepts
+
+#### Symbol Grounding
+Process linking formal symbols (e.g., KG nodes) to real-world data (e.g., sensor measurements). One of the open problems in neuro-symbolic systems: ensuring abstract symbols have concrete anchoring in physical reality.
+
+#### Neuro-Symbolic Approach
+Paradigm combining neural networks (statistical learning, LLMs) with symbolic reasoning (logic, ontologies). The meeting point between implicit semantics of LLMs and explicit semantics of KGs. **Directly relevant to thesis Contribution 2**: the methodological bridge proposed.
+
+#### Embedding
+Vector representation of concepts or entities in continuous mathematical space. Enables LLMs to operate on semantics implicitly. In knowledge graphs: techniques like TransE or Node2Vec embed nodes and relations, enabling hybrid reasoning (symbolic + statistical).
+
+#### Closed World Assumption vs Open World Assumption
+Two opposite reasoning hypotheses:
+- **CWA** (typical of databases): what is not known is false.
+- **OWA** (typical of OWL ontologies): what is not known is simply not yet known.
+Relevant when integrating a KG with an agentic system operating in partially observable environments. CDT framework adopts OWA to handle sensor uncertainty and incomplete observations.
 
 ---
 

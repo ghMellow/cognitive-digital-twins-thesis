@@ -2,7 +2,7 @@
 title: Master Index of Wiki
 type: analysis
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-20
 sources: []
 tags: [index, navigation]
 ---
@@ -18,7 +18,7 @@ Complete catalog of all thesis wiki pages. Updated incrementally with each inges
 | Document               | Type     | Purpose                                                                | Link                 |
 | ---------------------- | -------- | ---------------------------------------------------------------------- | -------------------- |
 | Thesis Scaffolding     | analysis | Central argumentative structure of thesis, updated every ingest        | [[scaffolding-tesi]] |
-| Glossary               | concept  | Canonical terminology CDT + 5G domain                                 | [[glossary]]         |
+| Glossary               | concept  | Canonical terminology CDT + 5G + semantic foundations (ontologies, KRR, logic)  | [[glossary]]         |
 | Thesis Overview        | analysis | Summary problem, hypothesis, scientific contributions, stack           | [[overview]]         |
 | Project Log            | analysis | Append-only chronology of all operations                               | [[log]]              |
 
