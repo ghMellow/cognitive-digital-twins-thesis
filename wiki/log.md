@@ -13,6 +13,99 @@ Append-only log of all wiki operations. **Last 5 logs are detailed; earlier logs
 
 ---
 
+## [2026-04-20] ingest | 4th Deep Dive → Orchestration Framework Synthesis
+
+**Operation:** Extracted 4th deep dive from `raw/project/approfondimenti/Approfondimento uso di Pi.md` as research synthesis page awaiting advisor validation.
+
+**Synthesis Page Created:**
+- `wiki/synthesis/orchestration-framework-synthesis.md` — LangGraph vs Pi SDK trade-offs (token efficiency, explainability, resilience)
+
+**Decision Context:** Choice of orchestration framework directly impacts:
+- Prompt efficiency on constrained hardware (M4 Pro: token budget = reasoning capacity)
+- Explainability granularity (event-driven vs state-machine)
+- Adaptive resilience (Tree Sessions capability)
+
+**Key Argument:** Pi SDK's event-driven minimalist approach is scientifically defensible for this thesis because it maximizes reasoning capacity of 8B-12B models AND enables granular audit logging for explainability chapter. However, LangGraph is industry standard — trade-off must be explicitly defended to advisors.
+
+**Related Gaps:** Gap 1.1 (5G architecture choice) + Gap 2.3 (Decision Latency considerations)
+
+**Status:** 🔄 Pending advisor validation. Includes 5 discussion points ready for next call.
+
+**Files Updated:** `wiki/synthesis/index.md` (+ 4a synthesis row), `wiki/log.md` (this entry)
+
+---
+
+## [2026-04-20] reference | AI Panorama 2025-2026 for Team Alignment
+
+**Type:** Background knowledge document (not research synthesis)
+
+**Purpose:** Establish shared vocabulary for team/advisor discussions on AI landscape without terminology confusion. Documents the invariant structure of agents (LLM + loop + memory + tools) and positions thesis work within current ecosystem.
+
+**Document Location:** `raw/project/approfondimenti/Approfondimento Stato dell'Arte AI.md`
+
+**Key Sections:**
+- Transformer mechanics & what LLMs encode
+- Agent architecture (ReAct, Reflexion, Tree of Thoughts, RL-based reasoning)
+- Three memory paradigms: RAG (scale 1000s docs) vs Wiki (scale 100s, compile-time) vs Palazzo Mentale (emerging hybrid)
+- Framework ecosystem comparison (LangChain, LangGraph, CrewAI, Pi, OpenClaw, NVIDIA)
+- Practical workflow (Obsidian visualization + VSCode execution + Markdown persistence)
+
+**Relevance to Thesis:**
+- Wiki pattern (Section 4.4) validates our `raw/` → `wiki/` architecture
+- Skill files pattern (Section 6.3) already in use — confirms best practice
+- Framework invariant structure (Section 5.3) informs orchestration-framework-synthesis
+
+**Next Step:** Use as reference during next advisor call. If specific discussion points emerge (e.g., "why not RAG?", "why Markdown over database?"), extract to dedicated synthesis pages for deeper validation.
+
+**Status:** 🎯 Ready for team discussion. No validation required — background material.
+
+---
+
+## [2026-04-20] ingest | 4th Deep Dive → Orchestration Framework Synthesis
+
+**Synthesis Page Created:**
+- `wiki/synthesis/orchestration-framework-synthesis.md` — LangGraph vs Pi SDK trade-offs (token efficiency, explainability, resilience)
+
+**Decision Context:** Choice of orchestration framework directly impacts:
+- Prompt efficiency on constrained hardware (M4 Pro: token budget = reasoning capacity)
+- Explainability granularity (event-driven vs state-machine)
+- Adaptive resilience (Tree Sessions capability)
+
+**Key Argument:** Pi SDK's event-driven minimalist approach is scientifically defensible for this thesis because it maximizes reasoning capacity of 8B-12B models AND enables granular audit logging for explainability chapter. However, LangGraph is industry standard — trade-off must be explicitly defended to advisors.
+
+**Related Gaps:** Gap 1.1 (5G architecture choice) + Gap 2.3 (Decision Latency considerations)
+
+**Status:** 🔄 Pending advisor validation. Includes 5 discussion points ready for next call.
+
+**Files Updated:** `wiki/synthesis/index.md` (+ 4a synthesis row), `wiki/log.md` (this entry)
+
+---
+
+## [2026-04-20] ingest | Deep Dives → Research Synthesis (Pending Review)
+
+**Operation:** Extracted 3 deep dives from `raw/project/approfondimenti/` as structured research synthesis pages awaiting advisor validation.
+
+**Synthesis Pages Created:**
+- `wiki/synthesis/index.md` — Registry and workflow for synthesis validation
+- `wiki/synthesis/agentic-pipeline-synthesis.md` — 4-agent architecture, cognitive function mapping, evaluation methods per agent
+- `wiki/synthesis/statistical-rigor-synthesis.md` — League Training + Paired Variance Estimation + Z-score validation + consensus metrics
+- `wiki/synthesis/safe-by-design-synthesis.md` — Semantic Firewall pattern, Neo4j validator, Think-Verify-Act cycle, prompt injection defense
+
+**Papers Supporting:** Berkeley CS294, DeepMind (Vinyals), UC Berkeley security (D. Song), Cognition AI architecture patterns
+
+**Related Gaps Addressed:**
+- Gap 1.1 (5G-specific architecture) — now detailed in agentic-pipeline-synthesis
+- Gap 1.3 (Operational evaluation) — now detailed in statistical-rigor-synthesis + agentic-pipeline-synthesis
+- Gap 2.1 (LLM-as-judge + validation) — now detailed in statistical-rigor-synthesis + safe-by-design-synthesis
+
+**Status:** 🔄 **Pending advisor validation.** Each synthesis page includes "Points to Validate" section ready for next advisor meeting. Once validated → content will be promoted to canonical wiki pages (concepts/ or analyses/).
+
+**Next Step:** Present 3 syntheses to relatori with specific discussion points highlighted. Record feedback in "Feedback ricevuti" sections.
+
+**Files Updated:** `wiki/index.md` (+ Synthesis registry section), `wiki/log.md` (this entry)
+
+---
+
 ## [2026-04-20] align | Scaffolding Updated per Post-Call Feedback
 
 **Operation:** Align `scaffolding-tesi.md` with insights from updated `feedback-claude.md` (post-call review)

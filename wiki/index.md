@@ -24,16 +24,30 @@ Complete catalog of all thesis wiki pages. Updated incrementally with each inges
 
 ---
 
-## 📚 Sources (Papers, Calls, Deep Dives) — ACTIVE NOW ✅
+## � Research Synthesis (Pending Advisor Review) ⏳
+
+Working hypotheses extracted from deep dives and architectural reasoning. Awaiting validation before promotion to canonical wiki.
+
+| Synthesis | Status | Related Gaps | Preview |
+|-----------|--------|--------------|---------|
+| Agentic Pipeline (4 agents) | 🔄 Pending | Gap 1.1, 1.3 | 4-agent architecture + evaluation methods per agent |
+| Statistical Rigor Framework | 🔄 Pending | Gap 2.2, 1.3 | League Training + Paired Variance + Z-score validation |
+| Safe-by-Design Firewall | 🔄 Pending | Gap 2.1, 1.1 | Semantic Firewall (Neo4j validator) + Think-Verify-Act |
+
+**Registry:** [[synthesis/index]]
+
+---
+
+## �📚 Sources (Papers, Calls, Deep Dives) — ACTIVE NOW ✅
 
 Ingest raw documents into structured wiki pages.
 
 ### Calls and Deep Dives
 - [ ] First call (2026-03-17) — Transcript and key decisions
 - [ ] Second call (2026-03-31) — Transcript and key decisions
-- [ ] Berkeley video deep dive — Agentic AI patterns
+- [x] Berkeley video deep dive — Agentic AI patterns → [[synthesis/statistical-rigor-synthesis]] + [[synthesis/safe-by-design-synthesis]]
+- [x] Role of agents in CDT — Architectural deep dive → [[synthesis/agentic-pipeline-synthesis]]
 - [ ] Deep dive on Pi usage — (TBD)
-- [ ] Role of agents in CDT — Analysis of specific role
 
 ---
 
@@ -98,6 +112,11 @@ wiki/
 ├── lint-reports/ ✅ ACTIVE
 │   ├── lint-report-2026-04-14.md (pass #1)
 │   └── lint-report-2026-04-14-pass2.md (pass #2)
+├── synthesis/ ⏳ ACTIVE (pending review)
+│   ├── index.md
+│   ├── agentic-pipeline-synthesis.md
+│   ├── statistical-rigor-synthesis.md
+│   └── safe-by-design-synthesis.md
 ├── sources/ ✅ ACTIVE (12 papers)
 │   ├── zheng-et-al-2022-cdt.md
 │   ├── al-haj-ali-2025-mmci.md
