@@ -13,6 +13,39 @@ Append-only log of all wiki operations. **Last 5 logs are detailed; earlier logs
 
 ---
 
+## [2026-04-20] align | Scaffolding Updated per Post-Call Feedback
+
+**Operation:** Align `scaffolding-tesi.md` with insights from updated `feedback-claude.md` (post-call review)
+
+**Key Changes to Scaffolding:**
+
+1. **Main Hypothesis** — Added autonomy progression as explicit dimension: "multi-dimensional evaluation framework **with progressive autonomy tracking** — progressing from human-in-the-loop to autonomous operation, measured via MMCI metric and multi-model agreement"
+
+2. **Open Tensions** — Expanded from 4 to 5 tensions; added new tension #5: **"Autonomy Capability vs. Reliability"** → operationalized via MMCI framework across autonomy levels (human-in-the-loop → semi-autonomous → autonomous)
+
+3. **Gap 1.3 (Operational Evaluation)** — Strengthened with explicit mention of KG-based validation for **Planning Agent decisions** (was missing)
+
+4. **Gap 2.2 (Comparative Benchmark)** — Updated from 92–120 runs to **288–360 runs** (3 scenarios × 4 models × **3 autonomy levels** × 8–10 replicates) — autonomy now core benchmark dimension
+
+5. **NEW SECTION — Agentic Memory Architecture** — Documented persistent MD event store + Neo4j KG integration as architectural element Gap 3.2 (TIER-2). Enables temporal anomaly correlation and historical pattern learning for agents.
+
+6. **Contribution 2 CORE designation** — Marked as ⭐ **"CORE: Multi-Dimensional Cognitive Evaluation Framework with Autonomy Progression"** with explicit note: "Gap 2.4 (MMCI as operational metric)" and benchmarking across autonomy levels
+
+7. **Contribution 1** — Updated to include "Gap 3.2 (Persistent memory layer)" and reference to new Memory Architecture section
+
+**Status Implication:** 
+- Thesis now has 5 open tensions (was 4)
+- Benchmark scope increased: +196 runs due to autonomy dimension
+- MMCI becomes operational metric (not just theoretical reference)
+- Contribution 2 is now explicitly labeled as **CORE** — evaluation framework with autonomy escalation is the scientific heart
+- Memory layer elevated from implementation detail to architectural gap + design choice
+
+**Files Modified:** `scaffolding-tesi.md` (7 replacements: Hypothesis, Open Tensions ×2, Remaining Gaps ×2, Contributions table ×2, NEW section added)
+
+**Status:** ✅ Scaffolding coherent with post-call feedback. Autonomy progression and MMCI operationalization now central to thesis structure. Ready for implementation phase.
+
+---
+
 ## 📦 Archive — Summarized Logs (2026-04-14 to 2026-04-15)
 
 **[2026-04-14 AM] setup** — Wiki structure initialization: created folders (`sources/`, `concepts/`, `personas/`, `analyses/`, `style/`) and master files (`glossary.md`, `overview.md`, `log.md`, `index.md`). Initialized glossary with 40+ canonical CDT + 5G terms. ✅

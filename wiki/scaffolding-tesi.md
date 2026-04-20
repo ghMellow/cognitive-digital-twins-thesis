@@ -28,7 +28,7 @@ How do you design, implement, and validate a **completely local Cognitive Digita
 It is possible to build and evaluate a multi-agent LLM system that:
 1. Implements the six cognitive functions of a CDT (perception, reasoning, memory, learning, adaptation, decision-making)
 2. Operates autonomously on consumer hardware (M4 Pro 24GB) with open-source quantized models
-3. Achieves _sufficiently reliable reasoning capability_ through a multi-dimensional evaluation framework that does not depend entirely on LLM-as-judge
+3. Achieves _sufficiently reliable reasoning capability_ through a **multi-dimensional evaluation framework with progressive autonomy tracking** — progressing from human-in-the-loop to autonomous operation, measured via MMCI metric and multi-model agreement
 4. Surpasses comparative baselines on specialized 5G tasks detected through controlled fault injection
 
 ---
@@ -74,15 +74,17 @@ It is possible to build and evaluate a multi-agent LLM system that:
 
 ## ⚡ Open Tensions
 
-**Note:** The four tensions below map directly to the structured gaps documented in [[gap-analysis]] (TIER-1/2/3). Each tension is addressed through a combination of theoretical framework + operational controls.
+**Note:** The five tensions below map directly to the structured gaps documented in [[gap-analysis]] (TIER-1/2/3). Each tension is addressed through a combination of theoretical framework + operational controls.
 
 1. **Verifiability vs. Flexibility** → **Gap 2.1 (TIER-1)** — The tradeoff between symbolic reasoning (OWL + reasoner, verifiable but rigid) and local LLM (flexible but hard to verify). Neo4j KG is partial but not complete mitigation. Solution: hybrid LLM-as-judge + external ground truth (documented in [[gap-analysis]]#gap-2-1).
 
-2. **Absent Ground Truth for Reasoning** → **Gap 1.3 (TIER-1)** — For Perception Agent ground truth exists from 3GPP simulator. For Reasoning Agent (root cause inference) no obvious ground truth exists. Proposed solution: LLM-as-judge + multi-model agreement + KG-based validation (documented in [[gap-analysis]]#gap-1-3 and [[benchmark-template]]).
+2. **Absent Ground Truth for Reasoning** → **Gap 1.3 (TIER-1)** — For Perception Agent ground truth exists from 3GPP simulator. For Reasoning Agent (root cause inference) no obvious ground truth exists. Proposed solution: LLM-as-judge + multi-model agreement + **KG-based validation for Planning Agent decisions** (documented in [[gap-analysis]]#gap-1-3 and [[benchmark-template]]).
 
 3. **Local vs. Cloud** → **Gap 2.2 (TIER-2)** — WirelessAgent demonstrates +44.4% on cloud models (DeepSeek-R1, Llama3.3-70B). Thesis uses 3-8B models locally on M4 Pro. Question: how much "cognitive capability" is preserved descending to small local models? Empirical benchmark of the answer (ch. 6, [[benchmark-template]] Scenarios A-C).
 
 4. **Stability vs. Optimality** → **Gap 1.1 (TIER-1)** — Planning Agent modifies environment (KPI metrics) with its actions. Risk of _performative prediction_: convergence on "apparently optimal" solution only because it rewrote observation conditions. Controlled fault injection as detection mechanism (gap-analysis, mitigation strategy).
+
+5. **Autonomy Capability vs. Reliability** → **Gap 1.3 (TIER-1)** — How to measure at which autonomy level (human-in-the-loop → semi-autonomous → autonomous) each agent reaches sufficient reliability? MMCI framework provides operational metric for autonomy progression. Solution: benchmark cognitive functions across increasing autonomy levels with MMCI scores and fallback mechanisms (documented in [[gap-analysis]]#gap-1-3 and [[benchmark-template]]).
 
 ---
 
@@ -90,9 +92,9 @@ It is possible to build and evaluate a multi-agent LLM system that:
 
 **Summary: The 4 gaps below map to Gaps 1.1-1.3, 2.1-2.3 documented in [[gap-analysis]]. Each resolved gap is traced with multi-layer citations.**
 
-1. **Operational Evaluation of Reasoning Agent** → **Gap 1.3 (TIER-1)** — Literature (MultiAgentBench, Berkeley) suggests LLM-as-judge for non-verifiable tasks. Our proposal combines this with KG-based validation for increased robustness. Implementation and validation of this hybrid is the thesis's main work. See [[gap-analysis]]#gap-1-3 and [[benchmark-template]] for validation protocol.
+1. **Operational Evaluation of Reasoning Agent with Autonomy Progression** → **Gap 1.3 (TIER-1)** — Literature (MultiAgentBench, Berkeley) suggests LLM-as-judge for non-verifiable tasks. Our proposal combines this with KG-based validation AND multi-level autonomy measurement (human-in-the-loop → autonomous). MMCI framework provides the operational metric for autonomy progression. Implementation and validation of this hybrid framework with autonomy escalation is the thesis's core contribution. See [[gap-analysis]]#gap-1-3 and [[benchmark-template]] for validation protocol across autonomy levels.
 
-2. **Comparative Benchmark on Domain-Specific Tasks** → **Gap 2.2 (TIER-2)** — WirelessAgent covers "wireless tasks general" with cloud models (DeepSeek-R1, Llama3.3-70B). Gap: what performance do Llama 3.1 8B, Mistral 7B, Phi-3 Mini 3.8B, Qwen 3B achieve on 5G-specific fault injection scenarios? Unexplored in literature. Solution: complete experimentation documented in [[benchmark-template]] (3 scenarios × 4 models × 8-10 replicates = 92-120 total runs).
+2. **Comparative Benchmark on Domain-Specific Tasks with Autonomy Levels** → **Gap 2.2 (TIER-2)** — WirelessAgent covers "wireless tasks general" with cloud models (DeepSeek-R1, Llama3.3-70B). Gap: what performance do Llama 3.1 8B, Mistral 7B, Phi-3 Mini 3.8B, Qwen 3B achieve on 5G-specific fault injection scenarios, AND at which autonomy level (human-in-the-loop, semi-autonomous, fully autonomous) do they maintain reliability? Unexplored in literature. Solution: complete experimentation documented in [[benchmark-template]] (3 scenarios × 4 models × 3 autonomy levels × 8-10 replicates = 288-360 total runs, MMCI + latency metrics).
 
 3. **Decision Latency as Critical Dimension** → **Gap 2.3 (TIER-2)** — MultiAgentBench and Berkeley do not include latency for 5G time-sensitive tasks. Our methodology explicitly adds this metric as domain-specific dimension. Plan: Ch. 6 specifies hard (50ms) and soft (40ms) bounds per agent, with progressive analysis at [[gap-analysis]]#gap-2-3.
 
@@ -100,14 +102,28 @@ It is possible to build and evaluate a multi-agent LLM system that:
 
 ---
 
+## 🧠 Agentic Memory Architecture (NEW — from Post-Call Feedback)
+
+A critical architectural element that emerged in project discussions and is absent from most CDT literature: **the persistent, queryable memory layer that enables temporal pattern recognition and anomaly correlation**.
+
+**Design**: MD-based event store (OpenClow/Obsidian pattern) + Neo4j KG integration. This layer:
+- Records all cognitive cycle outputs (perception → reasoning → planning) with timestamps
+- Enables the Reasoning Agent to correlate anomalies across time (temporal dependency chains)
+- Allows the Planning Agent to learn from historical failure patterns without retraining
+- Supports human-in-the-loop review by externalizing reasoning as queryable log
+
+**Gap Addressed**: Gap 3.2 (TIER-2) — Temporal continuity in agentic memory. Addressed in Ch. 4 (Architecture) with concrete design patterns and in Ch. 6 (Implementation) with integration point between LangGraph state and persistent MD store.
+
+---
+
 ## 📋 Explicit Mapping Contributions → Resolved Gaps → Wiki References
 
 | Contribution | Gap Resolved (from [[gap-analysis]]) | Literature Sources | Wiki Reference |
 |---|---|---|---|
-| **Contribution 1** — CDT Architecture for 5G Radio Network | Gap 1.1 (5G-specific design), Gap 1.2 (DT Layer + KG) | Zheng 2022, Al-Haj Ali 2025, CogTwin, Hasan & Nguyen, WirelessAgent (diff) | [[sources/zheng-et-al-2022-cdt]], [[comparison-matrix]] (9/9 DT props) |
-| **Contribution 2** — Cognitive Evaluation Framework | Gap 1.3 (Eval methodology), Gap 2.1 (LLM-as-judge + GT) | MultiAgentBench 2025, Berkeley CS294, Al-Haj Ali MMCI | [[gap-analysis]]#gap-1-3, [[benchmark-template]] (full protocol) |
-| **Contribution 3** — Benchmark Open-Source 3-8B Local LLMs | Gap 2.2 (Quantized model eval), Gap 2.3 (Decision Latency) | WirelessAgent (cloud baseline), MultiAgentBench (template) | [[benchmark-template]] (3 scenarios, 4 models, 92-120 runs, 15+ metrics) |
-| **Contribution 4** — Reproducibility on M4 Pro Consumer Hardware | Gap 3.3 (Edge deployment), Gap 1.1 (No API dependency) | WirelessAgent contrast, CogTwin architecture | [[risk-profile]] (Active Steering config operationalized) |
+| **Contribution 1** — CDT Architecture for 5G Radio Network with Formal Rigor | Gap 1.1 (5G-specific design), Gap 1.2 (DT Layer + KG), Gap 3.2 (Persistent memory layer) | Zheng 2022, Al-Haj Ali 2025, CogTwin, Hasan & Nguyen, WirelessAgent (diff) | [[sources/zheng-et-al-2022-cdt]], [[comparison-matrix]] (9/9 DT props), **NEW: Memory layer** (MD-based persistent event store) |
+| **⭐ CORE: Contribution 2** — Multi-Dimensional Cognitive Evaluation Framework with Autonomy Progression | Gap 1.3 (Eval methodology with autonomy levels), Gap 2.1 (LLM-as-judge + GT + multi-model agreement), Gap 2.4 (MMCI as operational metric) | MultiAgentBench 2025, Berkeley CS294, Al-Haj Ali MMCI, **NEW: Autonomy escalation** | [[gap-analysis]]#gap-1-3, [[benchmark-template]] (full protocol with MMCI scores across 3+ autonomy levels) |
+| **Contribution 3** — Benchmark Open-Source 3-8B Local LLMs on 5G Fault Injection | Gap 2.2 (Quantized model eval), Gap 2.3 (Decision Latency) | WirelessAgent (cloud baseline), MultiAgentBench (template) | [[benchmark-template]] (3 scenarios, 4 models, 92-120 runs, 15+ metrics including latency + autonomy dimension) |
+| **Contribution 4** — Reproducibility on M4 Pro Consumer Hardware (No Cloud) | Gap 3.3 (Edge deployment), Gap 1.1 (No API dependency) | WirelessAgent contrast, CogTwin architecture | [[risk-profile]] (Active Steering config operationalized) |
 
 ---
 
