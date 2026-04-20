@@ -246,7 +246,9 @@ At the beginning of each session:
 2. Read `wiki/index.md` to orient yourself
 3. Read the last 5 entries in `wiki/log.md` to understand recent activity
 4. Read `wiki/scaffolding-tesi.md` to get the current picture of the thesis
-5. Ask the user what they want to do: ingest paper, ingest call, ingest deep dive, query, lint, or something else
+5. Ask the user what they want to do: ingest paper, ingest call, ingest deep dive, query, lint, continue research, or something else
+
+**⚠️ IMPORTANT:** Implementation phase is **user-initiated only**. Do not assume or suggest transition to implementation until the user explicitly requests it. The wiki supports research documentation and scaffolding refinement indefinitely.
 
 ---
 

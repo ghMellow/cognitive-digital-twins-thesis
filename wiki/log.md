@@ -80,7 +80,7 @@ Append-only log of all wiki operations. **Last 5 logs are detailed; earlier logs
 
 **Pages Updated:** `index.md` — "Analyses" section ✅ ACTIVE
 
-**Status:** ✅ Wiki COMPLETE for literature review phase: 12 papers ingested + analyzed, 97%+ link validity, 0 contradictions, 4 analyses created, 8/10 novelty documented. **Next phase: IMPLEMENTATION.** ✅
+**Status:** ✅ Wiki COMPLETE for literature review phase: 12 papers ingested + analyzed, 97%+ link validity, 0 contradictions, 4 analyses created, 8/10 novelty documented. **Implementation timeline: user-initiated.** ✅
 
 ---
 
