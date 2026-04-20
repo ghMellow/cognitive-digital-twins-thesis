@@ -28,28 +28,6 @@ Complete catalog of all thesis wiki pages. Updated incrementally with each inges
 
 Ingest raw documents into structured wiki pages.
 
-### Block A — CDT Theory
-- [x] [[sources/zheng-et-al-2022-cdt]] — Zheng et al. (2022) — Foundational definition, six functions, KG as backbone
-- [x] [[sources/al-haj-ali-2025-mmci]] — Al-Haj Ali et al. (2025) — MMCI framework, 5 maturity levels for evaluation
-
-### Block B — Pattern and Context
-- [x] [[sources/restart-2024-ndt]] — RESTART NDT (2024) — NDT architecture, 3-tier, IBN, 5G justification
-- [x] [[sources/burr-et-al-2026-agentic-dt]] — Burr et al. (2026) — Risk taxonomy (I,T,A) vs (I,C,A), performative prediction
-- [x] [[sources/kalyani-collier-2024-mas-dt]] — Kalyani & Collier (2024) — SLR 22 papers MAS+DT, multi-agent architecture
-- [x] [[sources/pretel-et-al-2024-mas-dt]] — Pretel et al. (2024) — SLR 64 papers MAS+DT, 12 DT properties, gap analysis
-
-### Block C — Architectural Blueprint
-- [x] [[sources/cogtwin-ijcai-25]] — CogTwin IJCAI-25 — Dual-KG pattern, CDT architecture
-- [x] [[sources/hasan-nguyen-2026-agentic-dt]] — Hasan & Nguyen (2026) — 6-layer agentic architecture
-- [x] [[sources/biju-2024-langgraph]] — Biju (2024) — LangGraph supervisor pattern
-
-### Block D — Evaluation Methodology
-- [x] [[sources/multiagent-bench-2025]] — MultiAgentBench (2025) — Milestone-based KPI, Task/Coordination Score framework
-- [x] [[sources/berkeley-cs294-llm-eval]] — Berkeley CS294 (2026) — LLM Agent Evaluations, outcome validity
-
-### Block E — Closest Prior Work
-- [x] [[sources/wireless-agent-hkust-2025]] — WirelessAgent HKUST (2025) — LLM agents + LangGraph for 5G network slicing
-
 ### Calls and Deep Dives
 - [ ] First call (2026-03-17) — Transcript and key decisions
 - [ ] Second call (2026-03-31) — Transcript and key decisions
@@ -63,18 +41,6 @@ Ingest raw documents into structured wiki pages.
 
 Concept pages that remain stable throughout the thesis.
 
-### Concepts Created (Block A-B)
-- [x] [[concepts/cognitive-digital-twin]] — Formal definition, five characteristics, six functions, agent mapping
-- [x] [[concepts/six-cognitive-functions]] — Perception, reasoning, memory, learning, adaptation, decision-making
-- [x] [[concepts/knowledge-graph-in-cdt]] — Architectural role, Dual-KG pattern, 5G schema, KG validation
-- [x] [[concepts/mmci-framework]] — Multi-Modal Cognitive Interoperability, 5 maturity levels, operationalization
-- [x] [[concepts/network-digital-twin]] — 5G-specific DT, 3-tier architecture (DH, Autonomic, Closed-loop), AI as driver
-- [x] [[concepts/digital-hat]] — Interface layer, real-time synchronization, Eclipse Ditto mapping, protocols
-- [x] [[concepts/intent-based-networking]] — IBN flow, translation to actions, KG constraint validation for 5G
-- [x] [[concepts/closed-loop-autonomy]] — Feedback loop, adaptation, why MMCI evaluation needed
-- [x] [[concepts/agentic-dt-risk-taxonomy]] — 27 configurations (I,T,A) vs (I,C,A), Burr framework
-- [x] [[concepts/performative-prediction]] — Lock-in risk, Perdomo ICML 2020, detection tests
-
 ### Future Concepts (To Add During Ingest)
 - [ ] Digital Twin (traditional) — Definition, contrast vs CDT
 - [ ] Multi-Agent Systems — Orchestration patterns, state management
@@ -84,16 +50,10 @@ Concept pages that remain stable throughout the thesis.
 
 ---
 
-## 📊 Analyses (Comparative Tables, Gap Analysis) — ACTIVE NOW ✅
-
-_Created upon completion of ingest of ALL papers (after Block E) and Lint Pass #2_
+## 📊 Analyses (Comparative Tables, Gap Analysis) — ACTIVE NOW 
 
 Analytic pages that summarize research and position the thesis's scientific contribution.
 
-- [x] [[analyses/comparison-matrix]] — 12 papers vs. 9 DT properties + LLM coverage; thesis uniqueness score (8/10)
-- [x] [[analyses/gap-analysis]] — 8 critical gaps (LLM agents, 5G domain, agent eval, governance, etc.) with thesis resolutions
-- [x] [[analyses/risk-profile]] — Burr (I,T,A) taxonomy: thesis = (I:2,T:2,A:1) "Active Steering"; operationalized guardrails
-- [x] [[analyses/benchmark-template]] — 3 fault injection scenarios (A: single fault, B: contention, C: cascade) with full metrics framework
 
 ---
 

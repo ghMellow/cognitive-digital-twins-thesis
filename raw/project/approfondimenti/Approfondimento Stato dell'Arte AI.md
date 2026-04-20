@@ -148,6 +148,27 @@ Ogni iterazione è una decisione autonoma dell'LLM basata su ciò che osserva. N
 Un agente non può operare senza **strumenti** — le funzioni che può invocare. Nel termine tecnico: _function calling_ o _tool use_. Il modello, addestrato a produrre output strutturati, genera chiamate di funzione. Il programma che lo avvolge intercetta queste chiamate, le esegue, restituisce il risultato al modello nel ciclo successivo.
 
 Fino al 2024, ogni framework definiva il proprio protocollo per esporre gli strumenti. Nel novembre 2024, Anthropic ha lanciato il **Model Context Protocol (MCP)**: uno standard aperto per la comunicazione tra LLM e strumenti esterni. Già nella prima metà del 2025 OpenAI e Google DeepMind ne hanno annunciato il supporto. L'adozione è reale, anche se il campo rimane parzialmente frammentato: i protocolli proprietari coesistono con MCP, non sono stati sostituiti. L'analogia utile è quella di USB-C: prima della standardizzazione, ogni produttore aveva il proprio connettore. MCP punta a replicare quella logica — uno strumento scritto una volta, compatibile con qualsiasi LLM che lo supporti.
+### 3.4 L'evoluzione dei paradigmi di ragionamento
+
+ReAct rappresenta il primo paradigma genuinamente agentico: il momento in cui si passa da ragionamento contenuto in una singola chiamata a ragionamento distribuito su un loop con azioni reali nell'ambiente. È la struttura base descritta nella sezione 3.1. Ma a partire dal 2022 il campo ha esplorato sistematicamente i limiti di quel loop, aggiungendo capacità che ReAct non aveva.
+
+**Reflexion** (Shinn et al., 2023) aggiunge un quarto step al ciclo ReAct: dopo l'osservazione del risultato, l'agente produce una riflessione verbale esplicita — identifica cosa non ha funzionato, perché, e cosa farebbe diversamente. Questa riflessione viene accumulata in una memoria di errori che persiste tra i tentativi. Il risultato è un agente che non solo corregge il tiro, ma impara dalla propria storia di fallimenti all'interno di una sessione.
+
+**Tree of Thoughts** (Yao et al., 2023) e **Graph of Thoughts** (Besta et al., 2023) spostano il problema su un asse diverso: invece di ragionare in sequenza, l'agente esplora in parallelo più percorsi di ragionamento, li valuta, e può tornare indietro su un ramo non promettente. Tree of Thoughts struttura questo spazio come albero; Graph of Thoughts generalizza permettendo che i percorsi si ricombinino. È una riscrittura dell'algoritmo di ricerca dentro il ragionamento linguistico.
+
+```
+ReAct:        Ragiona → Agisce → Osserva → [loop]
+
+Reflexion:    Ragiona → Agisce → Osserva → Riflette → [loop + memoria errori]
+
+Tree of       Ragiona₁ → Valuta
+Thoughts:     Ragiona₂ → Valuta  → Scegli il ramo migliore → Agisce
+              Ragiona₃ → Valuta
+```
+
+Il salto qualitativo più recente (2025–2026) è di natura diversa. Nei paradigmi precedenti il loop è sempre definito esternamente — da un programmatore che scrive l'orchestrazione, da un prompt che descrive la procedura. Gli errori sono spesso riconducibili a prompt mal definiti o a casi non anticipati nella logica di controllo. I paradigmi basati su **Reinforcement Learning** internalizzano questa logica nel modello stesso: attraverso il training, il modello sviluppa strategie di ragionamento che non sono state scritte esplicitamente da nessuno. Il modello non esegue un loop scritto da un umano — ha appreso quando e come iterare, quando fermarsi, come autovalutare i propri output. Questa è una discontinuità epistemica prima ancora che tecnica: la fonte della logica di controllo si sposta dall'ingegnere del prompt al processo di training.
+
+La distinzione non è ancora netta — la maggior parte dei modelli in produzione è ibrida, con capacità di ragionamento internalizzate che operano dentro architetture di orchestrazione esterna. Ma la direzione è chiara, e comprenderla è necessario per valutare correttamente framework e modelli che emergeranno nel campo.
 
 ---
 
@@ -429,3 +450,100 @@ I Transformer hanno compresso la semantica umana in spazi vettoriali. Il risulta
 I framework impacchettano questa struttura per la produzione. Sono utili, ma non sono la struttura — sono packaging sopra di essa. Capire la struttura permette di scegliere il framework, non il contrario. E quando il framework di riferimento cambia — come succede continuamente — la struttura rimane.
 
 La dimostrazione pratica è nel workflow del capitolo 6: Obsidian per la visualizzazione, VSCode per l'esecuzione, Markdown come formato di memoria universale. Il fatto che tutto funzioni uguale con Claude Code, Copilot o qualsiasi altro agente è la conferma empirica che la struttura invariante è reale, non una semplificazione didattica.
+
+---
+
+## Bibliografia e Risorse
+
+La bibliografia è organizzata in due livelli: letteratura accademica per le fondamenta architetturali, risorse video per gli sviluppi più recenti dove la produzione scientifica peer-reviewed non ha ancora raggiunto la pratica del campo.
+
+### Letteratura accademica
+
+- Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). _Attention Is All You Need_. NeurIPS 2017. [https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
+- Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2022). _ReAct: Synergizing Reasoning and Acting in Language Models_. arXiv. [https://arxiv.org/abs/2210.03629](https://arxiv.org/abs/2210.03629)
+- Shinn, N., Cassano, F., Gopinath, A., Narasimhan, K., & Yao, S. (2023). _Reflexion: Language Agents with Verbal Reinforcement Learning_. NeurIPS 2023. [https://arxiv.org/abs/2303.11366](https://arxiv.org/abs/2303.11366)
+- Yao, S., Yu, D., Zhao, J., Shafran, I., Griffiths, T. L., Cao, Y., & Narasimhan, K. (2023). _Tree of Thoughts: Deliberate Problem Solving with Large Language Models_. NeurIPS 2023. [https://arxiv.org/abs/2305.10601](https://arxiv.org/abs/2305.10601)
+- Besta, M., Blach, N., Kubicek, A., Gerstenberger, R., Podstawski, M., Gianinazzi, L., Gajda, J., Lehmann, T., Niewiadomski, H., Nyczyk, P., & Hoefler, T. (2023). _Graph of Thoughts: Solving Elaborate Problems with Large Language Models_. AAAI 2024. [https://arxiv.org/abs/2308.09687](https://arxiv.org/abs/2308.09687)
+- Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S., & Kiela, D. (2020). _Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks_. NeurIPS 2020. [https://arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)
+
+### Risorse video e lecture
+
+I seguenti materiali coprono sviluppi del 2025–2026 per i quali la letteratura accademica consolidata non è ancora disponibile. Le lecture universitarie hanno stato comparabile ai paper per i contenuti fondativi; i talk pratici documentano lo stato dell'arte implementativo.
+
+### 1. Teoria e Fondamenti degli Agenti (UC Berkeley MOOC)
+
+Stai seguendo il corso avanzato "Agentic AI MOOC" di Berkeley, che copre i pilastri della nuova era degli agenti.
+
+- **Autonomous Agents**: [Peter Stone - Autonomous Agents](https://www.youtube.com/watch?v=EA5taHYqbig).
+    
+- **Multi-Agent Systems**: [Oriol Vinyals - Multi-Agent Systems in the Era of LLMs](https://www.youtube.com/watch?v=CvZDJxd4LKM).
+    
+- **Multi-Agent AI**: [Noam Brown - Multi-Agent AI](https://www.youtube.com/watch?v=CvZDJxd4LKM).
+    
+- **Evaluations & Project Overview**: [Yann Dubois - LLM Agent Evaluations](https://www.youtube.com/watch?v=io8XlWdj-X8).
+    
+- **Training & Fine-tuning**: [Weizhu Chen - Training Agentic Models](https://www.youtube.com/watch?v=CeOXx-XTYek).
+    
+
+### 2. Sviluppo Pratico e Coding Agents (Claude Code, Ollama, Pi)
+
+Hai esplorato approfonditamente l'ecosistema di Claude Code e le alternative minimali o locali.
+
+- **Setup Locale & Costi**: [Ollama + Claude Code = 99% CHEAPER](https://www.youtube.com/watch?v=cWpsG7x6XpI).
+    
+- **Claude Code Setup**: [Setup Completo Claude Code + Ollama](https://www.youtube.com/watch?v=io8XlWdj-X8).
+    
+- **Alternativa "Pi"**: [Mario Zechner - Building pi in a World of Slop](https://www.youtube.com/watch?v=RjfbvDXpFls).
+    
+- **OpenClaw**: [State of the Claw — Peter Steinberger](https://www.youtube.com/watch?v=YFjfBk8HI5o).
+    
+- **Test Modelli**: [Claude Opus 4.7: il nuovo re del coding AI?](https://www.youtube.com/watch?v=7ENoWZ7yEj8).
+    
+
+### 3. Ingegneria dei Sistemi e Orchestrazione
+
+Ti sei concentrato su come scalare l'uso degli agenti in ambienti enterprise e su protocolli di comunicazione.
+
+- **Harness Engineering**: [Ryan Lopopolo (OpenAI) - How to Build Software When Humans Steer, Agents Execute](https://www.youtube.com/watch?v=am_oeAoUhew).
+    
+- **Protocolli (MCP + gRPC)**: [Enterprise AI Agents: MCP with gRPC](https://www.youtube.com/watch?v=R_wdwOkcMfE).
+    
+- **Orchestrazione Multi-Agente**: [IBM Technology - Orchestration Patterns That Actually Work](https://www.google.com/search?q=https://www.youtube.com/watch%3Fv%3DIBM-Tech-Orchestration).
+    
+- **Agentic AI Skills**: [IBM Technology - 7 Skills You Need to Build AI Agents](https://www.youtube.com/watch?v=mtiOK2QG9Q0).
+    
+
+### 4. RAG Avanzato e Knowledge Management
+
+L'integrazione di memorie esterne (come Obsidian) e l'ottimizzazione automatica del recupero dati.
+
+- **Ottimizzazione RAG**: [I Applied Karpathy's AutoResearch to My RAG Pipeline (Doubled Score Overnight)](https://www.youtube.com/watch?v=QzHlzg8ab-g).
+    
+- **Claude Code + Obsidian**: [Claude Code + Obsidian = UNSTOPPABLE](https://www.youtube.com/watch?v=eRr2rTKriDM).
+    
+- **Memoria Persistente**: [Karpathy's LLM Knowledge Bases for Self-Evolving Memory](https://www.youtube.com/watch?v=7ENoWZ7yEj8).
+    
+
+### 5. Sicurezza, Valutazione e Governance
+
+Focus su come rendere i sistemi agentici affidabili e sicuri.
+
+- **Valutazione (LLM-as-a-Judge)**: [Judge the Judge: Building LLM Evaluators with GEPA](https://www.youtube.com/watch?v=X4dEHRzBLmc).
+    
+- **Guardrails**: [$1 AI Guardrails: Effectiveness of Finetuned ModernBERTs](https://www.youtube.com/watch?v=am_oeAoUhew).
+    
+- **Sicurezza degli Accessi**: [IBM Technology - IAM for AI: Secure Agentic Systems](https://www.google.com/search?q=https://www.youtube.com/watch%3Fv%3DIBM-Tech-IAM).
+    
+- **Agent Safety**: [UC Berkeley - Agentic AI Safety & Security](https://www.youtube.com/watch?v=CvZDJxd4LKM).
+    
+
+### 6. Nuove Release e Infrastruttura
+
+Le ultime novità hardware e software presentate da Google e NVIDIA.
+
+- **Google Gemma 4**: [Gemma 4 Vision Agent | Smarter Than You Think](https://www.youtube.com/watch?v=l3VqS_x-VZU).
+    
+- **Local Performance**: [NVIDIA - Benchmarking Local LLMs on DGX Spark](https://www.youtube.com/watch?v=am_oeAoUhew).
+    
+- **Physical AI**: [IBM Technology - What is Physical AI? How Robots Learn](https://www.google.com/search?q=https://www.youtube.com/watch%3Fv%3DIBM-Tech-Models).
+

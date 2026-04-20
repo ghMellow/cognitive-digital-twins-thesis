@@ -311,7 +311,188 @@
     </ul>
 </section>
 
-<!-- 11 SKILLS -->
+<!-- 11 PARADIGMI -->
+<section class="left-align">
+    <h3>Evoluzione</h3>
+    <h2>Da ReAct ai Modelli Ragionanti</h2>
+    <ul>
+        <li><strong>ReAct (2022):</strong> il primo paradigma agentico — loop con azioni reali nell'ambiente</li>
+        <li><strong>Reflexion + Tree of Thoughts (2023):</strong> il loop potenziato — memoria di errori e esplorazione parallela di percorsi</li>
+        <li><strong>RL-based Reasoning (2025–2026):</strong> discontinuità epistemica — la logica di controllo passa da <em>scritta esternamente</em> ad <em>appresa dal modello</em></li>
+        <li><strong>Implicazione:</strong> il modello non esegue un loop scritto da un umano — ha appreso <em>quando</em> e <em>come</em> iterare</li>
+    </ul>
+</section>
+
+<!-- ══ 11.5a · TRE GENERAZIONI (ReAct / Reflexion / ToT) ══ -->
+<!-- ══ 11.5a · TRE GENERAZIONI ══ -->
+<section>
+    <h3>Tre Generazioni di Loop</h3>
+    <h2 style="margin-bottom:20px;">L'evoluzione del paradigma</h2>
+    <div class="svg-wrap" style="max-width:680px;">
+      <svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ah3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#8a6e32"/>
+          </marker>
+          <marker id="ah3s" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#6b6880"/>
+          </marker>
+        </defs>
+
+        <!-- ── COLONNA 1: ReAct ── -->
+        <rect x="28" y="10" width="174" height="32" rx="6" fill="rgba(29,158,117,0.15)" stroke="#0f6e56" stroke-width="1"/>
+        <text x="115" y="26" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#1d9e75" font-family="'Playfair Display',serif">ReAct · 2022</text>
+
+        <rect x="52" y="66" width="126" height="36" rx="6" fill="#111118" stroke="#8a6e32" stroke-width="0.8"/>
+        <text x="115" y="84" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#f0ede8" opacity=".85" font-family="'Inter',sans-serif">Ragiona</text>
+        <line x1="115" y1="102" x2="115" y2="118" stroke="#8a6e32" stroke-width="1.2" marker-end="url(#ah3)"/>
+        <rect x="52" y="120" width="126" height="36" rx="6" fill="#111118" stroke="#8a6e32" stroke-width="0.8"/>
+        <text x="115" y="138" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#f0ede8" opacity=".85" font-family="'Inter',sans-serif">Agisce</text>
+        <line x1="115" y1="156" x2="115" y2="172" stroke="#8a6e32" stroke-width="1.2" marker-end="url(#ah3)"/>
+        <rect x="52" y="174" width="126" height="36" rx="6" fill="#111118" stroke="#8a6e32" stroke-width="0.8"/>
+        <text x="115" y="192" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#f0ede8" opacity=".85" font-family="'Inter',sans-serif">Osserva</text>
+
+        <path d="M52 192 Q18 192 18 129 Q18 66 52 66" fill="none" stroke="#6b6880" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ah3s)"/>
+        <text x="10" y="130" text-anchor="middle" font-size="10" fill="#6b6880" font-family="'IBM Plex Mono',monospace" transform="rotate(-90,10,130)">loop</text>
+        <text x="115" y="240" text-anchor="middle" font-size="11" fill="#6b6880" font-family="'IBM Plex Mono',monospace">ragiona → agisce → osserva</text>
+
+        <!-- ── SEPARATORI ── -->
+        <line x1="230" y1="6" x2="230" y2="366" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <line x1="450" y1="6" x2="450" y2="366" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+        <!-- ── COLONNA 2: Reflexion ── -->
+        <rect x="246" y="10" width="186" height="32" rx="6" fill="rgba(127,119,221,0.15)" stroke="#534ab7" stroke-width="1"/>
+        <text x="339" y="26" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#7f77dd" font-family="'Playfair Display',serif">Reflexion · 2023</text>
+
+        <rect x="270" y="66" width="138" height="36" rx="6" fill="#111118" stroke="#8a6e32" stroke-width="0.8"/>
+        <text x="339" y="84" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#f0ede8" opacity=".85" font-family="'Inter',sans-serif">Ragiona</text>
+        <line x1="339" y1="102" x2="339" y2="118" stroke="#8a6e32" stroke-width="1.2" marker-end="url(#ah3)"/>
+        <rect x="270" y="120" width="138" height="36" rx="6" fill="#111118" stroke="#8a6e32" stroke-width="0.8"/>
+        <text x="339" y="138" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#f0ede8" opacity=".85" font-family="'Inter',sans-serif">Agisce</text>
+        <line x1="339" y1="156" x2="339" y2="172" stroke="#8a6e32" stroke-width="1.2" marker-end="url(#ah3)"/>
+        <rect x="270" y="174" width="138" height="36" rx="6" fill="#111118" stroke="#8a6e32" stroke-width="0.8"/>
+        <text x="339" y="192" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#f0ede8" opacity=".85" font-family="'Inter',sans-serif">Osserva</text>
+        <line x1="339" y1="210" x2="339" y2="226" stroke="#534ab7" stroke-width="1.2" marker-end="url(#ah3)"/>
+        <rect x="270" y="228" width="138" height="36" rx="6" fill="rgba(127,119,221,0.15)" stroke="#534ab7" stroke-width="1"/>
+        <text x="339" y="246" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#7f77dd" font-weight="500" font-family="'Inter',sans-serif">Riflette</text>
+
+        <path d="M270 246 Q238 246 238 156 Q238 66 270 66" fill="none" stroke="#6b6880" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ah3s)"/>
+        <text x="230" y="156" text-anchor="middle" font-size="10" fill="#6b6880" font-family="'IBM Plex Mono',monospace" transform="rotate(-90,230,156)">loop</text>
+
+        <line x1="339" y1="264" x2="339" y2="284" stroke="#534ab7" stroke-width="1" stroke-dasharray="3,3"/>
+        <rect x="270" y="286" width="138" height="50" rx="6" fill="rgba(127,119,221,0.1)" stroke="#534ab7" stroke-width="1"/>
+        <text x="339" y="305" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#7f77dd" font-weight="500" font-family="'Inter',sans-serif">Memoria</text>
+        <text x="339" y="323" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#7f77dd" opacity=".7" font-family="'Inter',sans-serif">degli errori</text>
+        <text x="339" y="360" text-anchor="middle" font-size="11" fill="#6b6880" font-family="'IBM Plex Mono',monospace">+ riflessione + memoria errori</text>
+
+        <!-- ── COLONNA 3: Tree of Thoughts ── -->
+        <rect x="462" y="10" width="206" height="32" rx="6" fill="rgba(186,117,23,0.15)" stroke="#854f0b" stroke-width="1"/>
+        <text x="565" y="26" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#c9a84c" font-family="'Playfair Display',serif">Tree of Thoughts · 2023</text>
+
+        <!-- Riga 1 -->
+        <rect x="462" y="66" width="92" height="32" rx="5" fill="#111118" stroke="#8a6e32" stroke-width="0.8"/>
+        <text x="508" y="82" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#f0ede8" opacity=".85" font-family="'Inter',sans-serif">Ragiona₁</text>
+        <line x1="554" y1="82" x2="568" y2="82" stroke="#8a6e32" stroke-width="1.2" marker-end="url(#ah3)"/>
+        <rect x="570" y="66" width="82" height="32" rx="5" fill="rgba(186,117,23,0.15)" stroke="#854f0b" stroke-width="0.8"/>
+        <text x="611" y="82" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#c9a84c" font-family="'Inter',sans-serif">Valuta</text>
+
+        <!-- Riga 2 -->
+        <rect x="462" y="116" width="92" height="32" rx="5" fill="#111118" stroke="#8a6e32" stroke-width="0.8"/>
+        <text x="508" y="132" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#f0ede8" opacity=".85" font-family="'Inter',sans-serif">Ragiona₂</text>
+        <line x1="554" y1="132" x2="568" y2="132" stroke="#8a6e32" stroke-width="1.2" marker-end="url(#ah3)"/>
+        <rect x="570" y="116" width="82" height="32" rx="5" fill="rgba(186,117,23,0.15)" stroke="#854f0b" stroke-width="0.8"/>
+        <text x="611" y="132" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#c9a84c" font-family="'Inter',sans-serif">Valuta</text>
+
+        <!-- Riga 3 -->
+        <rect x="462" y="166" width="92" height="32" rx="5" fill="#111118" stroke="#8a6e32" stroke-width="0.8"/>
+        <text x="508" y="182" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#f0ede8" opacity=".85" font-family="'Inter',sans-serif">Ragiona₃</text>
+        <line x1="554" y1="182" x2="568" y2="182" stroke="#8a6e32" stroke-width="1.2" marker-end="url(#ah3)"/>
+        <rect x="570" y="166" width="82" height="32" rx="5" fill="rgba(186,117,23,0.15)" stroke="#854f0b" stroke-width="0.8"/>
+        <text x="611" y="182" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#c9a84c" font-family="'Inter',sans-serif">Valuta</text>
+
+        <!-- Convergenza: frecce da Valuta → Scegli, via lato destro -->
+        <path d="M652 82 Q668 82 668 228 Q668 244 652 244" fill="none" stroke="#6b6880" stroke-width="1" marker-end="url(#ah3s)"/>
+        <path d="M652 132 Q660 132 660 234" fill="none" stroke="#6b6880" stroke-width="0.8"/>
+        <path d="M652 182 Q656 182 656 238" fill="none" stroke="#6b6880" stroke-width="0.8"/>
+
+        <!-- Scegli il ramo + Agisce -->
+        <rect x="488" y="244" width="152" height="36" rx="6" fill="rgba(186,117,23,0.2)" stroke="#c9a84c" stroke-width="1"/>
+        <text x="564" y="262" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#c9a84c" font-weight="500" font-family="'Inter',sans-serif">Scegli il ramo</text>
+        <line x1="564" y1="280" x2="564" y2="296" stroke="#8a6e32" stroke-width="1.2" marker-end="url(#ah3)"/>
+        <rect x="510" y="298" width="108" height="36" rx="6" fill="#111118" stroke="#8a6e32" stroke-width="0.8"/>
+        <text x="564" y="316" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#f0ede8" opacity=".85" font-family="'Inter',sans-serif">Agisce</text>
+
+        <text x="564" y="360" text-anchor="middle" font-size="11" fill="#6b6880" font-family="'IBM Plex Mono',monospace">esplora N percorsi in parallelo</text>
+      </svg>
+    </div>
+</section>
+
+<!-- ══ 11.5b · RL-BASED ══ -->
+<section>
+    <h3>Quarta Generazione · 2025–2026</h3>
+    <h2 style="margin-bottom:20px;">Il loop scompare: logica internalizzata</h2>
+    <div class="svg-wrap" style="max-width:680px;">
+      <svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ah4" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#8a6e32"/>
+          </marker>
+          <marker id="ah4w" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#f0ede8"/>
+          </marker>
+        </defs>
+
+        <!-- precedenti paradigmi - dimmed -->
+        <g opacity="0.3">
+          <rect x="30" y="54" width="120" height="32" rx="5" fill="none" stroke="#6b6880" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="90" y="70" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#6b6880" font-family="'Inter',sans-serif">ReAct</text>
+          <rect x="30" y="100" width="120" height="32" rx="5" fill="none" stroke="#6b6880" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="90" y="116" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#6b6880" font-family="'Inter',sans-serif">Reflexion</text>
+          <rect x="30" y="146" width="120" height="32" rx="5" fill="none" stroke="#6b6880" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="90" y="162" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#6b6880" font-family="'Inter',sans-serif">Tree of Thoughts</text>
+          <text x="90" y="202" text-anchor="middle" font-size="10" fill="#6b6880" font-family="'IBM Plex Mono',monospace">loop dichiarato</text>
+          <text x="90" y="216" text-anchor="middle" font-size="10" fill="#6b6880" font-family="'IBM Plex Mono',monospace">esternamente</text>
+        </g>
+
+        <!-- freccia di transizione -->
+        <line x1="153" y1="128" x2="192" y2="128" stroke="#6b6880" stroke-width="1.2" marker-end="url(#ah4)"/>
+        <text x="173" y="118" text-anchor="middle" font-size="10" fill="#6b6880" font-family="'IBM Plex Mono',monospace">2025</text>
+
+        <!-- box modello RL -->
+        <rect x="200" y="34" width="270" height="190" rx="12" fill="rgba(216,90,48,0.08)" stroke="#993c1d" stroke-width="1"/>
+        <text x="335" y="64" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="700" fill="#f0ede8" font-family="'Playfair Display',serif">Modello RL-based</text>
+        <text x="335" y="86" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#c9a84c" font-family="'IBM Plex Mono',monospace">o1 · DeepSeek R1 · Gemini 2.5</text>
+
+        <!-- zona interna -->
+        <rect x="220" y="108" width="230" height="96" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+        <text x="335" y="136" text-anchor="middle" dominant-baseline="central" font-size="12" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">ragionamento interno implicito</text>
+        <text x="335" y="158" text-anchor="middle" dominant-baseline="central" font-size="12" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">iterazione appresa, non dichiarata</text>
+        <text x="335" y="180" text-anchor="middle" dominant-baseline="central" font-size="12" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">sa quando fermarsi — da solo</text>
+
+        <!-- input -->
+        <text x="82" y="248" text-anchor="middle" font-size="12" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">obiettivo</text>
+        <line x1="82" y1="234" x2="198" y2="180" stroke="#6b6880" stroke-width="1.2" marker-end="url(#ah4)"/>
+
+        <!-- output -->
+        <text x="596" y="248" text-anchor="middle" font-size="12" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">risposta</text>
+        <line x1="472" y1="180" x2="582" y2="234" stroke="#6b6880" stroke-width="1.2" marker-end="url(#ah4)"/>
+
+        <!-- callout destra -->
+        <rect x="492" y="34" width="162" height="150" rx="8" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+        <text x="573" y="58" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="rgba(240,237,232,0.9)" font-family="'Inter',sans-serif">Cosa cambia</text>
+        <line x1="506" y1="70" x2="652" y2="70" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+        <text x="506" y="92" font-size="11" fill="#6b6880" font-family="'Inter',sans-serif">nessun loop esplicito</text>
+        <text x="506" y="112" font-size="11" fill="#6b6880" font-family="'Inter',sans-serif">logica non hardcoded</text>
+        <text x="506" y="132" font-size="11" fill="#6b6880" font-family="'Inter',sans-serif">latenza e costo maggiori</text>
+        <text x="506" y="152" font-size="11" fill="#6b6880" font-family="'Inter',sans-serif">meno iterazioni nel ReAct</text>
+        <text x="506" y="172" font-size="11" fill="#c9a84c" font-family="'Inter',sans-serif">nuovo tradeoff da valutare</text>
+
+        <line x1="470" y1="120" x2="491" y2="110" stroke="rgba(255,255,255,0.1)" stroke-width="0.8" stroke-dasharray="3,2"/>
+      </svg>
+    </div>
+</section>
+
+<!-- 12 SKILLS -->
 <section class="left-align">
     <h3>Prompting Strutturato</h3>
     <h2>Le Skill: procedure in Markdown</h2>
@@ -323,7 +504,7 @@
     </ul>
 </section>
 
-<!-- 12 MEMORIA PROBLEMA -->
+<!-- 14 MEMORIA PROBLEMA -->
 <section class="left-align">
     <h3>Memoria</h3>
     <h2>Il problema aperto degli agenti</h2>
@@ -334,7 +515,7 @@
     </ul>
 </section>
 
-<!-- 13 TRE TIPI MEMORIA -->
+<!-- 15 TRE TIPI MEMORIA -->
 <section>
     <h3>Memoria</h3>
     <h2 style="margin-bottom:28px;">Tre Categorie</h2>
@@ -363,7 +544,7 @@
     </div>
 </section>
 
-<!-- 14 RAG vs WIKI -->
+<!-- 16 RAG vs WIKI -->
 <section class="left-align">
     <h3>Approcci alla Memoria</h3>
     <h2>RAG vs. LLM Wiki</h2>
@@ -375,7 +556,7 @@
     </ul>
 </section>
 
-<!-- 15 CONFRONTO TRE APPROCCI -->
+<!-- 17 CONFRONTO TRE APPROCCI -->
 <section>
     <h3>Confronto</h3>
     <h2 style="margin-bottom:24px;">Tre Approcci di Memoria</h2>
@@ -407,7 +588,7 @@
     </div>
 </section>
 
-<!-- 16 FRAMEWORK -->
+<!-- 18 FRAMEWORK -->
 <section class="left-align">
     <h3>Mercato</h3>
     <h2>Il mercato impacchetta il blob</h2>
@@ -418,7 +599,7 @@
     </ul>
 </section>
 
-<!-- 17 STRUTTURA INVARIANTE SVG -->
+<!-- 19 STRUTTURA INVARIANTE SVG -->
 <section>
     <h3>Struttura Invariante</h3>
     <h2 style="margin-bottom:20px;">La stessa struttura dietro ogni framework</h2>
@@ -468,7 +649,7 @@
     </div>
 </section>
 
-<!-- 18 WORKFLOW PRATICO -->
+<!-- 20 WORKFLOW PRATICO -->
 <section class="left-align">
     <h3>Workflow</h3>
     <h2>La struttura delle cartelle</h2>
@@ -480,7 +661,7 @@
     </ul>
 </section>
 
-<!-- 19 BASH -->
+<!-- 21 BASH -->
 <section class="left-align">
     <h3>Implementazione</h3>
     <h2>L'Agente in Bash</h2>
