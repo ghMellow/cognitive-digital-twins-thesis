@@ -652,12 +652,13 @@
 <!-- 20 WORKFLOW PRATICO -->
 <section class="left-align">
     <h3>Workflow</h3>
-    <h2>La struttura delle cartelle</h2>
+    <h2>L'idea di Andrej Karpathy: LLM Wiki</h2>
     <ul>
         <li><strong>raw/</strong> — documenti sorgente immutabili: paper, call, trascrizioni. Non si toccano mai.</li>
         <li><strong>wiki/</strong> — elaborazione sintetizzata: fonti, concetti, log, scaffolding. L'agente la aggiorna.</li>
         <li><strong>CLAUDE.md</strong> — manuale operativo: ruolo, contesto, procedure, vincoli. Letto ad ogni bootstrap.</li>
         <li><strong>Bootstrap:</strong> carica CLAUDE.md → leggi wiki/index → leggi log → capisci stato → agisci</li>
+        <li><strong>Obsidian:</strong> programma di frontend che permette di vedere la vista grafo delle connessioni dei documenti</strong>
     </ul>
 </section>
 
@@ -681,7 +682,105 @@ EOF
 <span class="cmd">echo</span> "$(date): ingestito attention-paper" &gt;&gt; wiki/log.md</div>
 </section>
 
-<!-- 20 PUNTI CHIAVE -->
+<!-- 22 TRE FASI OPERATIVE -->
+<section>
+    <h3>Tre Fasi Operative</h3>
+    <h2 style="margin-bottom:20px;">Ingest · Query · Linting</h2>
+    <div class="svg-wrap" style="max-width:900px;">
+      <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ah5" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#c9a84c"/>
+          </marker>
+          <marker id="ah5m" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#8a6e32"/>
+          </marker>
+        </defs>
+
+        <!-- INGEST -->
+        <rect x="40" y="80" width="200" height="60" rx="8" fill="#111118" stroke="#c9a84c" stroke-width="1.5"/>
+        <text x="140" y="104" text-anchor="middle" font-size="14" fill="#c9a84c" font-weight="600" font-family="'Playfair Display',serif">INGEST</text>
+        <text x="140" y="125" text-anchor="middle" font-size="11" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">raw/ → wiki/</text>
+
+        <!-- QUERY -->
+        <rect x="350" y="80" width="200" height="60" rx="8" fill="#111118" stroke="#8a6e32" stroke-width="1"/>
+        <text x="450" y="104" text-anchor="middle" font-size="14" fill="#f0ede8" font-weight="600" font-family="'Playfair Display',serif">QUERY</text>
+        <text x="450" y="125" text-anchor="middle" font-size="11" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">domanda → wiki</text>
+
+        <!-- LINTING -->
+        <rect x="660" y="80" width="200" height="60" rx="8" fill="#111118" stroke="#8a6e32" stroke-width="1"/>
+        <text x="760" y="104" text-anchor="middle" font-size="14" fill="#f0ede8" font-weight="600" font-family="'Playfair Display',serif">LINTING</text>
+        <text x="760" y="125" text-anchor="middle" font-size="11" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">verifica wiki</text>
+
+        <!-- descrizioni sotto -->
+        <rect x="20" y="180" width="260" height="140" rx="8" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+        <text x="150" y="205" text-anchor="middle" font-size="13" fill="#c9a84c" font-weight="500" font-family="'Inter',sans-serif">1. INGEST</text>
+        <text x="35" y="235" font-size="11" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">Leggi raw/</text>
+        <text x="35" y="254" font-size="11" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">Estrai concetti</text>
+        <text x="35" y="273" font-size="11" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">Crea backlink</text>
+        <text x="35" y="292" font-size="11" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">Aggiorna wiki/</text>
+        <text x="35" y="311" font-size="11" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">Aggiorna log</text>
+
+        <rect x="330" y="180" width="260" height="140" rx="8" fill="rgba(74,158,255,0.06)" stroke="rgba(74,158,255,0.25)" stroke-width="1"/>
+        <text x="460" y="205" text-anchor="middle" font-size="13" fill="#4a9eff" font-weight="500" font-family="'Inter',sans-serif">2. QUERY</text>
+        <text x="345" y="235" font-size="11" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">Ricevi domanda</text>
+        <text x="345" y="254" font-size="11" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">Consulta index</text>
+        <text x="345" y="273" font-size="11" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">Naviga link</text>
+        <text x="345" y="292" font-size="11" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">Sintetizza da wiki</text>
+        <text x="345" y="311" font-size="11" fill="rgba(240,237,232,0.7)" font-family="'Inter',sans-serif">Meno allucinazioni</text>
+
+        <rect x="640" y="180" width="260" height="140" rx="8" fill="rgba(127,119,221,0.06)" stroke="rgba(127,119,221,0.25)" stroke-width="1"/>
+        <text x="770" y="205" text-anchor="middle" font-size="13" fill="#7f77dd" font-weight="500" font-family="'Inter',sans-serif">3. LINTING</text>
+        <text x="655" y="235" font-size="11" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">Scansiona pagine</text>
+        <text x="655" y="254" font-size="11" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">Rileva orfane</text>
+        <text x="655" y="273" font-size="11" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">Trova incon-</text>
+        <text x="655" y="292" font-size="11" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">sistenze</text>
+        <text x="655" y="311" font-size="11" fill="rgba(240,237,232,0.65)" font-family="'Inter',sans-serif">Manutenzione</text>
+      </svg>
+    </div>
+</section>
+
+<!-- 23 OBSIDIAN VS VSCODE -->
+<section class="left-align">
+    <h3>Strumenti</h3>
+    <h2>Obsidian ↔ VSCode: due ruoli</h2>
+    <div class="cards" style="max-width:1000px;">
+        <div class="card featured">
+            <div class="card-tag">👁 Frontend · Vista</div>
+            <div class="card-title">Obsidian</div>
+            <div class="card-row"><strong>Grafo visuale</strong> — link tra file come nodo</div>
+            <div class="card-row"><strong>Navigazione</strong> — clicca e scopri relazioni</div>
+            <div class="card-row"><strong>Lettura umana</strong> — leggibile e piacevole</div>
+            <div class="card-row"><strong>Ricerca plugin</strong> — MARP per slide</div>
+            <div class="card-row"><strong>Non-invasivo</strong> — legge cartella di file</div>
+        </div>
+        <div class="card featured">
+            <div class="card-tag">⚙️ Backend · Motore</div>
+            <div class="card-title">VSCode + Agente</div>
+            <div class="card-row"><strong>Automazione</strong> — modifica file, chiama CLI</div>
+            <div class="card-row"><strong>Bash scripting</strong> — grep, cat, ls, tail</div>
+            <div class="card-row"><strong>LLM agente</strong> — ragiona e agisce</div>
+            <div class="card-row"><strong>I/O veloce</strong> — legge e scrive subito</div>
+            <div class="card-row"><strong>Orchestrazione</strong> — coordina le fasi</div>
+        </div>
+    </div>
+    <p class="tagline" style="margin-top: 36px;">I file Markdown rimangono il layer condiviso — non lock-in.</p>
+</section>
+
+<!-- 24 MARP OUTPUT -->
+<section class="left-align">
+    <h3>Output</h3>
+    <h2>MARP: Wiki → Presentazione</h2>
+    <ul>
+        <li><strong>MARP (Markdown Presentation Ecosystem)</strong> — trasforma Markdown in slide HTML/PDF</li>
+        <li>L'agente, su richiesta, estrae capitoli dalla wiki e genera un file <code>deck.md</code> in sintassi MARP</li>
+        <li><strong>Workflow:</strong> ingest paper → wiki aggiornata → richiedi "genera slide su tema X" → output pronto per difesa</li>
+        <li><strong>Valore:</strong> la conoscenza non rimane isolata nella wiki — diventa automaticamente comunicabile</li>
+        <li><strong>Visualizzazione:</strong> VSCode + plugin MARP, o export a PDF via CLI</li>
+    </ul>
+</section>
+
+<!-- 25 PUNTI CHIAVE -->
 <section class="left-align">
     <h3>Riepilogo</h3>
     <h2>Quattro cose da ricordare</h2>
@@ -706,7 +805,7 @@ EOF
 
 </div>
 
-<div class="counter"><span id="cur">1</span> / <span id="tot">21</span></div>
+<div class="counter"><span id="cur">1</span> / <span id="tot">24</span></div>
 <div class="progress-bar" id="progress"></div>
 <div class="hint" id="hint">← → · spazio · ESC</div>
 

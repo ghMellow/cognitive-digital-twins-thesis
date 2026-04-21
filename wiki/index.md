@@ -42,12 +42,6 @@ Working hypotheses extracted from deep dives and architectural reasoning. Awaiti
 
 Ingest raw documents into structured wiki pages.
 
-### Calls and Deep Dives
-- [ ] First call (2026-03-17) — Transcript and key decisions
-- [ ] Second call (2026-03-31) — Transcript and key decisions
-- [x] Berkeley video deep dive — Agentic AI patterns → [[synthesis/statistical-rigor-synthesis]] + [[synthesis/safe-by-design-synthesis]]
-- [x] Role of agents in CDT — Architectural deep dive → [[synthesis/agentic-pipeline-synthesis]]
-- [ ] Deep dive on Pi usage — (TBD)
 
 ---
 

@@ -400,7 +400,20 @@ echo "..." >> wiki/log.md
 
 Non c'è astrazione: l'agente vede file, li legge con `cat`, cerca pattern con `grep`, ne crea con redirezione. Le `tool_function()` del modello teorico corrispondono esattamente a comandi bash. Il loop ReAct è il ciclo: osservo l'output del comando → decido il prossimo → eseguo.
 
-### 6.3 Il file che porta l'agente al contesto
+### 6.3 Il workflow operativo: Ingest, Query e Linting
+
+Oltre alla notazione astratta, l'operatività dell'agente si divide in tre fasi cicliche che garantiscono la salute della base di conoscenza:
+
+1. **Fase di Ingest (Acquisizione):** L'agente legge i file in `raw/`, estrae entità e concetti e popola le cartelle `sources/` e `concepts/`. Non si limita a copiare: crea **backlink** (usando la sintassi `[[nome_pagina]]`) che permettono l'emergere di cluster nel grafo di Obsidian.
+2. **Fase di Query (Interrogazione):** Quando l'agente riceve una domanda, non risponde "a memoria". Consulta `wiki/index.md`, naviga tra i file correlati e costruisce una risposta basata sulla sintesi già effettuata, riducendo drasticamente le allucinazioni.
+3. **Fase di Linting (Health Check):** È la manutenzione autonoma della Wiki. L'agente scansiona periodicamente la cartella `wiki/` per identificare:
+    * **Pagine orfane:** Documenti creati ma non linkati da nessuno.
+    * **Inconsistenze:** Contraddizioni tra una nuova fonte in `raw/` e una vecchia sintesi in `wiki/`.
+    * **Missing Links:** Concetti menzionati nei testi che non hanno ancora una nota dedicata in `concepts/`.
+
+Attraverso comandi bash come `grep` per cercare menzioni orfane o `cat` per riscrivere file incoerenti, l'agente agisce come un curatore editoriale instancabile.
+
+### 6.4 Il file che porta l'agente al contesto
 
 Il file `CLAUDE.md` (o `AGENT.md`) è la realizzazione concreta della **memoria statica** descritta nella sezione 4.2. Non è un prompt scritto ogni volta a mano — è un documento Markdown che l'agente legge all'inizio di ogni sessione e che risponde a: chi sono, cosa gestisco, dove si trovano i file, quali workflow seguire, quali regole non violare mai.
 
@@ -420,7 +433,7 @@ La chiave è che **nessuna comprensione del contesto va persa tra sessioni**. Og
 
 Questo è il punto di arrivo del ragionamento sulla struttura invariante: la logica operativa dell'agente vive nei file, non nel framework.
 
-### 6.4 Due strumenti, due ruoli
+### 6.5 Due strumenti, due ruoli
 
 **Obsidian** è un gestore di file Markdown open source che costruisce automaticamente un grafo delle relazioni tra file basato sui link interni (`[[nome_file]]`). Non è un database né un CMS — è un'interfaccia visuale sopra una cartella di file. Il grafo rende navigabile la wiki lato umano, mostrando come i concetti si collegano tra loro.
 ![[Screenshot 2026-04-17 alle 11.14.51.png|671]]
@@ -429,7 +442,7 @@ Questo è il punto di arrivo del ragionamento sulla struttura invariante: la log
 
 **Obsidian è la vista, VSCode è il motore.** Il workflow funzionerebbe interamente da VSCode senza Obsidian. La combinazione dei due riflette una scelta consapevole: quando conviene interagire direttamente (navigazione, visualizzazione relazioni, lettura umana) e quando conviene delegare all'automazione (ingestione, aggiornamenti, scrittura). I file Markdown sono il layer condiviso — persistono su disco, funzionano con entrambi, e funzionerebbero con qualsiasi altro strumento che legga file di testo.
 
-### 6.5 Perché funziona senza RAG
+### 6.6 Perché funziona senza RAG
 
 RAG è la scelta corretta in tre scenari precisi: corpus di migliaia o milioni di documenti; documenti che cambiano frequentemente; impossibilità di sintetizzare manualmente il materiale.
 
@@ -438,6 +451,16 @@ L'approccio wiki è la scelta corretta quando il corpus è gestibile (decine, ce
 Per ricerca, sviluppo su progetto specifico, studio su un dominio circoscritto — l'approccio wiki non è un ripiego. È la scelta architetturalmente corretta: produce ragionamento di qualità superiore perché l'LLM riceve conoscenza già sintetizzata e strutturata, non frammenti grezzi.
 
 Il limite: quando il corpus supera le centinaia di documenti, la wiki stessa diventa troppo grande per essere iniettata interamente nel contesto. A quel punto RAG torna necessario — idealmente applicato alla wiki sintetizzata, non ai documenti grezzi originali.
+
+### 6.7 Output e Presentazione: il formato MARP
+
+Un'estensione naturale di questo workflow è la capacità dell'agente di trasformare la conoscenza della Wiki in output pronti per il consumo umano, superando la semplice chat. Sfruttando il formato **MARP** (Markdown Presentation Ecosystem), l'agente può agire come un *deck designer*:
+
+* **Generazione automatica:** Su richiesta, l'agente estrae i punti chiave da un ramo della Wiki e genera un file `.md` con sintassi MARP (separatori `---`, direttive per lo stile).
+* **Visualizzazione in Obsidian:** Grazie al plugin dedicato, queste slide sono visualizzabili e navigabili direttamente all'interno dell'IDE di conoscenza.
+* **Export:** La presentazione può essere esportata in PDF o HTML per la condivisione esterna.
+
+Questo passaggio chiude il cerchio operativo: la Wiki non è solo un archivio per l'IA, ma diventa una fabbrica di artefatti comunicativi per l'utente, rendendo il lavoro della tesi immediatamente presentabile e strutturato.
 
 ---
 
@@ -522,6 +545,8 @@ L'integrazione di memorie esterne (come Obsidian) e l'ottimizzazione automatica 
 - **Claude Code + Obsidian**: [Claude Code + Obsidian = UNSTOPPABLE](https://www.youtube.com/watch?v=eRr2rTKriDM).
     
 - **Memoria Persistente**: [Karpathy's LLM Knowledge Bases for Self-Evolving Memory](https://www.youtube.com/watch?v=7ENoWZ7yEj8).
+
+- **LLM Wiki + Obsidian Workflow**: [LLM Wiki + Obsidian - Theory + Complete Implementation Guide](https://www.youtube.com/watch?v=LLxBcc_bMS8).
     
 
 ### 5. Sicurezza, Valutazione e Governance
