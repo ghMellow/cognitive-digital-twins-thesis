@@ -658,7 +658,7 @@
         <li><strong>wiki/</strong> — elaborazione sintetizzata: fonti, concetti, log, scaffolding. L'agente la aggiorna.</li>
         <li><strong>CLAUDE.md</strong> — manuale operativo: ruolo, contesto, procedure, vincoli. Letto ad ogni bootstrap.</li>
         <li><strong>Bootstrap:</strong> carica CLAUDE.md → leggi wiki/index → leggi log → capisci stato → agisci</li>
-        <li><strong>Obsidian:</strong> programma di frontend che permette di vedere la vista grafo delle connessioni dei documenti</strong>
+        <li><strong>Obsidian:</strong> programma di frontend che permette la visione dei file md e di avere la vista grafo delle connessioni tra questi</li>
     </ul>
 </section>
 
@@ -750,9 +750,10 @@ EOF
             <div class="card-title">Obsidian</div>
             <div class="card-row"><strong>Grafo visuale</strong> — link tra file come nodo</div>
             <div class="card-row"><strong>Navigazione</strong> — clicca e scopri relazioni</div>
-            <div class="card-row"><strong>Lettura umana</strong> — leggibile e piacevole</div>
-            <div class="card-row"><strong>Ricerca plugin</strong> — MARP per slide</div>
-            <div class="card-row"><strong>Non-invasivo</strong> — legge cartella di file</div>
+            <div class="card-row"><strong>Filtri dinamici</strong> — mostra/nascondi tag, tipi di contenuto, fonti</div>
+            <div class="card-row"><strong>Clip web diretto</strong> — salva dal browser articoli e PDFs in Obsidian</div>
+            <div class="card-row"><strong>Metadati auto</strong> — preserva URL, timestamp, source, highlights</div>
+            <div class="card-row"><strong>MARP (Markdown Presentation Ecosystem)</strong> — trasforma Markdown in slide HTML/PDF</div>
         </div>
         <div class="card featured">
             <div class="card-tag">⚙️ Backend · Motore</div>
@@ -767,20 +768,7 @@ EOF
     <p class="tagline" style="margin-top: 36px;">I file Markdown rimangono il layer condiviso — non lock-in.</p>
 </section>
 
-<!-- 24 MARP OUTPUT -->
-<section class="left-align">
-    <h3>Output</h3>
-    <h2>MARP: Wiki → Presentazione</h2>
-    <ul>
-        <li><strong>MARP (Markdown Presentation Ecosystem)</strong> — trasforma Markdown in slide HTML/PDF</li>
-        <li>L'agente, su richiesta, estrae capitoli dalla wiki e genera un file <code>deck.md</code> in sintassi MARP</li>
-        <li><strong>Workflow:</strong> ingest paper → wiki aggiornata → richiedi "genera slide su tema X" → output pronto per difesa</li>
-        <li><strong>Valore:</strong> la conoscenza non rimane isolata nella wiki — diventa automaticamente comunicabile</li>
-        <li><strong>Visualizzazione:</strong> VSCode + plugin MARP, o export a PDF via CLI</li>
-    </ul>
-</section>
-
-<!-- 25 PUNTI CHIAVE -->
+<!-- 24 PUNTI CHIAVE -->
 <section class="left-align">
     <h3>Riepilogo</h3>
     <h2>Quattro cose da ricordare</h2>
@@ -792,7 +780,7 @@ EOF
     </ul>
 </section>
 
-<!-- 21 CHIUSURA -->
+<!-- 25 CHIUSURA -->
 <section id="slide-close">
     <h2>La struttura è stabile</h2>
     <div class="close-line">
