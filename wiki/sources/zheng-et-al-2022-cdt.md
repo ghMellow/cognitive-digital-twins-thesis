@@ -125,6 +125,6 @@ Il trick del paper è la formalizzazione del Knowledge Graph come componente cen
 - [[scaffolding-tesi]] — articolo centrale
 - [[glossary]] — termini canonici CDT
 - [[overview]] — positioning della tesi
-- [[concepts/cognitive-digital-twin]]
+- [[theoretical-concepts/cognitive-digital-twin]]
 - [[sources/al-haj-ali-2025-mmci]] — estensione sul MMCI framework (6 funzioni + valutazione)
 - [[sources/cogtwin-ijcai-25]] — implementazione teorica del CDT

@@ -34,7 +34,7 @@ Working hypotheses extracted from deep dives and architectural reasoning. Awaiti
 | Statistical Rigor Framework | 🔄 Pending | Gap 2.2, 1.3 | League Training + Paired Variance + Z-score validation |
 | Safe-by-Design Firewall | 🔄 Pending | Gap 2.1, 1.1 | Semantic Firewall (Neo4j validator) + Think-Verify-Act |
 
-**Registry:** [[synthesis/index]]
+**Registry:** [[working-hypotheses/index]]
 
 ---
 
@@ -45,7 +45,7 @@ Ingest raw documents into structured wiki pages.
 
 ---
 
-## 🎯 Concepts (Foundational Theories) — ACTIVE NOW ✅
+## 🎯 Theoretical Concepts (Foundational Theories) — ACTIVE NOW ✅
 
 Concept pages that remain stable throughout the thesis.
 
@@ -106,11 +106,12 @@ wiki/
 ├── lint-reports/ ✅ ACTIVE
 │   ├── lint-report-2026-04-14.md (pass #1)
 │   └── lint-report-2026-04-14-pass2.md (pass #2)
-├── synthesis/ ⏳ ACTIVE (pending review)
+├── working-hypotheses/ ⏳ ACTIVE (pending review)
 │   ├── index.md
 │   ├── agentic-pipeline-synthesis.md
 │   ├── statistical-rigor-synthesis.md
-│   └── safe-by-design-synthesis.md
+│   ├── safe-by-design-synthesis.md
+│   └── orchestration-framework-synthesis.md
 ├── sources/ ✅ ACTIVE (12 papers)
 │   ├── zheng-et-al-2022-cdt.md
 │   ├── al-haj-ali-2025-mmci.md
@@ -124,7 +125,7 @@ wiki/
 │   ├── multiagent-bench-2025.md
 │   ├── berkeley-cs294-llm-eval.md
 │   └── wireless-agent-hkust-2025.md
-├── concepts/ ✅ ACTIVE (10 concepts)
+├── theoretical-concepts/ ✅ ACTIVE (10 concepts)
 │   ├── cognitive-digital-twin.md
 │   ├── six-cognitive-functions.md
 │   ├── knowledge-graph-in-cdt.md

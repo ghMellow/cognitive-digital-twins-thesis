@@ -176,4 +176,4 @@ MMCI in Al-Haj Ali et al. (2025) is:
 - [[sources/zheng-et-al-2022-cdt]] — Six functions baseline
 - [[glossary]] — Definitions
 - [[scaffolding-tesi]] — Integration in Chapter 5
-- [[concepts/six-cognitive-functions]] — Mapping to agents
+- [[theoretical-concepts/six-cognitive-functions]] — Mapping to agents

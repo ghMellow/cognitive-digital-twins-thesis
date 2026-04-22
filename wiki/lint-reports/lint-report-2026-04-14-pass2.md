@@ -98,20 +98,20 @@ tags: [lint, quality-assurance, post-ingest-verification]
 **Existing (10 pages) — All valid:**
 
 **Block A Theory:**
-1. [[concepts/cognitive-digital-twin]] ✅
-2. [[concepts/six-cognitive-functions]] ✅
-3. [[concepts/knowledge-graph-in-cdt]] ✅
-4. [[concepts/mmci-framework]] ✅
+1. [[theoretical-concepts/cognitive-digital-twin]] ✅
+2. [[theoretical-concepts/six-cognitive-functions]] ✅
+3. [[theoretical-concepts/knowledge-graph-in-cdt]] ✅
+4. [[theoretical-concepts/mmci-framework]] ✅
 
 **Block B Domain:**
-5. [[concepts/network-digital-twin]] ✅
-6. [[concepts/digital-hat]] ✅
-7. [[concepts/intent-based-networking]] ✅
-8. [[concepts/closed-loop-autonomy]] ✅
+5. [[theoretical-concepts/network-digital-twin]] ✅
+6. [[theoretical-concepts/digital-hat]] ✅
+7. [[theoretical-concepts/intent-based-networking]] ✅
+8. [[theoretical-concepts/closed-loop-autonomy]] ✅
 
 **Block B Governance:**
-9. [[concepts/agentic-dt-risk-taxonomy]] ✅
-10. [[concepts/performative-prediction]] ✅
+9. [[theoretical-concepts/agentic-dt-risk-taxonomy]] ✅
+10. [[theoretical-concepts/performative-prediction]] ✅
 
 **Future Candidates (could maintain as inline references):**
 - `[[llm-as-judge]]` — Tactical evaluation technique (vs. strategic MMCI framework)
@@ -142,7 +142,7 @@ tags: [lint, quality-assurance, post-ingest-verification]
 - ✅ Link validity 97%+ (excellent for a 27-page wiki)
 
 **Optional (nice-to-have, can defer):**
-1. Create `concepts/llm-as-judge.md` if evaluation methodology page becomes necessary
+1. Create `theoretical-concepts/llm-as-judge.md` if evaluation methodology page becomes necessary
 2. Standardize MMCI level pages (MMCILevel1: SSA, Level2: SMM, etc.) vs. inline in mmci-framework.md
 3. Add explicit "Evaluation Methodology" concept page tiering different approaches (MMCI → Berkeley → MultiAgentBench → Task/Coordination Score)
 

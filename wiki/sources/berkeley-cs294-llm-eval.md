@@ -163,7 +163,6 @@ Se chiede: _"Come garantisci che la valutazione non è circolare (LLM valuta LLM
 - [[mmci-framework]] — MMCI è framework di maturità; Berkeley fornisce metriche tattiche
 - [[multiagent-bench-2025]] — Complementare: MultiAgentBench è specifico per coordinamento; Berkeley è più generale
 - [[cognitive-digital-twin]] — 6 funzioni cognitive → 6 evaluation dimensions strutturate
-- [[lllm-as-judge]] — Implementazione rigorosa della tecnica
 
 ---
 

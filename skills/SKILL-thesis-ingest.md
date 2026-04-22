@@ -40,7 +40,7 @@ wiki/
   glossary.md
   scaffolding-tesi.md            ← central document, updated every ingest
   sources/
-  concepts/
+  theoretical-concepts/
   analyses/
 ```
 
@@ -124,7 +124,7 @@ Update rules:
 ### Step 4 — Update or create secondary wiki pages
 
 - `wiki/sources/<paper-slug>.md` — always, even if it exists (update)
-- `wiki/concepts/<concept>.md` — for each new or deepened concept
+- `wiki/theoretical-concepts/<concept>.md` — for each new or deepened concept
 - `wiki/glossary.md` — add canonical terms with definition and source
 
 ### Step 5 — Update `wiki/index.md`
@@ -150,7 +150,7 @@ Scaffolding sections touched: ...
 |---|---|
 | `wiki/scaffolding-tesi.md` | Updated with paper's contribution |
 | `wiki/sources/<slug>.md` | Created or updated |
-| `wiki/concepts/*.md` | 0–3 pages created/updated |
+| `wiki/theoretical-concepts/*.md` | 0–3 pages created/updated |
 | `wiki/glossary.md` | New terms added |
 | `wiki/index.md` | Rows updated |
 | `wiki/log.md` | Entry appended |
@@ -200,7 +200,7 @@ contributo-tesi: 1-architecture | 2-evaluation | 3-benchmark | none
 
 ## Related pages
 - [[scaffolding-tesi]]
-- [[concepts/...]]
+- [[theoretical-concepts/...]]
 ```
 
 ---

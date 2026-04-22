@@ -138,4 +138,4 @@ RESTART nomina queste tre cose. La tua tesi le implementa concretamente.
 - [[sources/zheng-et-al-2022-cdt]] — Complementary: teoria CDT vs architettura NDT pratica
 - [[sources/al-haj-ali-2025-mmci]] — Complementary: valutazione (che RESTART non copre)
 - [[glossary]] — Nuovi termini: DH, IBN, NDT
-- [[concepts/knowledge-graph-in-cdt]] — IBN + KG relationship
+- [[theoretical-concepts/knowledge-graph-in-cdt]] — IBN + KG relationship

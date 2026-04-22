@@ -141,6 +141,6 @@ Applicato al 5G, diventa: "Il mio Reasoning Agent spiega le diagnosi? L'operator
 - [[scaffolding-tesi]] — Articolo centrale
 - [[sources/zheng-et-al-2022-cdt]] — Fondazione teorica (sei funzioni)
 - [[glossary]] — MMCI, LLM-as-judge, confidence calibration
-- [[concepts/six-cognitive-functions]] — Estensione valutazione
+- [[theoretical-concepts/six-cognitive-functions]] — Estensione valutazione
 - [[sources/multiagent-bench-2025]] — Metriche concrete per agenti multi-agent
-- [[concepts/knowledge-graph-in-cdt]] — Dual-KG come implementazione di Mental Models
+- [[theoretical-concepts/knowledge-graph-in-cdt]] — Dual-KG come implementazione di Mental Models

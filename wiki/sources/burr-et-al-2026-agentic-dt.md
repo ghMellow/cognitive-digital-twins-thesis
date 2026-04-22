@@ -221,5 +221,5 @@ R: "Esattamente. Con il simulatore 3GPP virtuale otteniamo rapidità di ciclo e 
 
 - [[sources/restart-2024-ndt]] — 5G domain justification
 - [[sources/zheng-et-al-2022-cdt]] — CDT foundational theory
-- [[concepts/cognitive-digital-twin]] — CDT definition
+- [[theoretical-concepts/cognitive-digital-twin]] — CDT definition
 - [[glossary]] — Terminology

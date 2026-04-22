@@ -60,7 +60,7 @@ tags: [lint, quality-assurance, broken-links]
 
 | Error | Where | Fix |
 |---|---|---|
-| **[[concepts/performance-prediction]]** | Pretel line 217 | Should be `[[performative-prediction]]` (no `concepts/`, no `ance`) |
+| **[[theoretical-concepts/performative-prediction]]** | Pretel line 217 | Should be `[[performative-prediction]]` (no `theoretical-concepts/` path, renamed file) |
 
 **Action:** Fix in pretel-et-al-2024-mas-dt.md
 
@@ -77,16 +77,16 @@ tags: [lint, quality-assurance, broken-links]
 - [[sources/pretel-et-al-2024-mas-dt]] ✅
 
 **Concepts (10):**
-- [[concepts/cognitive-digital-twin]] ✅
-- [[concepts/six-cognitive-functions]] ✅
-- [[concepts/knowledge-graph-in-cdt]] ✅
-- [[concepts/mmci-framework]] ✅
-- [[concepts/network-digital-twin]] ✅
-- [[concepts/digital-hat]] ✅
-- [[concepts/intent-based-networking]] ✅
-- [[concepts/closed-loop-autonomy]] ✅
-- [[concepts/agentic-dt-risk-taxonomy]] ✅
-- [[concepts/performative-prediction]] ✅
+- [[theoretical-concepts/cognitive-digital-twin]] ✅
+- [[theoretical-concepts/six-cognitive-functions]] ✅
+- [[theoretical-concepts/knowledge-graph-in-cdt]] ✅
+- [[theoretical-concepts/mmci-framework]] ✅
+- [[theoretical-concepts/network-digital-twin]] ✅
+- [[theoretical-concepts/digital-hat]] ✅
+- [[theoretical-concepts/intent-based-networking]] ✅
+- [[theoretical-concepts/closed-loop-autonomy]] ✅
+- [[theoretical-concepts/agentic-dt-risk-taxonomy]] ✅
+- [[theoretical-concepts/performative-prediction]] ✅
 
 **Master (5):**
 - [[scaffolding-tesi]] ✅
@@ -136,7 +136,7 @@ Scanning scaffolding-tesi.md for claims in Ch. 1 — Research Question:
 ### IMMEDIATE (Before next ingest)
 
 1. **Fix typo in Pretel:**
-   - `[[concepts/performance-prediction]]` → `[[performative-prediction]]`
+   - `[[theoretical-concepts/performative-prediction]]` → `[[performative-prediction]]` (senza path, file rinominato a theoretical-concepts/)
 
 2. **Decide on Next Steps for zombie links:**
    - **Option A:** Create concept pages for all 15 zombie links before continuing with Block C
@@ -206,7 +206,7 @@ The MMCI level pages (`[[shared-situation-awareness]]`, etc.) could become subhe
 ### Other MEDIUM priority
 
 **[[dt-properties-checklist]]:**
-- Should be a section of [[concepts/agentic-dt-risk-taxonomy]] or a separate concept
+- Should be a section of [[theoretical-concepts/agentic-dt-risk-taxonomy]] or a separate concept
 - Pretel provides checklist of 12 DT properties; ideal for comparative table
 
 **[[mas-agent-patterns]]:**

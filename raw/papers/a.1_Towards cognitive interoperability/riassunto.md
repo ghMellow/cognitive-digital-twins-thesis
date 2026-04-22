@@ -51,9 +51,24 @@ Scala progressiva da semantica a cognizione vera:[Tesi-Towards-cognitive-interop
 
 Ogni **Cognitive Digital Twin** ha tre funzioni core:[Tesi-Towards-cognitive-interoperability_-cognitive-digital-twin-and-cognitive-architecture-for-H.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/ae637847-53fa-4715-8f1e-858fbdd069bf/Tesi-Towards-cognitive-interoperability_-cognitive-digital-twin-and-cognitive-architecture-for-Human-CPS-collaboration.pdf)
 
-text
-
-`Physical Entity (CPS/Human)         │  sensor data (obs, cmd, state)        ▼ ┌─────────────────────────────────────┐ │           CDT                       │ │  ┌─────────────┐                    │ │  │  EMULATION  │ → stima stato/azione corrente │ │  ├─────────────┤                    │ │  │  COGNITION  │ → CLARION (reasoning + RL)    │ │  ├─────────────┤                    │ │  │  SIMULATION │ → Q-learning su scenari futuri│ │  └─────────────┘                    │ └─────────────────────────────────────┘`
+```
+Physical Entity (CPS/Human)
+          │ sensor data (obs, cmd, state)
+          ▼
+┌─────────────────────────────────────┐
+│           CDT                       │
+│  ┌─────────────┐                    │
+│  │  EMULATION  │ → stima stato      │
+│  │             │   e azione corrente│
+│  ├─────────────┤                    │
+│  │  COGNITION  │ → CLARION          │
+│  │             │   (reasoning + RL) │
+│  ├─────────────┤                    │
+│  │ SIMULATION  │ → Q-learning su    │
+│  │             │   scenari futuri   │
+│  └─────────────┘                    │
+└─────────────────────────────────────┘
+```
 
 **Due modalità di coupling col fisico:**[Tesi-Towards-cognitive-interoperability_-cognitive-digital-twin-and-cognitive-architecture-for-H.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/ae637847-53fa-4715-8f1e-858fbdd069bf/Tesi-Towards-cognitive-interoperability_-cognitive-digital-twin-and-cognitive-architecture-for-Human-CPS-collaboration.pdf)
 

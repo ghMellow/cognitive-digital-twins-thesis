@@ -84,4 +84,4 @@ The NDT concept provides the **architectural framing** for the entire thesis:
 - [[digital-hat]] — DH interface
 - [[intent-based-networking]] — IBN layer
 - [[closed-loop-autonomy]] — Feedback mechanism
-- [[concepts/cognitive-digital-twin]] — Extension of NDT with cognition
+- [[theoretical-concepts/cognitive-digital-twin]] — Extension of NDT with cognition

@@ -11,7 +11,7 @@ tags: [synthesis, pending-review, working-hypothesis]
 
 Registry of working hypotheses extracted from literature deep dives and your architectural reasoning. These are **pending advisor validation** before integration into thesis scaffold.
 
-**Policy:** Syntheses remain in this staging area until explicitly validated in advisor meetings. Once validated → status changes to `validated` and content is promoted to canonical wiki pages (`wiki/concepts/` or `wiki/analyses/`).
+**Policy:** Syntheses remain in this staging area until explicitly validated in advisor meetings. Once validated → status changes to `validated` and content is promoted to canonical wiki pages (`wiki/theoretical-concepts/` or `wiki/analyses/`).
 
 ---
 

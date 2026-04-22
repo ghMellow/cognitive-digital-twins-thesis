@@ -145,23 +145,23 @@ A critical architectural element that emerged in project discussions and is abse
 
 ## � Research Synthesis Under Review (Awaiting Advisor Validation)
 
-The following working hypotheses are extracted from deep dives into literature and architectural reasoning. They are **pending advisor feedback** before integration into thesis chapters. Once validated, they will be promoted from `wiki/synthesis/` to canonical wiki pages.
+The following working hypotheses are extracted from deep dives into literature and architectural reasoning. They are **pending advisor feedback** before integration into thesis chapters. Once validated, they will be promoted from `wiki/working-hypotheses/` to canonical wiki pages.
 
 | Synthesis | Status | Key Claims | Validation Points |
 |-----------|--------|-----------|-------------------|
-| [[synthesis/agentic-pipeline-synthesis]] | 🔄 Pending | 4-agent architecture covers 6 cognitive functions efficiently; stateless agents + externalized memory is intentional design choice | Are 6 functions adequately covered? Is evaluation rigor sufficient? |
-| [[synthesis/statistical-rigor-synthesis]] | 🔄 Pending | Paired Variance + Z-score + consensus ensures improvements are signal, not noise; benchmark scope 288–360 runs | Is benchmark feasible in timeline? How to handle small-model variance? |
-| [[synthesis/safe-by-design-synthesis]] | 🔄 Pending | Neo4j Semantic Firewall implements Safe-by-Design principle; Think-Verify-Act cycle makes LLM agent operation sound for critical infrastructure | Validator latency acceptable? Policy completeness verifiable? |
-| [[synthesis/orchestration-framework-synthesis]] | 🔄 Pending | Pi SDK event-driven approach maximizes reasoning capacity and explainability vs LangGraph state-machine abstraction | Is Pi SDK mature enough for thesis? Can we defend non-standard choice? |
+| [[working-hypotheses/agentic-pipeline-synthesis]] | 🔄 Pending | 4-agent architecture covers 6 cognitive functions efficiently; stateless agents + externalized memory is intentional design choice | Are 6 functions adequately covered? Is evaluation rigor sufficient? |
+| [[working-hypotheses/statistical-rigor-synthesis]] | 🔄 Pending | Paired Variance + Z-score + consensus ensures improvements are signal, not noise; benchmark scope 288–360 runs | Is benchmark feasible in timeline? How to handle small-model variance? |
+| [[working-hypotheses/safe-by-design-synthesis]] | 🔄 Pending | Neo4j Semantic Firewall implements Safe-by-Design principle; Think-Verify-Act cycle makes LLM agent operation sound for critical infrastructure | Validator latency acceptable? Policy completeness verifiable? |
+| [[working-hypotheses/orchestration-framework-synthesis]] | 🔄 Pending | Pi SDK event-driven approach maximizes reasoning capacity and explainability vs LangGraph state-machine abstraction | Is Pi SDK mature enough for thesis? Can we defend non-standard choice? |
 
 **Workflow:**
 1. Present syntheses to relatori at next meeting using "Points to Validate" sections
 2. Record feedback in synthesis pages
 3. Revise based on feedback
-4. Upon validation → promote to canonical wiki pages (concepts/ or analyses/)
+4. Upon validation → promote to canonical wiki pages (theoretical-concepts/ or analyses/)
 5. Update scaffolding to reflect validated changes
 
-**Registry:** [[synthesis/index]]
+**Registry:** [[working-hypotheses/index]]
 
 ---
 

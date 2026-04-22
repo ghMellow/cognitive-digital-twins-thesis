@@ -28,7 +28,7 @@ wiki/                   Knowledge base (actively maintained)
   log.md                Append-only operation history
   overview.md           High-level thesis summary
   sources/              Summaries of raw documents
-  concepts/             Theoretical concepts and frameworks
+  theoretical-concepts/ Theoretical concepts and frameworks
   analyses/             Comparative tables and gap analysis (deferred)
   style/                Writing conventions (deferred)
   personas/             Target audiences (optional)

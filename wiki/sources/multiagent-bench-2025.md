@@ -154,7 +154,6 @@ Se ti chiede: _"Come valuti un sistema di agenti LLM senza ground truth?"_
 - [[mmci-framework]] — Complementare: MMCI è livello più alto di maturità; MultiAgentBench è metrica tattica
 - [[cognitive-digital-twin]] — 6 funzioni cognitive → 6 score functions strutturate
 - [[biju-2024-langgraph]] — Biju descrive LangGraph; MultiAgentBench descrive come misurarlo
-- [[lllm-as-judge]] — Formalizzazione rigorosa della tecnica
 
 ---
 

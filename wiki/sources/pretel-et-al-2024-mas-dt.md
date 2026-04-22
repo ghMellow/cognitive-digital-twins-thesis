@@ -214,5 +214,5 @@ R: "Sì — i 64 paper del survey usano principalmente DRL classico o rule-based
 - [[sources/kalyani-collier-2024-mas-dt]] — SLR complementare (22 paper, manufacturing-focused)
 - [[sources/burr-et-al-2026-agentic-dt]] — Risk governance framework
 - [[sources/restart-2024-ndt]] — 5G domain context
-- [[concepts/performative-prediction]] — Drift to (I,C,A) risk
+- [[theoretical-concepts/performative-prediction]] — Drift to (I,C,A) risk
 - [[glossary]] — Terminology

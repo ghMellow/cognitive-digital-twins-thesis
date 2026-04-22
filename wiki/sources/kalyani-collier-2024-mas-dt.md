@@ -172,9 +172,7 @@ R: "Tre gap principali: (1) Kalyani et al. ammettono che AI/ML avanzata (in part
 
 ## 🔗 Concetti Introdotti / Collegati
 
-- [[mas-agent-patterns]] — Architettura ricorrente nei 22 paper
-- [[knowledge-graph-in-cdt]] — KG come standard di best practice
-- [[multi-agent-frameworks]] — JADE, JaCaMo, SPADE overview
+- [[theoretical-concepts/knowledge-graph-in-cdt]] — KG come standard di best practice
 - [[sources/pretel-et-al-2024-mas-dt]] — SLR complementare (64 paper vs. 22)
 
 ---
@@ -195,5 +193,5 @@ R: "Tre gap principali: (1) Kalyani et al. ammettono che AI/ML avanzata (in part
 - [[sources/restart-2024-ndt]] — 5G domain context
 - [[sources/burr-et-al-2026-agentic-dt]] — Risk taxonomy and governance
 - [[sources/pretel-et-al-2024-mas-dt]] — Companion SLR (64 papers, 7 DT properties analysis)
-- [[concepts/knowledge-graph-in-cdt]] — KG as standard component
+- [[theoretical-concepts/knowledge-graph-in-cdt]] — KG as standard component
 - [[glossary]] — Terminology

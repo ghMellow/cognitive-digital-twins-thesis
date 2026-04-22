@@ -45,7 +45,7 @@ wiki/
   glossary.md                     ← terminology, definitions, style rules
   scaffolding-tesi.md             ← CENTRAL DOCUMENT: thesis argumentative structure
   sources/                        ← one page per raw source
-  concepts/                       ← one page per theoretical concept
+  theoretical-concepts/           ← one page per theoretical concept
   personas/                       ← one page per relevant audience (if applicable)
   analyses/                       ← comparative tables, gap analysis, research output
   style/                          ← thesis writing conventions
@@ -84,7 +84,7 @@ Suggested scaffolding structure:
 |Type|Location|Purpose|
 |---|---|---|
 |**Source**|`wiki/sources/`|Summary of a raw document — key facts, metadata, thesis value|
-|**Concept**|`wiki/concepts/`|A theoretical idea: definition, related terms, common misconceptions|
+|**Concept**|`wiki/theoretical-concepts/`|A theoretical idea: definition, related terms, common misconceptions|
 |**Analysis**|`wiki/analyses/`|Synthesized output: comparison, gap analysis, outline|
 |**Style Rule**|`wiki/style/`|Writing convention: when to apply, examples, exceptions|
 |**Persona**|`wiki/personas/`|A type of reader/audience: goals, expertise level, preferred format|
@@ -191,7 +191,7 @@ When appending entries to `wiki/log.md`, follow this convention:
 
 **Example (archived/compressed):**
 ```markdown
-**[2026-04-14 AM] setup** — Wiki structure initialization: created folders (`sources/`, `concepts/`, `personas/`, `analyses/`, `style/`) and master files. Initialized glossary with 40+ canonical CDT + 5G terms. ✅
+**[2026-04-14 AM] setup** — Wiki structure initialization: created folders (`sources/`, `theoretical-concepts/`, `personas/`, `analyses/`, `style/`) and master files. Initialized glossary with 40+ canonical CDT + 5G terms. ✅
 ```
 
 **Goal:** Keep log.md under 200 lines total while preserving readability of recent work. Archive section allows fast context recovery without bloat.

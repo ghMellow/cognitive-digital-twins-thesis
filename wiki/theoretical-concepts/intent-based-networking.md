@@ -98,6 +98,6 @@ IBN legitimizes the architecture choice of separating Reasoning (what should be 
 ## Related Pages
 
 - [[sources/restart-2024-ndt]] — Foundational paper
-- [[concepts/knowledge-graph-in-cdt]] — KG role in constraint validation
+- [[theoretical-concepts/knowledge-graph-in-cdt]] — KG role in constraint validation
 - [[six-cognitive-functions]] — Reasoning + Planning agent mapping
 - [[glossary]] — IBN definition
