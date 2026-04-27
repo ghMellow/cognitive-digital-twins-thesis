@@ -112,7 +112,7 @@ wiki/
 │   ├── statistical-rigor-synthesis.md
 │   ├── safe-by-design-synthesis.md
 │   └── orchestration-framework-synthesis.md
-├── sources/ ✅ ACTIVE (12 papers)
+├── sources/ ✅ ACTIVE (13 papers)
 │   ├── zheng-et-al-2022-cdt.md
 │   ├── al-haj-ali-2025-mmci.md
 │   ├── restart-2024-ndt.md
@@ -124,12 +124,15 @@ wiki/
 │   ├── biju-2024-langgraph.md
 │   ├── multiagent-bench-2025.md
 │   ├── berkeley-cs294-llm-eval.md
-│   └── wireless-agent-hkust-2025.md
-├── theoretical-concepts/ ✅ ACTIVE (10 concepts)
+│   ├── wireless-agent-hkust-2025.md
+│   └── hintze-et-al-2025-agentic-ai.md
+├── theoretical-concepts/ ✅ ACTIVE (12 concepts)
 │   ├── cognitive-digital-twin.md
 │   ├── six-cognitive-functions.md
 │   ├── knowledge-graph-in-cdt.md
 │   ├── mmci-framework.md
+│   ├── classic-evaluation-framework.md
+│   ├── cdt-five-characteristics.md
 │   ├── network-digital-twin.md
 │   ├── digital-hat.md
 │   ├── intent-based-networking.md

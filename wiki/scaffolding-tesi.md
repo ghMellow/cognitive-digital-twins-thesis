@@ -66,6 +66,7 @@ It is possible to build and evaluate a multi-agent LLM system that:
 ### Block D — Evaluation Methodology
 - [x] MultiAgentBench (2025) — Milestone-based KPI, Task Score / Coordination Score — [[sources/multiagent-bench-2025]]
 - [x] Berkeley CS294 (2026) — LLM Agent Evaluations, outcome validity, multi-model agreement — [[sources/berkeley-cs294-llm-eval]]
+- [x] Hintze et al. (2025) — CLASSic evaluation framework (Cost, Latency, Accuracy, Security, Stability), POMDP agent formalization, cognitive architectures taxonomy — [[sources/hintze-et-al-2025-agentic-ai]]
 
 ### Block E — Closest Prior Work
 - [x] WirelessAgent HKUST (2025) — LLM agents for 5G network slicing, LangGraph on wireless — [[sources/wireless-agent-hkust-2025]]
@@ -92,7 +93,7 @@ It is possible to build and evaluate a multi-agent LLM system that:
 
 **Summary: The 4 gaps below map to Gaps 1.1-1.3, 2.1-2.3 documented in [[gap-analysis]]. Each resolved gap is traced with multi-layer citations.**
 
-1. **Operational Evaluation of Reasoning Agent with Autonomy Progression** → **Gap 1.3 (TIER-1)** — Literature (MultiAgentBench, Berkeley) suggests LLM-as-judge for non-verifiable tasks. Our proposal combines this with KG-based validation AND multi-level autonomy measurement (human-in-the-loop → autonomous). MMCI framework provides the operational metric for autonomy progression. Implementation and validation of this hybrid framework with autonomy escalation is the thesis's core contribution. See [[gap-analysis]]#gap-1-3 and [[benchmark-template]] for validation protocol across autonomy levels.
+1. **Operational Evaluation of Reasoning Agent with Autonomy Progression** → **Gap 1.3 (TIER-1)** — Literature (MultiAgentBench, Berkeley, Hintze et al. CLASSic framework) suggests LLM-as-judge for non-verifiable tasks. Our proposal combines this with KG-based validation AND multi-level autonomy measurement (human-in-the-loop → autonomous). MMCI framework provides the operational metric for autonomy progression, while CLASSic framework provides the multi-dimensional measurement structure (Cost/Latency/Accuracy/Stability). Implementation and validation of this hybrid framework with autonomy escalation is the thesis's core contribution. See [[gap-analysis]]#gap-1-3 and [[benchmark-template]] for validation protocol across autonomy levels.
 
 2. **Comparative Benchmark on Domain-Specific Tasks with Autonomy Levels** → **Gap 2.2 (TIER-2)** — WirelessAgent covers "wireless tasks general" with cloud models (DeepSeek-R1, Llama3.3-70B). Gap: what performance do Llama 3.1 8B, Mistral 7B, Phi-3 Mini 3.8B, Qwen 3B achieve on 5G-specific fault injection scenarios, AND at which autonomy level (human-in-the-loop, semi-autonomous, fully autonomous) do they maintain reliability? Unexplored in literature. Solution: complete experimentation documented in [[benchmark-template]] (3 scenarios × 4 models × 3 autonomy levels × 8-10 replicates = 288-360 total runs, MMCI + latency metrics).
 
@@ -393,10 +394,12 @@ The symbolic/LLM trade-off (Zheng et al., CogTwin, Al-Haj Ali): replacing symbol
 ### Contribution 2 — Cognitive Evaluation Framework for Agents
 
 **Gap documented by:** 12 sources, absent in 71+ papers  
-**Methodological template:** MultiAgentBench (Zhu et al., 2025)  
-**Per-agent operationality:** Berkeley CS294 (2025)  
-**Beyond MultiAgentBench:** hybrid LLM-as-judge + external ground truth  
-**Original metric:** Decision Latency (absent from all analyzed literature)  
+**Theoretical framework:** CLASSic evaluation schema (Hintze et al., 2025: Cost, Latency, Accuracy, Security, Stability)  
+**Methodological template:** MultiAgentBench (Zhu et al., 2025) — milestone-based structure  
+**Per-agent operationality:** Berkeley CS294 (2025) — verifiable vs. non-verifiable task classification  
+**Beyond MultiAgentBench:** hybrid LLM-as-judge + external ground truth + **Stability** (run-to-run variance explicitly measured)  
+**Autonomy progression:** MMCI framework layers across CLASSic dimensions (human-in-the-loop → semi-autonomous → autonomous)  
+**Original metric:** Decision Latency (absent from all analyzed literature, critical for 5G SLA)  
 **Final metric:** Outcome Validity (5G KPIs in simulator — independent of LLM)
 
 ### Contribution 3 — Comparative Benchmark of Open-Source Local LLMs

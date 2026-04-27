@@ -174,4 +174,4 @@ Il video trasforma la tua tesi da "Ho costruito un CDT che funziona" a **"Ho svi
 
 ## Related Pages
 
-[[sources/multiagent-bench-2025]] | [[sources/al-haj-ali-2025-mmci]] | [[sources/mmci-framework]]
+[[sources/multiagent-bench-2025]] | [[sources/al-haj-ali-2025-mmci]] | [[mmci-framework]]

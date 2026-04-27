@@ -159,4 +159,4 @@ Se ti chiede: _"Come valuti un sistema di agenti LLM senza ground truth?"_
 
 ## Related Pages
 
-[[sources/berkeley-cs294-llm-eval]] | [[sources/mmci-framework]] | [[sources/al-haj-ali-2025-mmci]]
+[[sources/berkeley-cs294-llm-eval]] | [[mmci-framework]] | [[sources/al-haj-ali-2025-mmci]]

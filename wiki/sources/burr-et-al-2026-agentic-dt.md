@@ -193,8 +193,6 @@ R: "Esattamente. Con il simulatore 3GPP virtuale otteniamo rapidità di ciclo e 
 
 - [[agentic-dt-risk-taxonomy]] — La tassonomia delle 9 configurazioni
 - [[performative-prediction]] — Il rischio di lock-in performativo
-- [[governor-configuration]] — Configurazione Governor (I,C,A) e come evitarla
-- [[tight-coupling-risks]] — Rischi specifici di tight coupling real-time
 
 ---
 

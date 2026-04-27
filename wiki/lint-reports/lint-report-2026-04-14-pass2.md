@@ -19,14 +19,14 @@ tags: [lint, quality-assurance, post-ingest-verification]
 
 ## 📊 Pass #2 Summary
 
-| Metric | Pass #1 | Pass #2 | Delta |
-|---|---|---|---|
-| **Total internal links** | 132 | 200+ | +68 links |
-| **Wiki pages** | 17 | 27 | +10 |
-| **Zombie links** | 15 | 3 | -12 (80% eliminated) |
-| **Valid outlinks** | 117 (91%) | 197+ (97%) | +6% |
-| **Contradictions** | 0 | 0 | ✅ |
-| **Typo** | 1 | 1 | → Fixed |
+| Metric                   | Pass #1   | Pass #2    | Delta                |
+| ------------------------ | --------- | ---------- | -------------------- |
+| **Total internal links** | 132       | 200+       | +68 links            |
+| **Wiki pages**           | 17        | 27         | +10                  |
+| **Zombie links**         | 15        | 3          | -12 (80% eliminated) |
+| **Valid outlinks**       | 117 (91%) | 197+ (97%) | +6%                  |
+| **Contradictions**       | 0         | 0          | ✅                    |
+| **Typo**                 | 1         | 1          | → Fixed              |
 
 **Conclusion:** Wiki integrity **INCREASE from 91% to 97%+**. Critical zombies resolved by Block C/D/E ingests.
 

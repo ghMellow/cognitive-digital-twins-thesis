@@ -190,6 +190,118 @@ Telecommunication standard. In context: specification of simulated metrics forma
 
 ---
 
+## Cognitive Architecture Patterns
+
+These are reasoning and control flow patterns for LLM agents, from Hintze et al. (2025) taxonomy. Each represents a trade-off in token complexity vs accuracy vs latency.
+
+### ReAct (Reasoning + Acting)
+
+**Definition:** Agent loop where LLM produces both thoughts (reasoning steps) and actions (tool calls) in alternation. Cycle: Thought → Action → Observation → Thought → ...
+
+**Token complexity:** Linear ($O(n)$ tokens for $n$ steps). Grounded in external feedback per action.
+
+**Applicability to thesis:**
+- **Best for:** Perception Agent (grounded in simulator data), Reasoning Agent (diagnoses cause via feedback)
+- **Why:** Latency budget (5G <50ms SLA) requires linear complexity; exponential backtracking too slow
+- **Source:** Yao et al., "ReAct: Synergizing Reasoning and Acting in LLMs" (2022)
+
+---
+
+### Reflexion (Self-Correction Loop)
+
+**Definition:** Agent loop where LLM produces output, then generates a self-critique, then revises based on critique. Cycle: Initial Output → Self-Critique (LLM-generated) → Revision → (repeat if low confidence).
+
+**Token complexity:** Higher than ReAct ($O(kn)$ for $k$ critique-revision rounds).
+
+**Applicability to thesis:**
+- **Best for:** Reasoning Agent (self-correct diagnosis before passing to Planning Agent)
+- **Why:** Verbal self-correction reduces cascade errors without requiring external evaluator
+- **Source:** Shinn et al., "Reflexion: Verbal Reinforcement Learning by Exploration" (2023)
+
+---
+
+### CRITIC (Tool-Interactive Validation)
+
+**Definition:** Agent produces output (reasoning or action), then queries external tools (APIs, databases, KGs) to validate before committing. Cycle: Generate → Query Tools → Validate → (Accept/Reject/Revise).
+
+**Applicability to thesis:**
+- **Best for:** Planning Agent (validates proposed action against Neo4j KG before execution)
+- **Why:** Closes the loop between neural (LLM reasoning) and symbolic (KG constraints)—neuro-symbolic approach
+- **Mechanism:** Planning Agent queries Neo4j shape validators; if constraint violation → rejects action and proposes alternative
+- **Source:** Gao et al., "CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing" (2023)
+
+---
+
+### MAKER (Multi-Agent Worker + Verifier)
+
+**Definition:** Specializes agents into Workers (who produce output) and Verifiers (who check output). Workers and Verifiers are separate agents with different system prompts and can be run in sequence or parallel.
+
+**Error reduction:** Empirically reduces error accumulation on long chains (million-step reasoning tasks → near-zero hallucination vs single monolithic agent).
+
+**Applicability to thesis:**
+- **Architecture instantiation:** Reasoning Agent = Worker (diagnoses root cause); Planning Agent = Verifier (checks diagnosis against KG and proposes verified action)
+- **Why:** Separation of concerns reduces error propagation; each agent specializes on one task
+- **Token efficiency:** Worker focuses on generating ideas; Verifier focuses on validation (different token budgets)
+- **Source:** Meyerson et al., "MAKER: A Benchmark of Multi-Agent Collaboration" (2024)
+
+---
+
+### Tree of Thoughts (ToT)
+
+**Definition:** Agent explores a tree of reasoning paths, where each node is a thought and edges are possible continuations. Uses a value function to prune low-probability branches. Backtracking and exploration.
+
+**Token complexity:** Exponential ($O(b^d)$ for branching factor $b$ and depth $d$). Examples: GPT-4 on coding tasks: 1M+ tokens for complex problems.
+
+**Applicability to thesis:**
+- **NOT used in MVP** — exponential token cost prohibitive on 7-8B models + M4 Pro hardware
+- **Why not:** 5G reasoning deadline <50ms; Tree of Thoughts can take 5-10 seconds on small models
+- **Future work:** Consider for offline analysis (post-incident root cause deep dive) with compute budget relaxed
+- **Source:** Yao et al., "Tree of Thoughts: Deliberate Problem Solving with LLMs" (2023)
+
+---
+
+### LATS (LLM Agent Tree Search)
+
+**Definition:** Combines tree search (explore multiple reasoning paths) with an external evaluator (LLM-as-judge or reward model) to guide search. Smarter version of ToT: prunes aggressively.
+
+**Token complexity:** Still exponential but mitigated by pruning. Requires external evaluator (adds latency).
+
+**Applicability to thesis:**
+- **NOT used** — requires external evaluator LLM (adds latency); incompatible with local-only constraint
+- **Future work:** If moving to cloud-capable model, LATS becomes viable for high-stakes decisions
+- **Source:** Zhou et al., "LATS: Learning to Solve by Trial and Error" (2023)
+
+---
+
+### Reasoning Models (o1, o3 inference-time reasoning)
+
+**Definition:** LLM models that spend extra inference-time compute thinking through the problem before answering. Internal computation budget $B$ (hidden from user). Not interpretable reasoning chain (opaque).
+
+**Token complexity:** Variable (model-dependent). Can be very high for complex tasks.
+
+**Applicability to thesis:**
+- **NOT used** — requires paid API access (GPT-4o, o1) or large private model; incompatible with open-source local constraint
+- **Why not:** Thesis requirement = local-only, open-weight models (Llama, Mistral, Phi, Qwen)
+- **Comparison baseline:** Can compare thesis results against o1 as upper bound in Related Work
+- **Source:** OpenAI (2024) — o1 model release notes
+
+---
+
+## CLASSic Evaluation Framework
+
+**Complete definition:** See [[classic-evaluation-framework]]
+
+Five-dimensional evaluation for agentic systems (Hintze et al., 2025):
+- **C**ost — token complexity
+- **L**atency — response time
+- **A**ccuracy — success rate
+- **S**ecurity — robustness against attacks/errors
+- **S**tability — run-to-run variance
+
+In thesis context: operationalized per agent (Perception, Reasoning, Planning, Communication) across all five dimensions.
+
+---
+
 ## Metodologia Valutazione
 
 ### LLM-as-Judge
@@ -231,3 +343,6 @@ Pass → KPIs recovered > target threshold; Fail → KPIs stagnant or degraded. 
 ## Related Pages
 - [[overview]]
 - [[scaffolding-tesi]]
+- [[classic-evaluation-framework]] — CLASSic evaluation dimensions explained
+- [[cdt-five-characteristics]] — Zheng et al. five CDT characteristics framework
+- [[mmci-framework]] — MMCI maturity levels for cognitive interoperability
