@@ -2,20 +2,20 @@
 title: Biju (2024) — Implementing MAS via LangGraph
 type: source
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-28
 sources: [b.4_Implementing MAS via LangGraph/Valore per la mia tesi.md, b.4_Implementing MAS via LangGraph/riassunto.md]
 tags: [LangGraph, MAS, multi-agent-systems, supervisor-pattern, state-management]
 ---
 
 # Biju (2024) — Implementing MAS via LangGraph
 
-Paper applicativo che valida il **pattern Supervisor + Agenti Specializzati** su LangGraph — esattamente la topologia che usi nel tuo livello cognitivo. Utilità: giustificazione architetturale di LangGraph + baseline di benchmark comparativo. **Posizione nella tesi**: Background + confronto implementativo.
+An applied paper that validates the **Supervisor + specialized agents** pattern in LangGraph — the same topology used in the thesis’ cognitive layer. Value: architectural justification for LangGraph + a baseline for comparative benchmarking. **Thesis placement**: Background + implementation comparison.
 
 ---
 
 ## 🎯 Supervisor Pattern
 
-Biju usa il pattern che tu implementi:
+Biju uses the same pattern you implement:
 
 ```
 Supervisor Agent (LangGraph)
@@ -25,112 +25,112 @@ Supervisor Agent (LangGraph)
     └── Communication Agent (tool: action output)
 ```
 
-Il flow è: Supervisor riceve task in input → instrada a agente specializzato → agente usa tool proposito → risposta finale.
+Flow: the Supervisor receives a task → routes it to a specialist agent → the agent uses its tool → final response.
 
-**Tua versione è più sofisticata**:
-- Aggiungi **verifica KG-based** nel Planning Agent (Biju non ha)
-- Integri **feedback loop** con anomaly detection (Biju non ha)
-- Usi **LLM locali** vs GPT-4o hard-coded (Biju no)
+**Your version is more advanced**:
+- Adds **KG-based validation** in the Planning Agent (absent in Biju)
+- Integrates a **feedback loop** with anomaly detection (absent in Biju)
+- Uses **local LLMs** vs hard-coded GPT-4o (absent in Biju)
 
 ---
 
 ## 📊 Baseline Comparativo
 
-Il paper riporta numeri che puoi usare come reference:
+The paper reports numbers you can use as a reference baseline:
 
-| Metrica | Valore Biju | Note per la Tua Tesi |
+| Metric | Biju value | Notes for the thesis |
 |---|---|---|
-| **Task Completion Accuracy** | 92–98% | Tuo benchmark dovrebbe essere >= di questo |
-| **Latenza per Task** | 2–4s | Tuo ciclo cognitivo 5G deve essere <= 1s per dominare |
-| **Task Complexity** | FAQ, database queries | Tuoi task (fault diagnosis) sono più complessi |
-| **Modelli Usati** | GPT-4o hard-coded | Tua comparison Llama/Mistral/Phi-3/Qwen multi-model |
+| **Task completion accuracy** | 92–98% | Your benchmark should be ≥ this |
+| **Latency per task** | 2–4s | Your 5G cognitive loop should be ≤ 1s to be competitive |
+| **Task complexity** | FAQs, database queries | Your tasks (fault diagnosis) are more complex |
+| **Models used** | GPT-4o hard-coded | Your multi-model comparison (Llama/Mistral/Phi-3/Qwen) |
 
-**Posizionamento nei risultati**: "Su task di complessità simile a Biju (2024), il nostro sistema raggiunge X% accuracy con Y ms latenza media, usando modelli open-source quantizzati che Biju non considera."
+**How to position results**: “On tasks of similar complexity to Biju (2024), our system achieves X% accuracy with Y ms average latency, using quantized open-weight models that Biju does not consider.”
 
 ---
 
-## ✅ Pro — Cosa Prendi
+## ✅ Pros — What You Reuse
 
-| Aspetto | Utilità |
+| Aspect | Use |
 |---|---|
-| **Architettura validata** | Supervisor + agenti specializzati = pattern maturo |
-| **Stack identico** | `StateGraph`, `langchain` — stesso framework, tu lo estendi |
-| **Baseline numerico** | Ti dà metriche di confronto (92-98% accuracy, 2-4s) |
-| **Example applicativo** | Mostra che LangGraph funziona su task reali eterogenei |
-| **Tool pattern** | Supervisor instradata a tool specializzati — exact mapping con il tuo KG check predictor |
+| **Validated architecture** | Supervisor + specialist agents is a mature pattern |
+| **Same stack** | `StateGraph`, `langchain` — same framework; you extend it |
+| **Numeric baseline** | Comparison metrics (92–98% accuracy, 2–4s) |
+| **Applied example** | Shows LangGraph works on heterogeneous real tasks |
+| **Tool pattern** | Supervisor routes to specialized tools — aligns with your KG-check pattern |
 
 ---
 
-## ❌ Contro — Dove Non Ti Aiuta
+## ❌ Cons — Where It Doesn’t Help
 
-| Aspetto | Limitazione |
+| Aspect | Limitation |
 |---|---|
-| **Evaluation Methodology** | **ZERO** rigor metodologico per valutare reasoning LLM. Biju assume ground truth ovvio (FAQ: risposta giusta/sbagliata); tu non hai questo lusso per root cause inference |
-| **LLM Locali** | Hard-coded su GPT-4o; il tuo scenario open-source/on-premise (quantized Llama 3.1 8B) è completamente diverso |
-| **Knowledge Graph** | Biju non ama KG; usa database query diretto. Tu aggiungi KG come layer di vincoli — loro non lo hanno |
-| **State Management Avanzato** | Nulla su memory episodica, session persistence, long-term learning — i tuoi problemi aperti |
-| **Dominio** | Task generici (FAQ); non tocca CAse d'uso specializzati (telecom, IIoT, etc.) |
-| **Ablation Study** | Nessuno — non sai quale agente contribuisce quanto al risultato finale |
+| **Evaluation methodology** | **None** for LLM reasoning. Biju assumes obvious ground truth (FAQ right/wrong); you do not have that luxury for root-cause inference |
+| **Local LLMs** | Hard-coded GPT-4o; your open-source/on-prem (quantized Llama 3.1 8B) scenario is different |
+| **Knowledge graph** | No KG layer; relies on direct DB queries. You add KG constraints — missing there |
+| **Advanced state management** | No episodic memory, session persistence, long-term learning |
+| **Domain** | Generic tasks (FAQ); no specialized verticals (telecom, IIoT, etc.) |
+| **Ablations** | None — unclear which agent contributes what |
 
 ---
 
-## 🔴 Red Flag da Evitare
+## 🔴 Red Flags to Avoid
 
-**NON citare Biju come base teorica per CDT**
-- Non tratta Digital Twins, non sa nulla di 3GPP, nessuna letteratura cognitiva
-- È reference applicativa, non teorica
+**Do not cite Biju as CDT theory**
+- It does not cover Digital Twins, 3GPP, or cognitive DT literature
+- Treat it as an applied reference, not a theoretical foundation
 
-**NON fidarti del codice come pseudocode**
-- Le snippet `StateGraph` nel paper sono teaser — leggi documentazione ufficiale LangGraph per implementazione reale
+**Do not treat code snippets as pseudocode**
+- `StateGraph` snippets are teaser-level — rely on official LangGraph docs for real implementation
 
-**NON usarlo come benchmark diretto**
-- Task troppo diversi (FAQ vs fault diagnosis) per confronto significativo
-- Risultati non sono direttamente comparabili
-
----
-
-## 📝 Positioning nella Tua Tesi
-
-### Cap. 4 (Architettura)
-Cita il supervisor pattern di Biju come **giustificazione della topologia LangGraph** che hai scelto. Mostra che la decomposizione non è inventata, è pattern riconosciuto.
-
-### Cap. 6 (Implementazione)
-Usa il baseline numerico di Biju (92-98% accuracy, 2-4s latenza) come **punto di comparazione** per i tuoi risultati su task 5G specializzati.
-
-### Cap. 8 (Discussion)
-**Posiziona il tuo contributo oltre Biju**:
-1. Metodologia di valutazione rigorosa (LLM-as-judge + multi-agent agreement) — loro non hanno
-2. Integration con Knowledge Graph come layer di vincoli — loro non hanno
-3. LLM locali open-source invece di GPT-4o — contributo di reproducibility
+**Do not use it as a direct benchmark**
+- Tasks differ too much (FAQ vs fault diagnosis)
+- Results are not directly comparable
 
 ---
 
-## 🎯 Risposta al Relatore
+## 📝 Thesis Positioning
 
-Se ti chiede: _"Conosci Biju? Cosa ne pensi?"_
+### Ch. 4 (Architecture)
+Use Biju’s supervisor pattern as **justification for the LangGraph topology** you chose. Show the decomposition is a recognized pattern, not an invention.
 
-> _"Il paper di Biju (2024) è un utile reference applicativo per il pattern Supervisor+Agenti specializzati su LangGraph, che è la stessa topologia che adotto nel mio livello cognitivo. Tuttavia ha due limitazioni rilevanti: primo, valuta solo agenti con ground truth esplicito (FAQ, database), mentre il mio Reasoning Agent deve inferire root cause da anomalie radio 5G senza ground truth — qui mi serve LLM-as-judge o multi-agent consensus; secondo non gestisce knowledge graph come layer di vincoli — il mio Planning Agent verifica ogni azione correttiva contro Neo4j prima di eseguirla, che è contribution assente nella letteratura applicativa che ho trovato. Biju mi è utile per la sezione Background, ma il mio contributo scientifico si posiziona un livello sopra."_
+### Ch. 6 (Implementation)
+Use Biju’s numeric baseline (92–98% accuracy, 2–4s latency) as a **comparison point** for your results on specialized 5G tasks.
+
+### Ch. 8 (Discussion)
+**Position your contribution beyond Biju**:
+1. Rigorous evaluation methodology (LLM-as-judge + multi-model agreement)
+2. Knowledge Graph integration as a constraints layer
+3. Local open-weight LLMs instead of GPT-4o → reproducibility
 
 ---
 
-## 📚 Concetti Correlati
+## 🎯 Advisor Answer
+
+If asked: _“Do you know Biju? What do you think?”_
+
+> _“Biju (2024) is a useful applied reference for the Supervisor + specialist-agents pattern in LangGraph, which matches the topology I adopt in my cognitive layer. However, it has two key limitations: (1) it evaluates tasks with explicit ground truth (FAQ, databases), whereas my Reasoning Agent must infer root causes from 5G radio anomalies without ground truth — which requires LLM-as-judge or multi-model consensus; (2) it does not include a knowledge graph as a constraints layer — my Planning Agent checks each corrective action against Neo4j constraints before execution. Biju supports my Background section, but my scientific contribution goes beyond it.”_
+
+---
+
+## 📚 Related Concepts
 
 - [[cognitive-digital-twin]] — CDT architecture
 - [[six-cognitive-functions]] — Agent decomposition rationale
-- [[knowledge-graph-in-cdt]] — KG constraint validation (non in Biju)
-- [[mmci-framework]] — Evaluation metodology (Biju non ha)
+- [[knowledge-graph-in-cdt]] — KG constraint validation (not in Biju)
+- [[mmci-framework]] — Evaluation methodology (missing in Biju)
 - [[agentic-dt-risk-taxonomy]] — Safety guardrails
 
 ---
 
-## 🔍 Alternative da Considerare (Future Comparison)
+## 🔍 Alternatives to Consider (Future Comparison)
 
-Per rendere l'analisi ancora più rigorosa, potresti confrontare con:
+To make the analysis even more rigorous, you could compare against:
 - **AutoGen** — agent framework Microsoft
 - **CrewAI** — higher-level MAS framework
 - **JADE** — mature classical MAS platform
 
-Ma **LangGraph è la scelta corretta** per il tuo caso (local, control graph visibility, state management).
+But **LangGraph is still the right choice** for this thesis (local execution, control over graph visibility, state management).
 
 ---
 

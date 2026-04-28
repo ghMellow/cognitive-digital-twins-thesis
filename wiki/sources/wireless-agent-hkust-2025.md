@@ -2,179 +2,179 @@
 title: WirelessAgent — LLM Agents for Intelligent Wireless Networks (2025)
 type: source
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-28
 sources: [b.3_WirelessAgent/Valore per la mia tesi.md, b.3_WirelessAgent/riassunto.md]
 tags: [wireless-networks, 5G, LLM-agents, LangGraph, network-slicing, closest-prior-work]
 ---
 
 # WirelessAgent — Tong et al. HKUST (2025)
 
-**Closest Prior Work** nel dominio 5G con LLM agents. WirelessAgent e la tua tesi condividono **identico dominio applicativo (5G networks)** e **identica architettura di orchestrazione (LangGraph multi-agente)**. Differenziamenti: Ditto + Neo4j for state management, evaluation methodology for reasoning, local vs cloud LLM. **Posizione nella tesi**: Cap. 3 (Related Work) — benchmark diretto + differenziazione sul gemello digitale e valutazione.
+**Closest prior work** in the 5G domain with LLM agents. WirelessAgent and the thesis share the **same application domain (5G networks)** and a **very similar orchestration architecture (multi-agent LangGraph)**. Key differentiators: Ditto + Neo4j for state management, an evaluation methodology for reasoning, and local vs cloud LLMs. **Thesis placement**: Ch. 3 (Related Work) — direct benchmark + differentiation on the DT layer and evaluation.
 
 ---
 
-## 📋 Chi Sono
+## 📋 Metadata
 
-- **Autori:** Tong, Guo, Shao, Wu, Li, Lin, Zhang — HKUST (Hong Kong University of Science and Technology)
-- **Pubblicato:** arXiv:2505.01074 (Maggio 2025)
-- **Codice:** https://github.com/jwentong/WirelessAgentR1
-- **Task:** Network Slicing optimization su 5G RAN dinamiche
+- **Authors:** Tong, Guo, Shao, Wu, Li, Lin, Zhang — HKUST (Hong Kong University of Science and Technology)
+- **Published:** arXiv:2505.01074 (May 2025)
+- **Code:** https://github.com/jwentong/WirelessAgentR1
+- **Task:** Network slicing optimization on dynamic 5G RANs
 
 ---
 
-## 🏗️ Architettura
+## 🏗️ Architecture
 
-### 4 Moduli Cognitivi (Quasi Identici ai Tuoi)
+### 4 Cognitive Modules (Very Close to Yours)
 
-| WirelessAgent | Tua Tesi (LangGraph) | Mapping |
+| WirelessAgent | Thesis (LangGraph) | Mapping |
 |---|---|---|
-| Perception | Perception Agent | Input multimodali → CQI/SNR/RSRP normalizzati |
-| Memory | Ditto + Neo4j | Stato persistente (loro: in-memory volatile) |
+| Perception | Perception Agent | Multimodal inputs → normalized CQI/SNR/RSRP |
+| Memory | Ditto + Neo4j | Persistent state (they use volatile in-memory state) |
 | Planning | Reasoning + Planning Agents | CoT, RAG, Reflection |
-| Action | Communication Agent (+ esecuzione) | Output + tool manipulation |
+| Action | Communication Agent (+ execution) | Output + tool manipulation |
 
-### Il Pattern è Identico
+### The Pattern Is the Same
 
 ```
 Input Wireless Data
     ↓
-[Perception] — converte metriche a testo
+[Perception] — converts metrics into text
     ↓
-[Memory] — recupera storico, vincoli
+[Memory] — retrieves history and constraints
     ↓
-[Planning] — CoT reasoning su azione
+[Planning] — CoT reasoning over an action
     ↓
-[Action] — esegue, riflette su outcome
+[Action] — executes and reflects on outcomes
 ```
 
-**Differenza critica:** Loro non hanno **Eclipse Ditto** come layer di stato ordinato temporalmente. Lo stato vive nel `global_state` del LangGraph, che è in-memory e volatile. Tu aggiungi persistenza e semantica temporale.
+**Critical difference:** they do not have **Eclipse Ditto** as a temporally ordered state layer. State lives in LangGraph `global_state`, which is in-memory and volatile. The thesis adds persistence and temporal semantics.
 
 ---
 
 ## 🎯 Case Study: Network Slicing
 
-WirelessAgent testa su rete simulata 5G con 3 slices:
+WirelessAgent is tested on a simulated 5G network with 3 slices:
 - **eMBB** — enhanced Mobile Broadband (throughput > 100 Mbps)
 - **URLLC** — Ultra-Reliable Low-Latency (latency < 1ms)
 - **mMTC** — massive Machine-Type Communications (density-focused)
 
-Task: dato CQI (Channel Quality Indicator), SNR, data rate demands → allocare risorse ottimali a ciascuna slice minimizzando violazioni di SLA.
+Task: given CQI (Channel Quality Indicator), SNR, and data-rate demands → allocate optimal resources to each slice while minimizing SLA violations.
 
-**Applicazione alla tua tesi:**
-- Metriche simili a quelle del tuo simulatore (RSRP, SINR, throughput, latency)
-- Ground truth: rule-based optimization (RO) + neural network baseline
-- **Challenge identica:** La rete è dinamica (canale varia), ground truth non è statico
+**Thesis relevance:**
+- Similar metrics to your simulator (RSRP, SINR, throughput, latency)
+- Ground truth: rule-based optimization (RO) + neural-network baseline
+- **Same challenge:** the network is dynamic (channel varies), so ground truth is not static
 
 ---
 
-## 📊 Risultati Benchmark (Loro)
+## 📊 Benchmark Results (Paper)
 
-| Modello | BW Utilization | User Coverage | Latency |
+| Model | BW Utilization | User Coverage | Latency |
 |---|---|---|---|
 | **Rule-Based Optimizer** (ground truth) | 100% (reference) | 100% (reference) | 100% (reference) |
 | **Neural Network Baseline** | 87.3% | 89.5% | 103.2% |
 | **LLM (Llama3-8B)** | 60.96% | 72.4% | 156.8% |
 | **LLM (Deep Seek-R1)** | **96.6%** | **98.2%** | **101.5%** |
 
-**Interpretazione:**
+**Interpretation:**
 - Large models (DeepSeek-R1, Qwen 72B) → 96%+ performance
 - Small models (Llama3-8B) → 60% performance
-- Gap tra small e large è **35.64% di BW utilization** — questo è il tuo Contributo 3 a affrontare: come colmare questo gap su hardware consumer?
+- The gap between small and large is **35.64% BW utilization** — this directly motivates Contribution 3: how to close the gap on consumer hardware?
 
-**Differenza cruciale:** Loro testano modelli via **API cloud**; tu testi modelli **locali quantizzati su M4 Pro**. Questo è **genuinamente diverso** e un contributo scientifico se riesci a mantenere accuracy >80% (tuo target).
+**Crucial difference:** they test models via **cloud APIs**; you test **local quantized models on an M4 Pro**. This is genuinely different and can be a scientific contribution if you can maintain >80% accuracy (your target).
 
 ---
 
-## ✅ Pro — Dove Ti Aiuta
+## ✅ Pros — Where It Helps
 
-| Aspetto | Utilità |
+| Aspect | Use |
 |---|---|
-| **Domain Validation** | Prove che LLM multi-agente funziona su 5G (altrimenti era dubbio) |
-| **Architettura LangGraph** | Mostra pattern Perception→Memory→Planning→Action su caso reale |
-| **Case Study Benchmark** | Network Slicing = tuo caso d'uso di riferimento |
-| **Ground Truth Disponibile** | Rule-based optimizer numbers = calibrazione simulatore |
-| **Apertura Metodologica** | Paper stesso identifica gap di valutazione — gap che la tua tesi riempie |
+| **Domain validation** | Evidence that multi-agent LLMs can work on 5G |
+| **LangGraph architecture** | Demonstrates Perception→Memory→Planning→Action on a real case |
+| **Benchmark case study** | Network slicing is a close reference use case |
+| **Available ground truth** | Rule-based optimizer numbers help calibrate the simulator |
+| **Methodology openness** | Paper identifies evaluation gaps — gaps the thesis fills |
 
 ---
 
-## ❌ Contro — Dove **Non** Ti Aiuta (= Il Tuo Differenziamento)
+## ❌ Cons — Where It Doesn’t Help (Your Differentiation)
 
-| Aspetto | Gap | Soluzione Tesi |
+| Aspect | Gap | Thesis solution |
 |---|---|---|
-| **No Digital Twin Layer** | Stato in-memory, no persistenza ordinata | Ditto + temporal semantics |
-| **Knowledge Base Flat** | Vector store RAG, niente vincoli strutturati | Neo4j KG con operativi constraints |
-| **No Evaluation Methodology** | Solo intent accuracy; no reasoning quality | MMCI + LLM-as-judge + multi-model agreement |
-| **Cloud LLM Only** | API DeepSeek, Qwen-72B, Llama-70B | Tuoi: Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B locali |
-| **No Explainability** | Output sì, causale no | Communication Agent con spiegazioni e confidence |
-| **Monolithic Evaluation** | Solo BW utilization; no process breakdown | Task Score / Coordination Score separate |
+| **No Digital Twin layer** | In-memory state; no ordered persistence | Ditto + temporal semantics |
+| **Flat knowledge base** | RAG vector store; no structured constraints | Neo4j KG with operational constraints |
+| **No evaluation methodology** | Intent accuracy only; no reasoning quality | MMCI + LLM-as-judge + multi-model agreement |
+| **Cloud LLM only** | DeepSeek, Qwen-72B, Llama-70B via API | Thesis: local Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B |
+| **No explainability** | Outputs yes, causal rationale no | Communication Agent with explanations + confidence |
+| **Monolithic evaluation** | BW utilization only; no process breakdown | Separate Task Score / Coordination Score |
 
 ---
 
-## 📐 Positioning nella Tua Tesi
+## 📐 Thesis Positioning
 
-### Cap. 3 (Related Work)
+### Ch. 3 (Related Work)
 
-**Sottosezione:** _"Closest Prior Work: LLM Agents for 5G Networks"_
+**Subsection:** _“Closest Prior Work: LLM Agents for 5G Networks”_
 
-> _"Il lavoro più direttamente correlato è WirelessAgent (Tong et al., 2025), che applica orchestrazione di agenti LLM su LangGraph per network slicing 5G. Il loro risultato fondamentale — che modelli come DeepSeek-R1 raggiungono il 96.6% della performance ottimale vs 60% dei small models — valida l'approccio agentico per dominio wireless. Tuttavia presenta tre gap metodologici che questo lavoro affronta..."_
+> _“The most directly related work is WirelessAgent (Tong et al., 2025), which orchestrates LLM agents with LangGraph for 5G network slicing. Their core result — that models like DeepSeek-R1 reach 96.6% of the theoretical optimum vs 60% for small models — validates the agentic approach for wireless domains. However, it exposes key methodological gaps that this thesis addresses…”_
 
-### Cap. 4 (Architettura)
+### Ch. 4 (Architecture)
 
-Mostra come il tuo design estende WirelessAgent:
+Show how the thesis design extends WirelessAgent:
 
-| Layer | WirelessAgent | Tua Tesi | Beneficio |
+| Layer | WirelessAgent | Thesis | Benefit |
 |---|---|---|---|
 | State Management | In-memory volatile | Ditto + temporal | Reproducibility, debugging, historical analysis |
 | Knowledge Base | RAG vector store | Neo4j KG | Constraint verification, semantic queries |
 | Evaluation | Intent accuracy only | MMCI + multi-agents | Process transparency, reasoning validity |
 
-### Cap. 7 (Risultati)
+### Ch. 7 (Results)
 
-**Tabella: WirelessAgent vs Tua Tesi**
+**Table: WirelessAgent vs Thesis**
 
-| Aspetto | WirelessAgent (loro) | Tua Tesi (tuoi risultati) | Note |
+| Aspect | WirelessAgent (theirs) | Thesis (your results) | Notes |
 |---|---|---|---|
-| Modelli Testati | Llama3-8B, DeepSeek-R1, ... (cloud) | Llama 3.1 8B, Mistral 7B, Phi-3 Mini (local) | Tuo contributo: local deployment |
-| Performance Range | 60–96% BW utilization | [TBD] — tuo benchmark |Differenziazione su quantizzazione small models |
-| Task Score | Non misurato | [TBD] — milestone-based | Valutatore rigorosa |
-| Decision Latency | Non citato | [TBD] ms per ciclo | Critical per real-time 5G |
+| Models tested | Llama3-8B, DeepSeek-R1, ... (cloud) | Llama 3.1 8B, Mistral 7B, Phi-3 Mini (local) | Contribution: local deployment |
+| Performance range | 60–96% BW utilization | [TBD] — your benchmark | Differentiation on small-model quantization |
+| Task score | Not measured | [TBD] — milestone-based | More rigorous evaluator |
+| Decision latency | Not reported | [TBD] ms per cycle | Critical for real-time 5G |
 
 ---
 
-## 🎯 Risposta al Relatore (Se Lo Chiede)
+## 🎯 Advisor Answer (if asked)
 
-Se il relatore ti chiede: _"Conosci WirelessAgent? Cosa ne pensi?"_
+If asked: _“Do you know WirelessAgent? What do you think?”_
 
-> _**"WirelessAgent (Tong et al., 2025) è il closest prior work nel dominio 5G con LLM agents. La loro principale validazione è dimostrare che un'architettura multi-agente su LangGraph raggiunge il 96.6% della performance ottimale teorica su network slicing, validando l'approccio stesso. Adopero il loro pattern Perception→Memory→Planning→Action come architettura di riferimento per il livello cognitivo della mia tesi.**
+> _**“WirelessAgent (Tong et al., 2025) is the closest prior work in 5G with LLM agents. Their main validation is showing that a multi-agent LangGraph architecture reaches 96.6% of the theoretical optimum on network slicing, validating the approach itself. I adopt their Perception→Memory→Planning→Action pattern as a reference architecture for the cognitive layer of my thesis.**
 
-**Dove la mia tesi differenzia:**
+**Where the thesis differs:**
 
-1. **State Management:** Loro usano memoria in-process; io inserisco Eclipse Ditto come layer di Digital Twin persistente con ordinamento temporale, disaccoppiando producer cognitivo da consumer infrastrutturali.
+1. **State management:** they use in-process memory; I add Eclipse Ditto as a persistent, temporally ordered DT layer, decoupling cognitive producers from infrastructure consumers.
 
-2. **Knowledge Representation:** Loro hanno RAG flat (vector store); io uso Neo4j Knowledge Graph per codificare vincoli operativi 5G (3GPP standard) verificabili deterministicamente — il Planning Agent non 'spera' di rispettare i constraint, li verifica prima dell'esecuzione.
+2. **Knowledge representation:** they use flat RAG (vector store); I use a Neo4j Knowledge Graph to encode verifiable 5G operational constraints (3GPP). The Planning Agent does not “hope” to satisfy constraints — it checks them before execution.
 
-3. **Evaluation Methodology:** Loro misurano solo 'la risposta è corretta?' (BW utilization). **Non valutano il reasoning in linguaggio naturale**, che loro stessi identificano come future work. Io costruisco un framework di valutazione multi-dimensionale (MMCI, milestone-based KPI, Task Score / Coordination Score, LLM-as-judge con multi-model agreement) che consente la validazione del processo cognitivo, non solo del risultato.
+3. **Evaluation methodology:** they mainly measure final correctness (BW utilization). They **do not evaluate natural-language reasoning quality** (which they flag as future work). I build a multi-dimensional evaluation framework (MMCI, milestone-based KPIs, Task Score / Coordination Score, LLM-as-judge with multi-model agreement) to validate the cognitive process, not only the final outcome.
 
-4. **Local vs Cloud LLM:** Loro testano DeepSeek-R1, Llama-70B via cloud. Il mio Contributo 3 è la domanda inversa: cosa si riesce a fare con modelli quantizzati su hardware consumer (Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B su M4 Pro)? È una domanda con risposta non ovvia e pubblicabile."_
-
----
-
-## 📚 Critica Onesta (Da Portare al Relatore)
-
-Punto debole del paper WirelessAgent che comunque riconosci:
-
-> _"WirelessAgent misura solo l'output finale (BW utilization, latency). Il ragionamento intermedio — perché ha allocato quella risorsa, come ha giustificato quella decisione — rimane una scatola nera. La loro única accuracy metrica è 'agreement with rule-based optimizer'. Questo è il gap metodologico classico della letteratura su LLM agent evaluation, e è esattamente il gap che la mia tesi si propone di colmare con il framework di valutazione strutturato."_
+4. **Local vs cloud LLMs:** they test DeepSeek-R1, Llama-70B via cloud. Contribution 3 asks the inverse: what can be achieved with quantized models on consumer hardware (Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B on M4 Pro)? This is not an obvious question and is publishable.”_
 
 ---
 
-## 🔗 Concetti Correlati
+## 📚 Honest Critique (for the Advisor)
 
-- [[cognitive-digital-twin]] — CDT definition, generalizzata da WirelessAgent
-- [[six-cognitive-functions]] — 4 moduli WirelessAgent vs 6 funzioni canoniche
-- [[knowledge-graph-in-cdt]] — Neo4j differenziamento rispetto a WirelessAgent RAG
-- [[mmci-framework]] — Valutazione cognitiva che WirelessAgent non fa
-- [[multiagent-bench-2025]] — Metriche per misurare coordinamento agenti (WirelessAgent non misura)
-- [[biju-2024-langgraph]] — Pattern LangGraph stesso di WirelessAgent
+A weakness worth flagging:
+
+> _“WirelessAgent measures only the final output (BW utilization, latency). The intermediate reasoning — why it allocated that resource, how it justified that decision — remains a black box. Their main ‘accuracy’ signal is agreement with a rule-based optimizer. This is the classic methodological gap in LLM-agent evaluation literature, and it is exactly the gap this thesis aims to fill with a structured evaluation framework.”_
+
+---
+
+## 🔗 Related Concepts
+
+- [[cognitive-digital-twin]] — CDT definition; generalized beyond WirelessAgent
+- [[six-cognitive-functions]] — WirelessAgent’s 4 modules vs the canonical 6 functions
+- [[knowledge-graph-in-cdt]] — Neo4j differentiation vs WirelessAgent RAG
+- [[mmci-framework]] — Cognitive evaluation that WirelessAgent does not provide
+- [[multiagent-bench-2025]] — Coordination metrics (WirelessAgent does not measure)
+- [[biju-2024-langgraph]] — Same LangGraph pattern
 
 ---
 

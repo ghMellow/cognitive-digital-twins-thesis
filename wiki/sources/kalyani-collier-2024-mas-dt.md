@@ -2,81 +2,81 @@
 title: "The Role of Multi-Agents in Digital Twin Implementation: A Short Survey"
 type: source
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-28
 authors: [Yogeswaranathan Kalyani, Rem Collier]
 year: 2024
 publication: "ACM Computing Surveys, Vol. 57, No. 3"
 sources: [kalyani-collier-2024, valore-tesi-riassunto]
 tags: [MAS, DT, survey, systematic-review, multi-agent-patterns]
-contributo-tesi: "2-architettura, 3-stato-dell-arte"
+thesis-contribution: 1-architecture
 ---
 
 # Kalyani & Collier (2024) — The Role of Multi-Agents in Digital Twin Implementation
 
-**Autori:** Yogeswaranathan Kalyani, Rem Collier — University College Dublin  
-**Pubblicato:** ACM Computing Surveys, Vol. 57, No. 3 — Novembre 2024  
+**Authors:** Yogeswaranathan Kalyani, Rem Collier — University College Dublin  
+**Published:** ACM Computing Surveys, Vol. 57, No. 3 — November 2024  
 **DOI:** https://doi.org/10.1145/3697350  
-**Rilevanza tesi:** **MEDIA-ALTA** — Valida architettura multi-agente + identifica gap metodologico specifico
+**Thesis relevance:** **MEDIUM-HIGH** — Validates MAS+DT architecture patterns and highlights an evaluation gap
 
 ---
 
-## 🎯 Idea Centrale
+## 🎯 Core Idea
 
-Una **Systematic Literature Review (SLR)** che mappa come i **Multi-Agent Systems (MAS)** vengono integrati nei **Digital Twin (DT)** per creare sistemi autonomi e adattativi. A partire da 16.100 risultati su Google Scholar (2020–2024), gli autori selezionano e analizzano **22 paper rilevanti** su 4 Research Questions.
+A **Systematic Literature Review (SLR)** mapping how **Multi-Agent Systems (MAS)** are integrated with **Digital Twins (DT)** to build autonomous and adaptive systems. Starting from ~16,100 Google Scholar results (2020–2024), the authors select and analyze **22 relevant papers** across four research questions.
 
-**Tesi del paper:** MAS e DT sono complementari: i DT forniscono simulazione e ancoraggio fisico; i MAS forniscono coordinamento, autonomia e adattabilità. La sinergia produce sistemi intelligenti.
+**Paper thesis:** MAS and DT are complementary: DTs provide simulation and physical grounding; MAS provide coordination, autonomy, and adaptability. Their synergy enables intelligent systems.
 
 ---
 
-## 📋 Le 4 Research Questions
+## 📋 The 4 Research Questions
 
-| RQ | Domanda | Risposta Sintetica |
+| RQ | Question | Short Answer |
 |---|---|---|
-| **RQ1** | In quali domini vengono usati agenti nei DT? | Manufacturing domina (10/22); edge computing, agriculture, healthcare emergenti |
-| **RQ2** | Quali feature degli agenti vengono sfruttate? | Autonomous decision-making, scheduling, task allocation, real-time processing, simulation & optimization |
-| **RQ3** | Quali altre tecnologie si affiancano agli agenti? | DRL, ABS, Ontologie/KG, JADE, JaCaMo, SPADE, WLDT, simulatori 3D |
-| **RQ4** | Quali gap rimangono? | Scalabilità, interoperabilità, AI/ML avanzata, privacy/security, valutazione di affidabilità |
+| **RQ1** | Which domains use agents in DTs? | Manufacturing dominates (10/22); edge computing, agriculture, healthcare are emerging |
+| **RQ2** | Which agent capabilities are leveraged? | Autonomous decision-making, scheduling, task allocation, real-time processing, simulation & optimization |
+| **RQ3** | Which technologies are commonly paired with agents? | DRL, ABS, ontologies/KG, JADE, JaCaMo, SPADE, WLDT, 3D simulators |
+| **RQ4** | Which gaps remain? | Scalability, interoperability, advanced AI/ML, privacy/security, reliability evaluation |
 
 ---
 
-## 📊 Risultati Chiave
+## 📊 Key Results
 
-### Domini Coperti
+### Covered Domains
 
-| Dominio | # Paper | Maturity | Note |
+| Domain | # Papers | Maturity | Notes |
 |---|---|---|---|
-| **Manufacturing** | 10 | Maturo | Factory DT, supply chain, quality control |
+| **Manufacturing** | 10 | Mature | Factory DT, supply chain, quality control |
 | **Edge Computing / CPS** | 5 | Niche | Vehicular DT, air mobility, resource allocation |
-| **Smart Agriculture** | 3 | Emergente | Irrigation, crop monitoring, farm optimization |
-| **Smart Cities** | 2 | Emergente | Traffic, energy grids |
-| **Healthcare** | 2 | Emergente | Patient monitoring, hospital operations |
+| **Smart Agriculture** | 3 | Emerging | Irrigation, crop monitoring, farm optimization |
+| **Smart Cities** | 2 | Emerging | Traffic, energy grids |
+| **Healthcare** | 2 | Emerging | Patient monitoring, hospital operations |
 
-**Insight per la tesi:** 5G/telecomunicazioni manca completamente → **gap specifico identificato da Pretel et al. (64 paper)**. La tesi riempie questo gap posizionandosi in edge computing / network management.
+**Thesis insight:** 5G/telecom is absent → a domain gap that the thesis targets by positioning itself in edge computing / network management.
 
-### Feature degli Agenti Più Usate
+### Most Used Agent Capabilities
 
-1. **Autonomous Decision-Making** — Agenti decidono senza intervento umano
-2. **Dynamic Scheduling** — Riallocazione risorse in tempo reale  
-3. **Cooperative Task Allocation** — Coordinator agent distribuisce compiti
-4. **Real-Time Data Processing** — Feedback loop stretto (millisecondi)
-5. **Simulation & Optimization** — Agenti testano scenari prima di eseguire
+1. **Autonomous Decision-Making** — agents decide without human intervention
+2. **Dynamic Scheduling** — real-time resource reallocation
+3. **Cooperative Task Allocation** — a coordinator agent distributes tasks
+4. **Real-Time Data Processing** — tight feedback loops (milliseconds)
+5. **Simulation & Optimization** — agents test scenarios before execution
 
-**Rilevanza per tesi:** I 4 agenti LangGraph (Perception, Reasoning, Planning, Communication) implementano tutte queste feature.
+**Thesis relevance:** the 4 LangGraph agents (Perception, Reasoning, Planning, Communication) collectively implement these capabilities.
 
-### Stack Tecnologico Ricorrente
+### Recurring Technology Stack
 
 **Agent Frameworks:** JADE, JaCaMo, SPADE, custom frameworks  
 **DT Platforms:** WLDT, Unity3D, Microsoft AirSim, custom simulators  
 **Learning:** Deep Reinforcement Learning (DRL) dominante; alcuni rule-based e ontology-based  
 **Knowledge:** Ontologie Semantic Web (RDF/OWL), Knowledge Graphs, domain-specific rule sets
 
-**Differenza con tesi:** Tutti i 22 paper usano **DRL classico** o **rule-based agents**. **NESSUNO usa LLM** come layer cognitivo. Questa è la novità della tesi.
+**Difference vs thesis:** The 22 papers primarily use **classical DRL** or **rule-based agents**. **None use LLMs** as a cognitive layer. This supports the novelty claim.
 
 ---
 
-## 🏗️ Architettura Proposta (Smart Agriculture Showcase)
+## 🏗️ Proposed Architecture (Smart Agriculture Showcase)
 
-Gli autori propongono un **Web of Digital Twins** per open-environment arable farming con questa struttura:
+The authors propose a **Web of Digital Twins** for open-environment arable farming with the following structure:
 
 ```
 User Interface (input: farm_id, field_id, sowing_date)
@@ -97,7 +97,7 @@ Knowledge Layer
     └── Semantic Web + Domain Ontologies (AGROVOC)
 ```
 
-**Mapping alla tesi:**
+**Mapping to the thesis:**
 - Manager Agent ← Planning Agent (overall orchestration)
 - Farm Agent ← Perception Agent (DT state)
 - Field Agent ← Perception Agent (sensor data)
@@ -106,85 +106,85 @@ Knowledge Layer
 
 ---
 
-## 🔴 Gap Identificati (Future Work)
+## 🔴 Identified Gaps (Future Work)
 
-| Gap | Descrizione | Rilevanza per Tesi |
+| Gap | Description | Thesis Relevance |
 |---|---|---|
-| **Scalabilità & Adattabilità** | Non risolta in nessuno dei 22 paper | 🟡 Media — tesi locale M4 Pro è micro-scale, non è il focus |
-| **Interoperabilità & Standardizzazione** | Ogni paper usa stack diverso; nessuno standard | 🔴 Alta — tesi usa exact stack (LangGraph+Ditto+Neo4j) potrebbe proporre pattern |
-| **Integrazione avanzata AI/ML** | Ancora superficiale; DRL prevalente, no LLM | 🔴 **MASSIMA** — Questo è esattamente il gap che riempie la tesi |
-| **Valutazione di Affidabilità** | Come misurare che l'agente sia "affidabile"? | 🔴 **MASSIMA** — MMCI framework risolve questo |
-| **Privacy & Security** | Menzionate ma non affrontate | 🟡 Media — out of scope per la tesi |
-| **Domains beyond Manufacturing** | Edge computing, network management inesplorati | 🟡 Media-Alta — La tesi esplora questo spazio |
+| **Scalability & adaptability** | Not solved in any of the 22 papers | 🟡 Medium — local M4 Pro prototype is micro-scale; not the main focus |
+| **Interoperability & standardization** | Each paper uses a different stack; no standard | 🔴 High — the thesis’ concrete stack (LangGraph+Ditto+Neo4j) can propose a pattern |
+| **Advanced AI/ML integration** | Still shallow; DRL dominates; no LLMs | 🔴 **MAXIMUM** — this is exactly the gap the thesis addresses |
+| **Reliability evaluation** | How to measure that an agent is “reliable”? | 🔴 **MAXIMUM** — MMCI provides a scaffold |
+| **Privacy & security** | Mentioned but not addressed | 🟡 Medium — out of scope |
+| **Domains beyond manufacturing** | Edge computing / network management under-explored | 🟡 Medium-High — the thesis explores this space |
 
 ---
 
-## ✅ Aspetti Utili per la Tesi
+## ✅ What This Adds to the Thesis
 
-### 1. Validazione Architetturale
+### 1. Architectural Validation
 
-Il tuo design a 4 agenti (Perception, Reasoning, Planning, Communication) rispecchia esattamente il pattern che il survey consolida come standard nei 22 paper. Nel Related Work puoi citare: _"Our agent taxonomy aligns with established MAS+DT patterns (Kalyani & Collier, 2024)"_.
+The 4-agent design (Perception, Reasoning, Planning, Communication) matches the agent-per-function pattern consolidated by the survey across the 22 papers. In Related Work you can cite: _"Our agent taxonomy aligns with established MAS+DT patterns (Kalyani & Collier, 2024)"_.
 
-### 2. Knowledge Graph è Letteralmente Standard
+### 2. Knowledge Graphs Are a Standard Component
 
-Kalyani et al. identificano **Ontologie e Knowledge Graphs** come componente chiave ricorrente in più paper. Questo ti dà citazione diretta per Neo4j; non è innovazione, è best practice già validata.
+Kalyani et al. identify **ontologies and knowledge graphs** as recurring key components across multiple papers. This provides direct support for Neo4j as a best practice rather than an arbitrary choice.
 
-### 3. Gap Esplicito su Valutazione
+### 3. Explicit Gap on Evaluation
 
-Il paper ammette: _"Evaluation methodologies for trustworthiness and reliability of multi-agent systems in DT are not adequately addressed"_. La tesi dichiara esattamente questo come suo focus principale (MMCI + multi-agent agreement + KG validation).
+The paper states: _"Evaluation methodologies for trustworthiness and reliability of multi-agent systems in DT are not adequately addressed"_. The thesis directly targets this gap (MMCI + multi-agent agreement + KG validation).
 
-### 4. LLM come Cognitive Layer è Genuinamente Nuovo
+### 4. LLMs as a Cognitive Layer Are Genuinely New Here
 
-Nessuno dei 22 paper usa LLM agents. Tutti usano DRL o regole. Questo significa:
-- ✅ La tesi è innovativa (primo a combinare LLM + MAS + DT in questo modo)
-- ⚠️ Ma non hai letteratura per guidare le decisioni (perché Llama vs. Mistral? Perché 8B?)
-- 🟠 Dipendi da letteratura su LLM agents (Berkeley MOOC, MultiAgentBench, WirelessAgent)
+None of the 22 papers uses LLM agents; most rely on DRL or rules. This implies:
+- ✅ The thesis is novel (one of the first to combine LLM + MAS + DT in this way)
+- ⚠️ But you cannot rely on this survey to justify model-level choices (e.g., Llama vs Mistral; 8B vs larger)
+- 🟠 You must triangulate with LLM-agent evaluation sources (Berkeley MOOC, MultiAgentBench, WirelessAgent)
 
 ---
 
-## ❌ Limitazioni per la Tesi
+## ❌ Limitations for the Thesis
 
-| Limitazione | Impatto |
+| Limitation | Impact |
 |---|---|
-| **Zero empirismo** | È una SLR, no esperimenti propri; non puoi estrarre metriche quantitative |
-| **Nessun LLM** | Tutti i 22 paper usano DRL classico; Kalyani non può guidare scelte su modelli |
-| **Dominio Manufacturing** | 45% dei paper è manufacturing; tua 5G è niche, difficulta il confronto diretto |
-| **No 5G/Telecom** | Completamente assente dalla SLR; devi trovare altri punti di contatto |
-| **Valutazione rimane aperta** | La SLR identifica il gap ma non lo risolve; la tesi deve farlo |
+| **No original experiments** | It is an SLR; you cannot extract quantitative performance metrics |
+| **No LLMs** | The 22 papers use classic DRL/rules; Kalyani cannot guide model selection |
+| **Manufacturing-heavy domain** | ~45% of papers are manufacturing; 5G is niche, making direct comparison harder |
+| **No 5G/Telecom** | Entirely absent from the SLR; you need other points of comparison |
+| **Evaluation remains open** | The SLR identifies the gap but does not solve it; the thesis must |
 
 ---
 
-## 📝 Appunti per il Relatore
+## 📝 Notes for Advisor
 
-**D: "Avete verificato che il vostro design multi-agente è validato dalla letteratura?"**
+**Q: "Have you verified that your multi-agent design is supported by the literature?"**
 
-R: "Sì — Kalyani & Collier (2024) analizzano 22 paper sui MAS+DT e identificano un pattern ricorrente di agent-per-funzione (manager, data, processing, recommendation). Il nostro design istanzia questo pattern con Perception, Reasoning, Planning, Communication agents, che sono una mappatura diretta delle feature riconosciute dalla SLR."
+A: "Yes — Kalyani & Collier (2024) analyze 22 MAS+DT papers and identify a recurring agent-per-function pattern (manager, data, processing, recommendation). Our design instantiates this pattern with Perception, Reasoning, Planning, Communication agents, which map directly to the capabilities recognized by the SLR."
 
-**D: "Il Knowledge Graph — perché Neo4j e non un'ontologia Semantic Web?"**
+**Q: "Why Neo4j rather than a Semantic Web ontology?"**
 
-R: "Entrambi gli approcci (Semantic Web vs. property graphs) sono coperti da Kalyani et al. come best practice. Abbiamo scelto Neo4j per scalabilità in real-time (Cypher vs. SPARQL latency) e perché i vincoli 3GPP si representano più naturalmente come grafo di dipendenze (nodo=KPI, arco=causalità) che come assiomi OWL."
+A: "Both approaches (Semantic Web vs property graphs) appear as best practices in the survey. Neo4j is chosen for real-time scalability (Cypher vs SPARQL latency) and because 3GPP constraints are naturally represented as dependency graphs (node=KPI, edge=causal relation) rather than OWL axioms."
 
-**D: "Quali sono i gap che state riempiendo rispetto alla SLR?"**
+**Q: "Which gaps are you filling relative to the SLR?"**
 
-R: "Tre gap principali: (1) Kalyani et al. ammettono che AI/ML avanzata (in particolare LLM) è superficialmente integrata — nessuno dei 22 paper usa agenti LLM; (2) Valutazione della trustworthiness rimane aperta — la SLR non fornisce metodologia; (3) Dominio 5G/network manca completamente. La tesi affronta tutti e tre."
-
----
-
-## 🔗 Concetti Introdotti / Collegati
-
-- [[theoretical-concepts/knowledge-graph-in-cdt]] — KG come standard di best practice
-- [[sources/pretel-et-al-2024-mas-dt]] — SLR complementare (64 paper vs. 22)
+A: "Three main gaps: (1) advanced AI/ML (especially LLM agents) is not present in the 22-paper set; (2) trustworthiness evaluation remains open — the SLR provides no methodology; (3) 5G/network domains are missing entirely. The thesis addresses all three."
 
 ---
 
-## 📚 Paper Interni al Survey da Approfondire
+## 🔗 Concepts Linked
 
-| Autori | Titolo | Perché Leggere |
+- [[theoretical-concepts/knowledge-graph-in-cdt]] — KG as a best-practice component
+- [[sources/pretel-et-al-2024-mas-dt]] — Complementary SLR (64 papers vs 22)
+
+---
+
+## 📚 Papers Inside the Survey Worth Checking
+
+| Authors | Title | Why Read |
 |---|---|---|
-| **Zhang et al., 2021** | Adaptive DT + Multi-agent DRL for vehicular edge computing | Più vicino al tuo dominio: edge network, resource allocation, adaptive agents |
-| **Xu et al., 2023** | DT-driven collaborative scheduling via MAS, edge computing | Quasi identico al tuo use case: resource scheduling su edge |
-| **Latsou et al., 2023** | Automated anomaly detection + bottleneck ID con MAS | Pattern per il tuo Reasoning Agent; baseline rule-based |
-| **Galuzin et al., 2022** | Knowledge-Based multi-agent adaptive management | KG + agents per decision-making real-time |
+| **Zhang et al., 2021** | Adaptive DT + Multi-agent DRL for vehicular edge computing | Closest to the domain: edge networks, resource allocation, adaptive agents |
+| **Xu et al., 2023** | DT-driven collaborative scheduling via MAS, edge computing | Very close to the use case: edge resource scheduling |
+| **Latsou et al., 2023** | Automated anomaly detection + bottleneck identification with MAS | Pattern inspiration for the Reasoning Agent; rule-based baseline |
+| **Galuzin et al., 2022** | Knowledge-based multi-agent adaptive management | KG + agents for real-time decision-making |
 
 ---
 

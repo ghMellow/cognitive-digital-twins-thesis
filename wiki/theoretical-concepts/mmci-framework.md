@@ -3,8 +3,13 @@ title: MMCI Framework — Multi-Modal Cognitive Interoperability
 type: concept
 created: 2026-04-14
 updated: 2026-04-14
-sources: [al-haj-ali-2025-mmci]
-tags: [evaluation, framework, levels, maturity]
+sources:
+  - sources/al-haj-ali-2025-mmci
+tags:
+  - evaluation
+  - framework
+  - levels
+  - maturity
 ---
 
 # MMCI Framework — Multi-Modal Cognitive Interoperability

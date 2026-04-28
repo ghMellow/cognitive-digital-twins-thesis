@@ -2,11 +2,11 @@
 title: "RESTART White Paper on Network Digital Twin"
 type: source
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-28
 authors: [RESTART Consortium]
 year: 2024
 tags: [NDT, 5G, closed-loop-automation, IBN, architecture]
-contributo-tesi: "1-architettura, motivazione-del-problema"
+thesis-contribution: 1-architecture
 ---
 
 # RESTART (2024) — Network Digital Twin White Paper
@@ -15,127 +15,125 @@ contributo-tesi: "1-architettura, motivazione-del-problema"
 
 ---
 
-## Contributo Principale
+## Main Contribution
 
 Formalizes the Network Digital Twin (NDT) architecture for 5G with AI/cognitive layer as **core driver of strategic decision-making**, not supporting tool. Describes the closed-loop autonomic management framework that the thesis implements concretely with LangGraph.
 
 ---
 
-## Riassunto
+## Summary
 
-**Problema:** 5G networks are too dynamic for passive management. Network operators need a digital twin that acts autonomously, not just observes.
+**Problem:** 5G networks are too dynamic for passive management. Network operators need a digital twin that can act autonomously, not just observe.
 
-**Architettura proposta:** Three-tier NDT architecture:
+**Proposed architecture:** Three-tier NDT architecture:
 - Digital Representation (DH — Digital Hat)
 - Autonomic Control (AI-driven orchestration)
 - Closed-loop automation with Intent-Based Networking (IBN)
 
-**Risultati:** Framework specification for operator-level NDT deployment; identifies key technologies (DH interface, synchronization protocol, IBN translation layer).
+**Results:** A framework specification for operator-level NDT deployment; identifies key technologies (DH interface, synchronization protocol, IBN translation layer).
 
-**Limiti:** Purely architectural; no implementation. No LLM, no agents, no evaluation methodology. Too abstracted for prototipo su edge hardware.
-
----
-
-## Layer Divulgativo (YT)
-
-**La domanda:** Perché un digital twin passivo non basta per il 5G?
-
-RESTART risponde: il 5G è talmente dinamico (clienti che si muovono, traffico che salta, interferenze) che se aspetti l'operatore umano per ogni decisione, hai già perso. Il digital twin deve **decidere e agire autonomamente**, non solo segnalare anomalie.
-
-Ma come fa un sistema a decidere? Serve tre cose:
-1. Uno specchio digitale sincronizzato (DH) che vede tutto in tempo reale
-2. Un'intelligenza (AI layer) che ragiona su cosa fare
-3. Un loop chiuso (closed automation) che esegue e misura feedback
-
-RESTART nomina queste tre cose. La tua tesi le implementa concretamente.
+**Limitations:** Purely architectural; no implementation. No LLMs, no agents, no evaluation methodology. Too abstract for an edge-hardware prototype.
 
 ---
 
-## Valore per la Tesi
+## Outreach Layer (YT)
 
-### Aree Approfondite
+**The question:** Why is a passive digital twin not enough for 5G?
 
-1. **Motivazione del Problema: AI come Driver Centrale** (Contributo 1 — Capitolo 1)
-   - **Citazione diretta:** "AI is not a supporting tool but a core driver of strategic decision-making and innovation"
-   - Questo è l'opening perfetto per la tua Introduzione
-   - Risponde alla domanda fondamentale: "Perché è necessario un layer cognitivo?"
-   - Gap identificato dal paper: "assenza di architettura unificata con AI-driven orchestration"
+RESTART’s answer: 5G is so dynamic (mobility, bursty traffic, interference) that waiting for a human operator for each decision is too slow. The digital twin must **decide and act autonomously**, not only report anomalies.
 
-2. **Architettura NDT a 3 Layer** (Contributo 1 — Capitolo 4)
-   - **Digital Hat (DH)** = Eclipse Ditto (Things + Features del gNB)
+But how can a system decide? It needs three ingredients:
+1. A synchronized digital mirror (DH) that sees everything in real time
+2. An intelligence layer (AI layer) that reasons about what to do
+3. A closed loop (closed automation) that executes and measures feedback
+
+RESTART names these three components. The thesis implements them concretely.
+
+---
+
+## Value for Thesis
+
+### Areas Deepened
+
+1. **Problem Motivation: AI as a Core Driver** (Contribution 1 — Chapter 1)
+   - **Direct quote:** "AI is not a supporting tool but a core driver of strategic decision-making and innovation"
+   - Strong opening hook for the Introduction
+   - Answers the foundational “why a cognitive layer is necessary” question
+   - Paper-identified gap: lack of a unified architecture with AI-driven orchestration
+
+2. **3-Layer NDT Architecture** (Contribution 1 — Chapter 4)
+   - **Digital Hat (DH)** = Eclipse Ditto (gNB Things + Features)
    - **Autonomic Control Layer** = LangGraph pipeline (Perception → Reasoning → Planning → Communication)
-   - **Closed-loop Automation** = ciclo end-to-end con feedback da simulatore
-   - Mapping esplicito valida le scelte architetturali
+   - **Closed-loop Automation** = end-to-end cycle with simulator feedback
+   - The explicit mapping strengthens the architectural justification
 
-3. **Intent-Based Networking (IBN)** (Contributo 1 — Planning Agent)
-   - IBN traduce intenti alto-livello in configurazioni concrete
-   - Il tuo Planning Agent implementa esattamente questo: diagnosi → validazione KG → azioni fattibili
-   - Riferimento citabile per design choice
+3. **Intent-Based Networking (IBN)** (Contribution 1 — Planning Agent)
+   - IBN translates high-level intents into concrete configurations
+   - The Planning Agent instantiates this: diagnosis → KG validation → feasible actions
+   - Citable reference for the design choice
 
-4. **KPI Standard 3GPP** (Contributo 1 — Simulatore)
-   - Paper cita copertura, interferenza, gestione spettro (stesso vocabolario del tuo simulatore)
-   - Validazione della scelta di metriche 5G: RSRP, SINR, throughput, latenza
-   - Giustificazione formale di cosa misurare
+4. **3GPP KPI Vocabulary** (Contribution 1 — Simulator)
+   - The paper discusses coverage, interference, and spectrum management (aligned with the simulator vocabulary)
+   - Validates the choice of 5G metrics: RSRP, SINR, throughput, latency
+   - Provides formal motivation for *what* to measure
 
-### Mapping Architetturale
-
-| RESTART Paper | La Tua Tesi | Mapping |
+### Architectural Mapping
+| RESTART Paper | Thesis Component | Mapping |
 |---|---|---|
-| **Digital Hat (DH)** | Eclipse Ditto Thing Model | 1:1 diretto |
-| **DH Interface** | REST API Ditto | Protocol-agnostic ✓ |
-| **Closed-loop Automation** | Ciclo Perception→Planning LangGraph | Implementazione concreta |
-| **Intent-Based Networking** | Planning Agent + KG validation | Intent = diagnosi LLM |
-| **KPI Monitoring** | Simulatore 3GPP + Perception Agent | Standard 3GPP allineato |
-| **AI Layer (abstract)** | LLM agents + orchestration | ← Tuo dettaglio contributo |
-| **Evaluation (abstract)** | MMCI + LLM-as-judge + agreement | ← Tuo contributo metodologico |
+| **Digital Hat (DH)** | Eclipse Ditto Thing Model | Direct 1:1 |
+| **DH Interface** | Ditto REST API | Protocol-agnostic ✓ |
+| **Closed-loop Automation** | Perception→Planning LangGraph loop | Concrete implementation |
+| **Intent-Based Networking** | Planning Agent + KG validation | Intent = LLM diagnosis translated into actions |
+| **KPI Monitoring** | 3GPP simulator + Perception Agent | 3GPP-aligned monitoring |
+| **AI Layer (abstract)** | LLM agents + orchestration | Thesis implementation detail |
+| **Evaluation (abstract)** | MMCI + LLM-as-judge + agreement | Thesis methodological contribution |
 
-### Pro / Contro Come Fonte
+### Pros / Cons as a Source
 
-| Dimensione | Pro | Contro |
+| Dimension | Pro | Con |
 |---|---|---|
-| **Positioning teorico** | Giustifica CDT come evoluzione NDT, AI come driver centrale | Troppo astratto, livello operator-enterprise |
-| **Vocabolario 3GPP** | DH, IBN, closed-loop — terminologia adottabile | Focalizzato su telco standard, non su research |
-| **Architettura layer** | Valida il design a 3 layer; Eclipse Ditto si posiziona bene | Non nomina mai LLM, agenti, orch framework |
-| **Motivazione problema** | Opening perfetto: "AI is core driver" | Non copre valutazione agenti (gap che tu riempi) |
-| **Implementazione** | Zero dettagli — è un white paper, non ricerca | Non ti aiuta su LangGraph, modelli LLM, metriche |
+| **Theoretical positioning** | Frames CDT as an evolution of NDT; AI as central driver | Very abstract; operator/enterprise level |
+| **3GPP vocabulary** | DH, IBN, closed-loop — reusable terminology | Standards-oriented rather than research-oriented |
+| **Layered architecture** | Validates the 3-layer design; Ditto fits well | Does not mention LLMs/agents/orchestration specifics |
+| **Motivation** | Strong opening: “AI is core driver” | No agent-evaluation methodology (your gap) |
+| **Implementation guidance** | Conceptual backbone | Not helpful for LangGraph/LLMs/metrics details |
 
-### Appunti Contestualizzati per il Relatore
+### Notes for Advisor
 
-**Se chiede: "Come posizioni la tua tesi nel panorama NDT?"**
+**If asked: “How do you position your thesis in the NDT landscape?”**
 
-> "Il paper RESTART definisce l'architettura NDT che mi motiva. Il paper propone un layer AI/cognitivo come componente centrale — ma non scende nei dettagli di come si implementa o come si valuta. La mia tesi riempie esattamente quel gap: fornisco l'implementazione concreta (LLM agents + LangGraph) e la metodologia di valutazione (MMCI + LLM-as-judge) che il paper lascia aperta."
+> "RESTART defines the NDT architecture that motivates my work. It proposes an AI/cognitive layer as a central component, but does not detail how to implement or evaluate it. My thesis fills that gap by providing a concrete implementation (LLM agents + LangGraph) and an evaluation methodology (MMCI + LLM-as-judge) that the white paper leaves open."
 
-**Se chiede: "Perché proprio Eclipse Ditto?"**
+**If asked: “Why Eclipse Ditto?”**
 
-> "Il paper descrive il Digital Hat come il backbone del NDT — interface protocol-agnostic tra asset fisico e layer cognitivo. Eclipse Ditto implementa esattamente questa funzione: sincronizza lo stato del gNB simulato e lo espone come rappresentazione standardizzata. È una scelta motivata dalla letteratura NDT, non arbitraria."
+> "The paper describes the Digital Hat as the NDT backbone — a protocol-agnostic interface between the physical asset and the cognitive layer. Eclipse Ditto implements this role: it synchronizes the simulated gNB state and exposes it as a standardized representation. This is literature-motivated, not arbitrary."
 
-**Se chiede: "Questo paper invalida il tuo lavoro?"**
+**If asked: “Does this paper invalidate your work?”**
 
-> "No. Il paper propone l'architrave; la mia tesi costruisce i muri. Loro dicono 'serve un AI layer autonomo', io dimostro come farlo con LLM locali e come misurare che funzioni davvero. Il loro gap è il mio contributo."
+> "No. The paper provides the backbone; my thesis builds the concrete system. They state that an autonomous AI layer is required; I show how to build it with local LLMs and how to evaluate it rigorously. Their gap is my contribution."
 
-### Dimensioni Strutturali
+### Structural Dimensions
 
-- **Argomento supportato:** CDT è evoluzione NDT, AI layer è driver centrale non opzionale, closed-loop autonomy è target
-- **Gap colmato:** Teorico — posizionamento e motivazione; non copre implementazione/valutazione
-- **Posizione scaffolding:** **Capitolo 1 — Introduzione** (apertura motivazionale) + **Capitolo 4 — Architettura** (mapping DH, IBN, closed-loop)
-- **Tensioni:** No contraddizioni. È allineato perfettamente con Zheng et al. + Al-Haj Ali.
-- **Concetti introdotti:** Network Digital Twin, Digital Hat, Intent-Based Networking, closed-loop autonomy, 3GPP KPI ecosystem
+- **Supported topic:** CDT as an evolution of NDT; AI layer as a central driver; closed-loop autonomy as target
+- **Gap closed:** Theoretical positioning and motivation; does not cover implementation/evaluation
+- **Scaffolding position:** **Chapter 1 — Introduction** (motivation) + **Chapter 4 — Architecture** (DH/IBN/closed-loop mapping)
+- **Tensions:** None; consistent with Zheng et al. + Al-Haj Ali
+- **Concepts introduced:** Network Digital Twin, Digital Hat, Intent-Based Networking, closed-loop autonomy, 3GPP KPI vocabulary
 
 ---
 
-## Concetti Introdotti
-
-- [[network-digital-twin]] — Definizione NDT, differenza vs DT tradizionale
-- [[digital-hat]] — DH interface for NDT, mapping to Ditto
-- [[intent-based-networking]] — IBN pattern, Planning Agent mapping
-- [[closed-loop-autonomy]] — Ciclo feedback, applicazione a LangGraph pipeline
+## Concepts Introduced
+- [[network-digital-twin]] — NDT definition and contrast vs traditional DT
+- [[digital-hat]] — DH interface mapping to Ditto
+- [[intent-based-networking]] — IBN pattern mapped to the Planning Agent
+- [[closed-loop-autonomy]] — feedback loop applied to the LangGraph pipeline
 
 ---
 
 ## Related Pages
 
-- [[scaffolding-tesi]] — Cap. 1, Cap. 4 (positioning + architettura)
-- [[sources/zheng-et-al-2022-cdt]] — Complementary: teoria CDT vs architettura NDT pratica
-- [[sources/al-haj-ali-2025-mmci]] — Complementary: valutazione (che RESTART non copre)
-- [[glossary]] — Nuovi termini: DH, IBN, NDT
+- [[scaffolding-tesi]] — Ch. 1, Ch. 4 (positioning + architecture)
+- [[sources/zheng-et-al-2022-cdt]] — Complementary: CDT theory vs practical NDT architecture
+- [[sources/al-haj-ali-2025-mmci]] — Complementary: evaluation (not covered by RESTART)
+- [[glossary]] — New terms: DH, IBN, NDT
 - [[theoretical-concepts/knowledge-graph-in-cdt]] — IBN + KG relationship

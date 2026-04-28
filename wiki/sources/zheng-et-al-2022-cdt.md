@@ -7,7 +7,7 @@ authors: [Zheng et al.]
 year: 2022
 citations: 196+
 tags: [CDT, theory, six-functions, architecture, knowledge-graph]
-contributo-tesi: 1-architecture
+thesis-contribution: 1-architecture
 ---
 
 # Zheng et al. (2022) — Cognitive Digital Twin

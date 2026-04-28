@@ -2,122 +2,122 @@
 title: Berkeley CS294 — LLM Agent Evaluations (2026)
 type: source
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-28
 sources: [b.2_Video Berkeley (Agentic AI MOOC) - LLM Agent Evaluations & Project Overview/Valore per la mia tesi.md, b.2_Video Berkeley (Agentic AI MOOC) - LLM Agent Evaluations & Project Overview/riassunto.md]
 tags: [LLM-evaluation, agent-arcgitectures, outcome-validity, multi-model-agreement, evaluating-agents]
 ---
 
 # Berkeley CS294 — LLM Agent Evaluations & Project Overview (2026)
 
-Video MOOC **metodologico** su valutazione di agenti LLM. Informa direttamente il **Contributo 2 (Framework di Valutazione)** della tesi. Fornisce il linguaggio tecnico per: outcome validity, tool-use evaluation, multi-model agreement, LLM-as-judge practices. **Posizione nella tesi**: Cap. 5 (Metodologia) — best practices e anti-patterns nella valutazione agentiche.
+A **methodology-focused** MOOC lecture on evaluating LLM-based agents. It directly informs **Contribution 2 (evaluation framework)** of the thesis. Provides vocabulary and practices for: outcome validity, tool-use evaluation, multi-model agreement, and LLM-as-judge. **Thesis placement**: Ch. 5 (Methodology) — best practices and anti-patterns for agent evaluation.
 
 ---
 
-## 📺 Chi Sono
+## 📺 Who They Are
 
-- **Istituzione:** UC Berkeley, CS294 Advanced Topics
-- **Tema:** Metodologia per valutare sistemi di agenti basati su LLM
-- **Formato:** Lecture video + case studies
+ - **Institution:** UC Berkeley, CS294 Advanced Topics
+ - **Topic:** Methodology for evaluating LLM-based agent systems
+ - **Format:** Lecture video + case studies
 - **YT:** https://www.youtube.com/watch?v=VfOA2a0dj4w
-- **Data:** 2026 (parte della Agentic AI curriculum UC Berkeley)
+- **Year:** 2026 (part of the UC Berkeley Agentic AI curriculum)
 
 ---
 
-## 🔑 Concetti Chiave Estratti
+## 🔑 Key Concepts Extracted
 
-### 1. **Outcome Validity** (La Metrica Vera)
+### 1. **Outcome Validity** (The Real Metric)
 
-**Il problema:** Un agente genera una spiegazione bellissima, ma l'azione che propone non risolve il problema reale.
+**Problem:** an agent can produce a great explanation, but the action it proposes does not solve the real problem.
 
-**Definizione:** Outcome validity = "L'intervento proposto dall'agente ha risolto il problema nel sistema reale?"
+**Definition:** outcome validity = “Did the intervention proposed by the agent solve the problem in the real system?”
 
-**Per tesi:**
-- **False Positive:** Reasoning Agent dichiara diagnosi corretta, ma quando Planning Agent applica l'azione, KPI del simulatore non migliorano
-- **Ground Truth:** KPI simulatore = outcome validity definitiva
-- **Metrica:** Pass → KPI recuperati oltre soglia target; Fail → KPI stagnanti o peggiorati
+**For the thesis:**
+- **False positive:** Reasoning Agent claims a correct diagnosis, but after the Planning Agent applies the action, simulator KPIs do not improve
+- **Ground truth:** simulator KPIs provide the definitive outcome validity signal
+- **Metric:** Pass → KPIs recover above a target threshold; Fail → KPIs stagnate or worsen
 
-**Benefit:** Questa è la tua metrica regina — trasforma "il sistema parla bene" in "il sistema risolve il problema".
+**Benefit:** this is the flagship metric — it turns “the system speaks well” into “the system solves the problem.”
 
-### 2. **Task Verificabili vs Non-Verificabili**
+### 2. **Verifiable vs Non-Verifiable Tasks**
 
-**Verificabili (Ground Truth Esplicita):**
-- Perception Agent chiama Ditto API per lo stato gNB → Risposta è presente nel DB Ditto? (binario)
-- Planning Agent propone azione riconfigurabile → Violazione vincoli KG? (binario)
-- Communication Agent genera JSON strutturato → Valida schema? (binario)
+**Verifiable (explicit ground truth):**
+- Perception Agent calls Ditto API for gNB state → is the answer in the Ditto DB? (binary)
+- Planning Agent proposes a reconfiguration action → does it violate KG constraints? (binary)
+- Communication Agent generates structured JSON → does it validate against schema? (binary)
 
-**Non-Verificabili (LLM-as-Judge Necessario):**
-- Reasoning Agent inferisce "root cause = congestione nella banda low RSRP" → È corretta questa spiegazione? (non-binario, richiede valutazione)
+**Non-verifiable (LLM-as-judge needed):**
+- Reasoning Agent infers “root cause = congestion in low-RSRP band” → is this explanation correct? (non-binary; needs evaluation)
 
-**Per tesi:** Massimizza task verificabili con ground truth esterno (simulatore, KG), usa LLM-as-judge solo dove necessario (Reasoning, Communication).
+**For the thesis:** maximize verifiable tasks with external ground truth (simulator, KG), and use LLM-as-judge only where necessary (Reasoning, Communication).
 
-### 3. **Capacità Specifiche vs Verticali**
+### 3. **Capability-Level vs Vertical-Level Evaluation**
 
-**Specifiche:** Può l'agente usare uno specifico tool? (es. può interrogare Ditto API?)  
-**Verticali:** Quanto è bravo su un vertical specifico? (es. diagnosi su calo RSRP in dominio 5G)
+**Capability-level:** can the agent use a specific tool? (e.g., query Ditto API)  
+**Vertical-level:** how good is it on a specific vertical? (e.g., diagnosing RSRP drops in 5G)
 
-**Per tesi:**
-- **Capacità:** Tool-use (Ditto calls, KG queries, LLM inference chains)
-- **Verticali:** 5G fault types (congestione, handover failure, power degradation, latency spike)
+**For the thesis:**
+- **Capabilities:** tool-use (Ditto calls, KG queries, LLM inference chains)
+- **Verticals:** 5G fault types (congestion, handover failure, power degradation, latency spikes)
 
-**Evaluation Design:** 
-- Testa capacità singolarmente (ogni agente isolato)
-- Testa su scenari verticali (fault injection controllata per ogni KPI)
-- Combina: competenza su verticale + coordinamento tra agenti
+**Evaluation design:**
+- Test capabilities in isolation (each agent separately)
+- Test vertical scenarios (controlled fault injection per KPI)
+- Combine: vertical competence + inter-agent coordination
 
-### 4. **Multi-Model Agreement** (Quando Manca Ground Truth)
+### 4. **Multi-Model Agreement** (When Ground Truth Is Missing)
 
-**Strategia:** Se LLM A, LLM B, LLM C concordano sulla stessa diagnosi di root cause, la probabilità di correctness aumenta. Dissenso = bassa confidenza.
+**Strategy:** if LLM A, LLM B, LLM C agree on the same root-cause diagnosis, correctness likelihood increases. Disagreement implies low confidence.
 
-**Per tesi:**
-- Esecuzione identica su Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B
-- Reasoning Agent in ogni modello produce diagnosi
-- Stringa diagnosi → embedding + cosine similarity tra diagnosi
-- Agreement% = overlap negli embedding
-- Soglia: Se agreement > 80%, eleva confidence del Reasoning Agent a "high"; altrimenti, flag per revisione / multi-agent vote
+**For the thesis:**
+- Run the same scenario on Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B
+- The Reasoning Agent in each model produces a diagnosis
+- Diagnosis string → embeddings + cosine similarity
+- Agreement% = overlap in embedding space
+- Threshold: if agreement > 80%, raise confidence to “high”; otherwise flag for review / a structured vote
 
-**Benefit:** Migliora robustezza senza dipendere un'unico vendor di LLM.
+**Benefit:** improves robustness without relying on a single LLM vendor.
 
-### 5. **LLM-as-Judge Practices** (Metodologia)
+### 5. **LLM-as-Judge Practices** (Methodology)
 
 **Setup:**
-- Task da valutare: output del Reasoning Agent (diagnosi)
-- Judge: Llama 3.1 70B (modello più grande, locale o via API)
-- Scala: 1-5 (incoherent → highly sensible)
-- Rubric: "La diagnosi spiega causalmente l'anomalia osservata? È consistente con vincoli 3GPP?"
+- Task to evaluate: Reasoning Agent output (diagnosis)
+- Judge: Llama 3.1 70B (larger model, local or via API)
+- Scale: 1–5 (incoherent → highly sensible)
+- Rubric: “Does the diagnosis causally explain the observed anomaly? Is it consistent with 3GPP constraints?”
 
-**Mitigazioni ai rischi:**
-1. **Diverse judges:** Usa 2-3 modelli diversi, calcola media
-2. **Blind evaluation:** Judge non vede nome dell'agente che ha generato
-3. **Reference outputs:** Includi nella prompt alcuni riferimenti di diagnosi "correct" dal domain expert (1-2 esempi)
-4. **Confidence calibration:** Chiedi al judge di auto-stimare la sua confidenza ("confident", "somewhat uncertain")
+**Risk mitigations:**
+1. **Diverse judges:** use 2–3 different models and average
+2. **Blind evaluation:** judge does not see which agent/model produced the output
+3. **Reference outputs:** include 1–2 “correct” diagnosis exemplars from a domain expert
+4. **Confidence calibration:** ask the judge to self-rate confidence (“confident”, “somewhat uncertain”)
 
-**Per tesi:**
-- Judge = Llama 3.1 70B se available via Ollama quantized; altrimenti 8B ma con rubric più rigido
-- Rubric dovrebbe includere: coerenza causale, alignment 3GPP constraints, completezza della spiegazione
-- Documentare confidence scores per analisi later
+**For the thesis:**
+- Judge = Llama 3.1 70B if available (e.g., via quantized Ollama); otherwise 8B with a stricter rubric
+- Rubric should include: causal coherence, 3GPP constraint alignment, completeness
+- Record confidence scores for later analysis
 
 ---
 
-## 📋 Integrazione nello Scaffolding
+## 📋 Integration into the Scaffolding
 
-### Cap. 5 (Metodologia Valutazione)
+### Ch. 5 (Evaluation Methodology)
 
-**Section 5.1 — Defining Evaluation Dimensions**
+**Section 5.1 — Defining evaluation dimensions**
 - Outcome validity (KPI improvement in simulator)
 - Task completeness (milestone-based)
 - Reasoning quality (LLM-as-judge rubric)
 - Coordination quality (multi-agent agreement score)
 
-**Section 5.2 — Ground Truth Strategy**
-- Where available (simulatore for Perception, KG for Planning): deterministic validation
-- Where unavailable (Reasoning, Communication): LLM-as-judge with multi-model agreement mitigation
+**Section 5.2 — Ground truth strategy**
+- Where available (simulator for Perception, KG for Planning): deterministic validation
+- Where unavailable (Reasoning, Communication): LLM-as-judge + multi-model agreement mitigations
 
-**Section 5.3 — Evaluation Protocols**
-- Capacità-level: Each agent isolated on simple tasks
-- Verticale-level: End-to-end pipeline on fault injection scenarios
-- Combination: Benchmark comparativo modelli su same scenario set
+**Section 5.3 — Evaluation protocols**
+- Capability-level: each agent isolated on simple tasks
+- Vertical-level: end-to-end pipeline on fault injection scenarios
+- Combination: comparative model benchmark on the same scenario set
 
-### Cap. 6 (Esperimenti)
+### Ch. 6 (Experiments)
 
 **Table:** Outcome Validity by Model × Fault Type  
 **Table:** Task Score (milestone completeness) by Agent  
@@ -126,49 +126,49 @@ Video MOOC **metodologico** su valutazione di agenti LLM. Informa direttamente i
 
 ---
 
-## ✅ Aree di Forza
+## ✅ Strengths
 
-| Aspetto | Utilità |
+| Aspect | Use |
 |---|---|
-| **Outcome Validity Framework** | Metrica definitiva: "L'azione ha davvero risolto il problema?" |
-| **Task Classification** | Distinguere verificabili (deterministic) vs non-verificabili (LLM-based) |
-| **Multi-Model Agreement** | Triangolazione senza ground truth esterno |
-| **LLM-as-Judge Best Practices** | Rubrics, confidence calibration, mitigation patterns |
-| **Capacity vs Vertical** | Separare debug architetturale da debug domeniale |
-| **Metodologia Trasparente** | Consente al relatore di replicare l'evaluation |
+| **Outcome validity framework** | Definitive metric: “Did the action actually solve the problem?” |
+| **Task classification** | Separate verifiable (deterministic) vs non-verifiable (LLM-based) |
+| **Multi-model agreement** | Triangulation without external ground truth |
+| **LLM-as-judge best practices** | Rubrics, confidence calibration, mitigation patterns |
+| **Capability vs vertical** | Separate architectural debugging from domain debugging |
+| **Transparent methodology** | Allows an advisor to replicate the evaluation |
 
 ---
 
-## ❌ Limitazioni e Loro Mitigazioni
+## ❌ Limitations and Mitigations
 
-| Limitazione | Mitigation in Tesi |
+| Limitation | Thesis mitigation |
 |---|---|
-| Non copre real-time latency constraints | Aggiungi metrica di "Decision Latency" (ms) per ogni agents |
-| Esempi su dominio informatico (WebArena, SWE-bench) | Crea tuo benchmark 5G-specific con fault injection |
-| LLM-as-Judge può avere bias sistematici | Usa multiple judges, includi reference examples nel prompt, confidence calibration |
-| Non coprire hardware consumer constraints | Misura token throughput, memory peak, power draw su M4 Pro |
+| Does not cover real-time latency constraints | Add a “Decision latency” metric (ms) per agent |
+| Examples are software-centric (WebArena, SWE-bench) | Build a 5G-specific benchmark with fault injection |
+| LLM-as-judge can have systematic biases | Use multiple judges, reference examples, confidence calibration |
+| Does not cover consumer hardware constraints | Measure token throughput, peak memory, power draw on M4 Pro |
 
 ---
 
-## 🎯 Risposta al Relatore
+## 🎯 Advisor Answer
 
-Se chiede: _"Come garantisci che la valutazione non è circolare (LLM valuta LLM)?"_
+If asked: _“How do you avoid circular evaluation (LLM evaluates LLM)?”_
 
-> _"Seguendo le migliori pratiche dalla letteratura recente (Berkeley CS294, 2026), applico un approccio a tre strati: primo, dove ho ground truth esterno (simulatore 3GPP, vincoli Neo4j), lo uso — è deterministic e reproducibile. Secondo, per il Reasoning Agent dove manca ground truth, uso multi-model agreement tra 4 modelli locali open-weight: se Llama, Mistral, Phi-3, Qwen convergono sulla stessa diagnosi, la confidenza sale. Terzo, affianco un LLM evaluator (Llama 70B) ma con rubric trasporente, reference examples, e multiple judges che votano. È ancora una triangolazione parziale su LLM, ma è il meglio che la letteratura agentiche oggi offre per task senza ground truth esplicito. La outcome validity finale è sempre validata sul simulatore: se l'azione riporta i KPI alla normalità, il Reasoning Agent ha indovinato."_
+> _“Following best practices (Berkeley CS294, 2026), I use a three-layer approach: (1) whenever external ground truth exists (3GPP simulator, Neo4j constraints), I use it — deterministic and reproducible; (2) when ground truth is missing for Reasoning, I use multi-model agreement across four local open-weight models (Llama, Mistral, Phi-3, Qwen): convergence increases confidence; (3) I add an LLM judge (e.g., Llama 70B) with a transparent rubric, reference examples, and multiple judges that vote. This is still imperfect, but it is the best available practice for tasks without explicit ground truth. Final outcome validity is always validated on the simulator: if the action restores KPIs, the diagnosis was correct.”_
 
 ---
 
-## 🔗 Concetti Correlati
+## 🔗 Related Concepts
 
-- [[mmci-framework]] — MMCI è framework di maturità; Berkeley fornisce metriche tattiche
-- [[multiagent-bench-2025]] — Complementare: MultiAgentBench è specifico per coordinamento; Berkeley è più generale
-- [[cognitive-digital-twin]] — 6 funzioni cognitive → 6 evaluation dimensions strutturate
+- [[mmci-framework]] — MMCI is a maturity framework; Berkeley provides tactical evaluation methods
+- [[multiagent-bench-2025]] — Complementary: MultiAgentBench focuses on coordination; Berkeley is more general
+- [[cognitive-digital-twin]] — 6 cognitive functions → structured evaluation dimensions
 
 ---
 
 ## Key Takeaway
 
-Il video trasforma la tua tesi da "Ho costruito un CDT che funziona" a **"Ho sviluppato una metodologia rigorosa per valutare l'affidabilità del ragionamento cognitivo su infrastruttura simulata 5G"**. Questo è ciò che la rende scientificamente solida e pubblicabile.
+This lecture shifts the thesis from “I built a CDT that works” to **“I developed a rigorous methodology to evaluate the reliability of cognitive reasoning on a simulated 5G infrastructure.”** That framing is what makes the work scientifically solid and publishable.
 
 ---
 

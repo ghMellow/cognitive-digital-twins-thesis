@@ -6,7 +6,7 @@ updated: 2026-04-28
 authors: [Hintze et al.]
 year: 2025
 tags: [agentic-ai, architecture, evaluation, taxonomy, multi-agent-systems, cognitive-architecture, LLM-agents, POMDP, CLASSic-framework]
-contributo-tesi: 2-evaluation
+thesis-contribution: 2-evaluation
 ---
 
 ## Main Contribution

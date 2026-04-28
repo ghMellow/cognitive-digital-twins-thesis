@@ -2,145 +2,145 @@
 title: "Towards Cognitive Interoperability: Cognitive Digital Twin and Cognitive Architecture for Human-CPS Collaboration"
 type: source
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-28
 authors: [Al-Haj Ali et al.]
 year: 2025
 tags: [CDT, MMCI, evaluation-framework, six-functions, CLARION]
-contributo-tesi: "2-valutazione, framework-metodologico"
+thesis-contribution: 2-evaluation
 ---
 
 # Al-Haj Ali et al. (2025) — MMCI Framework for CDT
 
-**Framework di valutazione a 5 livelli per agenti cognitivi. Risolve il gap critico della tesi: come misurare reasoning e planning senza ground truth.**
+**A 5-level evaluation/maturity framework for cognitive agents. It directly supports the thesis’s core gap: evaluating reasoning and planning when explicit ground truth is missing.**
 
 ---
 
-## Contributo Principale
+## Main Contribution
 
-Formalizza il **Multi-Modal Cognitive Interoperability (MMCI)** framework — un modello di maturità a 5 livelli per valutare l'allineamento cognitivo tra CDT e operatore umano. Estende le sei funzioni cognitive di Zheng et al. (2022) con una dimensione esplicita di valutazione.
+Formalizes the **Multi-Modal Cognitive Interoperability (MMCI)** framework — a 5-level maturity model to evaluate cognitive alignment between a CDT and a human operator. It extends Zheng et al. (2022) by adding an explicit evaluation dimension.
 
 ---
 
-## Riassunto
+## Summary
 
-**Problema:** I CDT moderni coordinato con agenti cognitivi, ma manca una metodologia standardizzata per misurare la qualità del ragionamento e dell'allineamento tra il sistema automatico e gli operatori umani.
+**Problem:** Modern CDTs coordinate cognitive agents, but there is no standardized methodology to measure reasoning quality and alignment between the automated system and human operators.
 
-**Metodo:** Propone il framework MMCI su 5 livelli di maturità:
+**Method:** Proposes the MMCI framework with 5 maturity levels:
 - Level 1: Shared Situation Awareness
 - Level 2: Shared Mental Models
 - Level 3: Intent & Reasoning Alignment
 - Level 4: Joint Decision-Making + Metacognition
 - Level 5: Full Autonomous Cognition
 
-**Architettura:** CDT implementato via CLARION (neuro-symbolic cognitive architecture) per HRC (Human-Robot Collaboration) manifatturiero su un cobot UR5e.
+**Architecture:** CDT implemented via CLARION (a neuro-symbolic cognitive architecture) for manufacturing Human-Robot Collaboration (HRC) on a UR5e cobot.
 
-**Risultati:** Validazione empirica del MMCI su scenari di collaborative inspection, con metriche di alignment tra CDT e operatore.
+**Results:** Empirical validation of MMCI on collaborative inspection scenarios, with alignment metrics between CDT and operator.
 
-**Limiti:** MMCI non ha ancora metriche quantitative precise per ogni livello (framework qualitativo). Zero trasferibilità al 5G. Non copre LLM o linguaggio naturale (usa CLARION pre-LLM).
-
----
-
-## Layer Divulgativo (YT)
-
-**La domanda:** Come fai a dire che il tuo sistema cognitivo ragiona "bene"? Se togli gli LLM, cos'è rimasto?
-
-Al-Haj Ali propone una scala di maturità: un CDT "immaturo" riconosce lo stato (Level 1), uno "maturo" ragiona insieme all'operatore e gli spiega il perché (Level 3+). 
-
-Il trick è il **MMCI**: una griglia di valutazione che non richiede ground truth "teorico", ma misura quanto bene il sistema e l'operatore sono "sincronizzati" — quanto concordano su cosa sta succedendo e come agire.
-
-Applicato al 5G, diventa: "Il mio Reasoning Agent spiega le diagnosi? L'operatore capisce e si fida?" Se sì, è Level 3+. Se no, è Level 1.
+**Limitations:** MMCI does not yet define precise quantitative metrics for each level (it is primarily qualitative). Not directly transferable to 5G without adaptation. Does not cover LLMs or natural-language reasoning (pre-LLM CLARION setting).
 
 ---
 
-## Valore per la Tesi
+## Outreach Layer (YT)
 
-### Aree Approfondite
+**The question:** How can you claim a cognitive system “reasons well”? Without explicit ground truth, what remains measurable?
 
-1. **Le Sei Funzioni Cognitive Formalizzate** (Contributo 1 — Architettura)
-   - Il paper estende Zheng et al. (2022) aggiungendo una dimensione di **valutazione empirica**
-   - Ogni funzione viene misurata lungo il continuum MMCI
-   - Mapping esplicito su tuoi agenti LangGraph (vedi tabella sotto)
+Al-Haj Ali proposes a maturity scale: an “immature” CDT recognizes the state (Level 1), while a “mature” one reasons with the operator and explains why (Level 3+).
 
-2. **MMCI Framework — Risoluzione del Gap Critico** (Contributo 2 — Valutazione — FONDAMENTALE)
-   - **Level 1:** Shared Situation Awareness — il CDT e l'operatore concordano sullo stato osservato?
-   - **Level 2:** Shared Mental Models — il KG Neo4j incarna il modello del dominio?
-   - **Level 3:** Intent & Reasoning Alignment — le diagnosi dell'LLM sono interpretabili?
-   - **Level 4:** Joint Decision-Making + Metacognition — il sistema spiega le decisioni?
-   - **Level 5:** Full Autonomous Cognition — il sistema agisce senza supervisione?
+The trick is **MMCI**: an evaluation grid that does not require theoretical ground truth, but measures how well the system and operator are “synchronized” — whether they agree on what is happening and what to do.
+
+Applied to 5G, it becomes: “Does my Reasoning Agent explain diagnoses in an interpretable way? Does an operator understand and trust it?” If yes, it’s Level 3+. If not, it’s Level 1.
+
+---
+
+## Value for Thesis
+
+### Areas Deepened
+
+1. **Six Cognitive Functions + Evaluation Lens** (Contribution 1 — Architecture)
+   - Extends Zheng et al. (2022) with an explicit **evaluation** perspective
+   - Each function can be discussed along the MMCI continuum
+   - Direct mapping to the thesis agents (table below)
+
+2. **MMCI Framework — Addressing the Critical Gap** (Contribution 2 — Evaluation — CORE)
+   - **Level 1:** Shared Situation Awareness — do the CDT and the operator agree on the observed state?
+   - **Level 2:** Shared Mental Models — does the Neo4j KG encode the domain model consistently?
+   - **Level 3:** Intent & Reasoning Alignment — are the LLM’s diagnoses interpretable and aligned with intent?
+   - **Level 4:** Joint Decision-Making + Metacognition — does the system justify decisions and monitor its own reasoning quality?
+   - **Level 5:** Full Autonomous Cognition — can the system act without human supervision?
    
-   **Questo è lo strumento che mancava.** Invece di inventare metriche custom, usi il MMCI come framework qualitativo e mostri a quale livello arriva il tuo sistema su ciascun agente.
+   **This is the missing scaffold.** Instead of inventing ad-hoc metrics, the thesis uses MMCI as a qualitative maturity framework and shows which level each agent reaches.
 
-3. **Mapping CLARION → LLM Architecture** (Contributo 1 — Positioning)
-   - CLARION è l'architettura cognitiva di riferimento nel paper (subsystem ACS, NACS, GKS, MCS)
-   - La tua tesi la sostituisce con LLM + KG — è una scelta di design originale e documentabile
-   - Il trade-off: CLARION = more formal, LLM = more flexible + natural language
+3. **Mapping CLARION → LLM-Based Architecture** (Contribution 1 — Positioning)
+   - CLARION is the paper’s reference cognitive architecture (ACS, NACS, GKS, MCS subsystems)
+   - The thesis replaces it with an LLM + KG pipeline — a documentable design choice
+   - Trade-off: CLARION = more formal; LLM = more flexible and supports natural language explanations
 
-4. **Dominio Manifatturiero HRC → Tuo Dominio 5G** (Differenziatore)
-   - Il paper lavora su Human-Robot Collaboration per ispezione collaborative
-   - La tua tesi è su Network Operations (RAN management)
-   - Gap aperto: nessun lavoro ha ancora appreso il MMCI al 5G
+4. **Manufacturing HRC → 5G Domain** (Differentiator)
+   - The paper targets manufacturing Human-Robot Collaboration (collaborative inspection)
+   - The thesis targets network operations (RAN management)
+   - Open gap: no prior work has applied MMCI to the 5G domain
 
-### Mapping: Funzioni MMCI → Tuoi Agenti
+### Mapping: MMCI Functions → Thesis Agents
 
-| Funzione (Al-Haj Ali) | Tuo Agente | Livello MMCI Target |
+| Function (Al-Haj Ali) | Thesis Agent | Target MMCI Level |
 |---|---|---|
-| **Situation Awareness** | Perception Agent | Level 1: Operatore e CDT concordano su RSRP/SINR/throughput? |
-| **Mental Model** | Neo4j KG + Planning Agent | Level 2: KG codifica policy 3GPP e constraints? |
-| **Intent Alignment** | Reasoning Agent | Level 3: Spiegazioni dell'LLM sono interpretabili e actionable? |
-| **Joint Decision-Making** | Planning Agent | Level 4: Le azioni proposte includono justificazione e gradi di confidenza? |
-| **Metacognition** | Communication Agent | Level 4: Il sistema monitora la qualità del suo ragionamento? |
-| **Autonomy** | (Future work) | Level 5: No supervisione umana (out of scope tesi MVP) |
+| **Situation Awareness** | Perception Agent | Level 1: CDT and operator agree on RSRP/SINR/throughput state |
+| **Mental Model** | Neo4j KG + Planning Agent | Level 2: KG encodes 3GPP policies and constraints |
+| **Intent Alignment** | Reasoning Agent | Level 3: explanations are interpretable and actionable |
+| **Joint Decision-Making** | Planning Agent | Level 4: actions include justification + confidence |
+| **Metacognition** | Communication Agent | Level 4: system monitors reasoning quality |
+| **Autonomy** | (Future work) | Level 5: no human supervision (out of scope for MVP) |
 
-### Pro / Contro Come Fonte
+### Pros / Cons as a Source
 
-| Dimensione | Pro | Contro |
+| Dimension | Pro | Con |
 |---|---|---|
-| **Framework Valutazione** | MMCI risolve il gap principale della tesi (come misurare reasoning senza ground truth) | Metriche quantitative ancora non definite — framework è qualitativo/preliminare |
-| **Sei Funzioni** | Estende Zheng et al. con dimensione di valutazione empirica | Non aggiunge novità rispetto a Zheng per l'architettura pura |
-| **CLARION vs LLM** | Chiarisce il trade-off architetturale: simbolico vs neural | Pre-LLM, quindi niente su valutazione output linguaggio naturale, allucinazioni, etc. |
-| **Dominio HRC** | Metodologia di valutazione è domain-agnostic, trasferibile a 5G | Zero trasferibilità verticale (HRC ≠ RAN management per specifiche politiche) |
-| **Human Alignment** | Introduce la dimensione operatore umano (good for CDT+human) | Tua tesi è autonomismo puro (Perception→Reasoning→Planning autonomo), non collaborative |
+| **Evaluation framework** | MMCI addresses the thesis’s core gap (how to assess reasoning without ground truth) | Quantitative metrics are still under-defined; largely qualitative/preliminary |
+| **Six functions** | Extends Zheng et al. with an empirical evaluation lens | Limited novelty vs Zheng on pure architecture |
+| **CLARION vs LLM** | Clarifies the symbolic vs neural trade-off | Pre-LLM context: does not address natural-language outputs, hallucinations, etc. |
+| **HRC domain** | Evaluation methodology is domain-agnostic and transferable | Low vertical transferability (HRC ≠ RAN ops policies/constraints) |
+| **Human alignment** | Explicitly includes the human operator dimension | Your thesis is primarily autonomous (Perception→Reasoning→Planning), not collaborative |
 
-### Appunti Contestualizzati per il Relatore
+### Notes for Advisor
 
-**Se chiede: "Come valuti il Reasoning Agent?"**
+**If asked: "How do you evaluate the Reasoning Agent?"**
 
-> "Adotto il framework MMCI proposto da Al-Haj Ali et al. (2025) come griglia di valutazione qualitativa. Per il Reasoning Agent, miro a Level 3 (Intent & Reasoning Alignment): le spiegazioni causali prodotte dall'LLM devono essere interpretabili da un operatore esperto e congruenti con il modello di dominio (KG Neo4j). Le metriche sono: LLM-as-judge (modello più grande valuta coerenza della diagnosi), multi-agent agreement (consensus tra Llama/Mistral/Phi-3/Qwen), calibration confidence (i gradi di sicurezza stimati corrispondono all'accuracy reale)."
+> "I adopt MMCI (Al-Haj Ali et al., 2025) as a qualitative evaluation grid. For the Reasoning Agent, the target is Level 3 (Intent & Reasoning Alignment): the LLM’s causal explanations should be interpretable to an expert operator and consistent with the domain model (Neo4j KG). Practical signals include: LLM-as-judge (a stronger model scores coherence), multi-model agreement (consensus across Llama/Mistral/Phi-3/Qwen), and confidence calibration (estimated confidence tracks empirical accuracy)."
 
-**Se chiede: "Perché MMCI?"**
+**If asked: "Why MMCI?"**
 
-> "Il paper identifica il problema centrale della mia tesi: non esiste ground truth 'oggettivo' per valutare il reasoning cognitivo. MMCI non risolve questo completamente, ma propone di misurare l'allineamento tra il modello interno del sistema (KG) e le previsioni/azioni che il sistema fa — è un proxy credibile di qualità di reasoning senza dover aspettare outcome fisici."
+> "The paper identifies the thesis’s central problem: there is no fully objective ground truth to evaluate cognitive reasoning. MMCI does not solve this completely, but proposes measuring alignment between the system’s internal model (KG) and the predictions/actions it produces — a credible proxy for reasoning quality without waiting for physical outcomes."
 
-**Se chiede: "Quanto di Al-Haj Ali applichi davvero?"**
+**If asked: "How much of Al-Haj Ali do you actually apply?"**
 
-> "Applico il framework MMCI come struttura di valutazione qualitativa, non la specifiche implementazione (CLARION + robot UR5e + HRC). La mia tesi sostituisce CLARION con una pipeline multi-agente LLM-based e adatta il framework al dominio 5G. Il paper valida il concetto; la mia tesi lo implementa con tecnologie contemporanee (LLM locali) e lo misura su task telecom."
+> "I apply MMCI as a qualitative evaluation scaffold, not the specific implementation (CLARION + UR5e robot + HRC). The thesis replaces CLARION with an LLM-based multi-agent pipeline and adapts MMCI to the 5G domain. The paper validates the framework idea; the thesis implements it with modern tooling (local LLMs) and evaluates it on telecom tasks."
 
 ---
 
-### Dimensioni Strutturali
+### Structural Dimensions
 
-- **Argomento supportato:** Framework di valutazione MMCI per agenti cognitivi; sei funzioni cognitive estese con dimensione di valutazione
-- **Gap colmato:** Metodologico — risolve il rischio critico di valutazione, fornisce griglia qualitativa quando ground truth è assente
-- **Posizione scaffolding:** **Capitolo 5 — Metodologia di Valutazione**, sezione 5.1 (MMCI framework) e 5.2 (mapping su agenti)
-- **Tensioni:** No contraddizioni, è una estensione naturale di Zheng et al. (2022)
-- **Concetti introdotti:** MMCI framework, five levels of maturity, shared situation awareness, intent alignment, metacognition
+- **Supported topic:** MMCI evaluation/maturity framework for cognitive agents; evaluation lens over six cognitive functions
+- **Gap closed:** Methodological — provides a qualitative scaffold when explicit ground truth is absent
+- **Scaffolding position:** **Chapter 5 — Evaluation Methodology**, sections on MMCI + agent mapping
+- **Tensions:** None; a natural extension of Zheng et al. (2022)
+- **Concepts introduced:** MMCI framework, five maturity levels, shared situation awareness, mental model alignment, joint decision-making
 
 ---
 
-## Concetti Introdotti
+## Concepts Introduced
 
-- [[mmci-framework]] — Multi-Modal Cognitive Interoperability, 5 livelli di maturità
-- [[shared-situation-awareness]] — Level 1 di MMCI
-- [[mental-model-alignment]] — Level 2–3 di MMCI
-- [[joint-decision-making]] — Level 4–5 di MMCI
+- [[mmci-framework]] — Multi-Modal Cognitive Interoperability (5 maturity levels)
+- [[shared-situation-awareness]] — MMCI Level 1
+- [[mental-model-alignment]] — MMCI Level 2
+- [[joint-decision-making]] — MMCI Level 4
 
 ---
 
 ## Related Pages
 
-- [[scaffolding-tesi]] — Articolo centrale
-- [[sources/zheng-et-al-2022-cdt]] — Fondazione teorica (sei funzioni)
+- [[scaffolding-tesi]] — Central thesis argument
+- [[sources/zheng-et-al-2022-cdt]] — Theoretical foundation (six functions)
 - [[glossary]] — MMCI, LLM-as-judge, confidence calibration
-- [[theoretical-concepts/six-cognitive-functions]] — Estensione valutazione
-- [[sources/multiagent-bench-2025]] — Metriche concrete per agenti multi-agent
-- [[theoretical-concepts/knowledge-graph-in-cdt]] — Dual-KG come implementazione di Mental Models
+- [[theoretical-concepts/six-cognitive-functions]] — Function-level evaluation lens
+- [[sources/multiagent-bench-2025]] — Concrete evaluation metrics for agents
+- [[theoretical-concepts/knowledge-graph-in-cdt]] — Dual-KG as an implementation of shared mental models

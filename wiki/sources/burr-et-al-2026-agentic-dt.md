@@ -2,201 +2,202 @@
 title: "Agentic Digital Twins: A Taxonomy of Capabilities for Understanding Possible Futures"
 type: source
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-28
 authors: [Christopher Burr, Mott MacDonald, Alan Turing Institute]
 year: 2026
 sources: [burr-2026-agentic-dt, valore-tesi-riassunto]
 tags: [agentic-systems, risk-taxonomy, performative-prediction, DT-governance]
-contributo-tesi: "1-architettura, rischio-metodologico"
+thesis-contribution: 1-architecture
 ---
 
 # Burr et al. (2026) — Agentic Digital Twins: A Taxonomy of Capabilities
 
-**Autori:** Christopher Burr, Mott MacDonald, Alan Turing Institute, Fujitsu, Università di Sheffield  
-**Pubblicato:** Gennaio 2026 — arXiv:2601.18799 [cs.CY]  
-**Rilevanza tesi:** **ALTA** — Fornisce positioning framework per il sistema + formalizza rischi metodologici critici
+**Authors:** Christopher Burr, Mott MacDonald, Alan Turing Institute, Fujitsu, University of Sheffield  
+**Published:** January 2026 — arXiv:2601.18799 [cs.CY]  
+**Thesis relevance:** **HIGH** — Provides a positioning framework and formalizes key methodological risks
 
 ---
 
-## 🎯 Idea Centrale
+## 🎯 Core Idea
 
-Un Digital Twin agentivo non si limita a _rappresentare_ un sistema fisico; lo _co-costituisce_, cambiando la realtà che misura. Questo processo è formalizzato come **performatività**: il modello deployato con parametri θ cambia la distribuzione dei dati che raccoglierà `D(θ)`.
+An agentic Digital Twin does not merely _represent_ a physical system; it can _co-constitute_ it, changing the reality it measures. This is framed as **performativity**: a deployed model with parameters $\theta$ changes the data distribution it will later observe, $D(\theta)$.
 
-Il paper propone una tassonomia di 27 configurazioni possibili di DT agentivi, organizzate in 3 cluster temporali:
-- **Cluster 1 (The Present):** Tecnologicamente maturo, già deployato
-- **Cluster 2 (The Threshold):** Raggiungibile a breve, con rischi di governance immediati
-- **Cluster 3 (The Frontier):** Per lo più teorico
+The paper proposes a taxonomy of 27 possible configurations, organized into 3 temporal clusters:
+- **Cluster 1 (The Present):** technologically mature, already deployed
+- **Cluster 2 (The Threshold):** near-term, with immediate governance risks
+- **Cluster 3 (The Frontier):** mostly theoretical
 
 ---
 
-## 📐 Il Framework: 3 Dimensioni × 3 Livelli
+## 📐 The Framework: 3 Dimensions × 3 Levels
 
-Ogni DT agentivo si classifica con una tripla `(Agency, Coupling, Evolution)`:
+Each agentic DT is classified by a triple `(Agency, Coupling, Evolution)`:
 
-| Dimensione | Livello 1 | Livello 2 | Livello 3 |
+| Dimension | Level 1 | Level 2 | Level 3 |
 |---|---|---|---|
-| **Agency** (dove si decide) | `E` External | `I` Internal | `D` Distributed |
-| **Coupling** (frequenza interazione) | `L` Loose (batch) | `T` Tight (real-time) | `C` Constitutive (co-definizione) |
-| **Evolution** (cambiamento modello) | `S` Static (fisso) | `A` Adaptive (parametri aggiornabili) | `R` Reconstructive (ridefinisce categorie) |
+| **Agency** (where decisions are made) | `E` External | `I` Internal | `D` Distributed |
+| **Coupling** (interaction frequency) | `L` Loose (batch) | `T` Tight (real-time) | `C` Constitutive (co-definition) |
+| **Evolution** (model change) | `S` Static (fixed) | `A` Adaptive (updatable parameters) | `R` Reconstructive (redefines categories) |
 
 ---
 
-## 🗺️ Le 9 Configurazioni Principali
+## 🗺️ The 9 Main Configurations
 
-### Cluster 1 — The Present (Esiste Oggi)
+### Cluster 1 — The Present (Exists Today)
 
-| # | Nome | Codice | Descrizione | Esempio |
+| # | Name | Code | Description | Example |
 |---|---|---|---|---|
-| 1 | Computational Tool | `(E,L,S)` | Strumento passivo, nessuna autonomia | Google Maps, DT cardiaco |
-| 2 | Adaptive Monitor | `(E,T,A)` | Real-time ma l'umano comanda, sistema apprende parametri | DT fabbrica con ML online |
-| 3 | **Active Steering** | `(I,T,A)` | **TESI QUI** — Agency interna, tight coupling, modello adattivo | DT manifatturiero con agenti autonomi |
+| 1 | Computational Tool | `(E,L,S)` | Passive tool, no autonomy | Google Maps, cardiac DT |
+| 2 | Adaptive Monitor | `(E,T,A)` | Real-time monitoring where humans command; system adapts parameters | Factory DT with online ML |
+| 3 | **Active Steering** | `(I,T,A)` | **THESIS HERE** — internal agency, tight coupling, adaptive model | Manufacturing DT with autonomous agents |
 
-### Cluster 2 — The Threshold (Raggiungibile a Breve)
+### Cluster 2 — The Threshold (Near-Term)
 
-| # | Nome | Codice | Descrizione | Rischio |
+| # | Name | Code | Description | Risk |
 |---|---|---|---|---|
-| 4 | Symbiotic | `(D,T,A)` | Agency emerge dall'interazione, nessuno controlla | Smart city senza governo |
-| 5 | **Governor** | `(I,C,A)` | **MASSIMO RISCHIO** — DT definisce cosa misura → lock-in | Singapore e-road pricing |
-| 6 | Swarm | `(D,T,S)` | Fleet autonomo con modelli statici → emergenza caotica | Phantom jams traffico |
+| 4 | Symbiotic | `(D,T,A)` | Agency emerges from interaction; no single controller | Ungoverned smart city |
+| 5 | **Governor** | `(I,C,A)` | **MAXIMUM RISK** — DT defines what it measures → lock-in | Singapore e-road pricing |
+| 6 | Swarm | `(D,T,S)` | Autonomous fleet with static models → chaotic emergence | Phantom traffic jams |
 
-### Cluster 3 — The Frontier (Teorico)
+### Cluster 3 — The Frontier (Theoretical)
 
-| # | Nome | Codice | Descrizione |
+| # | Name | Code | Description |
 |---|---|---|---|
-| 7 | Worldbuilder | `(E,L,R)` | Ricostituisce ontologia con human-in-loop | AlphaFold-style |
-| 8 | Voyager | `(I,T,R)` | Autonomo + ricostruisce categorie → inscrutable | Fantascienza |
-| 9 | Reconstructive Assemblage | `(D,C,R)` | Sistemi multipli che si ridefiniscono reciprocamente | Fantascienza |
+| 7 | Worldbuilder | `(E,L,R)` | Reconstructs ontology with human-in-the-loop | AlphaFold-style |
+| 8 | Voyager | `(I,T,R)` | Autonomous + reconstructs categories → inscrutable | Speculative |
+| 9 | Reconstructive Assemblage | `(D,C,R)` | Multiple systems that redefine each other | Speculative |
 
 ---
 
-## ⚡ Concetto Critico: Performative Prediction
+## ⚡ Critical Concept: Performative Prediction
 
-Basato su **Perdomo et al. (ICML 2020)** e **Hardt & Mendler-Dünner (Statistical Science 2025)**
+Based on **Perdomo et al. (ICML 2020)** and **Hardt & Mendler-Dünner (Statistical Science 2025)**
 
-### La Matematica
+### The Math
 
-Un modello deployato con parametri θ cambia la distribuzione dei dati che raccoglierà:
+A deployed model with parameters $\theta$ changes the data distribution it will later observe:
 
-$$\text{Distribuzione} = D(\theta)$$
+$$\text{Distribution} = D(\theta)$$
 
-Il vero obiettivo non è minimizzare il rischio su dati storici, ma su quelli che il modello stesso creerà:
+The true objective is not minimizing risk on historical data, but on the data the model itself will create:
 
 $$\min_{\theta} \text{Risk}(\theta, D(\theta))$$
 
-### Il Punto di Performative Stability
+### Performative Stability Point
 
-Il **punto di equilibrio performativo** θ_PS è quando il modello sembra ottimale _perché ha creato la distribuzione su cui viene valutato_:
+The **performative stability point** $\theta_{PS}$ is when the model appears optimal _because it created the distribution on which it is evaluated_:
+The **performative stability point** $\theta_{PS}$ is when the model appears optimal _because it created the distribution on which it is evaluated_:
 
-- Modello predice: "azione X risolve il problema Y"
-- Modello esegue X
-- Metriche cambiano a causa di X
-- Al ciclo successivo X appare ancora "ottimale"
-- **Lock-in:** il sistema non può distinguere tra "X realmente ottimale" e "X ottimale per questa distribuzione ristretta"
+- Model predicts: "action X solves problem Y"
+- Model executes X
+- Metrics change because of X
+- On the next cycle, X appears optimal again
+- **Lock-in:** the system cannot distinguish between "X is truly optimal" and "X is optimal for this narrowed, self-induced distribution"
 
-### Esempio 5G (Dalla Tesi)
+### 5G Example (Thesis-Specific)
 
 ```
-Ciclo 1:
+Cycle 1:
   - Reasoning Agent diagnostica: "SINR basso causa handover failure"
   - Planning Agent propone: "Aumenta Tx power gNB-B1 di 3dB"
   - Azione eseguita
 
-Ciclo 2:
+Cycle 2:
   - Perception Agent osserva: SINR migliore, handover failure ridotto ✓
   - Reasoning Agent apprende correlazione: "Aumentare Tx = risolvere SINR"
 
-Ciclo N (performative lock-in):
-  - Sistema converge su "aumentare Tx è sempre ottimale"
-  - MA: Il sistema ha cambiato la distribuzione delle metriche con le sue azioni
-  - Non sa se "aumentare Tx" è ottimale per la rete fisica o solo per questa versione modificata
-  - Non può scoprire soluzioni alternative perché tutti i cicli seguenti vedranno la stessa distribuzione
+Cycle N (performative lock-in):
+  - System converges on "increasing Tx is always optimal"
+  - BUT: the system changed the metric distribution through its actions
+  - It cannot tell whether "increase Tx" is optimal for the real network, or only for this altered version
+  - It cannot discover alternatives because subsequent cycles see the same self-shaped distribution
 ```
 
 ---
 
-## 🎯 Mapping Alla Tesi: Positioning (I,T,A)
+## 🎯 Mapping to the Thesis: Positioning (I,T,A)
 
-**La tesi propone esattamente la configurazione Active Steering `(I,T,A)`:**
+**The thesis aims for the Active Steering configuration `(I,T,A)`:**
 
-| Dimensione | Implementazione Tesi |
+| Dimension | Thesis Implementation |
 |---|---|
-| **Agency = Internal** | Agenti LLM (Perception, Reasoning, Planning, Communication) decidono autonomamente senza intervento umano; il Planning Agent non attende approvazione |
-| **Coupling = Tight** | Eclipse Ditto via WebSocket per sincronizzazione real-time (non batch); ciclo completo ~500ms-2s |
-| **Evolution = Adaptive** | Reasoning Agent apprende pattern da anomalie; KG si popola con correlazioni storiche; Planning Agent evolve la selezione di azioni |
+| **Agency = Internal** | LLM agents (Perception, Reasoning, Planning, Communication) decide autonomously; the Planning Agent does not wait for approval |
+| **Coupling = Tight** | Eclipse Ditto via WebSocket for real-time synchronization (not batch); full loop ~500ms–2s |
+| **Evolution = Adaptive** | Reasoning Agent learns patterns from anomalies; KG accumulates historical correlations; Planning Agent evolves action selection |
 
 ---
 
-## 🚨 Rischio Principale: Deriva verso Governor (I,C,A)
+## 🚨 Main Risk: Drift toward Governor (I,C,A)
 
-Il paper identifica il **Governor** `(I,C,A)` come la configurazione più pericolosa per i DT con agency interna:
+The paper identifies **Governor** `(I,C,A)` as the most dangerous configuration for DTs with internal agency:
 
-| Aspetto | Rischio per la Tesi |
+| Aspect | Thesis Risk |
 |---|---|
-| **Agency interno** | ✅ Intenzionale (tesi) |
-| **Coupling tight** | ✅ Intenzionale (tesi) — WebSocket real-time |
-| **Constitutive coupling** | ⚠️ **RISCHIO** — Se il Planning Agent inizia a _ridefinire_ le metriche KPI (es. "SINR basso = situazione impossibile", ignorando i dati), il sistema entra nella modalità Governor |
-| **Performative lock-in** | ⚠️ **RISCHIO** — Il sistema potrebbe convergere su soluzioni che funzionano _perché ha cambiato la distribuzione_, non perché siano ottimali per la rete reale |
+| **Internal agency** | ✅ Intentional (thesis) |
+| **Tight coupling** | ✅ Intentional (thesis) — real-time WebSocket |
+| **Constitutive coupling** | ⚠️ **RISK** — if the Planning Agent starts to _redefine_ KPI meaning (e.g., "low SINR is impossible", ignoring data), the system drifts toward Governor |
+| **Performative lock-in** | ⚠️ **RISK** — the system may converge on solutions that work _because it changed the distribution_, not because they are optimal for the real network |
 
-### Guardrail: Il Knowledge Graph
+### Guardrail: The Knowledge Graph
 
-Il **Neo4j KG che valida i vincoli operativi prima dell'esecuzione** è il meccanismo architetturale che impedisce questa deriva:
+The **Neo4j KG that validates operational constraints before execution** is the architectural mechanism that helps prevent this drift:
 
-1. **KG rimane external:** I vincoli 3GPP codificati in KG non verranno riscritti dal Planning Agent
-2. **Constraint checking:** Ogni azione del Planning Agent deve rispettare i vincoli KG (limiti termici, limiti backhaul, SLA)
-3. **Audit trail:** Tutte le validazioni fallite sono registrate → il sistema non può fingere che un vincolo non esista
-4. **Performative boundary:** Il KG mantiene il sistema entro i limiti fisici della rete 5G, impedendo il lock-in su distribuzioni fittizie
+1. **KG stays external:** 3GPP constraints encoded in the KG cannot be rewritten by the Planning Agent
+2. **Constraint checking:** every proposed action must satisfy KG constraints (thermal limits, backhaul limits, SLAs)
+3. **Audit trail:** failed validations are logged → the system cannot “pretend” constraints do not exist
+4. **Performative boundary:** the KG keeps the system within physical/operational boundaries, reducing lock-in to artificial distributions
 
 ---
 
-## 📋 Pro & Contro per la Tesi
+## 📋 Pros & Cons for the Thesis
 
-### ✅ Aspetti Utili
+### ✅ Useful Aspects
 
-| Aspetto | Utilità |
+| Aspect | Use |
 |---|---|
-| **Framework di positioning** | Consente posizionamento esatto: "Configurazione Active Steering (I,T,A) per evitare deriva verso Governor" |
-| **Vocabolario condiviso** | Nel Related Work puoi usare codice (I,T,A) e tutti capiscono immediatamente il livello di autonomia |
-| **Formalizzazione del rischio** | Performative prediction fornisce **vocabolario riconosciuto** per spiegare il rischio principale della tesi |
-| **Giustificazione architetturale** | Spiega **perché** il Knowledge Graph è mandatorio, non opzionale |
-| **Sezione rischi & limitazioni** | Puoi dichiare apertamente: "Il sistema è in configurazione (I,T,A) con guardrail KG per prevenire deriva verso (I,C,A)" |
+| **Positioning framework** | Enables precise positioning: “Active Steering (I,T,A) while avoiding drift toward Governor” |
+| **Shared vocabulary** | In Related Work you can use (I,T,A) and readers immediately understand autonomy level |
+| **Risk formalization** | Performative prediction gives recognized vocabulary for the thesis’s main methodological risk |
+| **Architectural justification** | Explains why a Knowledge Graph guardrail is mandatory, not optional |
+| **Risks & limitations section** | Lets you state: “System is (I,T,A) with KG guardrails to prevent drift toward (I,C,A)” |
 
-### ❌ Limitazioni
+### ❌ Limitations
 
-| Aspetto | Motivo |
+| Aspect | Rationale |
 |---|---|
-| **Zero empirismo** | Nessun esperimento numerico, nessun benchmark; utile come vocabolario, non come guida implementativa |
-| **Non copre LLM specificamente** | Tassonomia è agnostica rispetto al technology stack; non parla di Llama, Mistral, quantizzazione |
-| **Non copre 5G** | Casi di studio sono traffico stradale (toy model) e manifattura; non telco |
-| **Non copre valutazione** | Nessun suggerimento su come misurare se un sistema è realmente in (I,T,A) vs (I,C,A) |
+| **No empirical results** | No numerical experiments/benchmarks; useful as vocabulary, not as implementation guidance |
+| **Not LLM-specific** | The taxonomy is stack-agnostic; it does not discuss Llama, Mistral, quantization |
+| **No 5G coverage** | Case studies focus on road traffic (toy model) and manufacturing; not telecom |
+| **No evaluation method** | No guidance on how to measure whether a system is truly (I,T,A) vs (I,C,A) |
 
 ---
 
-## 📝 Appunti per il Relatore
+## 📝 Notes for Advisor
 
-Se il relatore chiede domande critiche sulla governance del sistema:
+If the advisor raises governance-critical questions:
 
-**D: "Come si è sicuri che il sistema non drifta verso configurazione Governor?"**
+**Q: "How do you ensure the system does not drift toward the Governor configuration?"**
 
-R: "Il Knowledge Graph implementa un guardrail architetturale esplicito — i vincoli 3GPP sono codificati in schema Neo4j immutabile dal Planning Agent. Questo mantiene il sistema meccanicamente ancorato al livello (I,T,A) [Burr et al. 2026 Active Steering] e impedisce il lock-in performativo in distribuzioni fittizie."
+A: "The Knowledge Graph is an explicit architectural guardrail: 3GPP constraints are encoded in an immutable Neo4j schema that the Planning Agent cannot change. This mechanically anchors the system to (I,T,A) (Burr et al., 2026 Active Steering) and reduces performative lock-in to artificial distributions."
 
-**D: "Cosa succede se il Reasoning Agent 'impara' correlazioni false?"**
+**Q: "What if the Reasoning Agent learns spurious correlations?"**
 
-R: "È precisamente il rischio di performative prediction [Burr et al. 2026, Perdomo ICML 2020]: il sistema potrebbe convergere su una soluzione che _sembra ottimale_ perché ha modificato la distribuzione con le sue azioni, non perché sia realmente ottimale per la rete 5G. Questo è uno dei motivi per cui facciamo fault injection controllata — perturbazione esterna del simulatore che il sistema non controlla — per rilevare se il sistema ha effettivamente imparato pattern stabili o se è in lock-in performativo."
+A: "That is exactly the performative prediction risk (Burr et al., 2026; Perdomo ICML 2020): the system may converge on a solution that _appears optimal_ because it reshaped the distribution through its actions, not because it is truly optimal for a real 5G network. This motivates controlled fault injection — external perturbations the system does not control — to detect whether it learned stable patterns or is stuck in performative lock-in."
 
-**D: "Quindi il rischio principale è performative lock-in?"**
+**Q: "So is the main risk performative lock-in?"**
 
-R: "Esattamente. Con il simulatore 3GPP virtuale otteniamo rapidità di ciclo e ripetibilità, ma perdiamo il "reality check" di una rete fisica reale che il sistema non controlla. Abbiamo incorporato tre meccanismi per mitigare: (1) vincoli KG immutabili, (2) fault injection esterna, (3) multi-agent agreement su diagnosi per rilevare divergenza dalle leggi fisiche note."
-
----
-
-## 🔗 Concetti Introdotti
-
-- [[agentic-dt-risk-taxonomy]] — La tassonomia delle 9 configurazioni
-- [[performative-prediction]] — Il rischio di lock-in performativo
+A: "Yes. With a virtual 3GPP simulator we gain fast cycles and repeatability, but we lose the ‘reality check’ of a physical network the system cannot control. Mitigations include: (1) immutable KG constraints, (2) external fault injection, and (3) multi-model agreement on diagnoses to detect divergence from known physical constraints."
 
 ---
 
-## 📚 Riferimenti Fondamentali da Approfondire
+## 🔗 Concepts Introduced
+
+- [[agentic-dt-risk-taxonomy]] — The 9-configuration taxonomy
+- [[performative-prediction]] — Performative lock-in risk
+
+---
+
+## 📚 References Worth Following Up
 
 1. **Performative Prediction:** Perdomo et al., ICML 2020 | Hardt & Mendler-Dünner, _Statistical Science_ 2025
 2. **Steering Representations:** Korenhof, Blok & Kloppenburg, _Philosophy & Technology_ 2021
@@ -205,13 +206,13 @@ R: "Esattamente. Con il simulatore 3GPP virtuale otteniamo rapidità di ciclo e 
 
 ---
 
-## 🎬 Ruolo nello Scaffolding
+## 🎬 Role in the Scaffolding
 
-**Sezioni impattate:**
-- **Cap. 1 (Introduzione):** Positioning con codice (I,T,A)
-- **Cap. 3 (Related Work):** Vocabolario e framework di governance per DT agentivi
-- **Cap. 5 (Metodologia):** Performative prediction come rischio metodologico centrale
-- **Cap. 8 (Discussione):** Limitazioni del sistema entro frontiera (I,T,A) e prevenzione deriva verso (I,C,A)
+**Impacted sections:**
+- **Ch. 1 (Introduction):** positioning with (I,T,A)
+- **Ch. 3 (Related Work):** vocabulary + governance framing for agentic DTs
+- **Ch. 5 (Methodology):** performative prediction as a central methodological risk
+- **Ch. 8 (Discussion):** limitations of operating at (I,T,A) and preventing drift toward (I,C,A)
 
 ---
 

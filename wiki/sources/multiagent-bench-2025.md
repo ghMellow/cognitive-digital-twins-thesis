@@ -2,29 +2,29 @@
 title: MultiAgentBench — MARBLE Framework (2025)
 type: source
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-28
 sources: [b.1_Multi Agent Bench/Valore per la mia tesi.md, b.1_Multi Agent Bench/riassunto.md]
 tags: [multi-agent-systems, evaluation-framework, LLM-agents, coordination, benchmark, milestone-KPI]
 ---
 
 # MultiAgentBench — Zhu et al. (2025)
 
-Paper cruciale per **Contributo 2 (Framework di Valutazione)**. Introduce MARBLE (_Multi-agent cooRdination Backbone with LLM Engine_) — framework per misurare non solo task completion ma qualità di collaborazione/competizione tramite KPI basati su milestone. **Posizione nella tesi**: Cap. 5 (Metodologia Valutazione) — fornisce template metodologico per evaluation design.
+A crucial paper for **Contribution 2 (evaluation framework)**. It introduces MARBLE (_Multi-agent cooRdination Backbone with LLM Engine_) — a framework to measure not only task completion but also the quality of collaboration/competition via milestone-based KPIs. **Thesis placement**: Ch. 5 (Evaluation Methodology) — provides a methodological template for evaluation design.
 
 ---
 
-## 🎯 Chi Sono
+## 🎯 Metadata
 
-- **Autori:** Kunlun Zhu et al. — University of Illinois Urbana-Champaign
-- **Pubblicato:** 3 Marzo 2025
+- **Authors:** Kunlun Zhu et al. — University of Illinois Urbana-Champaign
+- **Published:** March 3, 2025
 - **Ref:** arXiv:2503.01935v1
-- **Codice:** https://github.com/MultiagentBench/MARBLE
+- **Code:** https://github.com/MultiagentBench/MARBLE
 
 ---
 
 ## 📋 Framework MARBLE
 
-Architettura di coordinamento per sistemi multi-agente:
+Coordination architecture for multi-agent systems:
 
 ```
 Task Info + Domain Database
@@ -41,119 +41,119 @@ Evaluator → Task Score + Coordination Score
 
 ---
 
-## ✅ Aree Critiche per la Tua Tesi
+## ✅ What Matters for the Thesis
 
-### 1. **Milestone-Based KPI** (Direttamente Adattabile)
+### 1. **Milestone-Based KPI** (Directly Adaptable)
 
-**Il problema:** Come misuri un sistema multi-agente quando l'output non è binario? Response time? Token count? Qualità della spiegazione?
+**Problem:** how do you measure a multi-agent system when the output is not binary? Response time? Token count? Explanation quality?
 
-**Loro:** Spezzano ogni task in milestone flessibili monitorate da un LLM evaluator in real-time.
+**Their approach:** split each task into flexible milestones monitored by an LLM evaluator in real-time.
 
-**Applcazione tesi:** Ogni fault injection scenario ha milestones:
-1. ✅ Anomalia percepita correttamente da Perception Agent
-2. ✅ Root cause identificata dal Reasoning Agent con confidence > threshold
-3. ✅ Azione correttiva proposta dal Planning Agent
-4. ✅ Azione validata contro Neo4j KG vincoli
-5. ✅ Report generato con spiegazione causale dal Communication Agent
-6. ✅ KPI del simulatore migliorati post-azione
+**Thesis adaptation:** each fault-injection scenario becomes a milestone sequence:
+1. ✅ Anomaly correctly perceived by the Perception Agent
+2. ✅ Root cause identified by the Reasoning Agent with confidence > threshold
+3. ✅ Corrective action proposed by the Planning Agent
+4. ✅ Action validated against Neo4j KG constraints
+5. ✅ Report generated with a causal explanation by the Communication Agent
+6. ✅ Simulator KPIs improve after the action
 
-**Benefit:** Non è tutto-o-niente; ogni milestone raggiunto = progresso misurabile. Puoi assegnare score parziali e identificare dove la pipeline fallisce.
+**Benefit:** not all-or-nothing; each achieved milestone is measurable progress. You can assign partial scores and locate where the pipeline fails.
 
-### 2. **Task Score vs Coordination Score** (Separazione Critica)
+### 2. **Task Score vs Coordination Score** (Critical Separation)
 
-**Loro:** Due metriche indipendenti:
-- **Task Score** — Qualità dell'output finale (accuratezza della diagnosi)
-- **Coordination Score** — Qualità dell'interazione tra agenti (passaggio di contesto, consistenza)
+**Their framework:** two independent metrics:
+- **Task Score** — final output quality (e.g., diagnosis correctness)
+- **Coordination Score** — interaction quality between agents (context passing, consistency)
 
-**Per tesi:**
-- **Task Score (Perception)** → Anomalia rilevata? (ground truth: metriche simulatore)
-- **Task Score (Reasoning)** → Root cause corretta? (ground truth: sarebbe da LLM-as-judge)
-- **Task Score (Planning)** → Azione feasible? (ground truth: KG validation)
-- **Task Score (Communication)** → Spiegazione coerente? (ground truth: LLM-as-judge)
-- **Coordination Score** → Pipeline coordinata senza perdita di contesto/token? (graph traversal score)
+**For the thesis:**
+- **Task Score (Perception)** → anomaly detected? (ground truth: simulator metrics)
+- **Task Score (Reasoning)** → correct root cause? (ground truth: often needs LLM-as-judge)
+- **Task Score (Planning)** → feasible action? (ground truth: KG validation)
+- **Task Score (Communication)** → coherent explanation? (ground truth: LLM-as-judge)
+- **Coordination Score** → coordinated pipeline without context/token loss? (graph traversal score)
 
-**Benefit:** Identifichi se il problema è in un agente specifico o nel coordinamento. Rende la diagnostica dell'architettura precisa.
+**Benefit:** you can tell whether the issue is in a specific agent or in coordination. It makes architectural debugging more precise.
 
-### 3. **LLM-as-Judge per Output Non Strutturati**
+### 3. **LLM-as-Judge for Non-Structured Outputs**
 
-**Loro:** Communication Score e Planning Score valutati da LLM evaluator su scala 1-5.
+**Their approach:** Communication Score and Planning Score are rated by an LLM evaluator on a 1–5 scale.
 
-**Per tesi:** 
-- **Communication Agent** → Report in linguaggio naturale valutato da Llama 3.1 70B (evaluator) su scala di coerenza causale + completezza
-- **Reasoning Agent** → Spiegazione di root cause valutata da LLM evaluator su: plausibilità + alignment con vincoli 3GPP
+**For the thesis:**
+- **Communication Agent** → natural-language report rated by Llama 3.1 70B (evaluator) on causal coherence + completeness
+- **Reasoning Agent** → root-cause explanation rated for plausibility + alignment with 3GPP constraints
 
-**Benefit:** A quando manca ground truth esplicito, le metriche LLM-as-judge sono standardizzate e reproducibili. **PERO':** Il paper stesso ammette il rischio di autoreferenzialità (LLM valuta LLM) — la tua mitigazione è affiancare sempre ground truth dove possibile (simulatore, KG, multi-model agreement).
+**Benefit:** when explicit ground truth is missing, LLM-as-judge metrics are standardized and reproducible. **However:** the paper acknowledges the self-referentiality risk (LLM evaluates LLM). The thesis mitigation is to pair external ground truth whenever possible (simulator, KG, multi-model agreement).
 
-### 4. **Benchmark Comparativo Modelli** (Contributo 3)
+### 4. **Comparative Model Benchmark** (Contribution 3)
 
-**Loro:** Testano 5 modelli (Llama-3.1-8B, Llama-3.1-70B, Llama-3.3-70B, GPT-3.5, GPT-4o-mini) sugli stessi task con stesso protocollo.
+**Their setup:** test 5 models (Llama-3.1-8B, Llama-3.1-70B, Llama-3.3-70B, GPT-3.5, GPT-4o-mini) on the same tasks with the same protocol.
 
-**Per tesi:** 
-- Stessa pipeline, modelli diversi (Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B)
-- Scenari fissi (fault injection 5G)
-- Ground truth dal simulatore
+**For the thesis:**
+- Same pipeline, different models (Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B)
+- Fixed scenarios (5G fault injection)
+- Ground truth from the simulator
 
-**Differenza chiave:** Loro testano modelli large; tu testast model small locali. Il tuo contributo è dimostrare che agenti su hardware consumer (3-8B quantizzati) possono raggiungere accuracy comparabile su dominio specializzato (5G fault diagnosis), senza cloud.
+**Key difference:** they emphasize large models; the thesis targets small local models. The contribution is showing that agents on consumer hardware (quantized 3–8B) can achieve comparable accuracy on a specialized domain (5G fault diagnosis) without cloud.
 
 ---
 
 ## 📊 Integrazione nello Scaffolding
 
-### Cap. 5 (Metodologia Valutazione)
-- Adotta milestone-based KPI framework
-- Implementa separazione Task Score / Coordination Score
-- Definisci LLM-as-judge come valutatore per output non strutturati
-- Documenta ground truth sources (simulatore, KG, multi-agent agreement)
+### Ch. 5 (Evaluation Methodology)
+- Adopt a milestone-based KPI framework
+- Implement the Task Score / Coordination Score separation
+- Define LLM-as-judge for non-structured outputs
+- Document ground truth sources (simulator, KG, multi-model agreement)
 
-### Cap. 6 (Implementazione)
-- Descrivi come MARBLE si istanzia in LangGraph StateGraph
-- Spiega milestone per ogni agente
-- Definisci score functions
+### Ch. 6 (Implementation)
+- Describe how MARBLE is instantiated in LangGraph `StateGraph`
+- Specify milestones per agent
+- Define scoring functions
 
-### Cap. 7 (Risultati & Benchmark)
-- Tabella: Task Score per modello × scenario
-- Tabella: Coordination Score per pipeline configuration
-- Grafici di convergenza Task Score vs Coordination Score
+### Ch. 7 (Results & Benchmark)
+- Table: Task Score by model × scenario
+- Table: Coordination Score by pipeline configuration
+- Plots: Task Score vs Coordination Score convergence
 
 ---
 
-## ✅ Pro — Dove Ti Aiuta
+## ✅ Pros — Where It Helps
 
-| Aspetto | Utilità |
+| Aspect | Use |
 |---|---|
-| **Evaluation Framework** | Milestone-based KPI + separazione TS/CS direttamente adattabile |
-| **Benchmark Template** | Struttura sperimentale: stessa pipeline, modelli diversi, scenari fissi |
-| **LLM-as-Judge** | Formalizzazione rigorosa per valutare output non strutturati |
-| **Multi-Agent Dynamics** | Cattura non solo task quality ma coordinamento — le tue 4 agenti hanno dipendenze sequenziali |
-| **Methodological Rigor** | Paper recente (Mar 2025) con peer review, giustifica scelte architetturali |
+| **Evaluation framework** | Milestone-based KPIs + TS/CS separation is directly adaptable |
+| **Benchmark template** | Experimental structure: same pipeline, different models, fixed scenarios |
+| **LLM-as-judge** | A structured way to evaluate non-structured outputs |
+| **Multi-agent dynamics** | Captures coordination, not only task output quality |
+| **Methodological rigor** | Recent (Mar 2025) peer-reviewed framing for evaluation choices |
 
 ---
 
-## ❌ Contro — Dove Non Ti Aiuta
+## ❌ Cons — Where It Doesn’t Help
 
-| Aspetto | Limitazione |
+| Aspect | Limitation |
 |---|---|
-| **Domain Specificity** | Le loro metriche sono per task generici; le tue devono essere 5G-specific |
-| **Small Model Range** | Non testano Phi-3 3B, Qwen 3B — il tuo contributo è proprio qui |
-| **Hardware** | Loro testano su cloud infrastructure; tu su M4 Pro consumer — latency profiles diversi |
-| **Ground Truth** | Loro non hanno ground truth esterno (tutto LLM-based); tu hai simulatore + KG |
-| **LLM-as-Judge Bias** | Loro usano LLM evaluator senza external ground truth — ammettono il rischio, non lo risolvono |
+| **Domain specificity** | Their metrics target generic tasks; yours must be 5G-specific |
+| **Small-model coverage** | They do not test Phi-3 3B / Qwen 3B — the thesis contribution is here |
+| **Hardware** | They run on cloud infra; you run on consumer M4 Pro — different latency profiles |
+| **Ground truth** | They often lack external ground truth; you have simulator + KG |
+| **LLM-as-judge bias** | Evaluator without external ground truth — they acknowledge the risk but do not solve it |
 
 ---
 
-## 🎯 Risposta al Relatore
+## 🎯 Advisor Answer
 
-Se ti chiede: _"Come valuti un sistema di agenti LLM senza ground truth?"_
+If asked: _“How do you evaluate an LLM-agent system without ground truth?”_
 
-> _"Seguo l'approccio di MultiAgentBench (Zhu et al., 2025) adattato al mio dominio 5G. Divido il processo in milestone flessibili monitorate da LLM evaluator, ma affianco sempre dove possibile una ground truth esterna: il simulatore 3GPP per il Perception Agent (metriche osservate), il Neo4j KG per il Planning Agent (vincoli rispettati), e LLM-as-judge solo per il Reasoning e Communication Agent. Questo **triangolo di validazione** riduce l'autoreferenzialità che è l'incognita metodologica principale della letteratura su LLM agent evaluation. Per il benchmark comparativo, uso la loro struttura — stessa pipeline, modelli diversi, scenari fissi — ma su modelli small open-weight (3-8B quantizzati su M4 Pro) che nessuno ha testato sistematicamente nel dominio 5G."_
+> _“I follow MultiAgentBench (Zhu et al., 2025) adapted to the 5G domain. I split the process into flexible milestones monitored by an LLM evaluator, but I always add external ground truth where possible: the 3GPP simulator for the Perception Agent (observed metrics), the Neo4j KG for the Planning Agent (constraint satisfaction), and LLM-as-judge only for the Reasoning and Communication agents. This **validation triangle** reduces self-referentiality, the main methodological unknown in LLM-agent evaluation literature. For comparative benchmarking, I reuse their structure — same pipeline, different models, fixed scenarios — but focus on small open-weight models (quantized 3–8B on M4 Pro) that have not been systematically tested in the 5G domain.”_
 
 ---
 
-## 🔗 Concetti Correlati
+## 🔗 Related Concepts
 
-- [[mmci-framework]] — Complementare: MMCI è livello più alto di maturità; MultiAgentBench è metrica tattica
-- [[cognitive-digital-twin]] — 6 funzioni cognitive → 6 score functions strutturate
-- [[biju-2024-langgraph]] — Biju descrive LangGraph; MultiAgentBench descrive come misurarlo
+- [[mmci-framework]] — Complementary: MMCI is higher-level maturity; MultiAgentBench is tactical evaluation
+- [[cognitive-digital-twin]] — 6 cognitive functions → structured score functions
+- [[biju-2024-langgraph]] — Biju describes LangGraph; MultiAgentBench describes how to measure it
 
 ---
 

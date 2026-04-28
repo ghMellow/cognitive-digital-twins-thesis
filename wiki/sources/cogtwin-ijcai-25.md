@@ -2,112 +2,112 @@
 title: CogTwin — IJCAI-25
 type: source
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-28
 sources: [a.3_CogTwin/Valore per la mia tesi.md, a.3_CogTwin/riassunto.md]
 tags: [CDT, architecture, knowledge-graph, cognitive-functions, dual-kg]
 ---
 
 # CogTwin IJCAI-25
 
-CogTwin è la tua **referenza teorica principale** per legittimazione architetto. Valida tutte le scelte strutturali della tesi (3-layer, dual-KG, 6 funzioni cognitive) con pubblicazione peer-reviewed IJCAI-25. Il tuo contributo estende CogTwin su tre dimensioni: implementazione reale, sostituzione NN generiche con LLM specializzati, framework di valutazione cognitiva.
+CogTwin is the thesis’ **main theoretical reference** for architectural legitimacy. It validates the core structural choices (3-layer architecture, dual-KG, 6 cognitive functions) in a peer-reviewed IJCAI-25 publication. The thesis extends CogTwin along three axes: real implementation, replacing generic neural networks with domain-specialized LLMs, and adding a cognitive evaluation framework.
 
 ---
 
-## 📐 Mappatura Architetturale Diretta
+## 📐 Direct Architectural Mapping
 
-### Struttura 3-Layer
+### 3-Layer Structure
 
-| CogTwin | La Tua Tesi | Nota |
+| CogTwin | Thesis | Notes |
 |---|---|---|
-| Livello Fisico | Python 3GPP Simulator | Identici per scopo |
-| Livello Gemello Digitale | Eclipse Ditto + WebSocket sync | Stessi ruoli, Ditto più maturo |
-| Livello Cognitivo | LangGraph (4 agenti) | Architettura diversa ma funzioni identiche |
+| Physical layer | Python 3GPP Simulator | Same purpose |
+| Digital twin layer | Eclipse Ditto + WebSocket sync | Same role; Ditto is more mature |
+| Cognitive layer | LangGraph (4 agents) | Different implementation; same functions |
 
-Questo mapping è **fondamentale per giustificare la progettazione** nel capitolo Architecture della tesi.
+This mapping is **central to justifying design choices** in the thesis Architecture chapter.
 
 ### Dual-KG Pattern
 
-CogTwin articola esplicitamente perché il disaccoppiamento KG è architetturalmente necessario:
+CogTwin explicitly motivates why KG decoupling is architecturally necessary:
 
-| Componente | Ruolo | Tua Implementazione |
+| Component | Role | Thesis implementation |
 |---|---|---|
-| **DKR** (Dynamic Knowledge Repository) | KG statico offline, vincoli operativi stabili | Neo4j con schema 3GPP (vincoli PRB, potenza, latenza) |
-| **DIKG** (Dynamic Instance KG) | KG live aggiornato real-time | Eclipse Ditto (stato gNB istante-per-istante) |
-| **Separazione Necessaria** | DKR: stabilità durante ciclo; DIKG: aggiornamento incrementale | Garantisce non-contraddizione e consistency |
+| **DKR** (Dynamic Knowledge Repository) | Offline/static KG with stable operational constraints | Neo4j with a 3GPP constraint schema (PRB, power, latency constraints) |
+| **DIKG** (Dynamic Instance KG) | Live KG updated in real time | Eclipse Ditto (gNB state over time) |
+| **Required separation** | DKR: stability during cycles; DIKG: incremental updates | Helps ensure consistency and avoid contradictions |
 
 ---
 
-## 🧠 Sei Funzioni Cognitive
+## 🧠 Six Cognitive Functions
 
-CogTwin le formalizza esplicitamente. La tua architettura LangGraph le copre come segue:
+CogTwin formalizes them explicitly. The thesis’ LangGraph architecture covers them as follows:
 
-| Funzione CDT (CogTwin) | Tuo Agente | Mapping |
+| CDT function (CogTwin) | Thesis agent/component | Mapping |
 |---|---|---|
-| **Percezione** | Perception Agent | Legge Ditto, normalizza metriche 3GPP |
-| **Ragionamento** | Reasoning Agent | Infonde root cause da anomalie (LLM-based) |
-| **Memoria** | Neo4j KG + Ditto history | Working Memory (breve) + Long-Term Memory (grafo) |
-| **Apprendimento (F&L Loop)** | Benchmark LLM comparativo | Multi-model agreement + pattern episodico |
-| **Adattamento** | Planning Agent dynamic strategy | Ricalibra vincoli KG su fallimenti ricorrenti |
-| **Decision-Making** | Planning Agent | Propone azioni correttive validate KG |
+| **Perception** | Perception Agent | Reads Ditto; normalizes 3GPP metrics |
+| **Reasoning** | Reasoning Agent | Infers root cause from anomalies (LLM-based) |
+| **Memory** | Neo4j KG + Ditto history | Working memory (short-term) + long-term memory (graph) |
+| **Learning (F&L loop)** | Comparative LLM benchmark | Multi-model agreement + episodic patterns |
+| **Adaptation** | Planning Agent dynamic strategy | Adjusts constraint usage based on recurring failures |
+| **Decision-making** | Planning Agent | Proposes corrective actions validated by the KG |
 
 ---
 
-## ✅ Dove CogTwin Ti Aiuta
+## ✅ Where CogTwin Helps
 
-### 1. Legittimazione della Struttura 3-Layer
-CogTwin descrive la separazione (Fisico → Gemello → Cognitivo) con background in Newell (1994), Kahneman (2011), architetture cognitive classiche (ACT-R, SOAR, LIDA). Citazione diretta nel Cap. 4 (Architettura).
+### 1. Legitimizing the 3-Layer Structure
+CogTwin describes the separation (Physical → Twin → Cognitive) and situates it in cognitive-architecture foundations (e.g., Newell, Kahneman; ACT-R, SOAR, LIDA). Use as a direct citation in Ch. 4 (Architecture).
 
-### 2. Knowledge Graph come Componente Mandatorio
-Il paper formalizza perché il KG è architecturally essential, non un optional. Legittima teoricamente la scelta di **Neo4j** (non è arbitraria, è derivata da letteratura).
+### 2. Knowledge Graph as a Mandatory Component
+The paper formalizes why the KG is architecturally essential rather than optional. This supports the Neo4j choice as literature-derived rather than arbitrary.
 
 ### 3. Meta-Cognitive Layer
-CogTwin lo descrive come monitoring continuo con self-healing. **Opportunità per te:** implementarlo come Supervisor Agent in LangGraph che monitora confidence degli altri agenti e decide escalation. Contributo architetturale diferenziante.
+CogTwin frames this as continuous monitoring with self-healing. **Opportunity:** implement it as a LangGraph Supervisor Agent that monitors other agents’ confidence and triggers escalation — a differentiating architectural contribution.
 
 ### 4. Case-Based Reasoning (CBR)
-La memoria episodica nel tuo contesto 5G: "ho già visto questa firma di anomalia, ecco l'azione che ha funzionato". Implementabile con vector store (embeddings Ollama) + Neo4j.
+Episodic memory in the 5G context: “I have seen this anomaly signature before; here is the action that worked.” Implementable via a vector store (Ollama embeddings) + Neo4j.
 
 ---
 
-## ❌ Dove CogTwin NON Arriva (= Il Tuo Contributo)
+## ❌ Where CogTwin Stops (and the Thesis Starts)
 
-### 1. Nessun LLM
-Le NN nel Deliberative Layer di CogTwin sono GNN generiche. Non affronta il **problema centrale della tua tesi**: come fidarsi del reasoning in linguaggio naturale di un modello? Come validi che il Reasoning Agent abbia inferito la root cause corretta?
+### 1. No LLMs
+CogTwin uses generic neural models (e.g., GNNs) in the deliberative layer. It does not address the thesis’ central problem: how to trust natural-language reasoning, and how to validate that the Reasoning Agent inferred the correct root cause.
 
-### 2. Pseudocode, Non Implementazione
-CogTwin rimane a livello teorico. Tu consegni un prototipo funzionante su hardware consumer (M4 Pro 24GB) con metriche empiriche reali (latenza ciclo cognitivo, convergenza, accuracy).
+### 2. Pseudocode, Not an Implementation
+CogTwin stays at the conceptual level. The thesis delivers a working prototype on consumer hardware (M4 Pro 24GB) with empirical metrics (cognitive-loop latency, convergence, accuracy).
 
-### 3. Nessun Benchmark Multi-Modello
-CogTwin non confronta modelli. Il tuo benchmark (Llama 3.1 8B vs Mistral 7B vs Phi-3 Mini vs Qwen 3B) su fault scenarios 5G è contributo autonomo e pubblicabile.
+### 3. No Multi-Model Benchmark
+CogTwin does not compare models. The thesis’ benchmark (Llama 3.1 8B vs Mistral 7B vs Phi-3 Mini vs Qwen 3B) on 5G fault scenarios is an independent, publishable contribution.
 
 ### 4. Bonus: G-SPEC (arXiv 2512.20275, Dic 2025)
-Paper molto più vicino al tuo lavoro tecnico — framework neuro-simbolico per 5G SA con **Neo4j KG**, agente LLM e vincoli **SHACL** per safety. Usa esattamente il tuo stack. È sia validatore delle tue scelte che benchmark da citare e superare.
+A much closer paper to the thesis’ technical stack: a neuro-symbolic framework for 5G SA with **Neo4j KG**, an LLM agent, and **SHACL** constraints for safety. It matches the stack and can be used both as validation and as a benchmark to cite and surpass.
 
 ---
 
 ## 📊 Integrazione nello Scaffolding
 
-### Cap. 2 (Background Teorico)
-Cita CogTwin come **framework di riferimento principale** per la definizione di CDT e le 6 funzioni cognitive.
+### Ch. 2 (Theoretical Background)
+Cite CogTwin as the **primary reference framework** for CDT definition and the 6 cognitive functions.
 
-### Cap. 4 (Architettura)
-Usa il mapping 3-layer e dual-KG per giustificare ogni scelta progettuale al relatore.
+### Ch. 4 (Architecture)
+Use the 3-layer and dual-KG mapping to justify design choices.
 
-### Cap. 8 (Discussion & Future Work)
-Posiziona il tuo lavoro come **estensione empirica e metodologica** di CogTwin:
-- Legge la teoria (CogTwin) come blueprint
-- La implementa funzionante (contribution 1)
-- Vi aggiunge LLM specializzati per dominio (contribution 2)
-- Costruisce framework di valutazione cognitiva (contribution 3)
-
----
-
-## 🎯 Risposta al Relatore (se lo chiede)
-
-> _"CogTwin è utile come framework teorico di riferimento: valida la separazione a tre layer e il dual-KG che ho adottato, fornendo una tassonomia delle sei funzioni cognitive che uso come struttura di valutazione. Il limite principale è che rimane pseudocode senza implementazione reale, e non affronta il problema della reliability del reasoning LLM, che è il contributo scientifico centrale della mia tesi. Il mio lavoro lo prende come blueprint architetturale e lo estende su tre dimensioni: implementazione funzionale su hardware reale, sostituzione delle NN generiche con LLM specializzati per dominio 5G, e un framework di valutazione per agenti cognitivi che CogTwin non affronta."_
+### Ch. 8 (Discussion & Future Work)
+Position the thesis as an **empirical and methodological extension** of CogTwin:
+- Uses theory (CogTwin) as a blueprint
+- Implements it as a working system (contribution 1)
+- Adds domain-specialized LLMs (contribution 2)
+- Builds a cognitive evaluation framework (contribution 3)
 
 ---
 
-## 📚 Concetti Correlati
+## 🎯 Advisor Answer (if asked)
+
+> _“CogTwin is useful as a theoretical reference framework: it validates the three-layer separation and the dual-KG pattern I adopt, and it provides a taxonomy of six cognitive functions that I use as an evaluation structure. Its main limitation is that it remains pseudocode without a real implementation, and it does not address the reliability of natural-language LLM reasoning — the central scientific contribution of my thesis. My work uses CogTwin as an architectural blueprint and extends it along three dimensions: a functional implementation on real hardware, replacing generic neural networks with domain-specialized LLMs for 5G, and a cognitive-agent evaluation framework that CogTwin does not provide.”_
+
+---
+
+## 📚 Related Concepts
 
 - [[six-cognitive-functions]] — Approfondimento sulle 6 funzioni
 - [[knowledge-graph-in-cdt]] — Dual-KG pattern (DKR + DIKG)
