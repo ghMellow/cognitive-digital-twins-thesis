@@ -14,7 +14,7 @@ Qui sotto trovi il contenuto direttamente da leggere:
 
 ## Abstract
 
-I benchmark attuali falliscono nel catturare dinamiche multi-agent. Questo paper introduce **MultiAgentBench** e il framework **MARBLE** (_Multi-agent cooRdination Backbone with LLM Engine_): misura non solo task completion ma anche qualità di collaborazione e competizione tramite KPI basati su milestone.[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+I benchmark attuali falliscono nel catturare dinamiche multi-agent. Questo paper introduce **MultiAgentBench** e il framework **MARBLE** (_Multi-agent cooRdination Backbone with LLM Engine_): misura non solo task completion ma anche qualità di collaborazione e competizione tramite KPI basati su milestone.
 
 ---
 
@@ -24,7 +24,7 @@ text
 
 `Task Info + Persona Data + Domain Database           ↓    Coordination Engine    ┌─────────────────────────────────────┐    │  Agent Graph  G=(A,E)               │    │  edge: (ai, r, aj) — tipizzato      │    │  Cognitive Module (persona + CoT)   │    │  Memory: Shared / Short / Long-RAG  │    └─────────────────────────────────────┘          ↓    Environment + ToolBox          ↓    Evaluator → Task Score + Coord. Score`
 
-## Protocolli di Coordinamento[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+## Protocolli di Coordinamento
 
 |Protocollo|Tipo|Performance|Token Usage|
 |---|---|---|---|
@@ -33,7 +33,7 @@ text
 |**Chain**|Decentralizzato|Media|Medio|
 |**Tree**|Centralizzato|❌ Peggiore|❌ Più alto|
 
-## Strategie di Planning[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+## Strategie di Planning
 
 |Strategia|Task Score|Coord. Score|KPI|
 |---|---|---|---|
@@ -44,7 +44,7 @@ text
 
 ---
 
-## Scenari del Benchmark[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+## Scenari del Benchmark
 
 |Scenario|Tipo|Agenti|Metrica|
 |---|---|---|---|
@@ -57,7 +57,7 @@ text
 
 ---
 
-## Risultati Principali — Task Score[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+## Risultati Principali — Task Score
 
 |Modello|Research|Minecraft|Database|Coding|Bargaining|WereWolf|
 |---|---|---|---|---|---|---|
@@ -69,7 +69,7 @@ text
 
 ---
 
-## Metriche — Formula KPI[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+## Metriche — Formula KPI
 
 text
 
@@ -77,7 +77,7 @@ text
 
 ---
 
-## Ablation Studies[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+## Ablation Studies
 
 **Iterazioni (Minecraft, GPT-4o-mini):**
 
@@ -99,7 +99,7 @@ text
 
 ---
 
-## Comportamenti Emergenti[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+## Comportamenti Emergenti
 
 1. **Strategic Information Sharing** — gli agenti condividono selettivamente info in base a trust e contesto
     
@@ -110,7 +110,7 @@ text
 
 ---
 
-## Limiti[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+## Limiti
 
 - Valutazione CS è LLM-based → rischio bias
     

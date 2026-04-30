@@ -12,33 +12,33 @@ Il paper RESTART non è una fonte diretta su LLM, agenti o valutazione — ma è
 
 ## 1. Il paper giustifica _perché esiste il problema_ che stai risolvendo
 
-Il paper dichiara esplicitamente che l'AI nei NDT non è "a supporting tool" ma "a core driver of strategic decision-making and innovation". Questa frase è citabile direttamente nella tua intro per motivare perché un layer cognitivo (il tuo CDT) non è un'aggiunta opzionale ma un requisito architetturale.[RESTART_White_Paper_on_Network_Digital_Twin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/84414d18-5fcb-497e-b571-9f52fcdc80ea/RESTART_White_Paper_on_Network_Digital_Twin.pdf)
+Il paper dichiara esplicitamente che l'AI nei NDT non è "a supporting tool" ma "a core driver of strategic decision-making and innovation". Questa frase è citabile direttamente nella tua intro per motivare perché un layer cognitivo (il tuo CDT) non è un'aggiunta opzionale ma un requisito architetturale.
 
-Ancora più forte: il paper identifica come gap aperto l'assenza di un'architettura unificata con AI-driven orchestration realmente funzionante. La tua tesi è esattamente un tentativo di riempire quel gap — su scala prototipale, con LLM locali.[RESTART_White_Paper_on_Network_Digital_Twin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/84414d18-5fcb-497e-b571-9f52fcdc80ea/RESTART_White_Paper_on_Network_Digital_Twin.pdf)
+Ancora più forte: il paper identifica come gap aperto l'assenza di un'architettura unificata con AI-driven orchestration realmente funzionante. La tua tesi è esattamente un tentativo di riempire quel gap — su scala prototipale, con LLM locali.
 
 ---
 
 ## 2. Il Digital Hat (DH) = Eclipse Ditto Thing Model
 
-Questa è la connessione tecnica più diretta. Il DH del paper è descritto come un DT con connessione diretta all'asset fisico, protocol-agnostic, che astrae il dato grezzo in una rappresentazione standardizzata verso l'alto. Eclipse Ditto fa esattamente questo: ogni `Thing` con le sue `Features` è il DH del tuo gNB simulato. Se il relatore ti chiede "come si posiziona Ditto nell'ecosistema NDT?", puoi rispondere usando il vocabolario del paper.[RESTART_White_Paper_on_Network_Digital_Twin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/84414d18-5fcb-497e-b571-9f52fcdc80ea/RESTART_White_Paper_on_Network_Digital_Twin.pdf)
+Questa è la connessione tecnica più diretta. Il DH del paper è descritto come un DT con connessione diretta all'asset fisico, protocol-agnostic, che astrae il dato grezzo in una rappresentazione standardizzata verso l'alto. Eclipse Ditto fa esattamente questo: ogni `Thing` con le sue `Features` è il DH del tuo gNB simulato. Se il relatore ti chiede "come si posiziona Ditto nell'ecosistema NDT?", puoi rispondere usando il vocabolario del paper.
 
 ---
 
 ## 3. Il closed-loop autonomico = il tuo ciclo cognitivo
 
-Il paper descrive la closed-loop automation come il framework in cui le informazioni dagli NDT vengono "acted upon in real-time, creating a reactive system that adapts network operations based on evolving conditions". Il tuo ciclo `Percezione → Ragionamento → Pianificazione → Comunicazione` è un'implementazione concreta di questo concetto. Puoi mapparlo 1:1.[RESTART_White_Paper_on_Network_Digital_Twin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/84414d18-5fcb-497e-b571-9f52fcdc80ea/RESTART_White_Paper_on_Network_Digital_Twin.pdf)
+Il paper descrive la closed-loop automation come il framework in cui le informazioni dagli NDT vengono "acted upon in real-time, creating a reactive system that adapts network operations based on evolving conditions". Il tuo ciclo `Percezione → Ragionamento → Pianificazione → Comunicazione` è un'implementazione concreta di questo concetto. Puoi mapparlo 1:1.
 
 ---
 
 ## 4. Intent-Based Networking (IBN) = il tuo Planning Agent
 
-Il paper introduce IBN come layer che traduce intenti ad alto livello in configurazioni concrete. Il tuo Planning Agent fa esattamente questo — riceve una diagnosi (intent semantico) e la verifica rispetto al KG Neo4j per produrre azioni fattibili. Citare questo come motivazione del Planning Agent è solidissimo.[RESTART_White_Paper_on_Network_Digital_Twin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/84414d18-5fcb-497e-b571-9f52fcdc80ea/RESTART_White_Paper_on_Network_Digital_Twin.pdf)
+Il paper introduce IBN come layer che traduce intenti ad alto livello in configurazioni concrete. Il tuo Planning Agent fa esattamente questo — riceve una diagnosi (intent semantico) e la verifica rispetto al KG Neo4j per produrre azioni fattibili. Citare questo come motivazione del Planning Agent è solidissimo.
 
 ---
 
 ## 5. I KPI 3GPP del simulatore
 
-Il paper cita esplicitamente i KPI standard 3GPP come dati fondamentali per gli NDT (copertura, interferenza, gestione dello spettro). Il tuo simulatore emette RSRP, SINR, throughput, latenza — tutto allineato. Puoi usare questa sezione per giustificare la scelta delle metriche simulate.[RESTART_White_Paper_on_Network_Digital_Twin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/84414d18-5fcb-497e-b571-9f52fcdc80ea/RESTART_White_Paper_on_Network_Digital_Twin.pdf)
+Il paper cita esplicitamente i KPI standard 3GPP come dati fondamentali per gli NDT (copertura, interferenza, gestione dello spettro). Il tuo simulatore emette RSRP, SINR, throughput, latenza — tutto allineato. Puoi usare questa sezione per giustificare la scelta delle metriche simulate.
 
 ---
 

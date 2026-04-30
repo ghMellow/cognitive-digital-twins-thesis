@@ -1,4 +1,4 @@
-Ottima domanda — e il timing è perfetto perché questo paper ha una sovrapposizione non ovvia con la tua tesi, utile soprattutto dove Claude ha identificato i rischi più alti.[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+Ottima domanda — e il timing è perfetto perché questo paper ha una sovrapposizione non ovvia con la tua tesi, utile soprattutto dove Claude ha identificato i rischi più alti.
 
 ---
 
@@ -6,28 +6,28 @@ Ottima domanda — e il timing è perfetto perché questo paper ha una sovrappos
 
 ## 🎯 Area 1 — Valutazione degli agenti (il tuo gap critico)
 
-MultiAgentBench è probabilmente **la fonte più diretta** che hai oggi per costruire la tua metodologia di evaluation. Il problema che loro risolvono è esattamente il tuo: come misuri un sistema multi-agent LLM quando l'output non è un numero secco?[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+MultiAgentBench è probabilmente **la fonte più diretta** che hai oggi per costruire la tua metodologia di evaluation. Il problema che loro risolvono è esattamente il tuo: come misuri un sistema multi-agent LLM quando l'output non è un numero secco?
 
 I concetti trasferibili alla tua tesi:
 
-- **Milestone-based KPI**: loro spezzano ogni task in milestone flessibili monitorate da un LLM evaluator in real-time. Nella tua pipeline, ogni fault injection scenario può avere milestone analoghe — es. "anomalia percepita correttamente", "root cause identificata", "azione proposta verificata dal KG", "report generato con spiegazione causale". Questo ti dà un KPI di progresso invece del solo output finale[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+- **Milestone-based KPI**: loro spezzano ogni task in milestone flessibili monitorate da un LLM evaluator in real-time. Nella tua pipeline, ogni fault injection scenario può avere milestone analoghe — es. "anomalia percepita correttamente", "root cause identificata", "azione proposta verificata dal KG", "report generato con spiegazione causale". Questo ti dà un KPI di progresso invece del solo output finale
     
-- **Separazione Task Score / Coordination Score**: loro misurano separatamente la qualità dell'output e la qualità del coordinamento tra agenti. Per te significa separare "il Reasoning Agent ha trovato la root cause giusta?" da "la pipeline Perception→Reasoning→Planning si è coordinata senza perdita di contesto?". Sono due misure diverse e devi progettarle in modo diverso[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+- **Separazione Task Score / Coordination Score**: loro misurano separatamente la qualità dell'output e la qualità del coordinamento tra agenti. Per te significa separare "il Reasoning Agent ha trovato la root cause giusta?" da "la pipeline Perception→Reasoning→Planning si è coordinata senza perdita di contesto?". Sono due misure diverse e devi progettarle in modo diverso
     
-- **LLM-as-judge per output non strutturati**: il Communication Score e il Planning Score sono valutati da un LLM evaluator su scala 1-5. Per il tuo Communication Agent — che genera report in linguaggio naturale — questo schema è direttamente applicabile[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+- **LLM-as-judge per output non strutturati**: il Communication Score e il Planning Score sono valutati da un LLM evaluator su scala 1-5. Per il tuo Communication Agent — che genera report in linguaggio naturale — questo schema è direttamente applicabile
     
 
 ## 🎯 Area 2 — Benchmark comparativo modelli (Contributo 3)
 
-Loro testano Llama-3.1-8B, Llama-3.1-70B, Llama-3.3-70B, GPT-3.5, GPT-4o-mini sugli stessi task con gli stessi protocolli. Tu vuoi fare la stessa cosa con Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B — ma su task specifici per dominio 5G. Questo paper ti dà il **template metodologico**: stessa pipeline, stesso evaluator, modelli diversi, scenari fissi. Il tuo contributo aggiuntivo è che i task non sono generici ma costruiti attorno a fault injection scenarios verificabili con ground truth da simulatore.[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+Loro testano Llama-3.1-8B, Llama-3.1-70B, Llama-3.3-70B, GPT-3.5, GPT-4o-mini sugli stessi task con gli stessi protocolli. Tu vuoi fare la stessa cosa con Llama 3.1 8B, Mistral 7B, Phi-3 Mini, Qwen 3B — ma su task specifici per dominio 5G. Questo paper ti dà il **template metodologico**: stessa pipeline, stesso evaluator, modelli diversi, scenari fissi. Il tuo contributo aggiuntivo è che i task non sono generici ma costruiti attorno a fault injection scenarios verificabili con ground truth da simulatore.
 
 ## 🎯 Area 3 — Scelte architetturali LangGraph difendibili
 
-Una delle cose che Claude segnala come rischio è "non puoi trattare LangGraph come black box". MultiAgentBench ti dà una lente teorica per giustificare le tue scelte:[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+Una delle cose che Claude segnala come rischio è "non puoi trattare LangGraph come black box". MultiAgentBench ti dà una lente teorica per giustificare le tue scelte:
 
 - **Star vs Graph**: loro dimostrano empiricamente che graph-mesh supera star su performance e token usage in scenari complessi. La tua pipeline è essenzialmente una **chain** (Perception→Reasoning→Planning→Communication) con un planner implicito. Puoi citare questo paper per motivare perché non hai scelto una topologia puramente centralizzata
     
-- **Cognitive self-evolving planning** come ispirazione per il tuo Planning Agent: il meccanismo "expected outcome → confronto → aggiornamento esperienza in memoria" è esattamente il loop che puoi implementare nell'agente di planning quando verifica le azioni contro il knowledge graph Neo4j[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+- **Cognitive self-evolving planning** come ispirazione per il tuo Planning Agent: il meccanismo "expected outcome → confronto → aggiornamento esperienza in memoria" è esattamente il loop che puoi implementare nell'agente di planning quando verifica le azioni contro il knowledge graph Neo4j
     
 
 ---
@@ -52,8 +52,8 @@ Ecco cosa diresti, preciso e posizionato:
 
 ## Cosa NON dire
 
-Non citarlo come prova che il tuo sistema funzionerà — loro non testano pipeline sequenziali domain-specific su infrastruttura 5G, né usano knowledge graph per vincoli operativi. La trasferibilità è **metodologica**, non architetturale.[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+Non citarlo come prova che il tuo sistema funzionerà — loro non testano pipeline sequenziali domain-specific su infrastruttura 5G, né usano knowledge graph per vincoli operativi. La trasferibilità è **metodologica**, non architetturale.
 
 ## Un punto di debolezza da conoscere
 
-Le loro metriche di Coordination Score e Planning Score sono valutate interamente da LLM-as-judge, e loro stessi ammettono il rischio di bias e autoreferenzialità. Se il tuo relatore è metodologicamente rigoroso, potrebbe farti notare che appoggiarsi troppo a questo schema replica lo stesso limite. La tua risposta è: "Per questo nel mio design affianco sempre dove possibile una ground truth esterna — il simulatore per il Perception Agent, il KG per il Planning Agent — e uso LLM-as-judge solo dove non ho alternativa, ovvero per Reasoning e Communication."[2503.01935v1.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/fb62d4ca-7d4b-4f8e-bd1b-573c18937e76/2503.01935v1.pdf)
+Le loro metriche di Coordination Score e Planning Score sono valutate interamente da LLM-as-judge, e loro stessi ammettono il rischio di bias e autoreferenzialità. Se il tuo relatore è metodologicamente rigoroso, potrebbe farti notare che appoggiarsi troppo a questo schema replica lo stesso limite. La tua risposta è: "Per questo nel mio design affianco sempre dove possibile una ground truth esterna — il simulatore per il Perception Agent, il KG per il Planning Agent — e uso LLM-as-judge solo dove non ho alternativa, ovvero per Reasoning e Communication."

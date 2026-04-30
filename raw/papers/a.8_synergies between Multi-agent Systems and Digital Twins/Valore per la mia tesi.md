@@ -8,11 +8,11 @@ Perfetto, ecco gli appunti contestualizzati. Divido nettamente tra ciò che è _
 
 ## 1. Posizionamento nella letteratura (Capitolo Introduzione / Related Work)
 
-Questo paper è la tua **fonte di legittimazione teorica** per tutta l'architettura a tre layer. La definizione di DT che usi (Physical Object + Logical Object + canale bidirezionale) è quella di Minerva et al., che il paper adotta come framework di riferimento. Quando scrivi la sezione "Related Work", questo SLR ti dà già una panoramica di 64 paper in un colpo solo — citi lui invece di dover citare ognuno.[synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/19ec1bec-4c7e-46da-be13-2f6d5d019522/synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf)
+Questo paper è la tua **fonte di legittimazione teorica** per tutta l'architettura a tre layer. La definizione di DT che usi (Physical Object + Logical Object + canale bidirezionale) è quella di Minerva et al., che il paper adotta come framework di riferimento. Quando scrivi la sezione "Related Work", questo SLR ti dà già una panoramica di 64 paper in un colpo solo — citi lui invece di dover citare ognuno.
 
 ## 2. La tua tesi costruisce un **vero DT**, non un Digital Shadow
 
-Il paper dimostra empiricamente che quasi nessuno implementa la bidirezionalità reale. Eclipse Ditto nella tua architettura garantisce **strong entanglement** (DT3): il Planning Agent traduce diagnosi in azioni correttive che agiscono sul sistema fisico simulato. Puoi scrivere esplicitamente: _"La proposta si distingue dalla maggioranza dei lavori analizzati in [Pretel et al., 2024], che implementano digital shadows. Il presente CDT realizza la bidirezionalità completa tramite Eclipse Ditto come backbone di stato."_ Questa è una differenziazione netta e documentata.[synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/19ec1bec-4c7e-46da-be13-2f6d5d019522/synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf)
+Il paper dimostra empiricamente che quasi nessuno implementa la bidirezionalità reale. Eclipse Ditto nella tua architettura garantisce **strong entanglement** (DT3): il Planning Agent traduce diagnosi in azioni correttive che agiscono sul sistema fisico simulato. Puoi scrivere esplicitamente: _"La proposta si distingue dalla maggioranza dei lavori analizzati in [Pretel et al., 2024], che implementano digital shadows. Il presente CDT realizza la bidirezionalità completa tramite Eclipse Ditto come backbone di stato."_ Questa è una differenziazione netta e documentata.
 
 ## 3. Mappatura delle proprietà DT coperte dal tuo sistema
 
@@ -24,35 +24,35 @@ Il paper fornisce una checklist delle 12 proprietà DT. La tua architettura le c
 |DT2. Reflection|Ditto aggiornato in real-time via REST|✅ Quasi tutti|
 |DT3. Entanglement (strong)|Planning Agent → attuazione su gNB sim.|⚠️ Pochi paper|
 |DT6. Memorization|History Ditto + Neo4j knowledge graph|✅ Comune|
-|DT8. Accountability|Agent1.Autonomy per self-healing|⚠️ Solo 2 paper [synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/19ec1bec-4c7e-46da-be13-2f6d5d019522/synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf)|
+|DT8. Accountability|Agent1.Autonomy per self-healing|⚠️ Solo 2 paper |
 |DT9. Augmentation|LLM può aggiungere nuovi attributi/reasoning|⚠️ Rarissimi|
 |DT12. Predictability|Reasoning Agent inferisce root cause|✅ Comune|
 
-Hai **7 proprietà su 12 coperte** — più della media dell'intera letteratura analizzata nel paper.[synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/19ec1bec-4c7e-46da-be13-2f6d5d019522/synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf)
+Hai **7 proprietà su 12 coperte** — più della media dell'intera letteratura analizzata nel paper.
 
 ## 4. Il gap **"ontologie + ML"** — il tuo KG Neo4j lo chiude
 
-Il paper identifica come gap critico irrisolto: _nessun paper usa ontologie insieme a modelli ML_. Il tuo Neo4j non è tecnicamente un'ontologia OWL, ma è un **knowledge graph semantico** che vincola e guida le decisioni degli LLM — è esattamente la direzione che il paper indica come future work. Puoi citarlo così: _"In accordo con la research agenda di [Pretel et al., 2024], che identifica l'integrazione tra rappresentazione della conoscenza e modelli ML come open challenge, questo lavoro propone un knowledge graph Neo4j come strato semantico che vincola e valida il reasoning degli agenti LLM."_[synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/19ec1bec-4c7e-46da-be13-2f6d5d019522/synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf)
+Il paper identifica come gap critico irrisolto: _nessun paper usa ontologie insieme a modelli ML_. Il tuo Neo4j non è tecnicamente un'ontologia OWL, ma è un **knowledge graph semantico** che vincola e guida le decisioni degli LLM — è esattamente la direzione che il paper indica come future work. Puoi citarlo così: _"In accordo con la research agenda di [Pretel et al., 2024], che identifica l'integrazione tra rappresentazione della conoscenza e modelli ML come open challenge, questo lavoro propone un knowledge graph Neo4j come strato semantico che vincola e valida il reasoning degli agenti LLM."_
 
 ## 5. Pattern **MAS for DT** — giustifica la scelta architetturale
 
-Il paper classifica i sistemi in due pattern: _MAS with DT_ (agenti che usano il DT come sensore) e _MAS for DT_ (il MAS costruisce l'architettura del DT). La tua tesi implementa **entrambi contemporaneamente**: il livello cognitivo LangGraph è MAS for DT, mentre il Perception Agent usa Ditto come MAS with DT. Questo dual pattern non è stato trovato in nessun paper del corpus — è un contributo di design originale.[synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/19ec1bec-4c7e-46da-be13-2f6d5d019522/synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf)
+Il paper classifica i sistemi in due pattern: _MAS with DT_ (agenti che usano il DT come sensore) e _MAS for DT_ (il MAS costruisce l'architettura del DT). La tua tesi implementa **entrambi contemporaneamente**: il livello cognitivo LangGraph è MAS for DT, mentre il Perception Agent usa Ditto come MAS with DT. Questo dual pattern non è stato trovato in nessun paper del corpus — è un contributo di design originale.
 
 ## 6. **MAS4.Agreement Parameters** — base teorica per il consensus multi-modello
 
-Il paper descrive l'agreement tra agenti su metriche condivise come proprietà non ancora sfruttata per i DT. La tua strategia di valutazione tramite consensus multi-LLM (Llama vs Mistral vs Phi vs Qwen) è esattamente questo pattern formale. Puoi ancorarti a questa definizione per giustificare metodologicamente il benchmark comparativo.[synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/19ec1bec-4c7e-46da-be13-2f6d5d019522/synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf)
+Il paper descrive l'agreement tra agenti su metriche condivise come proprietà non ancora sfruttata per i DT. La tua strategia di valutazione tramite consensus multi-LLM (Llama vs Mistral vs Phi vs Qwen) è esattamente questo pattern formale. Puoi ancorarti a questa definizione per giustificare metodologicamente il benchmark comparativo.
 
 ---
 
 ## ❌ Perché il paper NON è utile (cosa non citare)
 
-- **Nessun paper 5G/Telecom nel corpus**. Zero. Il tuo dominio è vergine rispetto a questa letteratura. Non aspettarti spunti tecnici su RSRP, SINR, handover o slice management da qui.[synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/19ec1bec-4c7e-46da-be13-2f6d5d019522/synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf)
+- **Nessun paper 5G/Telecom nel corpus**. Zero. Il tuo dominio è vergine rispetto a questa letteratura. Non aspettarti spunti tecnici su RSRP, SINR, handover o slice management da qui.
     
-- **Zero LLM, zero agenti cognitivi**. Il paper è del 2024 ma analizza letteratura fino a febbraio 2023 — il boom LLM-as-agent non è contemplato. Per la parte cognitiva (LangGraph, RAG, reasoning LLM) devi attingere ad altri paper.[synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/19ec1bec-4c7e-46da-be13-2f6d5d019522/synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf)
+- **Zero LLM, zero agenti cognitivi**. Il paper è del 2024 ma analizza letteratura fino a febbraio 2023 — il boom LLM-as-agent non è contemplato. Per la parte cognitiva (LangGraph, RAG, reasoning LLM) devi attingere ad altri paper.
     
 - **Nessun framework di valutazione per agenti**. È un SLR, non propone metodologie di valutazione. Per LLM-as-judge, RAGAS e multi-agent agreement devi andare altrove.
     
-- **Nessuno stack tecnologico confrontabile**. Il 73% dei paper non dichiara nemmeno il framework — non troverai benchmark su Eclipse Ditto o Neo4j qui.[synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/19ec1bec-4c7e-46da-be13-2f6d5d019522/synergies-between-Multi-agent-Systems-and-Digital-Twins.pdf)
+- **Nessuno stack tecnologico confrontabile**. Il 73% dei paper non dichiara nemmeno il framework — non troverai benchmark su Eclipse Ditto o Neo4j qui.
     
 
 ---

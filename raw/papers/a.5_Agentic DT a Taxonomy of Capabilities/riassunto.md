@@ -6,19 +6,19 @@ Ecco il tuo riassunto di riferimento, strutturato per essere consultato veloceme
 
 **Paper:** _"Agentic Digital Twins: A Taxonomy of Capabilities for Understanding Possible Futures"_  
 **Autori:** Christopher Burr et al. — The Alan Turing Institute, Mott MacDonald, Fujitsu, Univ. Sheffield  
-**Pubblicato:** Gennaio 2026 — arXiv:2601.18799 [cs.CY][01_Agentic-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/394c3033-293d-416c-b0f6-10ffa376d916/01_Agentic-Digital-Twins.pdf)
+**Pubblicato:** Gennaio 2026 — arXiv:2601.18799 [cs.CY]
 
 ---
 
 ## 🎯 Idea Centrale in una riga
 
-Un Digital Twin agentivo non si limita a _rappresentare_ un sistema fisico — lo _co-costituisce_, cambiando la realtà che misura. Questo processo si chiama **performatività**.[01_Agentic-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/394c3033-293d-416c-b0f6-10ffa376d916/01_Agentic-Digital-Twins.pdf)
+Un Digital Twin agentivo non si limita a _rappresentare_ un sistema fisico — lo _co-costituisce_, cambiando la realtà che misura. Questo processo si chiama **performatività**.
 
 ---
 
 ## 🧩 Il Framework: 3 Dimensioni × 3 Livelli = 27 Configurazioni
 
-Ogni DT agentivo si classifica con una tripla `(Agency, Coupling, Evolution)`:[01_Agentic-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/394c3033-293d-416c-b0f6-10ffa376d916/01_Agentic-Digital-Twins.pdf)
+Ogni DT agentivo si classifica con una tripla `(Agency, Coupling, Evolution)`:
 
 |Dimensione|Livello 1|Livello 2|Livello 3|
 |---|---|---|---|
@@ -58,7 +58,7 @@ Ogni DT agentivo si classifica con una tripla `(Agency, Coupling, Evolution)`:[0
 
 ## ⚡ Il Concetto Chiave: Performative Prediction
 
-Basato su Perdomo et al. (ICML 2020) e Hardt & Mendler-Dünner (2025):[01_Agentic-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/394c3033-293d-416c-b0f6-10ffa376d916/01_Agentic-Digital-Twins.pdf)
+Basato su Perdomo et al. (ICML 2020) e Hardt & Mendler-Dünner (2025):
 
 - Un modello deployato con parametri θ **cambia la distribuzione** dei dati che raccoglierà: D(θ)D(\theta)D(θ)
     
@@ -71,7 +71,7 @@ Basato su Perdomo et al. (ICML 2020) e Hardt & Mendler-Dünner (2025):[01_Agenti
 
 ## 🚦 Transition Dynamics — Come si evolve un sistema
 
-Le transizioni si notano con:[01_Agentic-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/394c3033-293d-416c-b0f6-10ffa376d916/01_Agentic-Digital-Twins.pdf)
+Le transizioni si notano con:
 
 text
 
@@ -88,20 +88,20 @@ text
 
 ## 🔴 Configurazione più a rischio: Governor `(I,C,A)`
 
-- Agency interna + coupling costitutivo = il DT non solo misura, **ridefinisce cosa conta come misurabile**[01_Agentic-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/394c3033-293d-416c-b0f6-10ffa376d916/01_Agentic-Digital-Twins.pdf)
+- Agency interna + coupling costitutivo = il DT non solo misura, **ridefinisce cosa conta come misurabile**
     
 - I lavoratori diventano "productivity units", le strade diventano "throughput zones"
     
 - Lock-in a 4 livelli: tecnico (infrastruttura), cognitivo (linguaggio), materiale (città fisica), sociale (discorso pubblico)
     
-- **Già esistente:** Singapore Electronic Road Pricing, sistemi di algorithmic management[01_Agentic-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/394c3033-293d-416c-b0f6-10ffa376d916/01_Agentic-Digital-Twins.pdf)
+- **Già esistente:** Singapore Electronic Road Pricing, sistemi di algorithmic management
     
 
 ---
 
 ## ⚠️ Limiti da ricordare
 
-- **Zero empirismo**: nessun esperimento, nessun benchmark[01_Agentic-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/394c3033-293d-416c-b0f6-10ffa376d916/01_Agentic-Digital-Twins.pdf)
+- **Zero empirismo**: nessun esperimento, nessun benchmark
     
 - La social cost function del traffico è un toy model costruito ad hoc
     
@@ -114,7 +114,7 @@ text
 
 ## 📚 Riferimenti chiave da approfondire
 
-- **Performative Prediction:** Perdomo et al., ICML 2020 | Hardt & Mendler-Dünner, _Statistical Science_ 2025 [01_Agentic-Digital-Twins.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/394c3033-293d-416c-b0f6-10ffa376d916/01_Agentic-Digital-Twins.pdf)
+- **Performative Prediction:** Perdomo et al., ICML 2020 | Hardt & Mendler-Dünner, _Statistical Science_ 2025 
     
 - **Steering Representations:** Korenhof, Blok & Kloppenburg, _Philosophy & Technology_ 2021
     

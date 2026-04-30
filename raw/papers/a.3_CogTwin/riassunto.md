@@ -6,20 +6,20 @@ Ecco il riassunto compatto e strutturato da tenere come riferimento rapido. 📌
 
 **Paper:** _CogTwin: A Hybrid Cognitive Architecture Framework for Adaptable and Cognitive Digital Twins_  
 **Autori:** Sukanya Mandal, Noel E. O'Connor — Dublin City University  
-**Venue:** IJCAI-25, Special Track AI4Tech[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)  
+**Venue:** IJCAI-25, Special Track AI4Tech  
 **Repo:** `github.com/sukanyamandal/ProjectCogTwin`
 
 ---
 
 ## Il Problema che Risolve
 
-I Digital Twin attuali si basano su regole pre-programmate e modelli data-driven: funzionano bene in condizioni normali, ma non sanno gestire eventi imprevisti né adattarsi autonomamente. CogTwin vuole trasformare un DT passivo in un agente cognitivo attivo.[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+I Digital Twin attuali si basano su regole pre-programmate e modelli data-driven: funzionano bene in condizioni normali, ma non sanno gestire eventi imprevisti né adattarsi autonomamente. CogTwin vuole trasformare un DT passivo in un agente cognitivo attivo.
 
 ---
 
 ## L'Idea Centrale
 
-Framework ibrido che fonde **tre paradigmi AI** in un unico ciclo real-time:[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+Framework ibrido che fonde **tre paradigmi AI** in un unico ciclo real-time:
 
 - **Symbolic** → due Knowledge Graph (KG) per la rappresentazione della conoscenza
     
@@ -45,13 +45,13 @@ Framework ibrido che fonde **tre paradigmi AI** in un unico ciclo real-time:[02_
 |**Meta-Cognitive Layer**|Monitoring continuo, riallocazione risorse, self-healing|
 |**F&L Loop**|Chiude il ciclo: aggiorna DIKG, LTM, e periodicamente DKR offline|
 
-[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+
 
 ---
 
 ## Il Cognitive Cycle da 50ms
 
-Ispirato alla cognizione umana (Newell, 1992):[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+Ispirato alla cognizione umana (Newell, 1992):
 
 |Fase|Target|
 |---|---|
@@ -67,7 +67,7 @@ Ispirato alla cognizione umana (Newell, 1992):[02_CogTwin.pdf](https://ppl-ai-fi
 
 ## Use Case Dimostrativi
 
-Tutti simulati su scenari smart city:[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+Tutti simulati su scenari smart city:
 
 - **Traffic Incident Management** — rerouting + semafori adattivi durante incidenti
     
@@ -84,7 +84,7 @@ Tutti simulati su scenari smart city:[02_CogTwin.pdf](https://ppl-ai-file-upload
 
 ## Stato Implementativo
 
-⚠️ **Solo pseudocode** — nessuna implementazione funzionale al momento della pubblicazione. La feasibility del ciclo 50ms è valutata con analisi Big-O teorica:[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+⚠️ **Solo pseudocode** — nessuna implementazione funzionale al momento della pubblicazione. La feasibility del ciclo 50ms è valutata con analisi Big-O teorica:
 
 - ✅ Fattibile su **cloud server**
     
@@ -95,25 +95,25 @@ Tutti simulati su scenari smart city:[02_CogTwin.pdf](https://ppl-ai-file-upload
 
 ## Limiti Principali
 
-- Nessun benchmark empirico reale[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+- Nessun benchmark empirico reale
     
-- Costruzione del DKR semi-manuale e domain-specific[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+- Costruzione del DKR semi-manuale e domain-specific
     
-- XAI avanzata (saliency maps, counterfactuals) tutta in _future work_[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+- XAI avanzata (saliency maps, counterfactuals) tutta in _future work_
     
-- Nessuno standard di valutazione per CDT disponibile nel campo[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+- Nessuno standard di valutazione per CDT disponibile nel campo
     
-- Scalabilità KG + GNN non testata[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+- Scalabilità KG + GNN non testata
     
 
 ---
 
 ## Da Tenere d'Occhio
 
-- Integrazione **Federated Learning** per privacy su dati distribuiti[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+- Integrazione **Federated Learning** per privacy su dati distribuiti
     
-- **Theory of Mind** per reasoning multi-agente[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+- **Theory of Mind** per reasoning multi-agente
     
-- **MAS** (Multi-Agent Systems): più istanze CogTwin collaborative[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+- **MAS** (Multi-Agent Systems): più istanze CogTwin collaborative
     
-- **Automated Ontology Learning** per ridurre il lavoro manuale sul DKR[02_CogTwin.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/feaf0927-7197-4b4d-b889-d8d766ca6517/02_CogTwin.pdf)
+- **Automated Ontology Learning** per ridurre il lavoro manuale sul DKR

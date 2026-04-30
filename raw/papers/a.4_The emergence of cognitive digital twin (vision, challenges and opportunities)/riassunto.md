@@ -14,15 +14,15 @@ Ecco il riassunto strutturato e completo del paper, pronto da consultare in futu
 
 ## 🎯 Problema Affrontato
 
-I Digital Twin (DT) classici sono **isolati**: modellano un singolo componente in una singola fase del ciclo di vita (es. predictive maintenance su un macchinario). In sistemi industriali complessi (fabbriche, supply chain, aerospazio), coesistono decine di DT eterogenei — creati da stakeholder diversi, con standard diversi — che **non interoperano**. Il paper propone un'evoluzione: il **Cognitive Digital Twin (CDT)**.[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+I Digital Twin (DT) classici sono **isolati**: modellano un singolo componente in una singola fase del ciclo di vita (es. predictive maintenance su un macchinario). In sistemi industriali complessi (fabbriche, supply chain, aerospazio), coesistono decine di DT eterogenei — creati da stakeholder diversi, con standard diversi — che **non interoperano**. Il paper propone un'evoluzione: il **Cognitive Digital Twin (CDT)**.
 
 ---
 
 ## 🧠 Cos'è il CDT — Definizione Operativa
 
-> _"Un CDT è una rappresentazione digitale di un sistema fisico, aumentata con capacità cognitive, che comprende un insieme di modelli digitali semanticamente interconnessi relativi alle diverse fasi del ciclo di vita del sistema fisico — inclusi sottosistemi e componenti — e che evolve continuamente con il sistema fisico per tutto il suo lifecycle."_[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+> _"Un CDT è una rappresentazione digitale di un sistema fisico, aumentata con capacità cognitive, che comprende un insieme di modelli digitali semanticamente interconnessi relativi alle diverse fasi del ciclo di vita del sistema fisico — inclusi sottosistemi e componenti — e che evolve continuamente con il sistema fisico per tutto il suo lifecycle."_
 
-Le **5 caratteristiche fondamentali** del CDT sono:[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+Le **5 caratteristiche fondamentali** del CDT sono:
 
 - **DT-based** — include tutti gli elementi base del DT (entità fisica, entità virtuale, connessioni)
     
@@ -39,7 +39,7 @@ Le **5 caratteristiche fondamentali** del CDT sono:[The-emergence-of-cognitive-d
 
 ## 🏗️ Architettura di Riferimento (3D — basata su RAMI4.0)
 
-L'architettura proposta ha **tre dimensioni**:[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+L'architettura proposta ha **tre dimensioni**:
 
 |Dimensione|Elementi|
 |---|---|
@@ -47,7 +47,7 @@ L'architettura proposta ha **tre dimensioni**:[The-emergence-of-cognitive-digita
 |**System Hierarchy Levels**|System-of-Systems → System → Subsystem → Component → Part|
 |**Functional Layers**|5 layer (vedi sotto)|
 
-**I 5 Layer Funzionali** (dal basso verso l'alto):[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+**I 5 Layer Funzionali** (dal basso verso l'alto):
 
 1. `Physical Entities` — sensori IIoT, sorgenti dati raw
     
@@ -80,13 +80,13 @@ L'architettura proposta ha **tre dimensioni**:[The-emergence-of-cognitive-digita
 
 ## 🏭 Applicazioni Verificate (Progetti EU)
 
-- **COGNITWIN** — ottimizzazione operativa in impianti alluminio, silicio, acciaio[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+- **COGNITWIN** — ottimizzazione operativa in impianti alluminio, silicio, acciaio
     
-- **FACTLOG** — actionable cognitive twin per demand forecasting e production planning in automotive[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+- **FACTLOG** — actionable cognitive twin per demand forecasting e production planning in automotive
     
-- **QU4LITY** — zero-defect manufacturing, con CDT applicato ad assembly di aeromobili[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+- **QU4LITY** — zero-defect manufacturing, con CDT applicato ad assembly di aeromobili
     
-- **Building Lifecycle Management** — CDT per gestione BIM intelligente cross-fase[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+- **Building Lifecycle Management** — CDT per gestione BIM intelligente cross-fase
     
 
 ---
@@ -106,19 +106,19 @@ L'architettura proposta ha **tre dimensioni**:[The-emergence-of-cognitive-digita
 
 ## 🚧 Sfide Aperte (Challenges)
 
-1. **Knowledge Management** — rappresentazione, acquisizione e aggiornamento della conoscenza sono problemi irrisolti[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+1. **Knowledge Management** — rappresentazione, acquisizione e aggiornamento della conoscenza sono problemi irrisolti
     
-2. **Integrazione DT eterogenei** — stakeholder diversi usano standard diversi; servono adapter/broker semantici[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+2. **Integrazione DT eterogenei** — stakeholder diversi usano standard diversi; servono adapter/broker semantici
     
-3. **Standardizzazione frammentata** — ISO, W3C WoT, AAS, NGSI-LD non sono ancora allineati[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+3. **Standardizzazione frammentata** — ISO, W3C WoT, AAS, NGSI-LD non sono ancora allineati
     
-4. **Implementazione cross-organizzazione** — richiede collaborazioni intra- ed inter-aziendali con complessità di project management e data privacy[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+4. **Implementazione cross-organizzazione** — richiede collaborazioni intra- ed inter-aziendali con complessità di project management e data privacy
     
-5. **Pochi casi reali completi** — la maggior parte dei pilot sono ancora in corso o parzialmente verificati[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+5. **Pochi casi reali completi** — la maggior parte dei pilot sono ancora in corso o parzialmente verificati
     
 
 ---
 
 ## 🗺️ Strategia di Implementazione Consigliata dagli Autori
 
-> Approccio **step-wise**: partire da un DT maturo → aggiungere progressivamente modelli semantici → estendere la copertura lifecycle → scalare a CDT completo[The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/146803486/36b6eb0b-184d-4b5e-864c-aa8b909be184/The-emergence-of-cognitive-digital-twin-vision-challenges-and-opportunities.pdf)
+> Approccio **step-wise**: partire da un DT maturo → aggiungere progressivamente modelli semantici → estendere la copertura lifecycle → scalare a CDT completo
