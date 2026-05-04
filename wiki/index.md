@@ -2,7 +2,7 @@
 title: Master Index of Wiki
 type: analysis
 created: 2026-04-14
-updated: 2026-04-20
+updated: 2026-05-04
 sources: []
 tags: [index, navigation]
 ---
@@ -126,19 +126,32 @@ wiki/
 │   ├── berkeley-cs294-llm-eval.md
 │   ├── wireless-agent-hkust-2025.md
 │   └── hintze-et-al-2025-agentic-ai.md
-├── theoretical-concepts/ ✅ ACTIVE (12 concepts)
-│   ├── cognitive-digital-twin.md
-│   ├── six-cognitive-functions.md
-│   ├── knowledge-graph-in-cdt.md
-│   ├── mmci-framework.md
-│   ├── classic-evaluation-framework.md
-│   ├── cdt-five-characteristics.md
-│   ├── network-digital-twin.md
-│   ├── digital-hat.md
-│   ├── intent-based-networking.md
-│   ├── closed-loop-autonomy.md
+├── theoretical-concepts/ ✅ ACTIVE (25 concepts)
 │   ├── agentic-dt-risk-taxonomy.md
-│   └── performative-prediction.md
+│   ├── cdt-five-characteristics.md
+│   ├── classic-evaluation-framework.md
+│   ├── closed-loop-autonomy.md
+│   ├── cognitive-architecture.md
+│   ├── cognitive-digital-twin.md
+│   ├── digital-hat.md
+│   ├── dt-properties-checklist.md
+│   ├── governor-configuration.md
+│   ├── intent-based-networking.md
+│   ├── joint-decision-making.md
+│   ├── knowledge-graph-in-cdt.md
+│   ├── lllm-as-judge.md
+│   ├── mas-agreement-for-evaluation.md
+│   ├── mas-agent-patterns.md
+│   ├── mas-patterns.md
+│   ├── mental-model-alignment.md
+│   ├── mmci-framework.md
+│   ├── multi-agent-frameworks.md
+│   ├── multi-agent-systems.md
+│   ├── network-digital-twin.md
+│   ├── performative-prediction.md
+│   ├── shared-situation-awareness.md
+│   ├── six-cognitive-functions.md
+│   └── tight-coupling-risks.md
 ├── analyses/ ✅ ACTIVE (4 analyses)
 │   ├── comparison-matrix.md
 │   ├── gap-analysis.md

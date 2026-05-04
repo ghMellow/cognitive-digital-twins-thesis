@@ -13,6 +13,34 @@ Append-only log of all wiki operations. **Last 5 logs are detailed; earlier logs
 
 ---
 
+## [2026-05-04] fix | Add Missing Concepts (Governor + Tight Coupling)
+
+**Operation:** Created two theoretical concept pages that were referenced during the Burr et al. (2026) ingest but were not present as standalone pages.
+
+**Rationale:** The Burr source page and the risk-taxonomy concept both rely on these links to explain the key governance boundary between `(I,T,A)` and drift toward `(I,C,A)`.
+
+**Pages created:**
+- `wiki/theoretical-concepts/governor-configuration.md` — Governor configuration `(I, C, A)`, symptoms, mitigations, thesis mapping
+- `wiki/theoretical-concepts/tight-coupling-risks.md` — Real-time closed-loop risks, drift pathway to constitutive coupling, mitigations
+
+**Pages updated:**
+- `wiki/index.md` — Updated theoretical-concepts directory listing (now includes 23 concepts)
+
+**Status:** ✅ Links restored and concepts now first-class pages.
+
+## [2026-05-04] fix | Add Missing Concepts (MAS Agent Patterns + Frameworks)
+
+**Operation:** Created two theoretical concept pages referenced by the Kalyani & Collier (2024) survey source page.
+
+**Pages created:**
+- `wiki/theoretical-concepts/mas-agent-patterns.md` — recurring role patterns (manager/coordinator + specialists) and coordination schemes
+- `wiki/theoretical-concepts/multi-agent-frameworks.md` — overview of JADE / JaCaMo / SPADE as common MAS implementation substrates
+
+**Pages updated:**
+- `wiki/index.md` — Updated theoretical-concepts directory listing (now includes 25 concepts)
+
+**Status:** ✅ Links resolved; concepts are now first-class pages.
+
 ## [2026-04-28 PM] enhancement | Post-Ingest Concept & Glossary Buildout
 
 **Operation:** Post-ingest enhancement following Hintze et al. paper (paper #13). User identified critical concept gaps and requested 3 items:

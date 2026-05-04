@@ -163,6 +163,7 @@ If asked: _“How do you avoid circular evaluation (LLM evaluates LLM)?”_
 - [[mmci-framework]] — MMCI is a maturity framework; Berkeley provides tactical evaluation methods
 - [[multiagent-bench-2025]] — Complementary: MultiAgentBench focuses on coordination; Berkeley is more general
 - [[cognitive-digital-twin]] — 6 cognitive functions → structured evaluation dimensions
+- [[lllm-as-judge]] — Strict implementation of the technique
 
 ---
 

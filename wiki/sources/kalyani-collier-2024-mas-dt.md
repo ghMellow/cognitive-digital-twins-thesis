@@ -3,11 +3,20 @@ title: "The Role of Multi-Agents in Digital Twin Implementation: A Short Survey"
 type: source
 created: 2026-04-14
 updated: 2026-04-28
-authors: [Yogeswaranathan Kalyani, Rem Collier]
+authors:
+  - Yogeswaranathan Kalyani
+  - Rem Collier
 year: 2024
-publication: "ACM Computing Surveys, Vol. 57, No. 3"
-sources: [kalyani-collier-2024, valore-tesi-riassunto]
-tags: [MAS, DT, survey, systematic-review, multi-agent-patterns]
+publication: ACM Computing Surveys, Vol. 57, No. 3
+sources:
+  - kalyani-collier-2024
+  - valore-tesi-riassunto
+tags:
+  - MAS
+  - DT
+  - survey
+  - systematic-review
+  - multi-agent-patterns
 thesis-contribution: 1-architecture
 ---
 
@@ -174,6 +183,8 @@ A: "Three main gaps: (1) advanced AI/ML (especially LLM agents) is not present i
 
 - [[theoretical-concepts/knowledge-graph-in-cdt]] — KG as a best-practice component
 - [[sources/pretel-et-al-2024-mas-dt]] — Complementary SLR (64 papers vs 22)
+- [[mas-agent-patterns]] — A recurring theme in the 22 papers
+- [[multi-agent-frameworks]] — JADE, JaCaMo, SPADE overview
 
 ---
 

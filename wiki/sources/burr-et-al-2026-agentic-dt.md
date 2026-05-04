@@ -3,10 +3,19 @@ title: "Agentic Digital Twins: A Taxonomy of Capabilities for Understanding Poss
 type: source
 created: 2026-04-14
 updated: 2026-04-28
-authors: [Christopher Burr, Mott MacDonald, Alan Turing Institute]
+authors:
+  - Christopher Burr
+  - Mott MacDonald
+  - Alan Turing Institute
 year: 2026
-sources: [burr-2026-agentic-dt, valore-tesi-riassunto]
-tags: [agentic-systems, risk-taxonomy, performative-prediction, DT-governance]
+sources:
+  - burr-2026-agentic-dt
+  - valore-tesi-riassunto
+tags:
+  - agentic-systems
+  - risk-taxonomy
+  - performative-prediction
+  - DT-governance
 thesis-contribution: 1-architecture
 ---
 
@@ -194,6 +203,8 @@ A: "Yes. With a virtual 3GPP simulator we gain fast cycles and repeatability, bu
 
 - [[agentic-dt-risk-taxonomy]] — The 9-configuration taxonomy
 - [[performative-prediction]] — Performative lock-in risk
+- [[governor-configuration]] — Governor Configuration (I, C, A) and How to Avoid It
+- [[tight-coupling-risks]] — Specific risks of real-time tight coupling
 
 ---
 
