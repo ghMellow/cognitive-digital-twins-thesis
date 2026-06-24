@@ -112,7 +112,7 @@ wiki/
 │   ├── statistical-rigor-synthesis.md
 │   ├── safe-by-design-synthesis.md
 │   └── orchestration-framework-synthesis.md
-├── sources/ ✅ ACTIVE (13 papers)
+├── sources/ ✅ ACTIVE (14 papers)
 │   ├── zheng-et-al-2022-cdt.md
 │   ├── al-haj-ali-2025-mmci.md
 │   ├── restart-2024-ndt.md
@@ -125,7 +125,8 @@ wiki/
 │   ├── multiagent-bench-2025.md
 │   ├── berkeley-cs294-llm-eval.md
 │   ├── wireless-agent-hkust-2025.md
-│   └── hintze-et-al-2025-agentic-ai.md
+│   ├── hintze-et-al-2025-agentic-ai.md
+│   └── recursive-mas-2026.md
 ├── theoretical-concepts/ ✅ ACTIVE (25 concepts)
 │   ├── agentic-dt-risk-taxonomy.md
 │   ├── cdt-five-characteristics.md

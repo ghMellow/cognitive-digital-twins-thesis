@@ -71,6 +71,9 @@ It is possible to build and evaluate a multi-agent LLM system that:
 ### Block E — Closest Prior Work
 - [x] WirelessAgent HKUST (2025) — LLM agents for 5G network slicing, LangGraph on wireless — [[sources/wireless-agent-hkust-2025]]
 
+### Block F — MAS Scaling & Advanced Architectures
+- [x] RecursiveMAS (Yang et al., 2026) — First system-level recursive MAS via latent-space communication (RecursiveLink); validates Sequential pattern + small-model (1-10B) multi-agent performance; motivates per-agent evaluation gap — [[sources/recursive-mas-2026]]
+
 ---
 
 ## ⚡ Open Tensions
@@ -228,7 +231,7 @@ Zheng et al. identify five fundamental characteristics of a CDT: _cognitive capa
 
 **2.2 — The Six Cognitive Functions**
 
-Al-Haj Ali et al. (2025) formalizes the six target cognitive functions and introduces the MMCI framework (Multi-Modal Cognitive Interoperability) to evaluate them. The functions — perception, attention, memory, reasoning, problem-solving, learning — map 1:1 to the four agents in the pipeline:
+Al-Haj Ali et al. (2025) formalizes the six target cognitive functions and introduces the MMCI framework (Maturity Model of Cognitive Interoperability) to evaluate them. The functions — perception, attention, memory, reasoning, problem-solving, learning — map 1:1 to the four agents in the pipeline:
 
 |CDT Function|Agent|Primary Source|Operational Source|
 |---|---|---|---|
@@ -377,6 +380,8 @@ The symbolic/LLM trade-off (Zheng et al., CogTwin, Al-Haj Ali): replacing symbol
 - _Domain-Specific Fine-tuning_ — WirelessAgent suggests it but does not demonstrate it. It is the natural development after the benchmark phase with general-purpose models.
     
 - _Trajectory toward Governor (I,C,A)_ — Burr et al. describes the evolutionary path from Active Steering toward more autonomous configurations and the necessary governance requirements. Future work formalizable with direct citation.
+
+- _Latent-Space Inter-Agent Communication_ — RecursiveMAS (Yang et al., 2026) demonstrates that replacing text-based inter-agent communication with latent state transfer (hidden vectors via RecursiveLink) yields 2.4× inference speedup and 75.6% token reduction at recursion round r=3. In the CDT context, this is directly relevant to 5G SLA requirements (sub-50ms decision latency). **Applicable if the explainability requirement is relaxed** (fully-autonomous regime, no human-in-the-loop): the Communication Agent would no longer need to produce human-readable text at each cognitive cycle step. Since a single shared model is used for all agents (same hidden dim), the outer RecursiveLink dimension-mapping layer is not needed — only the inner link. Constraint: requires switching from Ollama API to direct model inference (MLX on M4 Pro or HuggingFace + MPS backend with `output_hidden_states=True`). Citation: [[sources/recursive-mas-2026]].
     
 
 ---

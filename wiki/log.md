@@ -13,6 +13,75 @@ Append-only log of all wiki operations. **Last 5 logs are detailed; earlier logs
 
 ---
 
+## [2026-05-23] ingest | Paper a.11 — RecursiveMAS (Yang et al., 2026)
+
+**Operation:** Complete ingest of 14th paper (a.11_Recursive Multi-Agent Systems).
+
+**Paper metadata:**
+- Authors: Yang, Zou, Pan et al. (UIUC, Stanford, NVIDIA, MIT)
+- arXiv: 2604.25917v1 — 28 Apr 2026
+- Type: Methods + Empirical + Theoretical
+- Focus: Recursive multi-agent framework via latent-space communication
+
+**Contribution classification:**
+- **Related Work (Ch. 3):** MAS 2026 taxonomy; Sequential pattern validates my architecture classification; small-model (1-10B) performance confirms thesis hypothesis
+- **Evaluation gap motivator (Ch. 5):** RecursiveMAS measures only end-to-end output — no per-agent evaluation. Explicit citation for motivating Contribution 2.
+- **Future Work (Ch. 8):** Latent-space communication as evolution toward fully-autonomous regime
+
+**Raw files created:**
+- `raw/papers/a.11_Recursive Multi-Agent Systems/paper.md` — full paper transcription
+- `raw/papers/a.11_Recursive Multi-Agent Systems/yt.md` — divulgative analysis (Simone Rizzo style)
+- `raw/papers/a.11_Recursive Multi-Agent Systems/riassunto.md` — structured summary for future reference
+- `raw/papers/a.11_Recursive Multi-Agent Systems/valore-tesi.md` — contextualised thesis value analysis
+
+**Pages created:**
+- `wiki/sources/recursive-mas-2026.md` — full source page
+
+**Pages updated:**
+- `wiki/scaffolding-tesi.md` — added Block F (MAS Scaling & Advanced Architectures) with RecursiveMAS entry
+- `wiki/glossary.md` — added section "Recursive MAS & Latent-Space Collaboration" (6 new terms: RLM, Latent Thought, RecursiveLink, Latent-Space MAS Communication, Inner-Outer Loop Training, Recursion Round)
+- `wiki/index.md` — incremented source count (13→14), added recursive-mas-2026.md to directory
+
+**Tensions detected:** ✅ None — paper is complementary and operates on an orthogonal axis to the thesis (latent communication vs explainable CDT). No contradictions with existing pages.
+
+**Scaffolding impact:** Low — paper does not drive architecture. Relevant as contrast reference (per-agent evaluation gap) and Related Work citation.
+
+**Status:** ✅ Ingest complete. Wiki now 14 sources + 6 new glossary terms.
+
+---
+
+## [2026-05-21] update | Thomas's Triple Extraction — Second Interscambio Call
+
+**Operation:** Updated source page `wiki/sources/thomas-logistic-triple-extraction.md` with additional technical details from the second interscambio call (2026-05-21).
+
+**Source added:** `raw/calls/2026-05-21-interscambio-2-call.md`
+
+**Key additions:**
+- Ontology construction methodology: explicit 5-step process (scope → competency questions → concepts → relations → constraints), tool = Protégé, base framework = FACIT
+- Logistics ontology concepts detailed: Materiality, Physical Location, Agent, Process + key relations (move, perform, located_in, as_origin, as_destination)
+- Two-level adaptation process: schema-level (extract triples from client docs) + instance-level (populate with real data)
+- Transformer input format: E1/E2 entity tokens injected into sentences — the key design choice that outperformed other formats
+- Models tested: BERT, RoBERTa, ALBERT (encoder-only) vs BART, T5 (generative); encoder-only + E1/E2 won
+- Training data: ~693 labeled pairs, French→English, synthetic augmentation via paraphrase, hard negatives added for robustness
+
+**Status:** ✅
+
+---
+
+## [2026-05-20] source | Thomas's Triple Extraction Project (Interscambio Call)
+
+**Operation:** Created source page documenting the research project presented by Thomas (French student) during the interscambio call of 2026-05-18.
+
+**Source:** `raw/calls/2026-05-18-interscambio-call.md`
+
+**Page created:**
+
+- `wiki/sources/thomas-logistic-triple-extraction.md` — Ontology-guided triple extraction pipeline for the logistics domain; cross-fertilization potential with Nicolò's thesis mapped.
+
+**Status:** ✅
+
+---
+
 ## [2026-05-04] fix | Add Missing Concepts (Governor + Tight Coupling)
 
 **Operation:** Created two theoretical concept pages that were referenced during the Burr et al. (2026) ingest but were not present as standalone pages.
